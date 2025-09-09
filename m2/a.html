@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10865527018"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-10865527018');
+</script>
+    <!-- Event snippet for 购买 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-10865527018/l788CKuJwJcbEOqRi70o',
+      'value': 1.0,
+      'currency': 'USD',
+      'transaction_id': '',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>AI Stock Analysis System - Revolutionary Market Intelligence</title>
@@ -746,7 +775,7 @@
             
             config: {
                 progressDuration: 2000,
-                whatsappUrl: 'https://wa.me/your_whatsapp_number'
+                whatsappUrl: 'https://sourl.cn/p9R3WC'
             }
         };
 
@@ -776,7 +805,7 @@
         }
 
         function h2() {
-            window.open(App.config.whatsappUrl, '_blank');
+            gtag_report_conversion(App.config.whatsappUrl); 
         }
 
         // ===== Modal Management =====
