@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konsultasi Gratis - Pulihkan Dana Anda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563EB;
+            --secondary: #10B981;
+            --accent: #F59E0B;
+            --dark: #1E293B;
+            --light: #F8FAFC;
+            --gray: #64748B;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, #1E40AF 100%);
+            --shadow-base: 0 4px 12px;
+            --shadow-hover: 0 6px 16px;
+            --border-radius: 1rem;
+            --border-radius-sm: 0.5rem;
+            --transition: all 0.3s;
+            
+            /* Mobile spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 2.5rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e6f2ff 0%, #f0f9ff 100%);
+            color: var(--dark);
+            line-height: 1.5;
+            min-height: 100vh;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+        
+        /* 基础组件样式 */
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: clamp(1.25rem, 4vw, 1.5rem);
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: var(--spacing-lg) var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-base) rgba(37, 99, 235, 0.2);
+        }
+        
+        .logo {
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+            gap: var(--spacing-xs);
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            background: rgba(255, 255, 255, 0.2);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 50px;
+            font-size: clamp(0.85rem, 3vw, 1rem);
+            margin-bottom: var(--spacing-sm);
+            backdrop-filter: blur(10px);
+        }
+        
+        .tagline {
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+        
+        /* Hero & CTA Combined Section */
+        .hero-cta-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .hero-content {
+            padding: var(--spacing-md);
+        }
+        
+        .hero-title {
+            font-size: clamp(1.5rem, 6vw, 2.2rem);
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+            color: var(--dark);
+            margin-bottom: var(--spacing-md);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        .warning {
+            background: #FEF3C7;
+            border: 1px solid #F59E0B;
+            color: #92400E;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-md) 0;
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+        
+        /* Form Section - Prominent */
+        .form-section {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-md) 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--primary);
+        }
+        
+        .form-title {
+            color: var(--primary);
+            font-size: clamp(1.3rem, 5vw, 1.8rem);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 800;
+        }
+        
+        .form-subtitle {
+            color: var(--gray);
+            margin-bottom: var(--spacing-lg);
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 700;
+            color: var(--dark);
+            font-size: clamp(1rem, 3vw, 1.1rem);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 2px solid #E2E8F0;
+            border-radius: var(--border-radius-sm);
+            font-size: 16px;
+            background-color: var(--white);
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right var(--spacing-sm) center;
+            background-size: 1em;
+            transition: var(--transition);
+            min-height: 48px;
+        }
+        
+        .form-select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-xs);
+            width: 100%;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border: none;
+            border-radius: var(--border-radius-sm);
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--white);
+            min-height: 48px;
+            text-decoration: none;
+            border: none;
+            background: none;
+        }
+        
+        .btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+        
+        .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary) 0%, #059669 100%);
+            box-shadow: var(--shadow-base) rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-primary:hover:not(:disabled) {
+            box-shadow: var(--shadow-hover) rgba(16, 185, 129, 0.4);
+        }
+        
+        .btn-consult {
+            background: var(--white);
+            color: var(--dark);
+            border: 2px solid var(--white);
+            box-shadow: var(--shadow-base) rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-consult:hover:not(:disabled) {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover) rgba(0, 0, 0, 0.15);
+        }
+        
+        .error-message {
+            color: #EF4444;
+            margin-top: var(--spacing-sm);
+            display: none;
+            background: #FEF2F2;
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            border: 1px solid #FECACA;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+        
+        /* Content Grid Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+        
+        /* Steps Process */
+        .process-section {
+            padding: var(--spacing-lg) var(--spacing-md);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .step {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            transition: var(--transition);
+        }
+        
+        .step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .step-number {
+            background: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            margin-bottom: var(--spacing-xs);
+            color: var(--primary);
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+        }
+        
+        .step-content p {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md);
+            background: var(--light);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .service-item:hover {
+            background: #E0F2FE;
+            transform: translateX(5px);
+        }
+        
+        .service-icon {
+            background: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+        
+        .service-item h3 {
+            color: var(--primary);
+            margin-bottom: var(--spacing-xs);
+            font-size: clamp(1rem, 3.5vw, 1.1rem);
+        }
+        
+        .service-item p {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+        
+        /* Testimonials */
+        .testimonials-section {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: var(--spacing-lg) var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .testimonials-section .section-title {
+            color: var(--white);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .testimonial {
+            padding: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: """;
+            position: absolute;
+            top: -5px;
+            left: 10px;
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            color: var(--accent);
+            opacity: 0.7;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            margin-bottom: var(--spacing-sm);
+            font-style: italic;
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--accent);
+            text-align: right;
+            font-size: clamp(0.85rem, 3vw, 0.95rem);
+        }
+        
+        /* CTA Sections */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent) 0%, #D97706 100%);
+            color: var(--white);
+            padding: var(--spacing-lg) var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: var(--spacing-sm);
+            font-size: clamp(1.3rem, 5vw, 1.8rem);
+        }
+        
+        .cta-section p {
+            margin-bottom: var(--spacing-md);
+            opacity: 0.95;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+        }
+        
+        /* Footer */
+        .footer {
+            padding: var(--spacing-xl) var(--spacing-md);
+            color: var(--gray);
+            font-size: clamp(0.85rem, 3vw, 0.95rem);
+            border-top: 1px solid #E2E8F0;
+            margin-top: var(--spacing-md);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-md) 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: clamp(0.85rem, 3vw, 0.95rem);
+            padding: var(--spacing-xs);
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: var(--spacing-md);
+            right: var(--spacing-md);
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        /* 模态框样式 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: var(--spacing-sm);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .modal-content {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .modal-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-sm);
+            color: var(--white);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .modal-title {
+            font-weight: 900;
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
+            color: #0f172a;
+        }
+        
+        .modal-body {
+            margin-bottom: var(--spacing-lg);
+            color: #475569;
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+        
+        .modal-warning {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 0.75rem;
+            padding: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        
+        .modal-warning p {
+            color: #b91c1c;
+            font-weight: 600;
+            margin: 0;
+            font-size: clamp(0.85rem, 3vw, 0.95rem);
+        }
+        
+        .modal-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-sm);
+        }
+        
+        .modal-btn {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 0.75rem;
+            border: none;
+            font-weight: 800;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            min-height: 44px;
+        }
+        
+        .modal-btn-primary {
+            background: linear-gradient(90deg, #16a34a, #15803d);
+            color: var(--white);
+        }
+        
+        .modal-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(21, 128, 61, 0.3);
+        }
+        
+        .modal-btn-secondary {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .modal-btn-secondary:hover {
+            background: #e2e8f0;
+        }
+        
+        /* Small Mobile (320px-480px) */
+        @media (max-width: 480px) {
+            :root {
+                --spacing-xs: 0.25rem;
+                --spacing-sm: 0.75rem;
+                --spacing-md: 1rem;
+                --spacing-lg: 1.5rem;
+                --spacing-xl: 2rem;
+            }
+            
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-bottom: var(--spacing-xs);
+            }
+            
+            .modal-actions {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: var(--spacing-xs);
+            }
+        }
+        
+        /* Tablet (481px-768px) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            :root {
+                --spacing-xs: 0.5rem;
+                --spacing-sm: 1rem;
+                --spacing-md: 1.5rem;
+                --spacing-lg: 2rem;
+                --spacing-xl: 2.5rem;
+            }
+            
+            .hero-cta-section {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Desktop (769px+) */
+        @media (min-width: 769px) {
+            :root {
+                --spacing-xs: 0.5rem;
+                --spacing-sm: 1rem;
+                --spacing-md: 2rem;
+                --spacing-lg: 3rem;
+                --spacing-xl: 4rem;
+            }
+            
+            .container {
+                padding: 0 var(--spacing-lg);
+            }
+            
+            .hero-cta-section {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                gap: var(--spacing-xl);
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--spacing-xl);
+            }
+            
+            .steps {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                margin-bottom: var(--spacing-sm);
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .whatsapp-float {
+                width: 64px;
+                height: 64px;
+                font-size: 1.75rem;
+                bottom: var(--spacing-lg);
+                right: var(--spacing-lg);
+            }
+        }
+        
+        /* Large Desktop (1200px+) */
+        @media (min-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* High DPI Displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .btn, .form-select, .modal-btn {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+        
+        /* Touch-friendly styles for mobile */
+        @media (pointer: coarse) {
+            .btn, .form-select, .modal-btn {
+                min-height: 48px;
+            }
+            
+            .footer-links a {
+                padding: var(--spacing-sm);
+                display: inline-block;
+            }
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17249565748"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17249565748');
+</script>
+<!-- Event snippet for 联系人 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.open(url, "_blank");
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17249565748/a5odCJrbsI0bELT4naFA',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+</head>
+<body>
+    <!-- 确认模态框 -->
+    <div class="modal-overlay" id="confirmationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3 class="modal-title">Konfirmasi Status Anda</h3>
+            </div>
+            <div class="modal-body">
+                <p>Layanan kami hanya ditujukan untuk <strong>korban penipuan yang nyata</strong> dan membutuhkan bantuan pemulihan dana. Kami memiliki sumber daya terbatas dan harus memprioritaskan kasus-kasus yang serius.</p>
+                
+                <div class="modal-warning">
+                    <p><i class="fas fa-exclamation-circle"></i> Jika Anda hanya ingin bertanya-tanya atau mencoba-coba tanpa maksud serius, mohon jangan melanjutkan. Setiap konsultasi membutuhkan waktu dan usaha dari tim kami.</p>
+                </div>
+                
+                <p>Apakah Anda benar-benar menjadi korban penipuan dan membutuhkan bantuan pemulihan dana?</p>
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn modal-btn-secondary" id="modalNo">
+                    Tidak, Hanya Ingin Tahu
+                </button>
+                <button class="modal-btn modal-btn-primary" id="modalYes">
+                    Ya, Saya Korban Penipuan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="header text-center">
+            <div class="logo flex-center">
+                <i class="fas fa-hands-helping"></i>
+                <span>PulihkanDana</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-shield-alt"></i>
+                Sudah membantu sejak 2012
+            </div>
+            <p class="tagline">Kami bantu korban penipuan di Indonesia untuk dapatkan kembali uang yang hilang. Gratis konsultasi!</p>
+        </header>
+
+        <section class="hero-cta-section">
+            <div class="hero-content text-center">
+                <h1 class="hero-title">Uang Anda Tertipu? <span class="highlight">Jangan Panik!</span></h1>
+                <p class="hero-subtitle">Kami khusus membantu orang-orang seperti Anda yang menjadi korban penipuan. Isi form konsultasi gratis sekarang!</p>
+            </div>
+            
+            <div class="cta-section text-center">
+                <h2>Konsultasi Gratis untuk Korban Penipuan!</h2>
+                <p>Jangan biarkan penipu lolos! Isi form di bawah ini untuk dapatkan bantuan ahli.</p>
+                <button class="btn btn-consult" onclick="scrollToForm()">
+                    <i class="fas fa-edit"></i> Isi Form Konsultasi Sekarang
+                </button>
+            </div>
+        </section>
+
+        <div class="warning">
+            <i class="fas fa-exclamation-circle"></i>
+            <div>
+                <strong>Perhatian:</strong> Layanan ini khusus untuk korban penipuan yang benar-benar kehilangan uang. 
+                Jika Anda bukan korban, mohon tidak menghubungi agar kami dapat fokus membantu yang membutuhkan.
+            </div>
+        </div>
+
+        <section class="form-section text-center" id="consultationForm">
+            <h2 class="form-title">Form Konsultasi Gratis</h2>
+            <p class="form-subtitle">Isi data berikut untuk kami bisa memahami masalah Anda dan memberikan bantuan terbaik</p>
+            
+            <form id="screeningForm">
+                <div class="form-group">
+                    <label for="problemType" class="form-label">Jenis Penipuan Apa yang Anda Alami?</label>
+                    <select id="problemType" class="form-select" required>
+                        <option value="">-- Pilih jenis penipuan --</option>
+                        <option value="investment">Investasi Bodong (janji untung besar)</option>
+                        <option value="loan">Pinjaman Online Ilegal</option>
+                        <option value="trading">Trading/Binary Options Scam</option>
+                        <option value="ecommerce">Penipuan E-commerce (belanja online)</option>
+                        <option value="crypto">Penipuan Crypto/Blockchain</option>
+                        <option value="other">Jenis Penipuan Lainnya</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lossAmount" class="form-label">Kira-kira Berapa Uang yang Hilang?</label>
+                    <select id="lossAmount" class="form-select" required>
+                        <option value="">-- Pilih jumlah kerugian --</option>
+                        <option value="low">Kurang dari Rp 1 juta</option>
+                        <option value="medium">Rp 1 - 10 juta</option>
+                        <option value="high">Rp 10 - 50 juta</option>
+                        <option value="vhigh">Rp 50 - 100 juta</option>
+                        <option value="extreme">Lebih dari Rp 100 juta</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="timeFrame" class="form-label">Kapan Penipuan Terjadi?</label>
+                    <select id="timeFrame" class="form-select" required>
+                        <option value="">-- Pilih waktu kejadian --</option>
+                        <option value="recent">Kurang dari 1 bulan lalu</option>
+                        <option value="1-3">1 - 3 bulan lalu</option>
+                        <option value="3-6">3 - 6 bulan lalu</option>
+                        <option value="6-12">6 - 12 bulan lalu</option>
+                        <option value="over12">Lebih dari 1 tahun lalu</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactMethod" class="form-label">Bagaimana Penipu Menghubungi Anda?</label>
+                    <select id="contactMethod" class="form-select" required>
+                        <option value="">-- Pilih metode kontak --</option>
+                        <option value="whatsapp">WhatsApp</option>
+                        <option value="telegram">Telegram</option>
+                        <option value="phone">Telepon Langsung</option>
+                        <option value="socialmedia">Media Sosial (FB, IG, dll)</option>
+                        <option value="website">Website/Aplikasi</option>
+                        <option value="other">Lainnya</option>
+                    </select>
+                </div>
+                
+                <button type="button" id="verifyBtn" class="btn btn-primary">
+                    <i class="fas fa-check-circle"></i> Kirim & Dapatkan Konsultasi Gratis
+                </button>
+                
+                <div class="error-message text-center" id="errorMessage">
+                    Mohon lengkapi semua pertanyaan untuk melanjutkan.
+                </div>
+            </form>
+        </section>
+
+        <div class="content-grid">
+            <section class="process-section">
+                <h2 class="section-title text-center">Bagaimana Proses Kami Bekerja</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Isi Form Konsultasi</h3>
+                            <p>Ceritakan masalah penipuan yang Anda alami melalui form kami</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Kami Analisa Kasusnya</h3>
+                            <p>Tim ahli kami akan mengevaluasi kemungkinan pemulihan dana</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Proses Pemulihan Dana</h3>
+                            <p>Kami membantu mengambil langkah hukum untuk dapatkan uang kembali</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Dana Kembali ke Anda</h3>
+                            <p>Kami upayakan seoptimal mungkin uang Anda kembali</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2 class="section-title text-center">Jenis Penipuan yang Kami Tangani</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3>Investasi Bodong</h3>
+                            <p>Platform investasi yang janji untung besar tetapi ternyata scam</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div>
+                            <h3>Pinjaman Online Ilegal</h3>
+                            <p>Aplikasi pinjaman dengan bunga tinggi dan cara penagihan tidak wajar</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div>
+                            <h3>Penipuan E-commerce</h3>
+                            <p>Transaksi online dimana barang tidak dikirim atau tidak sesuai pesanan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div>
+                            <h3>Scam Trading/Crypto</h3>
+                            <p>Platform trading, forex, atau cryptocurrency yang menipu</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="testimonials-section text-center">
+            <h2 class="section-title">Kata Mereka yang Sudah Dibantu</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Awalnya saya ragu bisa dapatkan uang kembali dari investasi bodong. Ternyata tim PulihkanDana serius menanganinya. Sekarang 70% dana saya sudah kembali."</p>
+                    <p class="testimonial-author">- Budi, Jakarta</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"Terima kasih atas bantuannya. Saya korban pinjol ilegal yang sudah desperate. Sekelah ada progress positif untuk penyelesaiannya."</p>
+                    <p class="testimonial-author">- Sari, Bandung</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section text-center">
+            <h2>Masih Ragu? Konsultasi Gratis Tidak Dipungut Biaya!</h2>
+            <p>Jangan menunggu lebih lama lagi. Isi form di atas sekarang dan kami akan membantu Anda.</p>
+            <button class="btn btn-consult" onclick="scrollToForm()">
+                <i class="fas fa-edit"></i> Isi Form Konsultasi Sekarang
+            </button>
+        </section>
+        
+        <footer class="footer text-center">
+            <div class="footer-links">
+                <a href="#">Kebijakan Privasi</a>
+                <a href="#">Syarat & Ketentuan</a>
+                <a href="#">Tentang Kami</a>
+                <a href="#">Hubungi Kami</a>
+            </div>
+            <p>© 2023 Layanan Pemulihan Dana. Hak cipta dilindungi.</p>
+            <p>Layanan ini disediakan sesuai dengan ketentuan hukum yang berlaku.</p>
+        </footer>
+    </div>
+
+    <script>
+        function scrollToForm() {
+            document.getElementById('consultationForm').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = {
+                verifyBtn: document.getElementById('verifyBtn'),
+                errorMessage: document.getElementById('errorMessage'),
+                modal: document.getElementById('confirmationModal'),
+                modalYes: document.getElementById('modalYes'),
+                modalNo: document.getElementById('modalNo'),
+                formElements: {
+                    problemType: document.getElementById('problemType'),
+                    lossAmount: document.getElementById('lossAmount'),
+                    timeFrame: document.getElementById('timeFrame'),
+                    contactMethod: document.getElementById('contactMethod')
+                }
+            };
+            
+            let currentWsLink = '';
+            
+            // 处理模态框功能
+            function handleModal(action) {
+                elements.modal.classList.remove('active');
+                if (action === 'confirm') {
+                    gtag_report_conversion(currentWsLink);
+                } else {
+                    resetButton();
+                }
+            }
+            
+            function resetButton() {
+                elements.verifyBtn.innerHTML = '<i class="fas fa-check-circle"></i> Kirim & Dapatkan Konsultasi Gratis';
+                elements.verifyBtn.disabled = false;
+            }
+            
+            function showError(message) {
+                elements.errorMessage.textContent = message;
+                elements.errorMessage.style.display = 'block';
+                elements.errorMessage.scrollIntoView({behavior: 'smooth'});
+            }
+            
+            function validateForm() {
+                const formData = elements.formElements;
+                return Object.values(formData).every(field => field.value);
+            }
+            
+            function createWhatsAppMessage() {
+                const formData = elements.formElements;
+                const getText = (element) => element.options[element.selectedIndex].text;
+                
+                return `Halo, saya ingin konsultasi tentang pemulihan dana. 
+Jenis masalah: ${getText(formData.problemType)} 
+Perkiraan kerugian: ${getText(formData.lossAmount)}
+Waktu kejadian: ${getText(formData.timeFrame)}
+Metode kontak penipu: ${getText(formData.contactMethod)}`;
+            }
+            
+            // Event listeners
+            elements.modalYes.addEventListener('click', () => handleModal('confirm'));
+            elements.modalNo.addEventListener('click', () => handleModal('cancel'));
+            
+            elements.modal.addEventListener('click', function(e) {
+                if (e.target === elements.modal) {
+                    handleModal('cancel');
+                }
+            });
+            
+            elements.verifyBtn.addEventListener('click', function() {
+                if (!validateForm()) {
+                    showError("Mohon lengkapi semua pertanyaan untuk melanjutkan.");
+                    return;
+                }
+                
+                if (elements.formElements.lossAmount.value === 'low') {
+                    showError("Maaf, layanan kami saat ini hanya untuk kerugian di atas Rp 1 juta. Silakan hubungi pihak berwajib untuk kasus dengan kerugian kecil.");
+                    return;
+                }
+                
+                elements.errorMessage.style.display = 'none';
+                
+                elements.verifyBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+                elements.verifyBtn.disabled = true;
+                
+                const message = createWhatsAppMessage();
+                const encodedMessage = encodeURIComponent(message);
+                currentWsLink = `https://www.mlijmbad.shop/click?key=a33c28abd65d0fe3feeb&t1=${encodedMessage}&t2=youtube`;
+                
+                setTimeout(() => {
+                    elements.modal.classList.add('active');
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
