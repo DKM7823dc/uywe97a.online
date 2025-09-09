@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AI Stock Analysis System - Revolutionary Market Intelligence</title>
+    <style>
+        /* ===== CSS Variables ===== */
+        :root {
+            /* Primary Colors */
+            --primary-cosmic-blue: #0a0e27;
+            --secondary-nebula-purple: #1a0b2e;
+            --accent-quantum-cyan: #00d4ff;
+            --highlight-stellar-gold: #ffd700;
+            --warning-solar-yellow: #ffeb3b;
+            
+            /* UI Colors */
+            --grid-cosmic-lines: rgba(0, 212, 255, 0.1);
+            --text-stellar-white: #ffffff;
+            --text-cosmic-gray: #b8bcc8;
+            --border-quantum-glow: rgba(0, 212, 255, 0.3);
+            
+            /* Gradients & Effects */
+            --gradient-nebula: linear-gradient(135deg, #0a0e27 0%, #1a0b2e 50%, #2d1b69 100%);
+            --gradient-button: linear-gradient(45deg, var(--accent-quantum-cyan), var(--highlight-stellar-gold));
+            --shadow-cosmic-depth: 0 8px 32px rgba(0, 0, 0, 0.3);
+            
+            /* Layout */
+            --border-radius-small: 10px;
+            --border-radius-medium: 12px;
+            --border-radius-large: 15px;
+            --border-radius-xl: 20px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+        }
+
+        /* ===== Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--gradient-nebula);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ===== Background Effects ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, var(--grid-cosmic-lines) 1px, transparent 1px),
+                linear-gradient(var(--grid-cosmic-lines) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* ===== Layout Components ===== */
+        .main-container {
+            position: relative;
+            z-index: 10;
+            padding: var(--spacing-lg) var(--spacing-sm);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .section-card {
+            background: rgba(26, 11, 46, 0.9);
+            border: 2px solid var(--border-quantum-glow);
+            border-radius: var(--border-radius-large);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            backdrop-filter: blur(15px);
+        }
+
+        /* ===== Typography ===== */
+        .title-primary {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-stellar-white);
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-cosmic-gray);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--accent-quantum-cyan);
+            margin-bottom: var(--spacing-sm);
+            text-align: center;
+        }
+
+        /* ===== Avatar Component ===== */
+        .avatar-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .avatar-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-quantum-cyan);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+            object-fit: cover;
+            animation: quantum-pulse 2s infinite alternate;
+        }
+
+        /* ===== Metrics Grid ===== */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .metric-card {
+            background: rgba(26, 11, 46, 0.8);
+            border: 1px solid var(--border-quantum-glow);
+            border-radius: var(--border-radius-medium);
+            padding: var(--spacing-md);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-cosmic-depth);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-quantum-cyan);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .metric-label {
+            color: var(--text-cosmic-gray);
+            font-size: 0.9rem;
+        }
+
+        /* ===== Form Components ===== */
+        .input-field {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: 1.1rem;
+            background: rgba(10, 14, 39, 0.8);
+            border: 2px solid var(--border-quantum-glow);
+            border-radius: var(--border-radius-small);
+            color: var(--text-stellar-white);
+            margin-bottom: var(--spacing-md);
+            transition: all 0.3s ease;
+        }
+
+        .input-field::placeholder {
+            color: var(--text-cosmic-gray);
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--accent-quantum-cyan);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 1.2rem var(--spacing-lg);
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: var(--gradient-button);
+            color: var(--primary-cosmic-blue);
+            border: none;
+            border-radius: var(--border-radius-medium);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            animation: breath-glow 3s infinite;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        /* ===== Feature Labels ===== */
+        .feature-labels {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            color: var(--text-cosmic-gray);
+            font-size: 0.9rem;
+        }
+
+        .feature-labels--top {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .feature-labels--bottom {
+            margin-top: var(--spacing-md);
+        }
+
+        .feature-item--cyan {
+            color: var(--accent-quantum-cyan);
+        }
+
+        .feature-item--gold {
+            color: var(--highlight-stellar-gold);
+        }
+
+        /* ===== Rankings Section ===== */
+        .rankings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .ranking-card {
+            background: rgba(26, 11, 46, 0.9);
+            border: 1px solid var(--border-quantum-glow);
+            border-radius: var(--border-radius-large);
+            padding: var(--spacing-md);
+            backdrop-filter: blur(15px);
+        }
+
+        /* ===== Table Components ===== */
+        .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .table-header {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--text-stellar-white);
+            font-weight: 600;
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 2px solid var(--accent-quantum-cyan);
+        }
+
+        .table-cell {
+            padding: 0.8rem;
+            color: var(--text-cosmic-gray);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .table-cell--rank {
+            color: var(--highlight-stellar-gold);
+            font-weight: 600;
+        }
+
+        .table-cell--symbol {
+            text-decoration: underline;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .table-cell--symbol:hover {
+            color: var(--accent-quantum-cyan) !important;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .table-cell--score {
+            color: #ff4444 !important;
+            font-weight: 600;
+        }
+
+        /* ===== Disclaimer Section ===== */
+        .disclaimer {
+            background: rgba(26, 11, 46, 0.95);
+            border: 2px solid var(--warning-solar-yellow);
+            border-radius: var(--border-radius-large);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .disclaimer-title {
+            color: var(--warning-solar-yellow);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            text-align: center;
+        }
+
+        .disclaimer-text {
+            color: var(--text-cosmic-gray);
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            padding: var(--spacing-lg);
+            border-top: 1px solid var(--border-quantum-glow);
+        }
+
+        .footer-link {
+            color: var(--accent-quantum-cyan);
+            text-decoration: none;
+            margin: 0 var(--spacing-sm);
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--highlight-stellar-gold);
+        }
+
+        /* ===== Modal Components ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: var(--gradient-nebula);
+            border: 2px solid var(--accent-quantum-cyan);
+            border-radius: var(--border-radius-xl);
+            padding: var(--spacing-md);
+            max-width: 320px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--text-cosmic-gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-quantum-cyan);
+        }
+
+        .modal-title {
+            color: var(--accent-quantum-cyan);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .modal-text {
+            color: var(--text-cosmic-gray);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .modal-text--white {
+            color: var(--text-stellar-white);
+        }
+
+        .btn-modal {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--gradient-button);
+            color: var(--primary-cosmic-blue);
+            border: none;
+            border-radius: var(--border-radius-small);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            animation: breath-glow 3s infinite;
+        }
+
+        /* ===== Progress Bar ===== */
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: var(--spacing-sm) 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient-button);
+            width: 0%;
+            transition: width 2s ease;
+        }
+
+        /* ===== Animations ===== */
+        @keyframes quantum-pulse {
+            0% { 
+                box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+                transform: scale(1);
+            }
+            100% { 
+                box-shadow: 0 0 50px rgba(0, 212, 255, 0.9);
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes breath-glow {
+            0% { 
+                box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+                transform: translateY(0px);
+            }
+            50% { 
+                box-shadow: 0 15px 35px rgba(0, 212, 255, 0.5);
+                transform: translateY(-1px);
+            }
+            100% { 
+                box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+                transform: translateY(0px);
+            }
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 768px) {
+            .title-primary {
+                font-size: 2rem;
+            }
+            
+            .rankings-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-container {
+                padding: var(--spacing-sm);
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+                margin-bottom: var(--spacing-lg);
+            }
+
+            .metric-card {
+                padding: var(--spacing-sm);
+            }
+
+            .metric-value {
+                font-size: 1.8rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .metric-label {
+                font-size: 0.75rem;
+                line-height: 1.2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="title-primary">Revolutionary AI Stock Analysis System</h1>
+            <p class="subtitle">Advanced Market Intelligence Powered by Artificial Intelligence</p>
+            
+            <div class="avatar-container">
+                <img src="img/56.jpg" alt="AI System" class="avatar-image">
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">99.7%</div>
+                    <div class="metric-label">Analysis Accuracy</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">2s</div>
+                    <div class="metric-label">Processing Time</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">36,968</div>
+                    <div class="metric-label">Active Users</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">360°</div>
+                    <div class="metric-label">Multi-Dimensional Analysis</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analysis Input Section -->
+        <section class="section-card">
+            <div class="feature-labels feature-labels--top">
+                <span class="feature-item--cyan">✓ Comprehensive Stock Analysis</span>
+                <span class="feature-item--cyan">✓ Grasp Stock Trends</span>
+                <span class="feature-item--cyan">✓ Alert Potential Risks</span>
+            </div>
+            
+            <input type="text" id="stockInput" class="input-field" placeholder="Enter stock symbol (e.g., AAPL, TSLA, MSFT)">
+            
+            <button id="analyzeBtn" class="btn-primary">Analyze Stock Performance</button>
+            
+            <div class="feature-labels feature-labels--bottom">
+                <span class="feature-item--gold">Big Data</span>
+                <span class="feature-item--gold">🤖 Intelligent Quantification</span>
+            </div>
+        </section>
+
+        <!-- Rankings Section -->
+        <section class="rankings-grid">
+            <div class="ranking-card">
+                <h3 class="section-title">Recent Diagnostic Rankings - Highest Scores</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th class="table-header">Rank</th>
+                            <th class="table-header">Stock Name</th>
+                            <th class="table-header">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-cell table-cell--rank">1</td>
+                            <td class="table-cell table-cell--symbol" id="stock1" data-stock="Cisco Systems Inc">CSCO</td>
+                            <td class="table-cell table-cell--score">89.66</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell table-cell--rank">2</td>
+                            <td class="table-cell table-cell--symbol" id="stock2" data-stock="Tesla Inc">Tesla</td>
+                            <td class="table-cell table-cell--score">88.92</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell table-cell--rank">3</td>
+                            <td class="table-cell table-cell--symbol" id="stock3" data-stock="Micron Technology Inc">Micron</td>
+                            <td class="table-cell table-cell--score">87.82</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell table-cell--rank">4</td>
+                            <td class="table-cell table-cell--symbol" id="stock4" data-stock="American Electric Power">AEP</td>
+                            <td class="table-cell table-cell--score">86.27</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell table-cell--rank">5</td>
+                            <td class="table-cell table-cell--symbol" id="stock5" data-stock="Monster Beverage Corp">MNST</td>
+                            <td class="table-cell table-cell--score">85.82</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ranking-card">
+                <h3 class="section-title">Popular Focus Stocks</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th class="table-header">Rank</th>
+                            <th class="table-header">Stock Name</th>
+                            <th class="table-header">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-cell table-cell--rank">1</td>
+                            <td class="table-cell table-cell--symbol" id="stock6" data-stock="Cisco Systems Inc">AEP</td>
+                            <td class="table-cell table-cell--score">88.22</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell table-cell--rank">2</td>
+                            <td class="table-cell table-cell--symbol" id="stock7" data-stock="Adobe Inc">Adobe</td>
+                            <td class="table-cell table-cell--score">87.92</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell table-cell--rank">3</td>
+                            <td class="table-cell table-cell--symbol" id="stock8" data-stock="Qualcomm Inc">Qualcomm</td>
+                            <td class="table-cell table-cell--score">86.37</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell table-cell--rank">4</td>
+                            <td class="table-cell table-cell--symbol" id="stock9" data-stock="Warner Bros Discovery">WBD</td>
+                            <td class="table-cell table-cell--score">85.82</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell table-cell--rank">5</td>
+                            <td class="table-cell table-cell--symbol" id="stock10" data-stock="Applied Materials Inc">AMAT</td>
+                            <td class="table-cell table-cell--score">84.68</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ranking-card">
+                <h3 class="section-title">Growth Potential Leaders</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th class="table-header">Rank</th>
+                            <th class="table-header">Stock Name</th>
+                            <th class="table-header">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-cell table-cell--rank">1</td>
+                            <td class="table-cell table-cell--symbol" id="stock11" data-stock="Cadence Design Systems">CDNS</td>
+                            <td class="table-cell table-cell--score">89.34</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell table-cell--rank">2</td>
+                            <td class="table-cell table-cell--symbol" id="stock12" data-stock="Microchip Technology">MCHP</td>
+                            <td class="table-cell table-cell--score">88.27</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell table-cell--rank">3</td>
+                            <td class="table-cell table-cell--symbol" id="stock13" data-stock="Intuitive Surgical Inc">ISRG</td>
+                            <td class="table-cell table-cell--score">87.29</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell table-cell--rank">4</td>
+                            <td class="table-cell table-cell--symbol" id="stock14" data-stock="Apple Inc">Apple</td>
+                            <td class="table-cell table-cell--score">86.26</td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell table-cell--rank">5</td>
+                            <td class="table-cell table-cell--symbol" id="stock15" data-stock="PACCAR Inc">PACCAR</td>
+                            <td class="table-cell table-cell--score">85.76</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Risk Disclosure Section -->
+        <section class="disclaimer">
+            <h3 class="disclaimer-title">⚠️ Important Risk Disclosure</h3>
+            <p class="disclaimer-text">This service provides general market information only and does not constitute investment advice or recommendations.</p>
+            <p class="disclaimer-text">• Financial markets involve risks, and you may lose some or all of your invested capital. All examples shown are historical data analysis and do not guarantee future returns.</p>
+            <p class="disclaimer-text">• Investors should make prudent decisions based on their own risk tolerance. All information provided consists of objective factual statements and does not constitute investment advice.</p>
+            <p class="disclaimer-text">• AI analysis tools only provide probability calculations based on historical data and algorithmic models, and do not constitute investment advice in any form.</p>
+            <p class="disclaimer-text">• Past performance does not represent future performance, and actual returns may be lower or higher than AI predictions.</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="terms.html" class="footer-link">Terms of Service</a>
+        </footer>
+    </div>
+
+    <!-- Progress Modal -->
+    <div id="progressModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeProgressModal" class="modal-close">&times;</button>
+            <h3 class="modal-title">AI System Processing</h3>
+            <p class="modal-text">Combining: Market Analysis, Latest News Analysis, Historical Data Analysis</p>
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div id="resultModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeResultModal" class="modal-close">&times;</button>
+            <h3 class="modal-title">Your Stock Analysis Report is Complete</h3>
+            <p class="modal-text modal-text--white">Get your personalized report and our exclusive Top 10 Stock Picks for 2025 - Free!</p>
+            <p class="modal-text">※ Click to redirect to official WhatsApp account</p>
+            <button id="whatsappBtn" class="btn-modal">Click Here to Receive Report</button>
+        </div>
+    </div>
+
+    <script>
+        // ===== Application State ===== 
+        const App = {
+            elements: {
+                stockInput: document.getElementById('stockInput'),
+                analyzeBtn: document.getElementById('analyzeBtn'),
+                progressModal: document.getElementById('progressModal'),
+                resultModal: document.getElementById('resultModal'),
+                progressBar: document.getElementById('progressBar'),
+                closeProgressModal: document.getElementById('closeProgressModal'),
+                closeResultModal: document.getElementById('closeResultModal'),
+                whatsappBtn: document.getElementById('whatsappBtn')
+            },
+            
+            config: {
+                progressDuration: 2000,
+                whatsappUrl: 'https://wa.me/your_whatsapp_number'
+            }
+        };
+
+        // ===== Core Functions =====
+        function startAnalysis() {
+            const { progressModal, resultModal, progressBar } = App.elements;
+            
+            // Reset and show progress
+            progressBar.style.width = '0%';
+            showModal(progressModal);
+            
+            // Animate progress
+            requestAnimationFrame(() => {
+                progressBar.style.width = '100%';
+            });
+            
+            // Complete analysis
+            setTimeout(() => {
+                hideModal(progressModal);
+                showModal(resultModal);
+            }, App.config.progressDuration);
+        }
+
+        function analyzeStock(stockName) {
+            App.elements.stockInput.value = stockName;
+            startAnalysis();
+        }
+
+        function h2() {
+            window.open(App.config.whatsappUrl, '_blank');
+        }
+
+        // ===== Modal Management =====
+        function showModal(modal) {
+            modal.style.display = 'flex';
+        }
+
+        function hideModal(modal) {
+            modal.style.display = 'none';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            hideModal(modal);
+        }
+
+        // ===== Event Listeners =====
+        function initializeEventListeners() {
+            const { analyzeBtn, closeProgressModal, closeResultModal, whatsappBtn, stockInput, progressModal, resultModal } = App.elements;
+
+            // Main analyze button
+            analyzeBtn.addEventListener('click', startAnalysis);
+
+            // WhatsApp button
+            whatsappBtn.addEventListener('click', h2);
+
+            // Modal close buttons
+            closeProgressModal.addEventListener('click', () => hideModal(progressModal));
+            closeResultModal.addEventListener('click', () => hideModal(resultModal));
+
+            // Stock symbol clicks
+            for (let i = 1; i <= 15; i++) {
+                const stockElement = document.getElementById(`stock${i}`);
+                if (stockElement) {
+                    stockElement.addEventListener('click', function() {
+                        analyzeStock(this.getAttribute('data-stock'));
+                    });
+                }
+            }
+
+            // Close modals on outside click
+            document.addEventListener('click', (event) => {
+                if (event.target === progressModal) {
+                    hideModal(progressModal);
+                }
+                if (event.target === resultModal) {
+                    hideModal(resultModal);
+                }
+            });
+
+            // Enter key support for stock input
+            stockInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') {
+                    startAnalysis();
+                }
+            });
+        }
+
+        // ===== Application Initialization =====
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeEventListeners();
+        });
+    </script>
+</body>
+</html>
