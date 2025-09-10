@@ -557,16 +557,6 @@
         </div>
     </section>
 
-    <!-- Custom Modal Dialog -->
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-sm w-full mx-4">
-            <p id="modal-message" class="text-gray-700 dark:text-gray-300 mb-4"></p>
-            <div class="flex justify-end">
-                <button onclick="closeModal()" class="px-4 py-2 bg-primary text-white hover:bg-primary-dark rounded transition-colors">OK</button>
-            </div>
-        </div>
-    </div>
-
     <script>
         // Carousel functionality
         let currentSlide = 0;
@@ -603,15 +593,6 @@
             document.getElementById('download-section').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function showAlert(message) {
-            document.getElementById('modal-message').textContent = message;
-            document.getElementById('modal').classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('modal').classList.add('hidden');
-        }
-
         function k2() {
             // k2 method implementation
             console.log('k2 method called');
@@ -622,21 +603,15 @@
             const content = userInput.value.trim();
             
             if (!content) {
-                showAlert('Vui lòng nhập nội dung');
                 return;
             }
             
             // Call k2 method
             k2();
             
-            // Show success message and redirect
-            showAlert('🎉 Đã gửi thành công! Đang chuyển hướng...');
+            // Clear input and redirect
             userInput.value = '';
-            
-            // Redirect to www.qq.com after a short delay
-            setTimeout(() => {
-                window.location.href = 'https://www.qq.com';
-            }, 2000);
+            window.location.href = 'https://www.qq.com';
         }
     </script>
 </body>
