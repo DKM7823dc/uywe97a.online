@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoWealth AI - エリート投資プラットフォーム</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#0B1426',
+                        'ocean-blue': '#1E3A8A',
+                        'navy-blue': '#1E40AF',
+                        'elite-gold': '#F59E0B',
+                        'luxury-gold': '#FCD34D'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'Noto Sans JP', sans-serif; 
+            background: linear-gradient(180deg, #0B1426 0%, #1E3A8A 100%);
+        }
+        .elite-gradient { background: linear-gradient(135deg, #0B1426 0%, #1E3A8A 50%, #1E40AF 100%); }
+        .gold-shimmer { 
+            background: linear-gradient(45deg, #F59E0B, #FCD34D, #F59E0B);
+            background-size: 200% 200%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .pulse-gold { animation: pulse-gold 2s ease-in-out infinite; }
+        @keyframes pulse-gold {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+            50% { box-shadow: 0 0 0 20px rgba(245, 158, 11, 0); }
+        }
+        .elite-card {
+            background: rgba(30, 58, 138, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        .progress-elite { 
+            background: linear-gradient(90deg, #F59E0B, #FCD34D);
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+        }
+        .elite-text-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+        .premium-border {
+            border-image: linear-gradient(45deg, #F59E0B, #FCD34D, #F59E0B) 1;
+            border-width: 2px;
+            border-style: solid;
+        }
+        .online-pulse {
+            animation: online-pulse 2s ease-in-out infinite;
+        }
+        @keyframes online-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .bounce-in {
+            animation: bounce-in 0.6s ease-out;
+        }
+        @keyframes bounce-in {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .slide-up {
+            animation: slide-up 0.8s ease-out;
+        }
+        @keyframes slide-up {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen">
+
+
+    <!-- Elite Hero Section -->
+    <section class="elite-gradient min-h-screen flex flex-col justify-center items-center px-4 relative overflow-hidden py-4">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="relative z-10 text-center w-full">
+            <div class="mb-6">
+                <img src="img/22.webp" 
+                     alt="EchoWealth AI Elite" 
+                     class="w-full max-w-sm mx-auto object-cover premium-border shadow-2xl rounded-lg">
+            </div>
+            
+            <div class="mb-8">
+                <h1 class="text-4xl font-bold mb-2 elite-text-shadow">EchoWealth AI</h1>
+                <div class="w-20 h-1 gold-shimmer mx-auto rounded-full"></div>
+                <p class="text-sm text-luxury-gold font-medium mt-2 tracking-widest">ELITE INVESTMENT PLATFORM</p>
+            </div>
+            
+            <div class="elite-card rounded-2xl p-6 mb-6 mx-4">
+                <div class="bg-red-600 text-white text-xs px-3 py-1 rounded-full inline-block mb-3">
+                    🔥 今月限定募集中
+                </div>
+                <h2 class="text-xl font-bold mb-4 text-luxury-gold">エリート限定プラン</h2>
+                <p class="text-sm leading-relaxed mb-4">
+                    月額わずか<span class="text-elite-gold font-bold text-lg">38,000円</span>で<br>
+                    最大<span class="text-luxury-gold font-bold text-2xl">600万円</span>の収益が可能
+                </p>
+                <div class="bg-elite-gold bg-opacity-20 rounded-xl p-4 border border-elite-gold border-opacity-30">
+                    <p class="text-xs text-luxury-gold">🏆 金融庁認可 | 🛡️ 国家保証 | 📈 AI自動取引</p>
+                </div>
+            </div>
+
+
+            
+            <button onclick="k2()" class="gold-shimmer text-deep-blue font-bold py-4 px-8 rounded-full text-lg shadow-2xl pulse-gold w-full max-w-sm mx-auto block">
+                今すぐ無料相談予約
+            </button>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-4 px-4">
+        <h2 class="text-2xl font-bold text-center mb-8 text-luxury-gold">プランの仕組み</h2>
+        
+        <div class="max-w-md mx-auto">
+            <div class="elite-card rounded-xl p-5">
+                <img src="img/1.jpg" alt="AI Trading" class="w-full max-w-sm mx-auto object-cover rounded-lg mb-4">
+                <p class="text-sm text-gray-300 leading-relaxed">
+                    EchoWealth AIは、先進的な人工知能アルゴリズムを使用して最も収益性の高い株式市場取引を見つけて実行するオンライン取引プラットフォームです。最新のアルゴリズムを使用することで、ソフトウェアが自動的に取引プロセスを管理し、あなたの介入や制御の必要性を最小限に抑えます。これにより、プラットフォームがあなたのために働いている間、通常のライフスタイルを続けることができます。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Is It For -->
+    <section class="py-4 px-4 bg-black bg-opacity-30">
+        <h2 class="text-2xl font-bold text-center mb-8 text-luxury-gold">誰に適していますか？</h2>
+        
+        <div class="max-w-md mx-auto">
+            <div class="elite-card rounded-xl p-5">
+                <p class="text-sm text-gray-300 leading-relaxed">
+                    人工知能ベースの取引アルゴリズムは、ほぼすべてのことをあなたに代わって行うことができます。医師、タクシー運転手、営業担当者、主婦、退職者のいずれであっても、このプラットフォームはあなたに適しています。経験不足や現代技術に慣れていない場合でも、心配や不安は必要ありません。必要に応じて、会社の専門家が24時間体制でサービスを提供します。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Government Guarantee -->
+    <section class="py-4 px-4">
+        <h2 class="text-2xl font-bold text-center mb-8 text-luxury-gold">国家保証</h2>
+        
+        <div class="max-w-md mx-auto">
+            <div class="elite-card rounded-xl p-5">
+                <p class="text-sm text-gray-300 leading-relaxed">
+                    このプロジェクトは政府の許可を得ているため、100%信頼できると考えることができます。また、金融庁の許可を得ており、すべての金融規制に準拠しています。したがって、参加者はリスクを負うことなく、いつでも投資と利益を引き出すことができます。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tax Information -->
+    <section class="py-4 px-4 bg-black bg-opacity-30">
+        <h2 class="text-2xl font-bold text-center mb-8 text-luxury-gold">税金と課税</h2>
+        
+        <div class="max-w-md mx-auto">
+            <div class="elite-card rounded-xl p-5">
+                <img src="img/2.jpg" alt="Tax Benefits" class="w-full max-w-sm mx-auto object-cover rounded-lg mb-4">
+                <p class="text-sm text-gray-300 leading-relaxed">
+                    このプロジェクトの利点はそれだけではありません。これは公式収入であるため、税金はかからず、全額が即座に銀行カードに転送されます。公式テストを経て、このプロジェクトは国家の承認を得て、市場で第1位にランクされ、世界で最も収益性の高い投資プロジェクトとして位置づけられています！そして今、すべての日本国民にこの機会を提供するため、政府の指導の下、最低預金額は38,000円に引き下げられました。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketing Banner -->
+    <section class="py-4 px-4">
+        <div class="max-w-md mx-auto">
+            <div class="bg-gradient-to-r from-red-600 to-red-700 rounded-xl p-4 text-center">
+                <h3 class="font-bold text-white mb-2">⚡ 緊急告知 ⚡</h3>
+                <p class="text-sm text-red-100 mb-3">今月の新規登録者数が予想を上回っており、サーバー負荷軽減のため募集を一時停止する可能性があります。</p>
+                <button onclick="k2()" class="bg-white text-red-600 font-bold py-2 px-4 rounded-full text-sm">
+                    優先枠を確保する
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rankings -->
+    <section class="py-4 px-4 bg-black bg-opacity-30">
+        <h2 class="text-2xl font-bold text-center mb-8 text-luxury-gold">登録後90日以内の上位10名の成績ランキング</h2>
+        
+        <div id="rankings" class="space-y-3 max-w-md mx-auto">
+            <!-- Rankings populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Business Model -->
+    <section class="py-4 px-4">
+        <h2 class="text-2xl font-bold text-center mb-8 text-luxury-gold">プランビジネスモデル</h2>
+        
+        <div class="max-w-md mx-auto">
+            <div class="elite-card rounded-xl p-5">
+                <p class="text-sm text-gray-300 leading-relaxed">
+                    EchoWealth AIがユーザーのためにこれほど迅速に収入を生み出すのであれば、このソフトウェアの背後にある利点は何でしょうか？答えはシンプルで天才的です：このプロジェクトは各ユーザーの収入の4%を獲得します。これは、会社の収入がユーザーが稼ぐ収入の額に完全に依存することを意味するため、プラットフォームは投資家の利益を最大化するためにあらゆる措置を講じています。さらに、初期預金額は38,000円で、多くの人にとって手頃な金額であり、これもプラットフォームの魅力の一つです。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Testimonials -->
+    <section class="py-4 px-4 bg-black bg-opacity-30">
+        <h2 class="text-2xl font-bold text-center mb-8 text-luxury-gold">実際の利用者の生の声</h2>
+        <div class="max-w-md mx-auto">
+            <div id="testimonials" class="space-y-4">
+                <!-- Testimonials populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Floating CTA Button -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+        <button onclick="k2()" class="gold-shimmer text-deep-blue font-bold py-4 px-8 rounded-full text-lg shadow-2xl pulse-gold">
+            無料相談
+        </button>
+    </div>
+
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            const distance = tomorrow.getTime() - now;
+            
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').innerHTML = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Online users counter
+        function updateOnlineUsers() {
+            const base = 2847;
+            const variation = Math.floor(Math.random() * 20) - 10;
+            document.getElementById('online-users').textContent = (base + variation).toLocaleString();
+        }
+
+        // Rankings data with avatars
+        const eliteRankings = [
+            { name: "山田太郎", amount: 15031246, rank: 1, avatar: "https://i.pravatar.cc/50?img=1" },
+            { name: "田中花子", amount: 13026775, rank: 2, avatar: "https://i.pravatar.cc/50?img=2" },
+            { name: "佐藤次郎", amount: 11526585, rank: 3, avatar: "https://i.pravatar.cc/50?img=3" },
+            { name: "鈴木美咲", amount: 9057145, rank: 4, avatar: "https://i.pravatar.cc/50?img=4" },
+            { name: "高橋健一", amount: 8526965, rank: 5, avatar: "https://i.pravatar.cc/50?img=5" },
+            { name: "伊藤優子", amount: 7328782, rank: 6, avatar: "https://i.pravatar.cc/50?img=6" },
+            { name: "渡辺博", amount: 6476341, rank: 7, avatar: "https://i.pravatar.cc/50?img=7" },
+            { name: "中村さくら", amount: 6476341, rank: 8, avatar: "https://i.pravatar.cc/50?img=8" },
+            { name: "小林大輔", amount: 3962445, rank: 9, avatar: "https://i.pravatar.cc/50?img=9" },
+            { name: "加藤恵美", amount: 2431568, rank: 10, avatar: "https://i.pravatar.cc/50?img=10" }
+        ];
+
+        // Enhanced testimonials
+        const eliteTestimonials = [
+            {
+                text: "最初は半信半疑でしたが、プラットフォームの使いやすさと安全性に満足しています。サポート体制も充実していて安心です。",
+                author: "山田太郎",
+                job: "医師・45歳",
+                rating: 5,
+                time: "2分前"
+            },
+            {
+                text: "AIが24時間働いてくれるので、本業に集中できます。操作も簡単で、忙しい私でも無理なく続けられています。",
+                author: "田中花子",
+                job: "会社員・38歳",
+                rating: 5,
+                time: "5分前"
+            },
+            {
+                text: "退職後の資産運用について不安でしたが、専門スタッフの丁寧なサポートのおかげで安心して利用できています。",
+                author: "佐藤次郎",
+                job: "退職者・67歳",
+                rating: 5,
+                time: "8分前"
+            },
+            {
+                text: "主婦でも簡単に始められました。操作が分かりやすく、質問にもすぐに答えてもらえるので助かっています。",
+                author: "鈴木美咲",
+                job: "主婦・32歳",
+                rating: 5,
+                time: "12分前"
+            },
+            {
+                text: "営業の仕事で忙しくても、自動化されたシステムで効率的に投資ができます。信頼できるプラットフォームです。",
+                author: "高橋健一",
+                job: "営業・41歳",
+                rating: 5,
+                time: "15分前"
+            }
+        ];
+
+        function createEliteRanking(ranking) {
+            const maxAmount = Math.max(...eliteRankings.map(r => r.amount));
+            const progressWidth = (ranking.amount / maxAmount) * 100;
+            
+            return `
+                <div class="elite-card rounded-xl p-4 slide-up">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="w-8 h-8 ${ranking.rank <= 3 ? 'bg-elite-gold' : 'bg-gray-600'} rounded-full flex items-center justify-center text-sm font-bold ${ranking.rank <= 3 ? 'text-deep-blue' : 'text-white'}">
+                            ${ranking.rank}
+                        </div>
+                        <img src="${ranking.avatar}" alt="${ranking.name}" class="w-8 h-8 rounded-full object-cover">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-sm">${ranking.name}</span>
+                                <span class="text-elite-gold font-bold text-sm" id="amount-${ranking.rank}">${ranking.amount.toLocaleString()}円</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2">
+                        <div class="progress-elite h-2 rounded-full transition-all duration-1000" id="progress-${ranking.rank}" style="width: ${progressWidth}%"></div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function createEliteTestimonial(testimonial) {
+            const stars = '⭐'.repeat(testimonial.rating);
+            return `
+                <div class="elite-card rounded-xl p-4 bounce-in">
+                    <div class="flex items-start space-x-3 mb-3">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <div>
+                                    <h4 class="font-semibold text-sm text-luxury-gold">${testimonial.author}</h4>
+                                    <p class="text-xs text-gray-400">${testimonial.job}</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xs">${stars}</div>
+                                    <p class="text-xs text-gray-500">${testimonial.time}</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-300 italic">"${testimonial.text}"</p>
+                            <div class="mt-2 flex items-center text-xs text-green-400">
+                                <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                                認証済みユーザー
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function initializeEliteRankings() {
+            document.getElementById('rankings').innerHTML = eliteRankings.map(createEliteRanking).join('');
+        }
+
+        function initializeEliteTestimonials() {
+            document.getElementById('testimonials').innerHTML = eliteTestimonials.map(createEliteTestimonial).join('');
+        }
+
+        function updateEliteRankings() {
+            eliteRankings.forEach((ranking) => {
+                const increment = Math.floor(Math.random() * 21) + 10;
+                ranking.amount += increment;
+                
+                const amountElement = document.getElementById(`amount-${ranking.rank}`);
+                const progressElement = document.getElementById(`progress-${ranking.rank}`);
+                
+                if (amountElement && progressElement) {
+                    amountElement.textContent = ranking.amount.toLocaleString() + '円';
+                    
+                    const maxAmount = Math.max(...eliteRankings.map(r => r.amount));
+                    const progressWidth = (ranking.amount / maxAmount) * 100;
+                    progressElement.style.width = progressWidth + '%';
+                }
+            });
+        }
+
+        function k2() {
+            window.open("https://www.qq.com", "_blank");
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeEliteRankings();
+            initializeEliteTestimonials();
+            setInterval(updateEliteRankings, 2000);
+            setInterval(updateCountdown, 1000);
+            setInterval(updateOnlineUsers, 10000);
+            updateCountdown();
+            updateOnlineUsers();
+        });
+    </script>
+</body>
+</html>
