@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebijakan Privasi - PulihkanDana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563EB;
+            --secondary: #10B981;
+            --accent: #F59E0B;
+            --dark: #1E293B;
+            --light: #F8FAFC;
+            --gray: #64748B;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, #1E40AF 100%);
+            --border-radius: 1rem;
+            --border-radius-sm: 0.5rem;
+            --transition: all 0.3s;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e6f2ff 0%, #f0f9ff 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+        
+        /* Header */
+        .header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: var(--spacing-lg) var(--spacing-md);
+            margin: var(--spacing-md) 0;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        .header-subtitle {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            opacity: 0.9;
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            margin: var(--spacing-md) 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .page-title {
+            color: var(--primary);
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 800;
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: var(--spacing-sm);
+        }
+        
+        .last-updated {
+            background: var(--light);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-sm);
+            margin-bottom: var(--spacing-lg);
+            border-left: 4px solid var(--accent);
+        }
+        
+        .last-updated strong {
+            color: var(--dark);
+        }
+        
+        /* Sections */
+        .section {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: clamp(1.2rem, 4vw, 1.4rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .section-content {
+            color: var(--dark);
+            font-size: clamp(0.95rem, 3vw, 1rem);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .subsection {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .subsection-title {
+            color: var(--secondary);
+            font-size: clamp(1rem, 3.5vw, 1.1rem);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        /* Lists */
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .info-list li {
+            background: var(--light);
+            margin-bottom: var(--spacing-sm);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-sm);
+            border-left: 3px solid var(--secondary);
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+        
+        .info-list li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: var(--spacing-xs);
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid var(--accent);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .highlight-box h3 {
+            color: #92400e;
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .highlight-box p {
+            color: #92400e;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: var(--spacing-lg);
+            color: var(--gray);
+            font-size: clamp(0.85rem, 3vw, 0.95rem);
+            border-top: 1px solid #E2E8F0;
+            margin-top: var(--spacing-lg);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            :root {
+                --spacing-xs: 0.25rem;
+                --spacing-sm: 0.75rem;
+                --spacing-md: 1rem;
+                --spacing-lg: 1.5rem;
+                --spacing-xl: 2rem;
+            }
+            
+            .main-content {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--spacing-xs);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>PulihkanDana</span>
+            </div>
+            <p class="header-subtitle">Layanan Pemulihan Dana untuk Korban Penipuan</p>
+        </header>
+
+        <main class="main-content">
+            <h1 class="page-title">Kebijakan Privasi</h1>
+            
+            <div class="last-updated">
+                <p><strong>Terakhir diperbarui:</strong> 15 Desember 2023</p>
+                <p>Kebijakan ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda.</p>
+            </div>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    Pendahuluan
+                </h2>
+                <div class="section-content">
+                    <p>PulihkanDana berkomitmen untuk melindungi privasi dan keamanan data pribadi pengguna kami. Kebijakan Privasi ini menjelaskan jenis informasi yang kami kumpulkan, bagaimana kami menggunakannya, dan langkah-langkah yang kami ambil untuk melindungi informasi tersebut.</p>
+                    <p>Dengan menggunakan layanan kami, Anda menyetujui pengumpulan dan penggunaan informasi sesuai dengan kebijakan ini.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-database"></i>
+                    Informasi yang Kami Kumpulkan
+                </h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Informasi yang Anda Berikan Secara Langsung:</h3>
+                    <ul class="info-list">
+                        <li>Jenis penipuan yang Anda alami</li>
+                        <li>Perkiraan jumlah kerugian finansial</li>
+                        <li>Waktu terjadinya penipuan</li>
+                        <li>Metode kontak yang digunakan penipu</li>
+                        <li>Detail tambahan tentang kasus Anda melalui konsultasi</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Informasi yang Dikumpulkan Secara Otomatis:</h3>
+                    <ul class="info-list">
+                        <li>Alamat IP dan lokasi geografis umum</li>
+                        <li>Jenis browser dan perangkat yang digunakan</li>
+                        <li>Waktu dan durasi kunjungan</li>
+                        <li>Halaman yang dikunjungi di situs kami</li>
+                        <li>Data cookies dan teknologi pelacakan serupa</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-cogs"></i>
+                    Bagaimana Kami Menggunakan Informasi Anda
+                </h2>
+                <div class="section-content">
+                    <ul class="info-list">
+                        <li>Memberikan konsultasi dan bantuan pemulihan dana</li>
+                        <li>Mengevaluasi kelayakan kasus untuk proses pemulihan</li>
+                        <li>Berkomunikasi dengan Anda mengenai layanan kami</li>
+                        <li>Meningkatkan kualitas layanan dan pengalaman pengguna</li>
+                        <li>Mematuhi kewajiban hukum dan peraturan yang berlaku</li>
+                        <li>Mencegah penipuan dan melindungi keamanan platform</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-share-alt"></i>
+                    Pembagian Informasi dengan Pihak Ketiga
+                </h2>
+                <div class="section-content">
+                    <p>Kami tidak menjual, menyewakan, atau memberikan informasi pribadi Anda kepada pihak ketiga untuk tujuan komersial. Namun, kami dapat membagikan informasi dalam situasi berikut:</p>
+                    <ul class="info-list">
+                        <li>Dengan pihak berwajib atau lembaga hukum jika diperlukan untuk proses pemulihan dana</li>
+                        <li>Dengan penyedia layanan teknis yang membantu operasional website (dengan perjanjian kerahasiaan)</li>
+                        <li>Jika diwajibkan oleh hukum atau perintah pengadilan</li>
+                        <li>Untuk melindungi hak, properti, atau keselamatan kami dan pengguna lain</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-lock"></i>
+                    Keamanan Data
+                </h2>
+                <div class="section-content">
+                    <p>Kami menerapkan langkah-langkah keamanan teknis dan organisasi yang sesuai untuk melindungi informasi pribadi Anda dari akses yang tidak sah, pengungkapan, perubahan, atau penghancuran. Langkah-langkah ini meliputi:</p>
+                    <ul class="info-list">
+                        <li>Enkripsi data selama transmisi dan penyimpanan</li>
+                        <li>Kontrol akses yang ketat untuk karyawan</li>
+                        <li>Pemantauan keamanan sistem secara berkala</li>
+                        <li>Backup data yang aman dan teratur</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-cookie-bite"></i>
+                    Penggunaan Cookies
+                </h2>
+                <div class="section-content">
+                    <p>Situs web kami menggunakan cookies dan teknologi serupa untuk:</p>
+                    <ul class="info-list">
+                        <li>Mengingat preferensi dan pengaturan Anda</li>
+                        <li>Menganalisis penggunaan situs untuk perbaikan layanan</li>
+                        <li>Menyediakan fitur keamanan dan mencegah penipuan</li>
+                        <li>Mengukur efektivitas kampanye pemasaran</li>
+                    </ul>
+                    <p>Anda dapat mengatur browser Anda untuk menolak cookies, namun beberapa fitur situs mungkin tidak berfungsi dengan optimal.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-user-check"></i>
+                    Hak-Hak Anda
+                </h2>
+                <div class="section-content">
+                    <p>Sesuai dengan peraturan perlindungan data yang berlaku, Anda memiliki hak untuk:</p>
+                    <ul class="info-list">
+                        <li>Mengakses informasi pribadi yang kami simpan tentang Anda</li>
+                        <li>Meminta koreksi data yang tidak akurat atau tidak lengkap</li>
+                        <li>Meminta penghapusan data pribadi dalam kondisi tertentu</li>
+                        <li>Membatasi pemrosesan data pribadi Anda</li>
+                        <li>Menarik persetujuan yang telah diberikan sebelumnya</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-clock"></i>
+                    Penyimpanan Data
+                </h2>
+                <div class="section-content">
+                    <p>Kami menyimpan informasi pribadi Anda selama diperlukan untuk memberikan layanan dan mematuhi kewajiban hukum. Periode penyimpanan dapat bervariasi tergantung pada:</p>
+                    <ul class="info-list">
+                        <li>Jenis informasi dan tujuan pengumpulannya</li>
+                        <li>Status kasus pemulihan dana Anda</li>
+                        <li>Kewajiban hukum dan peraturan yang berlaku</li>
+                        <li>Kebutuhan untuk melindungi hak dan kepentingan kami</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-globe"></i>
+                    Layanan Pihak Ketiga
+                </h2>
+                <div class="section-content">
+                    <p>Situs web kami dapat menggunakan layanan pihak ketiga seperti:</p>
+                    <ul class="info-list">
+                        <li>Google Analytics untuk analisis penggunaan situs</li>
+                        <li>Layanan cloud untuk penyimpanan data</li>
+                        <li>Platform komunikasi untuk layanan pelanggan</li>
+                    </ul>
+                    <p>Setiap pihak ketiga memiliki kebijakan privasi mereka sendiri yang mengatur penggunaan data.</p>
+                </div>
+            </section>
+
+            <div class="highlight-box">
+                <h3>
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Penting untuk Diketahui
+                </h3>
+                <p>Meskipun kami berusaha keras melindungi informasi Anda, tidak ada sistem keamanan yang 100% sempurna. Kami tidak dapat menjamin keamanan absolut dari informasi yang Anda transmisikan kepada kami atau yang kami simpan.</p>
+            </div>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-edit"></i>
+                    Perubahan Kebijakan
+                </h2>
+                <div class="section-content">
+                    <p>Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu untuk mencerminkan perubahan dalam layanan kami atau persyaratan hukum. Perubahan material akan dinotifikasi melalui:</p>
+                    <ul class="info-list">
+                        <li>Pemberitahuan di halaman utama situs web</li>
+                        <li>Email kepada pengguna terdaftar (jika tersedia)</li>
+                        <li>Pembaruan tanggal "Terakhir diperbarui" di bagian atas kebijakan ini</li>
+                    </ul>
+                    <p>Penggunaan layanan kami setelah perubahan kebijakan menandakan persetujuan Anda terhadap kebijakan yang diperbarui.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-gavel"></i>
+                    Hukum yang Berlaku
+                </h2>
+                <div class="section-content">
+                    <p>Kebijakan Privasi ini diatur oleh dan ditafsirkan sesuai dengan hukum Republik Indonesia. Setiap sengketa yang timbul dari atau berkaitan dengan kebijakan ini akan diselesaikan melalui pengadilan yang berwenang di Indonesia.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2023 PulihkanDana. Semua hak cipta dilindungi.</p>
+            <p>Kebijakan Privasi ini merupakan bagian integral dari Syarat & Ketentuan layanan kami.</p>
+        </footer>
+    </div>
+</body>
+</html>
