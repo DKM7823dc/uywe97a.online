@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+function d2() {
+            window.open('https://wa.me/your-whatsapp-number', '_blank');
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Comunidad profesional de inversión en acciones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.8); }
+        }
+        
+        .breathing {
+            animation: breathe 2s ease-in-out infinite;
+        }
+        
+        .pulsing {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .glowing {
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #4a9eff 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .floating-whatsapp {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: #25D366;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 280px;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .floating-whatsapp {
+                width: 50px;
+                height: 50px;
+                right: 15px;
+            }
+            
+            .floating-button {
+                width: 90%;
+                left: 5%;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+    
+    <!-- Floating WhatsApp Icon -->
+    <div class="floating-whatsapp breathing cursor-pointer" onclick="d2()">
+        <i class="fab fa-whatsapp text-white text-2xl"></i>
+        <div class="notification-badge breathing">1</div>
+    </div>
+    
+  <!-- Header -->
+    <header class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Ciudadanos Ordinarios Ganan Fácilmente €20,000 Mensuales
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
+                ¿Aún te preocupas por las pérdidas del mercado? Nuestro equipo está formado por analistas profesionales que brindan servicios gratuitos en línea. Nos comunicamos y colaboramos todos los días. Sí, pero estamos en la industria cinematográfica. ¿Quieres cambiar? ¿Quieres vivir una vida feliz?
+            </p>
+            <div class="mb-8">
+                <img src="img/1.png" alt="Professional analyst" class="mx-auto rounded-lg shadow-lg max-w-full h-auto">
+            </div>
+            <button onclick="d2()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105 glowing">
+                <i class="fab fa-whatsapp mr-2"></i>Agregar WhatsApp Ahora
+            </button>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16">
+        
+        <!-- Section 1 -->
+       <section class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-6">
+                    Para Negocios Más Inteligentes y Rápidos
+                </h2>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                    ¡Mostramos a cada inversor cómo superar los desafíos técnicos y usar inteligencia artificial para mejorar el rendimiento!
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 border border-gray-700 p-6 rounded-lg shadow-xl">
+                    <h3 class="text-xl font-bold mb-4 text-blue-400">¡Análisis de Tendencias de Inversión!</h3>
+                    <p class="text-gray-300">
+                        ¡Los comentarios de gráficos proporcionan a los inversores consejos de inversión rentables que incluso los principiantes pueden aprender!
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 border border-gray-700 p-6 rounded-lg shadow-xl">
+                    <h3 class="text-xl font-bold mb-4 text-green-400">Alertas en Tiempo Real</h3>
+                    <p class="text-gray-300">
+                        Mantenerme alerta en todo momento. Entrenado por analistas profesionales con amplia experiencia, combinado con inteligencia artificial, apoyando el trading y asegurando la maximización de ganancias en muchos mercados!
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 border border-gray-700 p-6 rounded-lg shadow-xl">
+                    <h3 class="text-xl font-bold mb-4 text-purple-400">Compradores de Acciones de Calidad</h3>
+                    <p class="text-gray-300">
+                        Sí, somos uno de ellos. Hay cada vez más compradores de acciones de calidad en el foro del mercado de valores.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Section 2 -->
+        <section class="mb-16 bg-gray-800 border border-gray-700 rounded-lg p-8">
+            <h2 class="text-3xl font-bold text-center mb-8 gradient-text">
+                Crea Tu Propia Cartera de Dividendos. Gratis.
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>¡Comparte de una a tres historias de éxito diariamente!</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Mi protocolo objetivo se aplica a iPad, analistas premium gratuitos y exclusivos.</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Los precios de las acciones fluctúan entre días laborables y viernes.</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Hoy hablamos sobre análisis de gestión de inventario.</li>
+                        <li class="flex items-center"><i class="fas fa-star text-yellow-500 mr-3"></i>¡Las ganancias crecieron 300% en cuatro meses!</li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <img src="img/2.jpg" alt="Success story" class="mx-auto rounded-lg shadow-lg max-w-full h-auto mb-6">
+                    <button onclick="d2()" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-full pulsing">
+                        <i class="fab fa-whatsapp mr-2"></i>Agregar WhatsApp Ahora
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Important Notice -->
+        <div class="bg-yellow-100 dark:bg-yellow-900 border-l-4 border-yellow-500 p-4 mb-16">
+            <p class="text-yellow-800 dark:text-yellow-200">
+                <strong>Nota:</strong> Este es nuestro grupo privado. Solo discutimos acciones y experiencia de inversión. ¡Compartir es importante! Si no eres un inversor de acciones, ¡por favor no apliques!
+            </p>
+        </div>
+        
+        <!-- Why Choose Us -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">
+                ¿Por Qué Te Recomendamos Estas Actividades Más Populares?
+            </h2>
+            <p class="text-center text-lg mb-8 text-gray-300">
+                Tenemos diez años de experiencia en análisis técnico y somos altamente experimentados. ¡Transmisión de video en tiempo real!
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 dark:bg-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Aumenta Tus Oportunidades</h3>
+                    <p class="text-gray-300">Expande tu trading e inversión, adáptate a los cambios del mercado.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-green-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-green-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 text-white">Reduce el Riesgo</h3>
+                    <p class="text-gray-300">Al usar nuestro sistema profesional y enfocarte en precisión láser, puedes obtener beneficios comerciales directos.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-purple-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-brain text-purple-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 text-white">Psicología del Trading</h3>
+                    <p class="text-gray-300">Al aprovechar nuestras señales claras del mercado, las fluctuaciones emocionales pueden ser eliminadas.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-orange-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-coins text-orange-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 text-white">Rastrea Tus Inversiones</h3>
+                    <p class="text-gray-300">La riqueza tiene su significado, pero perseguirla no es fácil. Nuestro equipo puede ayudarte.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Strategy Section -->
+        <section class="mb-16 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 rounded-lg p-8">
+            <div class="text-center mb-8">
+                <img src="img/3.jpg" alt="Strategy" class="mx-auto rounded-lg shadow-lg max-w-full h-auto mb-6">
+                <h2 class="text-3xl font-bold gradient-text mb-4">Nuestra Estrategia de Reversión</h2>
+                <p class="text-lg text-gray-700 dark:text-gray-300">
+                    ¿Por qué la economía está creciendo mientras el mercado de valores está cayendo? Quizás deberías aprender trading de acciones de tus maestros.
+                </p>
+            </div>
+        </section>
+        
+        <!-- 7 Steps -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 gradient-text">
+                Hemos Compilado Siete Pasos Para Hacerte un Ganador - Un Trader Exitoso:
+            </h2>
+            <div class="text-center mb-8">
+                <img src="img/4.jpg" alt="Seven steps" class="mx-auto rounded-lg shadow-lg max-w-full h-auto">
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">1</span>
+                       <h3 class="font-bold text-black">Escucha Reseñas Profesionales</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">Escucha las reseñas de profesionales sobre sus operaciones.</p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">2</span>
+                      <h3 class="font-bold text-black">Sigue las Tendencias del Mercado</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">Presta atención a las tendencias del mercado.</p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">3</span>
+                      <h3 class="font-bold text-black">Encuentra Puntos de Entrada</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">Encuentra el punto de entrada correcto.</p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">4</span>
+                       <h3 class="font-bold text-black">Mantén Posiciones</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">Mantén las posiciones hasta que termine la tendencia, luego empújala al mercado.</p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">5</span>
+                      <h3 class="font-bold text-black">Encuentra Inversores Potenciales</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">Encuentra a los inversores con mayor potencial.</p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">6</span>
+                       <h3 class="font-bold text-black">Lee Datos del Mercado</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">Aprende a interpretar los datos del mercado.</p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg md:col-span-2 lg:col-span-3">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-yellow-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">7</span>
+                      <h3 class="font-bold text-black">Cambia Tu Mentalidad</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">Cambia tu forma de pensar y métodos de trading para adaptarte al nuevo mercado. ¿Has cambiado?</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <img src="img/5.jpg" alt="Change mindset" class="mx-auto rounded-lg shadow-lg max-w-full h-auto mb-6">
+                <button onclick="d2()" class="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white font-bold py-4 px-8 rounded-full text-xl pulsing">
+                    <i class="fab fa-whatsapp mr-2"></i>Agregar WhatsApp Ahora
+                </button>
+            </div>
+        </section>
+        
+        <!-- Testimonials -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">
+                Escucha Lo Que Dicen Los Traders de Acciones Exitosos
+            </h2>
+            <p class="text-center text-lg mb-8 text-gray-300">
+                Los miembros de nuestra comunidad han logrado un gran éxito con su experiencia. ¡Lo mismo se aplica a las estrategias de inversión!
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-4">M</div>
+                        <h3 class="font-bold text-lg">Murray</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        "Soy un novato en el mercado de valores. Mi cartera ha funcionado bien hasta ahora. Cayó casi 700%. Leo los informes de acciones. No el año pasado. Esta vez compré 2000 acciones. Leí todos los materiales que me enviaste. Feliz de seguirte."
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-4">M</div>
+                        <h3 class="font-bold text-lg">Michael Carter</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        "Gracias por tu consejo, ha sido muy útil para nosotros, especialmente durante este período incierto. Muy sincero. Y ni siquiera pide nada a cambio; no tienes que pagar a otros maestros. Que Dios los bendiga. He ganado cuatro veces. Soy un patrocinador."
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-4">K</div>
+                        <h3 class="font-bold text-lg">Kyle Hansen</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        "Acabo de registrarme y estoy muy agradecido por este dinero. Aún no he comenzado a invertir, así que no hay nada que invertir. $10,000, pero en serio, alguien está hablando contigo. ¡Así que ya he ganado $8000! Hablemos de eso más tarde..."
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Trust Section -->
+        <section class="mb-16 text-center">
+            <h2 class="text-3xl font-bold mb-8 gradient-text">
+                Se necesitan 20 años para construir una buena reputación, pero solo 5 minutos para destruirla.
+            </h2>
+            <p class="text-xl text-gray-300 mb-8">
+                Piensa cuidadosamente, los métodos son realmente muy diferentes. Nuestro servicio es nuestra reputación. Ten la seguridad de que absolutamente no lo haremos. No te preocupes.
+            </p>
+            <p class="text-lg text-gray-300 mb-8">
+                Por esta razón, estamos comprometidos a ser la mejor comunidad para inversores en acciones. Esperamos trabajar contigo para ayudarte a lograr tus sueños. Cambia el reloj y aprende a enriquecerte juntos.
+            </p>
+        </section>
+        
+    </main>
+    
+    <!-- Risk Disclosure -->
+    <section class="bg-gray-100 dark:bg-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8 text-red-600">
+                ⚠️ Divulgación Importante de Riesgos
+            </h2>
+            <div class="max-w-4xl mx-auto text-sm text-gray-700 dark:text-gray-300 space-y-4">
+                <p><strong>Advertencia de Riesgo de Inversión:</strong> El trading de acciones, forex, materias primas y otros instrumentos financieros implica un riesgo sustancial de pérdida y no es adecuado para todos los inversores. El rendimiento pasado no garantiza resultados futuros. El alto grado de apalancamiento puede trabajar en tu contra así como a tu favor.</p>
+                
+                <p><strong>Sin Consejo de Inversión:</strong> El contenido proporcionado es solo para fines educativos e informativos y no debe interpretarse como consejo de inversión, recomendaciones, o una oferta para comprar o vender valores. Siempre consulta con un asesor financiero calificado antes de tomar decisiones de inversión.</p>
+                
+                <p><strong>Descargo de Responsabilidad de Rendimiento:</strong> Cualquier testimonio, caso de estudio, o historia de éxito presentada no es representativa de resultados típicos. Los resultados individuales pueden variar significativamente. No hay garantía de que logres resultados similares.</p>
+                
+                <p><strong>Volatilidad del Mercado:</strong> Los mercados financieros están sujetos a volatilidad y pueden moverse en contra de tu posición. Debes estar preparado para perder parte o todo tu capital invertido. Nunca inviertas dinero que no puedas permitirte perder.</p>
+                
+                <p><strong>Cumplimiento Regulatorio:</strong> Este servicio cumple con las regulaciones financieras aplicables en Alemania y la Unión Europea. Nuestras recomendaciones son de naturaleza educativa y no constituyen asesoramiento financiero con licencia.</p>
+                
+                <p><strong>Plataforma de Comunicación:</strong> WhatsApp se utiliza únicamente como plataforma de comunicación para compartir contenido educativo. No es una plataforma de inversión regulada.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Centro de Educación en Inversiones</h3>
+                    <p class="text-gray-400">Proporcionando recursos educativos y perspectivas del mercado para decisiones de inversión informadas.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Divulgación de Riesgos</li>
+                        <li>Términos de Servicio</li>
+                        <li>Política de Privacidad</li>
+                        <li>Cumplimiento Regulatorio</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Educación</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Análisis de Mercado</li>
+                        <li>Estrategias de Inversión</li>
+                        <li>Gestión de Riesgos</li>
+                        <li>Psicología del Trading</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contacto</h4>
+                    <p class="text-gray-400 mb-2">Soporte Educativo</p>
+                    <p class="text-gray-400">Solo para consultas educativas</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Centro de Educación en Inversiones. Todos los derechos reservados.</p>
+                <p class="mt-2">Este sitio web proporciona contenido educativo únicamente. No es asesoramiento de inversión con licencia.</p>
+                <p class="mt-2">Regulado bajo las directrices alemanas y de la UE para educación financiera.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating Bottom Button -->
+    <div class="floating-button">
+        <button onclick="d2()" class="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-full text-lg shadow-lg breathing">
+            <i class="fab fa-whatsapp mr-2"></i>Únete a Nuestra Comunidad Educativa
+        </button>
+    </div>
+    
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+        
+        // WhatsApp redirect function
+        
+        
+        // Smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
