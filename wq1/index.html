@@ -487,6 +487,90 @@ function gtag_report_conversion(url) {
             font-size: clamp(1rem, 3vw, 1.1rem);
         }
         
+        /* Risk Warning Section */
+        .risk-warning-section {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border: 2px solid #ef4444;
+            border-radius: var(--border-radius);
+            margin: var(--spacing-lg) 0;
+            padding: var(--spacing-lg);
+        }
+        
+        .risk-warning-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .risk-warning-title {
+            text-align: center;
+            color: #dc2626;
+            font-size: clamp(1.3rem, 5vw, 1.8rem);
+            font-weight: 800;
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .risk-warning-title i {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+        }
+        
+        .risk-warning-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .warning-item {
+            background: var(--white);
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-md);
+            border-left: 4px solid #ef4444;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .warning-item h3 {
+            color: #dc2626;
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .warning-item p {
+            color: var(--dark);
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            line-height: 1.6;
+        }
+        
+        .disclaimer-box {
+            background: #7f1d1d;
+            color: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border: 2px solid #991b1b;
+        }
+        
+        .disclaimer-box h4 {
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .disclaimer-box p {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        
         /* Footer */
         .footer {
             padding: var(--spacing-xl) var(--spacing-md);
@@ -698,6 +782,23 @@ function gtag_report_conversion(url) {
             
             .footer-links {
                 flex-direction: column;
+                gap: var(--spacing-xs);
+            }
+            
+            .risk-warning-title {
+                flex-direction: column;
+                gap: var(--spacing-xs);
+            }
+            
+            .warning-item h3 {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-xs);
+            }
+            
+            .disclaimer-box h4 {
+                flex-direction: column;
+                align-items: flex-start;
                 gap: var(--spacing-xs);
             }
         }
@@ -1049,6 +1150,43 @@ function gtag_report_conversion(url) {
             </button>
         </section>
         
+        <!-- Risk Warning Section -->
+        <section class="risk-warning-section">
+            <div class="risk-warning-container">
+                <h2 class="risk-warning-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Peringatan Penting & Penafian Risiko
+                </h2>
+                
+                <div class="risk-warning-content">
+                    <div class="warning-item">
+                        <h3><i class="fas fa-info-circle"></i> Tidak Ada Jaminan Hasil</h3>
+                        <p>Kami tidak dapat menjamin bahwa dana yang hilang akan dapat dipulihkan 100%. Setiap kasus memiliki tingkat kompleksitas yang berbeda dan bergantung pada berbagai faktor di luar kendali kami, termasuk kerjasama pihak berwajib dan kondisi penipu.</p>
+                    </div>
+                    
+                    <div class="warning-item">
+                        <h3><i class="fas fa-clock"></i> Proses Membutuhkan Waktu</h3>
+                        <p>Proses pemulihan dana dapat memakan waktu berbulan-bulan atau bahkan lebih lama. Tidak ada jaminan waktu penyelesaian yang pasti karena melibatkan proses hukum dan investigasi yang kompleks.</p>
+                    </div>
+                    
+                    <div class="warning-item">
+                        <h3><i class="fas fa-balance-scale"></i> Batasan Layanan</h3>
+                        <p>Layanan kami hanya berupa konsultasi dan pendampingan. Kami bukan lembaga penegak hukum dan tidak memiliki kewenangan untuk memaksa pihak manapun mengembalikan dana. Semua tindakan dilakukan sesuai dengan hukum yang berlaku.</p>
+                    </div>
+                    
+                    <div class="warning-item">
+                        <h3><i class="fas fa-shield-alt"></i> Waspada Penipuan Berlapis</h3>
+                        <p>Hati-hati terhadap layanan pemulihan dana yang menjanjikan kesuksesan 100% atau meminta pembayaran di muka. Selalu verifikasi kredibilitas penyedia layanan dan jangan mudah percaya pada janji yang terlalu bagus untuk menjadi kenyataan.</p>
+                    </div>
+                </div>
+                
+                <div class="disclaimer-box">
+                    <h4><i class="fas fa-file-contract"></i> Penafian Tanggung Jawab</h4>
+                    <p>Dengan menggunakan layanan kami, Anda memahami dan menyetujui bahwa hasil pemulihan dana tidak dapat dijamin. Kami tidak bertanggung jawab atas kerugian tambahan atau ketidakberhasilan dalam proses pemulihan. Layanan ini disediakan "sebagaimana adanya" tanpa jaminan apapun, baik tersurat maupun tersirat.</p>
+                </div>
+            </div>
+        </section>
+        
         <footer class="footer text-center">
             <div class="footer-links">
                 <a href="#">Kebijakan Privasi</a>
@@ -1162,5 +1300,3 @@ Metode kontak penipu: ${getText(formData.contactMethod)}`;
 </body>
 
 </html>
-
-
