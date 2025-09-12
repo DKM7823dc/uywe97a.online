@@ -10,6 +10,22 @@
 
   gtag('config', 'AW-17465582053');
 </script>
+    <!-- Event snippet for 注册 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17465582053/4LPaCMj7sJkbEOXDnohB',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -795,31 +811,8 @@
             }
         }
     </style>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17249565748"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17249565748');
-</script>
-<!-- Event snippet for 联系人 conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.open(url, "_blank");
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17249565748/a5odCJrbsI0bELT4naFA',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
+    
+ 
 </head>
 <body>
     <!-- 确认模态框 -->
@@ -1169,4 +1162,5 @@ Metode kontak penipu: ${getText(formData.contactMethod)}`;
 </body>
 
 </html>
+
 
