@@ -1,23 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi" class="scroll-smooth">
 <head>
-         <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1151645430200478');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
+        
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -346,58 +330,90 @@ src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
             <!-- Video Works -->
             <div>
                 <h3 class="text-2xl font-semibold mb-4 md:mb-8 text-center text-gray-700 dark:text-gray-300">Tác Phẩm Video</h3>
-                <div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto">
-                    <div class="work-item relative">
-                        <video src="vedio/1.mp4" 
-                               class="w-full min-h-64 rounded-xl shadow-lg" 
-                               controls
-                               autoplay
-                               muted
-                               loop
-                               style="aspect-ratio: 16/9;">
-                        </video>
-                        <div class="absolute bottom-2 left-2">
-                            <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 5.2K</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <div class="work-item bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-white text-center">
+                            Bạn muốn trở thành creator video? Có thể giúp bạn trở thành chuyên gia
+                        </h4>
+                        <div class="relative mb-4">
+                            <video src="vedio/1.mp4" 
+                                   class="w-full min-h-64 rounded-xl shadow-lg" 
+                                   controls
+                                   autoplay
+                                   muted
+                                   loop
+                                   style="aspect-ratio: 16/9;">
+                            </video>
+                            <div class="absolute bottom-2 left-2">
+                                <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 5.2K</span>
+                            </div>
                         </div>
+                        <button onclick="generateNow()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                            Sử dụng miễn phí
+                        </button>
                     </div>
-                    <div class="work-item relative">
-                        <video src="vedio/2.mp4" 
-                               class="w-full min-h-64 rounded-xl shadow-lg" 
-                               controls
-                               autoplay
-                               muted
-                               loop
-                               style="aspect-ratio: 16/9;">
-                        </video>
-                        <div class="absolute bottom-2 left-2">
-                            <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 3.8K</span>
+                    <div class="work-item bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-white text-center">
+                            Bạn muốn trở thành creator video? Có thể giúp bạn trở thành chuyên gia
+                        </h4>
+                        <div class="relative mb-4">
+                            <video src="vedio/2.mp4" 
+                                   class="w-full min-h-64 rounded-xl shadow-lg" 
+                                   controls
+                                   autoplay
+                                   muted
+                                   loop
+                                   style="aspect-ratio: 16/9;">
+                            </video>
+                            <div class="absolute bottom-2 left-2">
+                                <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 3.8K</span>
+                            </div>
                         </div>
+                        <button onclick="generateNow()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                            Sử dụng miễn phí
+                        </button>
                     </div>
-                    <div class="work-item relative">
-                        <video src="vedio/3.mp4" 
-                               class="w-full min-h-64 rounded-xl shadow-lg" 
-                               controls
-                               autoplay
-                               muted
-                               loop
-                               style="aspect-ratio: 16/9;">
-                        </video>
-                        <div class="absolute bottom-2 left-2">
-                            <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 7.1K</span>
+                    <div class="work-item bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-white text-center">
+                            Bạn muốn trở thành creator video? Có thể giúp bạn trở thành chuyên gia
+                        </h4>
+                        <div class="relative mb-4">
+                            <video src="vedio/3.mp4" 
+                                   class="w-full min-h-64 rounded-xl shadow-lg" 
+                                   controls
+                                   autoplay
+                                   muted
+                                   loop
+                                   style="aspect-ratio: 16/9;">
+                            </video>
+                            <div class="absolute bottom-2 left-2">
+                                <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 7.1K</span>
+                            </div>
                         </div>
+                        <button onclick="generateNow()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                            Sử dụng miễn phí
+                        </button>
                     </div>
-                    <div class="work-item relative">
-                        <video src="vedio/4.mp4" 
-                               class="w-full min-h-64 rounded-xl shadow-lg" 
-                               controls
-                               autoplay
-                               muted
-                               loop
-                               style="aspect-ratio: 16/9;">
-                        </video>
-                        <div class="absolute bottom-2 left-2">
-                            <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 9.5K</span>
+                    <div class="work-item bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-white text-center">
+                            Bạn muốn trở thành creator video? Có thể giúp bạn trở thành chuyên gia
+                        </h4>
+                        <div class="relative mb-4">
+                            <video src="vedio/4.mp4" 
+                                   class="w-full min-h-64 rounded-xl shadow-lg" 
+                                   controls
+                                   autoplay
+                                   muted
+                                   loop
+                                   style="aspect-ratio: 16/9;">
+                            </video>
+                            <div class="absolute bottom-2 left-2">
+                                <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 9.5K</span>
+                            </div>
                         </div>
+                        <button onclick="generateNow()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                            Sử dụng miễn phí
+                        </button>
                     </div>
                 </div>
             </div>
@@ -615,9 +631,3 @@ src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
     </script>
 </body>
 </html>
-
-
-
-
-
-
