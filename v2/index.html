@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi" class="scroll-smooth">
 <head>
-           <script>
+              <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -17,7 +17,6 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ứng Dụng Thay Đổi Kiểu Tóc & Tạo Video - Tải Ngay!</title>
@@ -119,9 +118,58 @@ src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
         .hot-tag {
             animation: pulse 2s infinite;
         }
+        .success-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .success-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .success-modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+        .success-modal.show .success-modal-content {
+            transform: scale(1);
+        }
+        .dark .success-modal-content {
+            background: #374151;
+            color: white;
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <!-- Success Modal -->
+    <div id="successModal" class="success-modal">
+        <div class="success-modal-content">
+            <div class="text-2xl mb-4">✅</div>
+            <h3 class="text-lg font-semibold mb-2 text-gray-800 dark:text-white">Sao chép thành công</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Vui lòng mở trong trình duyệt</p>
+            <button onclick="closeSuccessModal()" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors">
+                Đóng
+            </button>
+        </div>
+    </div>
+
     <!-- Dark mode detection -->
     <script>
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -363,7 +411,7 @@ src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
                                 <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 5.2K</span>
                             </div>
                         </div>
-                        <button onclick="generateNow()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                        <button onclick="copyLink()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
                             Sử dụng miễn phí
                         </button>
                     </div>
@@ -384,7 +432,7 @@ src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
                                 <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 3.8K</span>
                             </div>
                         </div>
-                        <button onclick="generateNow()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                        <button onclick="copyLink()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
                             Sử dụng miễn phí
                         </button>
                     </div>
@@ -405,7 +453,7 @@ src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
                                 <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 7.1K</span>
                             </div>
                         </div>
-                        <button onclick="generateNow()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                        <button onclick="copyLink()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
                             Sử dụng miễn phí
                         </button>
                     </div>
@@ -426,7 +474,7 @@ src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
                                 <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 9.5K</span>
                             </div>
                         </div>
-                        <button onclick="generateNow()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                        <button onclick="copyLink()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
                             Sử dụng miễn phí
                         </button>
                     </div>
@@ -537,7 +585,7 @@ src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
         <div class="container mx-auto px-4 text-center relative z-10">
             <div class="max-w-2xl mx-auto glass-effect rounded-3xl p-6 md:p-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">
-                    Nhấp Để Tạo Ngay
+                    Sao chép liên kết và mở nó trong trình duyệt của bạn để bắt đầu tạo AI
                 </h2>
                 <p class="text-xl text-white/90 mb-2">
                     Nhập nội dung và mã mời để trải nghiệm
@@ -546,10 +594,8 @@ src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
                     🎁 Miễn phí vĩnh viễn - Tất cả tính năng đều được mở khóa
                 </p>
                 
-              
-                
-                <button onclick="generateNow()" class="cta-button w-full text-white px-8 py-4 rounded-xl text-lg font-semibold mb-4 md:mb-6 animate-pulse-custom">
-                    🚀 Tạo Miễn Phí Ngay - Vĩnh Viễn
+                <button onclick="copyLink()" class="cta-button w-full text-white px-8 py-4 rounded-xl text-lg font-semibold mb-4 md:mb-6 animate-pulse-custom">
+                    Sao chép liên kết
                 </button>
                 
                 <div class="text-white/80 text-sm space-y-2">
@@ -597,6 +643,52 @@ src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
     </section>
 
     <script>
+        // Copy link functionality
+        function copyLink() {
+            const textToCopy = 'https://advantages.cc';
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    showSuccessToast();
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    fallbackCopyTextToClipboard(textToCopy);
+                });
+            } else {
+                fallbackCopyTextToClipboard(textToCopy);
+            }
+        }
+
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showSuccessToast();
+            } catch (err) {
+                console.error('Fallback: Failed to copy text: ', err);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        function showSuccessToast() {
+            const modal = document.getElementById('successModal');
+            modal.classList.add('show');
+        }
+
+        function closeSuccessModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.remove('show');
+        }
+
         // Carousel functionality
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
@@ -633,19 +725,14 @@ src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
         }
 
         function k2() {
-            // k2 method implementation
             console.log('k2 method called');
         }
 
         function generateNow() {
-  
-             fbq('track', 'Contact');
-      fbq('track', 'Purchase');
+            fbq('track', 'Contact');
+            fbq('track', 'Purchase');
             window.location.href = 'https://advantages.cc';
         }
     </script>
 </body>
 </html>
-
-
-
