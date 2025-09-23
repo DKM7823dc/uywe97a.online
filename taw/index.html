@@ -2,7 +2,9 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>免費中醫補腎壯陽課程 - 專為50+男性設計</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -10,6 +12,14 @@
         body {
             font-family: 'Noto Sans TC', sans-serif;
             background-color: #1e3a8a;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
         }
         
         .card-luxury {
@@ -72,108 +82,114 @@
     </style>
 </head>
 <body class="min-h-screen text-white">
-    <div class="container mx-auto px-4 py-8 max-w-md">
+    <div class="container mx-auto px-4 py-4 max-w-md flex flex-col justify-between">
         <!-- 歡迎部分 -->
-        <div id="welcome-section" class="text-center mb-8">
-            <div class="card-luxury rounded-2xl p-6 mb-6 fade-in">
-                <img src="https://yat910a.online/yag/images/01.jpg" alt="中醫補腎壯陽課程" class="w-full rounded-xl mb-4 shadow-2xl">
+        <div id="welcome-section" class="flex-1 flex flex-col justify-center">
+            <div class="card-luxury rounded-2xl p-4 mb-4 fade-in">
+                <img src="01.jpg" alt="中醫補腎壯陽課程" class="w-full rounded-xl mb-3 shadow-2xl max-h-48 object-cover">
                 
-                <div class="text-yellow-400 text-2xl font-bold mb-4">
+                <div class="text-yellow-400 text-xl font-bold mb-3">
                     👋 歡迎來到免費中醫補腎壯陽課程！
                 </div>
                 
-                <p class="text-white text-base leading-relaxed mb-4">
+                <p class="text-white text-sm leading-relaxed mb-3">
                     這是專為<span class="text-yellow-400 font-semibold">50+男性</span>設計的養生秘籍，純中藥調理，真的有用，幫助您重振雄風💪、恢復活力🔥，讓生活重燃激情！
                 </p>
                 
-                <div class="text-yellow-400 text-lg font-semibold">
+                <div class="text-yellow-400 text-base font-semibold">
                     🎁 免費領取，一對一指導，現在就開始吧。
                 </div>
+            </div>
+            
+            <!-- 開始按鈕 -->
+            <div class="text-center fade-in delay-2">
+                <button onclick="startQuestionnaire()" class="w-full btn-primary font-bold py-4 px-6 rounded-xl text-lg pulse-gold transition-all duration-300 hover:scale-105">
+                    🎯 立即開始免費課程評估
+                </button>
             </div>
         </div>
 
         <!-- 問題1 -->
-        <div id="question1" class="card-luxury rounded-2xl p-6 mb-6 fade-in delay-1" style="display: none;">
-            <h3 class="text-xl font-bold mb-4 text-center text-yellow-400">
-                問題 1/2
-            </h3>
-            <p class="text-white mb-6 text-center leading-relaxed">
-                為了更好地為您匹配課程，請先告訴我您的年齡段？這能確保課程適合您的需求。
-            </p>
-            
-            <div class="space-y-3">
-                <button onclick="selectAge('40-49歲')" class="option-button w-full p-4 rounded-xl text-left font-medium">
-                    📊 40-49歲
-                </button>
-                <button onclick="selectAge('50-59歲')" class="option-button w-full p-4 rounded-xl text-left font-medium">
-                    🎯 50-59歲
-                </button>
-                <button onclick="selectAge('60歲以上')" class="option-button w-full p-4 rounded-xl text-left font-medium">
-                    ⭐ 60歲以上
-                </button>
-                <button onclick="selectAge('其他')" class="option-button w-full p-4 rounded-xl text-left font-medium">
-                    ❓ 其他
-                </button>
+        <div id="question1" class="flex-1 flex flex-col justify-center" style="display: none;">
+            <div class="card-luxury rounded-2xl p-4 mb-4 fade-in">
+                <h3 class="text-xl font-bold mb-4 text-center text-yellow-400">
+                    問題 1/2
+                </h3>
+                <p class="text-white mb-4 text-center leading-relaxed text-sm">
+                    為了更好地為您匹配課程，請先告訴我您的年齡段？這能確保課程適合您的需求。
+                </p>
+                
+                <div class="space-y-3">
+                    <button onclick="selectAge('40-49歲')" class="option-button w-full p-3 rounded-xl text-left font-medium text-sm">
+                        📊 40-49歲
+                    </button>
+                    <button onclick="selectAge('50-59歲')" class="option-button w-full p-3 rounded-xl text-left font-medium text-sm">
+                        🎯 50-59歲
+                    </button>
+                    <button onclick="selectAge('60歲以上')" class="option-button w-full p-3 rounded-xl text-left font-medium text-sm">
+                        ⭐ 60歲以上
+                    </button>
+                    <button onclick="selectAge('其他')" class="option-button w-full p-3 rounded-xl text-left font-medium text-sm">
+                        ❓ 其他
+                    </button>
+                </div>
             </div>
         </div>
 
         <!-- 問題2 -->
-        <div id="question2" class="card-luxury rounded-2xl p-6 mb-6" style="display: none;">
-            <h3 class="text-xl font-bold mb-4 text-center text-yellow-400">
-                問題 2/2
-            </h3>
-            <p class="text-white mb-6 text-center leading-relaxed">
-                感謝分享！現在，請告訴我您最關心的身體問題？我們的課程專攻補腎壯陽，幫助改善這些症狀，重獲自信和活力。
-            </p>
-            
-            <div class="space-y-3">
-                <button onclick="selectConcern('腎虛腰酸')" class="option-button w-full p-4 rounded-xl text-left">
-                    <div class="font-medium mb-1">💪 腎虛腰酸、乏力無神</div>
-                    <div class="text-sm text-gray-200">恢復精力，日常活力滿滿</div>
-                </button>
-                <button onclick="selectConcern('早洩無力')" class="option-button w-full p-4 rounded-xl text-left">
-                    <div class="font-medium mb-1">🔥 早洩無力、雄風不再</div>
-                    <div class="text-sm text-gray-200">重振男人本色，夫妻和睦</div>
-                </button>
-                <button onclick="selectConcern('夜尿頻多')" class="option-button w-full p-4 rounded-xl text-left">
-                    <div class="font-medium mb-1">😴 夜尿頻多、睡眠不佳</div>
-                    <div class="text-sm text-gray-200">調養腎氣，一夜好眠</div>
-                </button>
-                <button onclick="selectConcern('其他養生')" class="option-button w-full p-4 rounded-xl text-left">
-                    <div class="font-medium mb-1">🌿 其他養生需求</div>
-                    <div class="text-sm text-gray-200">全面中醫調理</div>
-                </button>
+        <div id="question2" class="flex-1 flex flex-col justify-center" style="display: none;">
+            <div class="card-luxury rounded-2xl p-4 mb-4 fade-in">
+                <h3 class="text-xl font-bold mb-4 text-center text-yellow-400">
+                    問題 2/2
+                </h3>
+                <p class="text-white mb-4 text-center leading-relaxed text-sm">
+                    感謝分享！現在，請告訴我您最關心的身體問題？我們的課程專攻補腎壯陽，幫助改善這些症狀，重獲自信和活力。
+                </p>
+                
+                <div class="space-y-3">
+                    <button onclick="selectConcern('腎虛腰酸')" class="option-button w-full p-3 rounded-xl text-left text-sm">
+                        <div class="font-medium mb-1">💪 腎虛腰酸、乏力無神</div>
+                        <div class="text-xs text-gray-200">恢復精力，日常活力滿滿</div>
+                    </button>
+                    <button onclick="selectConcern('早洩無力')" class="option-button w-full p-3 rounded-xl text-left text-sm">
+                        <div class="font-medium mb-1">🔥 早洩無力、雄風不再</div>
+                        <div class="text-xs text-gray-200">重振男人本色，夫妻和睦</div>
+                    </button>
+                    <button onclick="selectConcern('夜尿頻多')" class="option-button w-full p-3 rounded-xl text-left text-sm">
+                        <div class="font-medium mb-1">😴 夜尿頻多、睡眠不佳</div>
+                        <div class="text-xs text-gray-200">調養腎氣，一夜好眠</div>
+                    </button>
+                    <button onclick="selectConcern('其他養生')" class="option-button w-full p-3 rounded-xl text-left text-sm">
+                        <div class="font-medium mb-1">🌿 其他養生需求</div>
+                        <div class="text-xs text-gray-200">全面中醫調理</div>
+                    </button>
+                </div>
             </div>
         </div>
 
         <!-- 結果部分 -->
-        <div id="result-section" class="card-luxury rounded-2xl p-6 mb-6" style="display: none;">
-            <div class="text-center">
-                <div class="text-3xl mb-4">🎉</div>
-                <h3 class="text-xl font-bold mb-4 text-yellow-400">
-                    恭喜您獲得免費學習名額！
-                </h3>
-                <p class="text-white mb-6 leading-relaxed">
-                    會有專業老師一對一指導您，老師是我們中醫文化傳承人，經驗豐富。認真學完課程，就會看到明顯結果：<span class="text-yellow-400 font-semibold">精力充沛、重振雄風，生活煥然一新！</span>
-                </p>
-                <p class="text-gray-200 mb-6 text-sm">
-                    這個機會很寶貴，希望您能珍惜，一起開啟養生之旅。接下來，請選擇添加客服方式，我們馬上發放第一課：
-                </p>
+        <div id="result-section" class="flex-1 flex flex-col justify-center" style="display: none;">
+            <div class="card-luxury rounded-2xl p-4 mb-4 fade-in">
+                <div class="text-center">
+                    <div class="text-3xl mb-4">🎉</div>
+                    <h3 class="text-xl font-bold mb-4 text-yellow-400">
+                        恭喜您獲得免費學習名額！
+                    </h3>
+                    <p class="text-white mb-4 leading-relaxed text-sm">
+                        會有專業老師一對一指導您，老師是我們中醫文化傳承人，經驗豐富。認真學完課程，就會看到明顯結果：<span class="text-yellow-400 font-semibold">精力充沛、重振雄風，生活煥然一新！</span>
+                    </p>
+                    <p class="text-gray-200 mb-4 text-xs">
+                        這個機會很寶貴，希望您能珍惜，一起開啟養生之旅。接下來，請選擇添加客服方式，我們馬上發放第一課：
+                    </p>
+                </div>
             </div>
-        </div>
-
-        <!-- 行動號召 -->
-        <div id="cta-section" class="text-center" style="display: none;">
-            <button onclick="k2()" class="w-full btn-primary font-bold py-4 px-6 rounded-xl text-lg pulse-gold transition-all duration-300 hover:scale-105">
-                🚀 立即添加LINE客服，開始學習！
-            </button>
-        </div>
-
-        <!-- 開始按鈕 -->
-        <div id="start-button" class="text-center fade-in delay-2">
-            <button onclick="startQuestionnaire()" class="w-full btn-primary font-bold py-4 px-6 rounded-xl text-lg pulse-gold transition-all duration-300 hover:scale-105">
-                🎯 立即開始免費課程評估
-            </button>
+            
+            <!-- 行動號召 -->
+            <div class="text-center">
+                <button onclick="k2()" class="w-full btn-primary font-bold py-4 px-6 rounded-xl text-lg pulse-gold transition-all duration-300 hover:scale-105">
+                    🚀 立即添加LINE客服，開始學習！
+                </button>
+            </div>
         </div>
     </div>
 
@@ -182,8 +198,8 @@
         let answers = {};
 
         function startQuestionnaire() {
-            document.getElementById('start-button').style.display = 'none';
-            document.getElementById('question1').style.display = 'block';
+            document.getElementById('welcome-section').style.display = 'none';
+            document.getElementById('question1').style.display = 'flex';
             document.getElementById('question1').classList.add('fade-in');
             currentStep = 1;
         }
@@ -197,7 +213,7 @@
             }
             
             document.getElementById('question1').style.display = 'none';
-            document.getElementById('question2').style.display = 'block';
+            document.getElementById('question2').style.display = 'flex';
             document.getElementById('question2').classList.add('fade-in');
             currentStep = 2;
         }
@@ -217,14 +233,8 @@
 
         function proceedToResult() {
             document.getElementById('question2').style.display = 'none';
-            document.getElementById('result-section').style.display = 'block';
+            document.getElementById('result-section').style.display = 'flex';
             document.getElementById('result-section').classList.add('fade-in');
-            
-            setTimeout(() => {
-                document.getElementById('cta-section').style.display = 'block';
-                document.getElementById('cta-section').classList.add('fade-in');
-            }, 1000);
-            
             currentStep = 3;
         }
 
