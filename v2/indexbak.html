@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+           <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1151645430200478');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng Dụng Thay Đổi Kiểu Tóc & Tạo Video - Tải Ngay!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366F1',
+                        'primary-dark': '#4F46E5',
+                        secondary: '#F59E0B',
+                        accent: '#EC4899'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'pulse-custom': 'pulseCustom 2s infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'slide-in': 'slideIn 0.5s ease-in-out',
+                        'pulse-fast': 'pulse 1s infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        pulseCustom: {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+                            '50%': { transform: 'scale(1.05)', opacity: '0.8' }
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #6366F1 0%, #3B82F6 100%);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #6366F1 0%, #F59E0B 50%, #3B82F6 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+        .cta-button {
+            background: linear-gradient(45deg, #F59E0B, #EF4444);
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.4);
+        }
+        .work-item {
+            transition: transform 0.3s ease;
+        }
+        .work-item:hover {
+            transform: scale(1.05);
+        }
+        .marketing-badge {
+            animation: pulseCustom 2s infinite;
+        }
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-slide {
+            display: none;
+        }
+        .carousel-slide.active {
+            display: block;
+            animation: slideIn 0.5s ease-in-out;
+        }
+        .hot-tag {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <!-- Dark mode detection -->
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient flex items-center justify-center relative overflow-hidden" style="min-height: 90vh;">
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+
+        <div class="container mx-auto px-4 text-center relative z-10 animate-fade-in py-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- User Count -->
+                <div class="mb-4">
+                    <div class="inline-flex items-center bg-white/20 text-white px-6 py-3 rounded-full backdrop-blur-sm">
+                        <div class="flex -space-x-2 mr-3">
+                            <div class="w-8 h-8 bg-indigo-500 rounded-full border-2 border-white"></div>
+                            <div class="w-8 h-8 bg-blue-500 rounded-full border-2 border-white"></div>
+                            <div class="w-8 h-8 bg-yellow-500 rounded-full border-2 border-white"></div>
+                        </div>
+                        <span class="font-semibold">2.5M+ người đã tải</span>
+                    </div>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
+                    Tận Hưởng Sáng Tạo & Thời Trang
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-4 font-light">
+                   Thay đổi kiểu tóc trong ảnh, thay đổi khuôn mặt trong video bằng AI, tạo người kỹ thuật số AI, tạo video chỉ bằng một cú nhấp chuột, nhận câu trả lời tức thì cho lượng kiến ​​thức khổng lồ và tạo cùng một kiểu chỉ bằng một cú nhấp chuột từ vô số phiên bản sáng tạo, cho phép bạn trở thành một blogger sáng tạo mà không cần chụp ảnh.
+                </p>
+                <p class="text-lg text-white/80 mb-4">
+                    ✨ Được tin tưởng bởi hàng triệu người dùng toàn cầu
+                </p>
+                <div class="mb-6">
+                    <img src="img/1.jpg" 
+                         alt="Ứng dụng thay đổi kiểu tóc" 
+                         class="mx-auto rounded-2xl shadow-2xl max-w-md w-full glass-effect p-4">
+                </div>
+                
+                <!-- Marketing Badges -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+                    <div class="marketing-badge bg-white/90 text-gray-800 px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                        ⭐ 4.9/5 - 50K+ đánh giá
+                    </div>
+                    <div class="marketing-badge bg-secondary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                        🏆 #1 App Thời Trang 2025
+                    </div>
+                </div>
+                
+                <button onclick="scrollToDownload()" class="cta-button text-white px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 animate-pulse-custom">
+                  Dùng thử miễn phí cho người dùng mới
+                </button>
+                
+                <!-- Trust Indicators -->
+                <div class="mt-4 flex flex-wrap justify-center items-center gap-6 text-white/80 text-sm">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Hoàn toàn miễn phí
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Không quảng cáo
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Bảo mật tuyệt đối
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce-slow">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-8 md:py-12 bg-gray-50 dark:bg-gray-800 border-y-4 border-secondary">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-3 gap-4 md:gap-6 text-center">
+                <div class="p-4">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">2.5M+</div>
+                    <div class="text-gray-600 dark:text-gray-300">Người dùng</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">50K+</div>
+                    <div class="text-gray-600 dark:text-gray-300">Đánh giá 5⭐</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">99%</div>
+                    <div class="text-gray-600 dark:text-gray-300">Hài lòng</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Works Section -->
+    <section class="py-12 md:py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 md:mb-16">
+                <div class="inline-block bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    🔥 TRENDING
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 md:mb-8 text-gray-800 dark:text-white">
+                    Tác Phẩm Hot Nhất
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300">Được tạo bởi cộng đồng 2.5M+ người dùng</p>
+            </div>
+            
+            <!-- Image Works Carousel -->
+            <div class="mb-8 md:mb-12">
+                <h3 class="text-2xl font-semibold mb-4 md:mb-8 text-center text-gray-700 dark:text-gray-300">Tác Phẩm Ảnh</h3>
+                <div class="carousel-container w-full max-w-lg md:max-w-md mx-auto relative">
+                    <!-- Carousel Slides -->
+                    <div class="carousel-slide active">
+                        <div class="work-item relative w-full">
+                            <img src="https://uywe97a.online/v2/img/1.png" 
+                                 alt="Tác phẩm 1" 
+                                 class="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg">
+                            <!-- Hot Tags -->
+                            <div class="absolute top-2 left-2">
+                                <span class="hot-tag bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">🔥 HOT</span>
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <span class="hot-tag bg-purple-500 text-white px-2 py-1 rounded-full text-xs font-bold">VIRAL</span>
+                            </div>
+                            <div class="absolute bottom-2 left-2">
+                                <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👍 1.2K</span>
+                            </div>
+                            <div class="absolute bottom-2 right-2">
+                                <span class="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold">TRENDING</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <div class="work-item relative w-full">
+                            <img src="https://uywe97a.online/v2/img/2.png" 
+                                 alt="Tác phẩm 2" 
+                                 class="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg">
+                            <div class="absolute top-2 left-2">
+                                <span class="hot-tag bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold">🚀 POPULAR</span>
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <span class="hot-tag bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold">TOP</span>
+                            </div>
+                            <div class="absolute bottom-2 left-2">
+                                <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👍 980</span>
+                            </div>
+                            <div class="absolute bottom-2 right-2">
+                                <span class="bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">MUST SEE</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <div class="work-item relative w-full">
+                            <img src="https://uywe97a.online/v2/img/3.png" 
+                                 alt="Tác phẩm 3" 
+                                 class="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg">
+                            <div class="absolute top-2 left-2">
+                                <span class="hot-tag bg-pink-500 text-white px-2 py-1 rounded-full text-xs font-bold">💎 PREMIUM</span>
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <span class="hot-tag bg-indigo-500 text-white px-2 py-1 rounded-full text-xs font-bold">FEATURED</span>
+                            </div>
+                            <div class="absolute bottom-2 left-2">
+                                <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👍 1.5K</span>
+                            </div>
+                            <div class="absolute bottom-2 right-2">
+                                <span class="bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">🔥 VIRAL</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <div class="work-item relative w-full">
+                            <img src="https://uywe97a.online/v2/img/4.png" 
+                                 alt="Tác phẩm 4" 
+                                 class="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg">
+                            <div class="absolute top-2 left-2">
+                                <span class="hot-tag bg-emerald-500 text-white px-2 py-1 rounded-full text-xs font-bold">⭐ BEST</span>
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <span class="hot-tag bg-rose-500 text-white px-2 py-1 rounded-full text-xs font-bold">NEW</span>
+                            </div>
+                            <div class="absolute bottom-2 left-2">
+                                <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👍 2.1K</span>
+                            </div>
+                            <div class="absolute bottom-2 right-2">
+                                <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs font-bold">AMAZING</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Carousel Navigation Dots -->
+                    <div class="flex justify-center mt-4 space-x-2">
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-primary transition-all duration-300" onclick="goToSlide(0)"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" onclick="goToSlide(1)"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" onclick="goToSlide(2)"></button>
+                        <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300" onclick="goToSlide(3)"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Works -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-4 md:mb-8 text-center text-gray-700 dark:text-gray-300">Tác Phẩm Video</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <div class="work-item bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-white text-center">
+                           Tạo ra con người kỹ thuật số, tải lên ảnh hoặc video và kịch bản quảng cáo, và nó có thể được tạo ra chỉ bằng một cú nhấp chuột.
+                        </h4>
+                        <div class="relative mb-4">
+                            <video src="v/1.mp4" 
+                                   class="w-full min-h-64 rounded-xl shadow-lg" 
+                                   controls
+                                   autoplay
+                                   muted
+                                   loop
+                                   style="aspect-ratio: 16/9;">
+                            </video>
+                            <div class="absolute bottom-2 left-2">
+                                <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 5.2K</span>
+                            </div>
+                        </div>
+                        <button onclick="generateNow()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                            Sử dụng miễn phí
+                        </button>
+                    </div>
+                    <div class="work-item bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-white text-center">
+                           Bạn muốn thử kiểu tóc nào phù hợp nhất với mình? Tải ảnh lên và thay đổi kiểu tóc chỉ với một cú nhấp chuột, để bạn có thể tự tin mỗi ngày.
+                        </h4>
+                        <div class="relative mb-4">
+                            <video src="v/2.mp4" 
+                                   class="w-full min-h-64 rounded-xl shadow-lg" 
+                                   controls
+                                   autoplay
+                                   muted
+                                   loop
+                                   style="aspect-ratio: 16/9;">
+                            </video>
+                            <div class="absolute bottom-2 left-2">
+                                <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 3.8K</span>
+                            </div>
+                        </div>
+                        <button onclick="generateNow()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                            Sử dụng miễn phí
+                        </button>
+                    </div>
+                    <div class="work-item bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-white text-center">
+                           AI có rất nhiều ý tưởng video. Chỉ cần tải ảnh lên và chỉnh sửa theo ý thích.
+                        </h4>
+                        <div class="relative mb-4">
+                            <video src="v/3.mp4" 
+                                   class="w-full min-h-64 rounded-xl shadow-lg" 
+                                   controls
+                                   autoplay
+                                   muted
+                                   loop
+                                   style="aspect-ratio: 16/9;">
+                            </video>
+                            <div class="absolute bottom-2 left-2">
+                                <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 7.1K</span>
+                            </div>
+                        </div>
+                        <button onclick="generateNow()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                            Sử dụng miễn phí
+                        </button>
+                    </div>
+                    <div class="work-item bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-gray-800 dark:text-white text-center">
+                           AI có rất nhiều ý tưởng video. Chỉ cần tải ảnh lên và chỉnh sửa theo ý thích.
+                        </h4>
+                        <div class="relative mb-4">
+                            <video src="v/4.mp4" 
+                                   class="w-full min-h-64 rounded-xl shadow-lg" 
+                                   controls
+                                   autoplay
+                                   muted
+                                   loop
+                                   style="aspect-ratio: 16/9;">
+                            </video>
+                            <div class="absolute bottom-2 left-2">
+                                <span class="bg-black/70 text-white px-2 py-1 rounded text-xs">👁️ 9.5K</span>
+                            </div>
+                        </div>
+                        <button onclick="generateNow()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                            Sử dụng miễn phí
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-12 md:py-20 bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-gray-800 dark:to-gray-700">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 md:mb-16">
+                <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    ⚡ TÍNH NĂNG ĐỈNH CAO
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-gray-800 dark:text-white">
+                    Giải Phóng Sáng Tạo, Thay Đổi Bản Thân!
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Khám phá những tính năng tuyệt vời giúp bạn tạo ra những khoảnh khắc đẹp nhất
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 md:gap-12 max-w-6xl mx-auto">
+                <!-- Photo Hair Change Feature -->
+                <div class="feature-card bg-white dark:bg-gray-600 rounded-3xl p-4 md:p-8 shadow-lg relative">
+                    <div class="absolute -top-4 -right-4">
+                        <div class="bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold">HOT</div>
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-blue-500 rounded-2xl flex items-center justify-center mb-4 md:mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-gray-800 dark:text-white">Thay Đổi Kiểu Tóc</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4 text-sm md:text-base">
+                        Dễ dàng thử nghiệm các kiểu tóc khác nhau. Chỉ cần tải lên ảnh, chọn phong cách và xem ngay kết quả. 
+                        Từ tóc dài thanh lịch đến tóc ngắn thời trang, chúng tôi cung cấp vô số lựa chọn phong phú.
+                    </p>
+                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full mr-2">Miễn phí</span>
+                        <span>⭐ 4.8/5 - 25K đánh giá</span>
+                    </div>
+                </div>
+
+                <!-- Photo to Video Feature -->
+                <div class="feature-card bg-white dark:bg-gray-600 rounded-3xl p-4 md:p-8 shadow-lg relative">
+                    <div class="absolute -top-4 -right-4">
+                        <div class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">NEW</div>
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-center justify-center mb-4 md:mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-gray-800 dark:text-white">Ảnh Thành Video</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4 text-sm md:text-base">
+                        Biến ảnh tĩnh thành video động, thêm hiệu ứng và âm nhạc, chia sẻ những khoảnh khắc tuyệt vời 
+                        và trở thành tâm điểm trên mạng xã hội.
+                    </p>
+                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full mr-2">Độc quyền</span>
+                        <span>⭐ 4.9/5 - 30K đánh giá</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-10 md:py-16 bg-blue-50 dark:bg-gray-700">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 md:mb-12 text-gray-800 dark:text-white">
+                💬 Người Dùng Nói Gì?
+            </h2>
+            <div class="grid md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
+                <div class="bg-white dark:bg-gray-600 p-4 md:p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">5/5</span>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">"App tuyệt vời! Tôi đã thử hàng chục kiểu tóc mà không cần đến salon."</p>
+                    <div class="text-sm font-semibold text-gray-800 dark:text-white">- Minh Anh, 25 tuổi</div>
+                </div>
+                <div class="bg-white dark:bg-gray-600 p-4 md:p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">5/5</span>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">"Video AI cực kỳ ấn tượng. Bạn bè ai cũng hỏi làm sao!"</p>
+                    <div class="text-sm font-semibold text-gray-800 dark:text-white">- Thùy Linh, 28 tuổi</div>
+                </div>
+                <div class="bg-white dark:bg-gray-600 p-4 md:p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">5/5</span>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">"Giao diện đẹp, dễ sử dụng. Recommend 100%!"</p>
+                    <div class="text-sm font-semibold text-gray-800 dark:text-white">- Hoàng Nam, 22 tuổi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="download-section" class="py-12 md:py-20 gradient-bg relative overflow-hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-10"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <div class="max-w-2xl mx-auto glass-effect rounded-3xl p-6 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">
+                    Nhấp Để Tạo Ngay
+                </h2>
+                <p class="text-xl text-white/90 mb-2">
+                    Nhập nội dung và mã mời để trải nghiệm
+                </p>
+                <p class="text-white/80 text-sm mb-6 md:mb-8">
+                    🎁 Miễn phí vĩnh viễn - Tất cả tính năng đều được mở khóa
+                </p>
+                
+              
+                
+                <button onclick="generateNow()" class="cta-button w-full text-white px-8 py-4 rounded-xl text-lg font-semibold mb-4 md:mb-6 animate-pulse-custom">
+                    🚀 Tạo Miễn Phí Ngay - Vĩnh Viễn
+                </button>
+                
+                <div class="text-white/80 text-sm space-y-2">
+                    <p>✅ Hoàn toàn miễn phí • Không cần thẻ tín dụng</p>
+                    <p>🔒 Bảo mật SSL 256-bit • Dữ liệu được mã hóa</p>
+                    <p>⚡ Kích hoạt tức thì • Hỗ trợ 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-12 md:py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-gray-800 dark:text-white">
+                    Tải Ngay, Trải Nghiệm Hành Trình Sáng Tạo!
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto">
+                    Trở thành phiên bản thời trang nhất của chính mình, bất kể lúc nào, bất kể ở đâu, 
+                    tận hưởng niềm vui sáng tạo không giới hạn
+                </p>
+                
+                <!-- Final Trust Signals -->
+                <div class="flex flex-wrap justify-center items-center gap-6 md:gap-8 mb-6 md:mb-8 text-sm text-gray-600 dark:text-gray-300">
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-2">🏆</span>
+                        <span>#1 App Store</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-2">⭐</span>
+                        <span>4.9/5 trên 50K đánh giá</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-2">👥</span>
+                        <span>2.5M+ người tin tưởng</span>
+                    </div>
+                </div>
+                
+                <button onclick="scrollToDownload()" class="cta-button text-white px-12 py-4 rounded-full text-xl font-semibold animate-pulse-custom">
+                    🚀 Bắt Đầu Ngay - Miễn Phí 100%
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => {
+                dot.classList.remove('bg-primary');
+                dot.classList.add('bg-gray-300');
+            });
+            
+            slides[index].classList.add('active');
+            dots[index].classList.remove('bg-gray-300');
+            dots[index].classList.add('bg-primary');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+
+        // Auto-advance carousel every 3 seconds
+        setInterval(nextSlide, 3000);
+
+        function scrollToDownload() {
+            document.getElementById('download-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function k2() {
+            // k2 method implementation
+            console.log('k2 method called');
+        }
+
+        function generateNow() {
+  
+             fbq('track', 'Contact');
+      fbq('track', 'Purchase');
+            window.location.href = 'https://advantages.cc';
+        }
+    </script>
+</body>
+</html>
+
+
