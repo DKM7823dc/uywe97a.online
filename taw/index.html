@@ -112,11 +112,7 @@
                         <span class="font-bold text-sm">重振雄風💪 恢復活力🔥 重燃激情</span>
                     </div>
                     
-                    <div class="bg-yellow-400 text-red-600 p-3 rounded-lg text-center border-2 border-red-600">
-                        <div class="font-black text-lg">
-                            🎁 免費領取，一對一指導，現在就開始吧。
-                        </div>
-                    </div>
+
                     
                     <div class="bg-green-600 text-white p-2 rounded-lg mt-2 text-center">
                         <span class="font-bold text-xs">✅ 已有2000+學員成功恢復活力</span>
@@ -212,7 +208,7 @@
     </div>
 
     <!-- 底部懸浮按鈕 -->
-    <div class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-blue-900 to-transparent z-50">
+    <div id="floating-button" class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-blue-900 to-transparent z-50">
         <div class="max-w-md mx-auto">
             <button onclick="startQuestionnaire()" class="w-full btn-primary font-bold py-4 px-6 rounded-xl text-lg pulse-gold transition-all duration-300 hover:scale-105 shadow-2xl">
                 🎯 立即開始免費課程評估
@@ -226,6 +222,7 @@
 
         function startQuestionnaire() {
             document.getElementById('welcome-section').style.display = 'none';
+            document.getElementById('floating-button').style.display = 'none';
             document.getElementById('question1').style.display = 'flex';
             document.getElementById('question1').classList.add('fade-in');
             currentStep = 1;
