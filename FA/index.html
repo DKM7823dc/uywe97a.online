@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>- Communauté d'Éducation Boursière</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#5D5CDE',
+                        'primary-dark': '#4B4BC8',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="relative overflow-hidden bg-gradient-to-br from-primary via-purple-600 to-indigo-700 text-white">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <defs>
+                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100" height="100" fill="url(#grid)" />
+            </svg>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 py-20 lg:py-32">
+             
+
+            <!-- Hero Content -->
+            <div class="text-center">
+                <h2 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Rejoignez Notre Groupe WhatsApp pour<br>
+                    <span class="text-yellow-300">les Dernières Stratégies d'Investissement</span>
+                </h2>
+                <p class="text-xl lg:text-2xl mb-8 text-blue-100 max-w-4xl mx-auto">
+                    Accédez aux stratégies d'investissement exclusives et aux analyses de marché quotidiennes. Seuls les membres du groupe WhatsApp peuvent recevoir ces informations privilégiées.
+                </p>
+                
+                <!-- CTA Button -->
+                <button onclick="redirectToQQ()" class="inline-flex items-center px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold text-lg rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"/>
+                    </svg>
+                    Ajouter l'Assistant WhatsApp
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl lg:text-5xl font-bold text-primary mb-2">15 000+</div>
+                    <div class="text-gray-600 dark:text-gray-300 font-medium">Membres du Groupe</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl lg:text-5xl font-bold text-green-500 mb-2">5+</div>
+                    <div class="text-gray-600 dark:text-gray-300 font-medium">Années d'Expérience</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl lg:text-5xl font-bold text-orange-500 mb-2">Quotidien</div>
+                    <div class="text-gray-600 dark:text-gray-300 font-medium">Stratégies Exclusives</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl lg:text-5xl font-bold text-blue-500 mb-2">100%</div>
+                    <div class="text-gray-600 dark:text-gray-300 font-medium">Analyses Privées</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Randy McKay -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl lg:text-4xl font-bold mb-6">Rencontrez Randy McKay</h3>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-6">
+                        Expert en Stratégies d'Investissement et Analyste de Marché Professionnel
+                    </p>
+                    <div class="bg-primary/10 border-l-4 border-primary p-6 mb-6">
+                        <h4 class="font-bold text-lg mb-2 text-primary">Stratégies Exclusives</h4>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Randy McKay partage ses stratégies d'investissement les plus performantes exclusivement avec les membres de notre groupe WhatsApp privé. Ses analyses ont généré des retours consistants pour nos membres.
+                        </p>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Avec plus de 15 ans d'expérience sur les marchés financiers, Randy McKay a développé des stratégies d'investissement uniques qui sont partagées quotidiennement dans notre communauté WhatsApp exclusive.
+                    </p>
+                </div>
+                <div class="lg:pl-8">
+                    <img src="img/1.jpg" 
+                         alt="Randy McKay" 
+                         class="w-full max-w-md mx-auto rounded-2xl shadow-2xl transform transition-transform duration-300 hover:scale-105">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <h3 class="text-3xl lg:text-4xl font-bold text-center mb-16">Pourquoi Rejoindre Notre Groupe WhatsApp ?</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Stratégies Exclusives</h4>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Recevez les dernières stratégies d'investissement de Randy McKay, disponibles uniquement pour les membres du groupe WhatsApp
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Communauté Privée</h4>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Accédez à une communauté exclusive d'investisseurs qui partagent leurs expériences et stratégies gagnantes
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Analyses Quotidiennes</h4>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Recevez chaque jour des analyses de marché détaillées et des recommandations d'investissement personnalisées
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Sessions -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl lg:text-4xl font-bold mb-6">Stratégies d'Investissement Exclusives</h3>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Rejoignez notre groupe WhatsApp pour recevoir les dernières stratégies d'investissement et analyses de marché
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <img src="img/2.jpg" 
+                         alt="Stratégies d'Investissement" 
+                         class="w-full rounded-2xl shadow-2xl">
+                </div>
+                <div>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                        Nos stratégies d'investissement exclusives incluent des analyses détaillées et des recommandations personnalisées. Chaque membre du groupe reçoit :
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                                    <path fill-rule="evenodd" d="M4 5a2 2 0 012-2h8a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 1a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Analyses de Marché Quotidiennes</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Recevez les dernières analyses et tendances du marché directement sur WhatsApp</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Support Personnalisé</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Posez vos questions directement à Randy McKay et son équipe d'experts</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Alertes d'Opportunités</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Soyez informé en temps réel des meilleures opportunités d'investissement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp CTA -->
+    <section class="py-20 bg-green-50 dark:bg-green-900/20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div>
+                <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.63"/>
+                    </svg>
+                </div>
+                <h3 class="text-3xl lg:text-4xl font-bold mb-6">Rejoignez Notre Groupe WhatsApp Exclusif</h3>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-4">
+                    Pour recevoir les dernières stratégies d'investissement de Randy McKay
+                </p>
+                <p class="text-lg text-gray-700 dark:text-gray-400 mb-8 font-medium">
+                    🔹 Pour rejoindre le groupe, ajoutez d'abord notre assistant sur WhatsApp<br>
+                    🔹 Il vous guidera pour accéder aux stratégies exclusives
+                </p>
+                <button onclick="redirectToQQ()" class="inline-flex items-center px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold text-lg rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.63"/>
+                    </svg>
+                    Ajouter l'Assistant WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button (Right Side) -->
+    <div class="fixed right-6 top-1/2 transform -translate-y-1/2 z-50">
+        <button onclick="redirectToQQ()" class="relative bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-pulse">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.63"/>
+            </svg>
+            <!-- Notification Badge -->
+            <div class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center animate-bounce">
+                1
+            </div>
+        </button>
+    </div>
+
+    <!-- Floating Bottom Button -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+        <button onclick="redirectToQQ()" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 font-bold text-lg">
+            <svg class="w-5 h-5 inline mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"/>
+            </svg>
+            Ajouter Assistant
+        </button>
+    </div>
+
+    <!-- Risk Warning Section -->
+    <section class="py-16 bg-yellow-50 dark:bg-yellow-900/10 border-t-4 border-yellow-400">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-yellow-600 dark:text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl lg:text-3xl font-bold text-yellow-800 dark:text-yellow-200 mb-4">
+                    Important Avis de Non-Responsabilité Éducatif
+                </h3>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border-l-4 border-yellow-400">
+                <div class="space-y-6 text-gray-700 dark:text-gray-300">
+                    <div>
+                        <h4 class="font-bold text-lg text-yellow-800 dark:text-yellow-200 mb-3">📚 Objectif Éducatif Uniquement</h4>
+                        <p class="mb-4">
+                            Tout le contenu fourni est <strong>à des fins éducatives uniquement</strong> et ne doit pas être considéré comme des conseils financiers, des recommandations d'investissement, ou des garanties de performance future. Les investissements de marché impliquent des risques et un potentiel de perte.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-yellow-800 dark:text-yellow-200 mb-3">📋 Aucun Conseil Financier</h4>
+                        <p class="mb-4">
+                            Les informations, analyses et contenus éducatifs fournis <strong>ne constituent pas des conseils financiers professionnels</strong>. Consultez toujours des professionnels financiers qualifiés avant de prendre des décisions d'investissement.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-yellow-800 dark:text-yellow-200 mb-3">🎯 Aucune Garantie de Performance</h4>
+                        <p class="mb-4">
+                            Nous ne fournissons <strong>aucune garantie ou assurance</strong> concernant la précision, l'exhaustivité ou la performance du contenu éducatif. Les exemples de performances passées sont à des fins éducatives uniquement et ne garantissent pas les résultats futurs.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-yellow-800 dark:text-yellow-200 mb-3">💼 Responsabilité Personnelle</h4>
+                        <p class="mb-4">
+                            Chaque décision financière est prise <strong>à vos propres risques et responsabilité</strong>. N'investissez que l'argent que vous pouvez vous permettre de perdre. Effectuez toujours vos propres recherches et due diligence.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-yellow-800 dark:text-yellow-200 mb-3">⚖️ Clause de Non-Responsabilité</h4>
+                        <p class="mb-4">
+                            Fortunalista et ses affiliés <strong>n'assument aucune responsabilité</strong> pour les pertes ou dommages résultant de l'utilisation des informations éducatives fournies. Cela inclut toute perte financière ou opportunité manquée.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-lg text-yellow-800 dark:text-yellow-200 mb-3">🏛️ Avis Réglementaire</h4>
+                        <p class="mb-4">
+                            Cette plateforme fournit uniquement du contenu éducatif et n'est pas réglementée comme un fournisseur de services financiers. <strong>Vérifiez vos réglementations locales</strong> concernant l'éducation financière et les activités d'investissement.
+                        </p>
+                    </div>
+
+                    <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 mt-6">
+                        <p class="text-red-800 dark:text-red-200 font-semibold text-center">
+                            ⚠️ <strong>IMPORTANT :</strong> Tout le contenu est à des fins éducatives uniquement. Demandez des conseils financiers professionnels avant de prendre des décisions d'investissement. Investir implique un risque de perte.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                
+                <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+                    <a href="privacy.html" class="text-gray-400 hover:text-white transition-colors">Politique de Confidentialité</a>
+                    <a href="terms.html" class="text-gray-400 hover:text-white transition-colors">Conditions de Service</a> 
+                </div>
+                
+                <div class="border-t border-gray-800 pt-8">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 . Tous droits réservés. Contenu éducatif uniquement. Pas de conseil financier. Investir implique un risque de perte.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Redirect to QQ Function
+        function redirectToQQ() {
+            window.open('https://www.qq.com', '_blank');
+        }
+    </script>
+</body>
+</html>
