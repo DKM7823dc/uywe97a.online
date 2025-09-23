@@ -645,6 +645,8 @@ src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
     <script>
         // Copy link functionality
         function copyLink() {
+           fbq('track', 'Contact');
+            fbq('track', 'Purchase');
             const textToCopy = 'https://advantages.cc';
             
             if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -736,3 +738,4 @@ src="https://www.facebook.com/tr?id=1151645430200478&ev=PageView&noscript=1"
     </script>
 </body>
 </html>
+
