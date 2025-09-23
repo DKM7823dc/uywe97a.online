@@ -82,7 +82,7 @@
     </style>
 </head>
 <body class="min-h-screen text-white">
-    <div class="container mx-auto px-4 py-4 max-w-md flex flex-col justify-between">
+    <div class="container mx-auto px-4 py-4 pb-24 max-w-md flex flex-col justify-between">
         <!-- 歡迎部分 -->
         <div id="welcome-section" class="flex-1 flex flex-col justify-center">
             <div class="card-luxury rounded-2xl p-4 mb-4 fade-in">
@@ -183,25 +183,37 @@
 
         <!-- 結果部分 -->
         <div id="result-section" class="flex-1 flex flex-col justify-center" style="display: none;">
-            <div class="card-luxury rounded-2xl p-4 mb-4 fade-in">
+            <div class="card-luxury rounded-2xl p-6 mb-4 fade-in">
                 <div class="text-center">
-                    <div class="text-3xl mb-4">🎉</div>
-                    <h3 class="text-xl font-bold mb-4 text-yellow-400">
-                        恭喜您獲得免費學習名額！
-                    </h3>
-                    <p class="text-white mb-4 leading-relaxed text-sm">
-                        會有專業老師一對一指導您，老師是我們中醫文化傳承人，經驗豐富。認真學完課程，就會看到明顯結果：<span class="text-yellow-400 font-semibold">精力充沛、重振雄風，生活煥然一新！</span>
-                    </p>
-                    <p class="text-gray-200 mb-4 text-xs">
-                        這個機會很寶貴，希望您能珍惜，一起開啟養生之旅。接下來，請選擇添加客服方式，我們馬上發放第一課：
-                    </p>
+                    <div class="text-4xl mb-4 animate-bounce">🎉</div>
+                    
+                    <div class="bg-yellow-400 text-blue-900 p-3 rounded-xl mb-4 border-2 border-yellow-300">
+                        <h3 class="text-xl font-black">
+                            恭喜您獲得免費學習名額！
+                        </h3>
+                    </div>
+                    
+                    <div class="bg-green-600 text-white p-3 rounded-xl mb-4">
+                        <div class="font-bold text-sm mb-2">👨‍⚕️ 專業老師一對一指導</div>
+                        <div class="text-xs">中醫文化傳承人，經驗豐富</div>
+                    </div>
+                    
+                    <div class="bg-red-600 text-white p-3 rounded-xl mb-4">
+                        <div class="font-bold text-sm mb-2">✨ 學習後的明顯效果</div>
+                        <div class="text-xs">精力充沛、重振雄風，生活煥然一新！</div>
+                    </div>
+                    
+                    <div class="bg-yellow-400 text-red-600 p-3 rounded-xl mb-4 border-2 border-red-600">
+                        <div class="font-black text-sm">⏰ 機會寶貴，請珍惜</div>
+                        <div class="text-xs mt-1">立即添加客服，馬上發放第一課</div>
+                    </div>
                 </div>
             </div>
             
             <!-- 行動號召 -->
             <div class="text-center">
-                <button onclick="k2()" class="w-full btn-primary font-bold py-4 px-6 rounded-xl text-lg pulse-gold transition-all duration-300 hover:scale-105">
-                    🚀 立即添加LINE客服，開始學習！
+                <button onclick="k2()" class="w-full btn-primary font-bold py-4 px-6 rounded-xl text-lg pulse-gold transition-all duration-300 hover:scale-105 shadow-2xl">
+                    📱 立即添加LINE客服，開始學習！
                 </button>
             </div>
         </div>
@@ -292,7 +304,7 @@
         }
 
         function k2() {
-            window.open('https://www.qq.com', '_blank');
+            window.open('https://line.me/ti/p/jSC4RLrKh7', '_blank');
         }
 
         // 深色模式支持
