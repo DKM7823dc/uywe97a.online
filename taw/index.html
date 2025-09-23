@@ -86,27 +86,45 @@
         <!-- 歡迎部分 -->
         <div id="welcome-section" class="flex-1 flex flex-col justify-center">
             <div class="card-luxury rounded-2xl p-4 mb-4 fade-in">
-                <img src="01.jpg" alt="中醫補腎壯陽課程" class="w-full rounded-xl mb-3 shadow-2xl object-contain">
+                <div class="space-y-2 mb-3">
+                    <img src="https://yat910a.online/yag/images/01.jpg" alt="中醫補腎壯陽課程" class="w-full rounded-xl shadow-2xl object-contain">
+                    <img src="https://yat910a.online/yag/images/03.jpg" alt="中醫養生課程" class="w-full rounded-xl shadow-2xl object-contain">
+                </div>
                 
-                <div class="text-yellow-400 text-xl font-bold mb-3">
+                <div class="text-yellow-400 text-xl font-bold mb-3 text-center">
                     👋 歡迎來到免費中醫補腎壯陽課程！
                 </div>
                 
-                <p class="text-white text-sm leading-relaxed mb-3">
-                    這是專為<span class="text-yellow-400 font-semibold">50+男性</span>設計的養生秘籍，純中藥調理，真的有用，幫助您重振雄風💪、恢復活力🔥，讓生活重燃激情！
-                </p>
+                <div class="bg-red-600 text-yellow-400 p-2 rounded-lg mb-2 text-center border-2 border-yellow-400 animate-pulse">
+                    <span class="font-black text-xs">⚠️ 限時免費 僅限前100名 ⚠️</span>
+                </div>
                 
-                <div class="text-yellow-400 text-base font-semibold">
-                    🎁 免費領取，一對一指導，現在就開始吧。
+                <div class="mb-3">
+                    <div class="bg-red-600 text-white p-2 rounded-lg mb-2 text-center">
+                        <span class="text-yellow-400 font-black text-lg">專為50+男性設計</span>
+                    </div>
+                    
+                    <div class="bg-yellow-400 text-blue-900 p-2 rounded-lg mb-2 text-center">
+                        <span class="font-bold text-sm">純中藥調理，真的有用</span>
+                    </div>
+                    
+                    <div class="bg-red-600 text-white p-2 rounded-lg mb-2 text-center">
+                        <span class="font-bold text-sm">重振雄風💪 恢復活力🔥 重燃激情</span>
+                    </div>
+                    
+                    <div class="bg-yellow-400 text-red-600 p-3 rounded-lg text-center border-2 border-red-600">
+                        <div class="font-black text-lg">
+                            🎁 免費領取，一對一指導，現在就開始吧。
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-600 text-white p-2 rounded-lg mt-2 text-center">
+                        <span class="font-bold text-xs">✅ 已有2000+學員成功恢復活力</span>
+                    </div>
                 </div>
             </div>
             
-            <!-- 開始按鈕 -->
-            <div class="text-center fade-in delay-2">
-                <button onclick="startQuestionnaire()" class="w-full btn-primary font-bold py-4 px-6 rounded-xl text-lg pulse-gold transition-all duration-300 hover:scale-105">
-                    🎯 立即開始免費課程評估
-                </button>
-            </div>
+
         </div>
 
         <!-- 問題1 -->
@@ -193,6 +211,15 @@
         </div>
     </div>
 
+    <!-- 底部懸浮按鈕 -->
+    <div class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-blue-900 to-transparent z-50">
+        <div class="max-w-md mx-auto">
+            <button onclick="startQuestionnaire()" class="w-full btn-primary font-bold py-4 px-6 rounded-xl text-lg pulse-gold transition-all duration-300 hover:scale-105 shadow-2xl">
+                🎯 立即開始免費課程評估
+            </button>
+        </div>
+    </div>
+
     <script>
         let currentStep = 0;
         let answers = {};
@@ -268,7 +295,7 @@
         }
 
         function k2() {
-            window.open('https://line.me/ti/p/jSC4RLrKh7', '_blank');
+            window.open('https://www.qq.com', '_blank');
         }
 
         // 深色模式支持
