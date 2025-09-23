@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Sinyal Investasi Saham Cerdas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0B1426 0%, #1E3A5F 50%, #0B1426 100%);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .hero-section {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(45deg, #0B1426, #1E3A5F);
+        }
+
+        .hero-title {
+            font-size: 3em;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            color: #E8F4F8;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #FFD700;
+            object-fit: cover;
+        }
+
+        .profile-info h3 {
+            color: #FFD700;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 16px 0;
+                margin: 16px 0;
+            }
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.8em;
+                line-height: 1.2;
+            }
+        }
+
+        .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .content-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .content-image {
+            text-align: center;
+        }
+
+        .content-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Problem Points */
+        .problem-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, #1E3A5F, #0B1426);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #FFD700;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .problem-card h4 {
+            color: #FFD700;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        /* Solution Cards */
+        .solution-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, #2A4A73, #1E3A5F);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #FFD700;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .testimonial {
+            background: linear-gradient(135deg, #1E3A5F, #0B1426);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #FFD700;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .testimonial-name {
+            color: #FFD700;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Buttons */
+        .cta-button {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            margin: 20px 10px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(45deg, #FFA500, #FF8C00);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            z-index: 1000;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            animation: breathe 2s ease-in-out infinite;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-float::before {
+            content: "1";
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #FF4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        /* Floating Bottom Button */
+        .floating-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .floating-cta {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            border: none;
+            padding: 20px 60px;
+            font-size: 1.3em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            animation: breathe 3s ease-in-out infinite;
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            padding: 40px 0;
+            margin-top: 80px;
+            margin-bottom: 100px;
+        }
+
+        .risk-disclosure {
+            background: #1A1A1A;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 2px solid #FFD700;
+        }
+
+        .risk-disclosure h4 {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .risk-disclosure ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .risk-disclosure li {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .risk-disclosure li::before {
+            content: "*";
+            color: #FFD700;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #FFD700;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #FFD700;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            background: #FFD700;
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-links a {
+                width: 200px;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2em;
+            }
+            
+            .section-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .whatsapp-float {
+                right: 15px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .floating-cta {
+                padding: 15px 40px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float" onclick="k2()">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.89 3.215"/>
+        </svg>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Selamat Datang di Masa Depan Keuangan Ideal Anda</h1>
+            <p class="hero-subtitle">Bergabunglah dengan grup investasi saham eksklusif dengan panduan dari ahli yang berpengalaman lebih dari 10 tahun dalam manajemen kekayaan pribadi dan analisis saham venture capital.</p>
+            
+            <div class="profile-section">
+                <img src="img/1.jpg" alt="Edwin Gerunga" class="profile-image">
+                <div class="profile-info">
+                    <h3>Edwin Gerunga</h3>
+                    <p>Analis Investasi Senior</p>
+                    <p>Pengalaman 10+ Tahun dalam Manajemen Kekayaan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 1: Smart Signals -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title">Era Baru Investasi Saham: Grup Sinyal Eksklusif</h2>
+            <div class="section-content">
+                <div class="content-text">
+                    <h3 style="color: #FFD700; margin-bottom: 20px;">Semua Informasi Penting Ada di Grup Kami!</h3>
+                    <p>Di grup eksklusif kami, semua member mendapatkan akses ke strategi investasi terdepan dan informasi pasar real-time. Jangan kehilangan kesempatan emas untuk bergabung dengan komunitas investor sukses!</p>
+                    <p>Setiap hari, member grup mendapatkan analisis mendalam, sinyal trading terpercaya, dan strategi investasi yang telah terbukti menguntungkan.</p>
+                    <button class="cta-button" onclick="k2()">Gabung Grup VIP Sekarang</button>
+                </div>
+                <div class="content-image">
+                    <img src="img/2.jpg" alt="Grup Investasi Eksklusif">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Problems -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title">Mengapa Kebanyakan Investor Gagal?</h2>
+            <div class="problem-points">
+                <div class="problem-card">
+                    <h4>1. Informasi Terlambat</h4>
+                    <p>Saat informasi penting sudah tersebar luas, peluang terbaik sudah berlalu. Kebanyakan investor mendapat informasi setelah momen emas terlewati, membuat mereka selalu tertinggal dari pergerakan pasar.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>2. Tidak Ada Strategi Jelas</h4>
+                    <p>Tanpa panduan yang tepat dan strategi yang terbukti, banyak investor hanya mengandalkan keberuntungan. Mereka tidak tahu kapan masuk, kapan keluar, dan bagaimana mengelola risiko dengan benar.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>3. Bermain Sendirian</h4>
+                    <p>Investasi sendiri tanpa komunitas membuat investor rentan terhadap keputusan emosional. Tidak ada yang memberikan perspektif objektif saat pasar bergejolak atau saat harus membuat keputusan kritis.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>4. Kurangnya Akses ke Analisis Pro</h4>
+                    <p>Analisis profesional yang berkualitas biasanya mahal dan sulit diakses. Kebanyakan investor retail tidak memiliki akses ke research dan insight yang digunakan oleh investor institusional.</p>
+                </div>
+            </div>
+            <div class="content-image" style="text-align: center; margin: 40px 0;">
+                <img src="img/3.jpg" alt="Tantangan Investor">
+                <br><br>
+                <button class="cta-button" onclick="k2()">Akses Informasi Eksklusif di Grup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Solutions -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title">Keunggulan Eksklusif Member Grup Kami</h2>
+            <div class="solution-cards">
+                <div class="solution-card">
+                    <h4 style="color: #FFD700; margin-bottom: 15px;">1. Informasi Real-time di Grup</h4>
+                    <p>Semua member grup mendapat akses langsung ke sinyal trading, analisis pasar, dan strategi investasi terbaru. Informasi penting dibagikan secara real-time sehingga semua member bisa bertindak cepat pada peluang terbaik.</p>
+                </div>
+                <div class="solution-card">
+                    <h4 style="color: #FFD700; margin-bottom: 15px;">2. Strategi Teruji dari Ahli</h4>
+                    <p>Edwin Gerunga membagikan strategi investasi yang telah terbukti menguntungkan selama 10+ tahun. Semua member grup mendapat akses ke metode dan teknik yang sama yang digunakan oleh investor profesional.</p>
+                </div>
+                <div class="solution-card">
+                    <h4 style="color: #FFD700; margin-bottom: 15px;">3. Komunitas Investor Sukses</h4>
+                    <p>Bergabung dengan komunitas investor berpengalaman yang saling berbagi insight dan strategi. Di grup ini, semua member saling mendukung dan berbagi pengalaman untuk mencapai kesuksesan bersama.</p>
+                </div>
+                <div class="solution-card">
+                    <h4 style="color: #FFD700; margin-bottom: 15px;">4. Update Harian & Mingguan</h4>
+                    <p>Setiap hari member grup mendapat update pasar, analisis saham potensial, dan rekomendasi trading. Semua informasi disajikan dalam format yang mudah dipahami dan langsung dapat diterapkan.</p>
+                </div>
+            </div>
+             
+        </div>
+    </div>
+
+    <!-- Section 4: Testimonials -->
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title">Testimoni Member Grup</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>"Sejak bergabung di grup ini, saya selalu mendapat informasi terdepan. Strategi yang dibagikan Edwin sangat mudah diterapkan dan hasilnya luar biasa konsisten."</p>
+                    <div class="testimonial-name">- Sarah M., Member Grup VIP</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Grup ini benar-benar mengubah cara saya berinvestasi. Semua informasi penting ada di sini, dan saya tidak pernah lagi ketinggalan peluang bagus di pasar."</p>
+                    <div class="testimonial-name">- Mike R., Member Aktif</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Yang saya suka dari grup ini adalah informasinya selalu update dan akurat. Edwin selalu berbagi analisis mendalam yang membantu saya membuat keputusan yang tepat."</p>
+                    <div class="testimonial-name">- Jennifer L., Investor Sukses</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 5: Final CTA -->
+    <div class="section">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">Jangan Sampai Ketinggalan Lagi!</h2>
+            <p style="font-size: 1.3em; margin-bottom: 30px;">Bergabunglah dengan grup eksklusif kami sekarang dan dapatkan akses ke semua strategi investasi dan informasi penting yang dibagikan setiap hari. Semua member grup mendapat perlakuan yang sama - akses penuh ke semua konten premium!</p>
+            <button class="cta-button" onclick="k2()" style="font-size: 1.4em; padding: 25px 50px;">Masuk Grup VIP Sekarang!</button>
+            
+            <div style="margin: 50px 0;">
+                <h3 style="color: #FFD700; margin-bottom: 20px;">Semua Informasi Penting Ada di Grup!</h3>
+                <p style="font-size: 1.2em;">Jangan lewatkan kesempatan untuk menjadi bagian dari komunitas investor sukses. Bergabunglah sekarang dan mulai terima informasi eksklusif yang akan mengubah perjalanan investasi Anda!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="risk-disclosure">
+                <h4>⚠️ Pengungkapan Risiko Penting</h4>
+                <ul>
+                    <li>Layanan ini hanya untuk referensi dan tidak menyediakan layanan konsultasi investasi atau layanan perdagangan produk keuangan apa pun.</li>
+                    <li>Informasi yang diberikan hanya untuk referensi dan tidak boleh digunakan sebagai dasar untuk keputusan investasi.</li>
+                    <li>Risiko keputusan investasi akhir ditanggung oleh Anda.</li>
+                    <li>Akurasi data tidak dijamin.</li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <a href="Privacy.html" target="_blank">Kebijakan Privasi</a>
+                <a href="terms.html" target="_blank">Syarat Layanan</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Bottom Button -->
+    <div class="floating-bottom">
+        <button class="floating-cta" onclick="k2()">Gabung Grup untuk Info Trading Terbaru</button>
+    </div>
+
+    <script>
+        function k2() {
+            window.open('https://wa.me/11111', '_blank');
+        }
+
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Prevent zoom
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('touchstart', function (e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        });
+
+        // Smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
