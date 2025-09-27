@@ -85,6 +85,19 @@
             object-fit: contain;
             border-radius: 8px;
         }
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
     </style>
 </head>
 <body class="h-screen overflow-hidden gradient-bg">
@@ -257,13 +270,75 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 联系客服信息 -->
+                <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-6 border border-purple-200">
+                    <div class="text-center">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4">💬 联系信息</h3>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex justify-center items-center gap-2">
+                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-xs">QQ</span>
+                                </div>
+                                <span class="font-semibold text-gray-700">联系客服：</span>
+                                <span class="font-bold text-blue-600">2028772424</span>
+                            </div>
+                            <div class="flex justify-center items-center gap-2">
+                                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-xs">🥒</span>
+                                </div>
+                                <span class="font-semibold text-gray-700">丝瓜聊天：</span>
+                                <span class="font-bold text-green-600">BJTTY88</span>
+                            </div>
+                            <div class="flex justify-center items-center gap-2">
+                                <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-xs">💬</span>
+                                </div>
+                                <span class="font-semibold text-gray-700">旺旺商聊：</span>
+                                <span class="font-bold text-orange-600">987900812</span>
+                            </div>
+                        </div>
+                        
+                        <!-- 下载地址 -->
+                        <div class="space-y-2 text-sm">
+                            <div class="bg-white rounded-lg p-3 border">
+                                <p class="font-semibold text-gray-700 mb-1">旺商聊下载地址复制到浏览器打开</p>
+                                <p class="text-blue-600 font-mono break-all">https://www.wwtalk.com/</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-3 border">
+                                <p class="font-semibold text-gray-700 mb-1">丝瓜下载地址复制到浏览器打开</p>
+                                <p class="text-green-600 font-mono break-all">https://www.sigua.io/</p>
+                            </div>
+                        </div>
+
+                        <!-- 二维码 -->
+                        <div class="flex justify-center mt-4">
+                            <div class="qr-code">
+                                <div>
+                                    <div class="text-xs mb-1 font-bold">扫码下载丝瓜加客服</div>
+                                    <div class="grid grid-cols-8 gap-px">
+                                        <!-- 简单的二维码图案 -->
+                                        <div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div>
+                                        <div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div>
+                                        <div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div>
+                                        <div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-white"></div>
+                                        <div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div>
+                                        <div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div>
+                                        <div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div>
+                                        <div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-white"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div><div class="w-2 h-2 bg-black"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- JavaScript -->
     <script>
-        // k2函数 - 跳转到指定URL
+        // k2函数 - PG电子模拟器跳转
         function k2() {
             window.open('https://demo.cqgame.games/Home', '_blank');
         }
@@ -271,6 +346,11 @@
         // k3函数 - 深夜福利专用跳转
         function k3() {
             window.open('https://missav.ws/dm15/cn', '_blank');
+        }
+
+        // k4函数 - 新用户必中大奖跳转
+        function k4() {
+            window.open('https://sgty002.com', '_blank');
         }
 
         // Tab切换功能
@@ -300,9 +380,9 @@
             });
         });
 
-        // 新用户按钮点击事件
+        // 新用户按钮点击事件 - 调用k4()方法
         document.getElementById('newUserBtn').addEventListener('click', function() {
-            k2();
+            k4();
         });
     </script>
 </body>
