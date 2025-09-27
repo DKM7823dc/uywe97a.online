@@ -750,19 +750,45 @@
         
         .floating-cta {
             background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            border: none;
+            outline: none;
             color: var(--white);
             font-weight: 600;
             padding: 16px 36px;
             border-radius: 50px;
-            border: none;
             font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
             min-width: 300px;
-            justify-content: center;
+            text-decoration: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .floating-cta:hover {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        .floating-cta:focus {
+            outline: none;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        .floating-cta:active {
+            transform: translateY(0px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
         }
         
         .floating-cta svg {
@@ -862,6 +888,18 @@
             
             .process-step {
                 padding: 20px;
+            }
+            
+            .floating-btn {
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                transform: none;
+            }
+            
+            .floating-cta {
+                min-width: auto;
+                width: 100%;
             }
         }
     </style>
@@ -1151,5 +1189,3 @@
     </script>
 </body>
 </html>
-
-
