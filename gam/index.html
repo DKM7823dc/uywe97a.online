@@ -35,12 +35,12 @@
         }
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.75rem;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.5rem;
         }
         .tab-content {
             display: block;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
         .tab-button {
             transition: all 0.3s ease;
@@ -78,10 +78,10 @@
             border: 1px solid rgba(229, 231, 235, 0.5);
         }
         .game-logo {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             object-fit: contain;
-            border-radius: 8px;
+            border-radius: 6px;
         }
     </style>
 </head>
@@ -100,13 +100,13 @@
         });
     </script>
 
-    <div class="h-screen flex p-12">
+    <div class="h-screen flex p-8">
         <!-- 左侧主内容区域 -->
-        <div class="w-2/5 pr-8 flex flex-col">
-            <div class="left-content rounded-3xl p-12 text-gray-800 h-full flex flex-col justify-center">
+        <div class="w-2/5 pr-6 flex flex-col">
+            <div class="left-content rounded-3xl p-10 text-gray-800 h-full flex flex-col justify-center">
                 <!-- 品牌标识区 -->
-                <div class="mb-12">
-                    <div class="flex items-center gap-3 mb-8">
+                <div class="mb-10">
+                    <div class="flex items-center gap-3 mb-6">
                         <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
                             <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
@@ -118,7 +118,7 @@
                     </div>
                     
                     <p class="text-xl mb-3 text-gray-600">欢迎光临本站</p>
-                    <h2 class="text-2xl font-bold mb-8 leading-relaxed text-gray-800">全网最火爆娱乐，百万担保,大额无忧，<br/>认准PG电子模拟器⁡</h2>
+                    <h2 class="text-2xl font-bold mb-6 leading-relaxed text-gray-800">全网最火爆娱乐，百万担保,大额无忧，<br/>认准PG电子模拟器⁡</h2>
                 </div>
 
                 <!-- 搜索功能区 -->
@@ -138,156 +138,144 @@
         </div>
 
         <!-- 右侧游戏区域 -->
-        <div class="w-3/5 pl-8 flex items-center justify-center">
-            <div class="right-content rounded-3xl p-8 text-gray-800 h-full flex flex-col max-w-4xl w-full">
+        <div class="w-3/5 pl-6 flex items-center justify-center">
+            <div class="right-content rounded-3xl p-6 text-gray-800 h-full flex flex-col max-w-4xl w-full">
                 <!-- 新用户按钮 -->
-                <div class="mb-8 mt-6">
-                    <button id="newUserBtn" class="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white text-lg font-bold py-4 px-6 rounded-2xl hover-scale transition-all duration-200 shadow-lg">
+                <div class="mb-6 mt-4">
+                    <button id="newUserBtn" class="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white text-lg font-bold py-3 px-6 rounded-2xl hover-scale transition-all duration-200 shadow-lg">
                         🔥 新用户必中大奖
                     </button>
                 </div>
 
                 <!-- Tab导航 -->
-                <div class="flex mb-8 gap-3">
-                    <button class="tab-button active flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="pg">⚛️ PG电子模拟器</button>
-                    <button class="tab-button flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="night">🌙 深夜福利</button> 
+                <div class="flex mb-6 gap-3">
+                    <button class="tab-button active flex-1 py-3 px-4 rounded-xl font-bold text-center border-2" data-tab="pg">⚛️ PG电子模拟器</button>
+                    <button class="tab-button flex-1 py-3 px-4 rounded-xl font-bold text-center border-2" data-tab="night">🌙 深夜福利</button> 
                 </div>
 
                 <!-- Tab内容区域 -->
-                <div class="flex-1 overflow-y-auto mb-6">
+                <div class="flex-1 mb-4">
                     <!-- PG电子模拟器 -->
                     <div id="pg" class="tab-content">
-                        <h4 class="text-xl font-bold text-gray-800 mb-4">⚛️ PG电子模拟器</h4>
+                        <h4 class="text-lg font-bold text-gray-800 mb-3">⚛️ PG电子模拟器</h4>
                         <div class="game-grid">
-                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg3.mom/files/upload/20250406120847245.webp" alt="BB模拟器" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">BB模拟器</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/files/upload/20250406120847245.webp" alt="BB模拟器" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">BB模拟器</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg3.mom/files/upload/20250406120938520.webp" alt="PS模拟器" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">PS模拟器</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/files/upload/20250406120938520.webp" alt="PS模拟器" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">PS模拟器</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg3.mom/files/upload/20250406121103545.webp" alt="JDB试玩" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">JDB试玩</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/files/upload/20250406121103545.webp" alt="JDB试玩" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">JDB试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg3.mom/img/mnq/cq9.webp" alt="CQ9试玩" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">CQ9试玩</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/cq9.webp" alt="CQ9试玩" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">CQ9试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg3.mom/img/mnq/ky.webp" alt="开元试玩" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">开元试玩</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/ky.webp" alt="开元试玩" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">开元试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg3.mom/img/mnq/zr.webp" alt="真人试玩" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">真人试玩</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/zr.webp" alt="真人试玩" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">真人试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg3.mom/img/mnq/ly.webp" alt="乐游试玩" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">乐游试玩</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/ly.webp" alt="乐游试玩" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">乐游试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg3.mom/img/mnq/cg.webp" alt="CG试玩" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">CG试玩</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/cg.webp" alt="CG试玩" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">CG试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg3.mom/img/mnq/mg.png" alt="MG试玩" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">MG试玩</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/mg.png" alt="MG试玩" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">MG试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg3.mom/img/mnq/hb.webp" alt="HB试玩" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">HB试玩</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/hb.webp" alt="HB试玩" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">HB试玩</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- 深夜福利 -->
                     <div id="night" class="tab-content">
-                        <h4 class="text-xl font-bold text-gray-800 mb-4">🌙 深夜福利</h4>
+                        <h4 class="text-lg font-bold text-gray-800 mb-3">🌙 深夜福利</h4>
                         <div class="game-grid">
-                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg1.mom/files/upload/20250722064500916.webp" alt="MISSAV" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">MISSAV</p>
+                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064500916.webp" alt="MISSAV" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">MISSAV</p>
                             </div>
-                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg1.mom/files/upload/20250722064522544.webp" alt="Pornhub" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">Pornhub</p>
+                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064522544.webp" alt="Pornhub" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">Pornhub</p>
                             </div>
-                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg1.mom/files/upload/20250722064551673.webp" alt="JABLE" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">JABLE</p>
+                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064551673.webp" alt="JABLE" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">JABLE</p>
                             </div>
-                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg1.mom/files/upload/20250722064625559.webp" alt="NJAV" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">NJAV</p>
+                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064625559.webp" alt="NJAV" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">NJAV</p>
                             </div>
-                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg1.mom/files/upload/20250722064644161.webp" alt="BEEG" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">BEEG</p>
+                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064644161.webp" alt="BEEG" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">BEEG</p>
                             </div>
-                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg1.mom/files/upload/20250722064715315.webp" alt="YouPorn" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">YouPorn</p>
+                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064715315.webp" alt="YouPorn" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">YouPorn</p>
                             </div>
-                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg1.mom/files/upload/20250722064757708.webp" alt="iQQTV" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">iQQTV</p>
+                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064757708.webp" alt="iQQTV" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">iQQTV</p>
                             </div>
-                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg1.mom/files/upload/20250722064820268.webp" alt="13AV" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">13AV</p>
+                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064820268.webp" alt="13AV" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">13AV</p>
                             </div>
-                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg1.mom/files/upload/20250722064836390.webp" alt="麻豆传媒" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">麻豆传媒</p>
+                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064836390.webp" alt="麻豆传媒" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">麻豆传媒</p>
                             </div>
-                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg1.mom/files/upload/20250722064857316.webp" alt="啪啪啦" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">啪啪啦</p>
+                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064857316.webp" alt="啪啪啦" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">啪啪啦</p>
                             </div>
-                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg1.mom/files/upload/20250722064920138.webp" alt="吃瓜网" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">吃瓜网</p>
+                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064920138.webp" alt="吃瓜网" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">吃瓜网</p>
                             </div>
-                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg1.mom/files/upload/20250722064937787.webp" alt="爆料网" class="game-logo mx-auto mb-2">
-                                <p class="font-semibold text-sm text-gray-800">爆料网</p>
+                            <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064937787.webp" alt="爆料网" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">爆料网</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- 联系客服信息 -->
-                <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-6 border border-purple-200">
+                <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-4 border border-purple-200">
                     <div class="text-center">
-                        <h3 class="text-lg font-bold text-gray-800 mb-4">💬 联系信息</h3>
-                        <div class="space-y-3 mb-4">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">💬 联系信息</h3>
+                        <div class="space-y-2 mb-3">
                             <div class="flex justify-center items-center gap-2">
-                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <span class="text-white font-bold text-xs">QQ</span>
-                                </div>
                                 <span class="font-semibold text-gray-700">联系客服：</span>
                                 <span class="font-bold text-blue-600">2028772424</span>
                             </div>
                             <div class="flex justify-center items-center gap-2">
-                                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                                    <span class="text-white font-bold text-xs">🥒</span>
-                                </div>
                                 <span class="font-semibold text-gray-700">丝瓜聊天：</span>
                                 <span class="font-bold text-green-600">BJTTY88</span>
                             </div>
                             <div class="flex justify-center items-center gap-2">
-                                <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                                    <span class="text-white font-bold text-xs">💬</span>
-                                </div>
                                 <span class="font-semibold text-gray-700">旺旺商聊：</span>
                                 <span class="font-bold text-orange-600">987900812</span>
                             </div>
                             <div class="flex justify-center items-center gap-2">
-                                <div class="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center">
-                                    <span class="text-white font-bold text-xs">✈️</span>
-                                </div>
                                 <span class="font-semibold text-gray-700">纸飞机（telegram）：</span>
                                 <span class="font-bold text-sky-600">@BJTTY7</span>
                             </div>
@@ -295,11 +283,11 @@
                         
                         <!-- 下载地址 -->
                         <div class="space-y-2 text-sm">
-                            <div class="bg-white rounded-lg p-3 border">
+                            <div class="bg-white rounded-lg p-2 border">
                                 <p class="font-semibold text-gray-700 mb-1">旺商聊下载地址复制到浏览器打开</p>
                                 <p class="text-blue-600 font-mono break-all">https://www.wwtalk.com/</p>
                             </div>
-                            <div class="bg-white rounded-lg p-3 border">
+                            <div class="bg-white rounded-lg p-2 border">
                                 <p class="font-semibold text-gray-700 mb-1">丝瓜下载地址复制到浏览器打开</p>
                                 <p class="text-green-600 font-mono break-all">https://www.sigua.io/</p>
                             </div>
