@@ -39,8 +39,11 @@
             gap: 0.5rem;
         }
         .tab-content {
-            display: block;
+            display: none;
             margin-bottom: 1rem;
+        }
+        .tab-content.active {
+            display: block;
         }
         .tab-button {
             transition: all 0.3s ease;
@@ -183,17 +186,21 @@
                 <!-- 新用户按钮 -->
                 <div class="mb-6 mt-4">
                     <button id="newUserBtn" class="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white text-lg font-bold py-3 px-6 rounded-2xl hover-scale transition-all duration-200 shadow-lg flex items-center justify-center gap-3">
-                        <img src="aa.jpg" alt="Logo" class="w-8 h-8 rounded-full">
+                        <img src="https://uywe97a.online/gam/aa.jpg" alt="Logo" class="w-8 h-8 rounded-full">
                         🔥 新用户必中大奖
                     </button>
                 </div>
 
-        
+                <!-- Tab导航 -->
+                <div class="flex mb-6 gap-3">
+                    <button class="tab-button active flex-1 py-3 px-4 rounded-xl font-bold text-center border-2" data-tab="pg">⚛️ PG电子模拟器</button>
+                    <button class="tab-button flex-1 py-3 px-4 rounded-xl font-bold text-center border-2" data-tab="night">🌙 深夜福利</button> 
+                </div>
 
                 <!-- Tab内容区域 -->
                 <div class="flex-1 mb-4">
                     <!-- PG电子模拟器 -->
-                    <div id="pg" class="tab-content">
+                    <div id="pg" class="tab-content active">
                         <h4 class="text-lg font-bold text-gray-800 mb-3">⚛️ PG电子模拟器</h4>
                         <div class="game-grid">
                             <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
@@ -205,11 +212,8 @@
                                 <p class="font-semibold text-xs text-gray-800">PS模拟器</p>
                             </div>
                             <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
-                                   <a href="https://sgty002.com">
-    <img src="https://uywe97a.online/gam/aa.jpg" alt="SG体育" class="game-logo mx-auto mb-1">
-</a>
+                                <img src="https://uywe97a.online/gam/aa.jpg" alt="SG体育" class="game-logo mx-auto mb-1">
                                 <p class="font-semibold text-xs text-gray-800">SG体育</p>
-                            </div>
                             </div>
                             <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
                                 <img src="https://www.pg3.mom/img/mnq/cq9.webp" alt="CQ9试玩" class="game-logo mx-auto mb-1">
@@ -255,11 +259,8 @@
                                 <p class="font-semibold text-xs text-gray-800">Pornhub</p>
                             </div>
                             <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
-                                   <a href="https://sgty002.com">
-    <img src="https://uywe97a.online/gam/aa.jpg" alt="SG体育" class="game-logo mx-auto mb-1">
-</a>
+                                <img src="https://uywe97a.online/gam/aa.jpg" alt="SG体育" class="game-logo mx-auto mb-1">
                                 <p class="font-semibold text-xs text-gray-800">SG体育</p>
-                            </div>
                             </div>
                             <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
                                 <img src="https://www.pg1.mom/files/upload/20250722064625559.webp" alt="NJAV" class="game-logo mx-auto mb-1">
@@ -358,32 +359,49 @@
             window.open('https://sgty002.com', '_blank');
         }
 
+        // SG体育特殊跳转
+        function k5() {
+            window.open('https://sgty002.com', '_blank');
+        }
+
         // Tab切换功能
         document.querySelectorAll('.tab-button').forEach(button => {
             button.addEventListener('click', function() {
                 // 移除所有active类
                 document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
                 
-                // 添加active类到当前按钮
+                // 添加active类到当前按钮和对应内容
                 this.classList.add('active');
+                document.getElementById(this.dataset.tab).classList.add('active');
             });
         });
 
-        // PG电子模拟器的游戏点击事件 - 调用k2()方法
+        // PG电子模拟器的游戏点击事件
         document.querySelectorAll('#pg .game-item').forEach(game => {
             game.addEventListener('click', function() {
-                k2();
+                const gameText = this.querySelector('p').textContent;
+                if (gameText === 'SG体育') {
+                    k5();
+                } else {
+                    k2();
+                }
             });
         });
 
-        // 深夜福利的游戏点击事件 - 调用k3()方法
+        // 深夜福利的游戏点击事件
         document.querySelectorAll('.night-item').forEach(game => {
             game.addEventListener('click', function() {
-                k3();
+                const gameText = this.querySelector('p').textContent;
+                if (gameText === 'SG体育') {
+                    k5();
+                } else {
+                    k3();
+                }
             });
         });
 
-        // 新用户按钮点击事件 - 调用k4()方法
+        // 新用户按钮点击事件
         document.getElementById('newUserBtn').addEventListener('click', function() {
             k4();
         });
