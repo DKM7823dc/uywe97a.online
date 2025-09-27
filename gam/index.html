@@ -79,6 +79,12 @@
             background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(229, 231, 235, 0.5);
         }
+        .game-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body class="h-screen overflow-hidden gradient-bg">
@@ -145,241 +151,249 @@
 
                 <!-- Tab导航 -->
                 <div class="flex mb-8 gap-3">
-                    <button class="tab-button active flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="slot">🎰 老虎机</button>
-                    <button class="tab-button flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="card">🃏 棋牌游戏</button>
-                    <button class="tab-button flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="live">🎥 真人娱乐</button>
-                    <button class="tab-button flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="sport">⚽ 体育竞技</button>
-                    <button class="tab-button flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="lottery">🎲 彩票游戏</button>
+                    <button class="tab-button active flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="pg">⚛️ PG电子模拟器</button>
+                    <button class="tab-button flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="night">🌙 深夜福利</button>
+                    <button class="tab-button flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="discount">💰 优惠申请</button>
+                    <button class="tab-button flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="tools">🛠️ 试用工具</button>
+                    <button class="tab-button flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="service">💬 在线客服</button>
                 </div>
 
                 <!-- Tab内容区域 -->
                 <div class="flex-1 overflow-y-auto mb-6">
-                    <!-- 老虎机游戏 -->
-                    <div id="slot" class="tab-content active">
+                    <!-- PG电子模拟器 -->
+                    <div id="pg" class="tab-content active">
                         <div class="game-grid">
-                            <div class="game-item bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎰</div>
-                                <p class="font-semibold text-sm">水果老虎机</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/files/upload/20250406120847245.webp" alt="BB模拟器" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">BB模拟器</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-red-500 to-orange-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">💎</div>
-                                <p class="font-semibold text-sm">钻石转轮</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/files/upload/20250406120938520.webp" alt="PS模拟器" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">PS模拟器</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-green-500 to-teal-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🍀</div>
-                                <p class="font-semibold text-sm">幸运777</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/files/upload/20250406121103545.webp" alt="JDB试玩" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">JDB试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-yellow-500 to-red-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">👑</div>
-                                <p class="font-semibold text-sm">王者之路</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/cq9.webp" alt="CQ9试玩" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">CQ9试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🌟</div>
-                                <p class="font-semibold text-sm">星光璀璨</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/ky.webp" alt="开元试玩" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">开元试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎪</div>
-                                <p class="font-semibold text-sm">马戏团</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/zr.webp" alt="真人试玩" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">真人试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-orange-500 to-red-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🔥</div>
-                                <p class="font-semibold text-sm">烈焰机器</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/ly.webp" alt="乐游试玩" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">乐游试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🌊</div>
-                                <p class="font-semibold text-sm">海洋之心</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/cg.webp" alt="CG试玩" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">CG试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-teal-500 to-green-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🏆</div>
-                                <p class="font-semibold text-sm">冠军转盘</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/mg.png" alt="MG试玩" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">MG试玩</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎯</div>
-                                <p class="font-semibold text-sm">命运轮盘</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg3.mom/img/mnq/hb.webp" alt="HB试玩" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">HB试玩</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 棋牌游戏 -->
-                    <div id="card" class="tab-content">
+                    <!-- 深夜福利 -->
+                    <div id="night" class="tab-content">
                         <div class="game-grid">
-                            <div class="game-item bg-gradient-to-br from-red-600 to-red-800 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🀄</div>
-                                <p class="font-semibold text-sm">麻将胡了</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064500916.webp" alt="MISSAV" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">MISSAV</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🃏</div>
-                                <p class="font-semibold text-sm">德州扑克</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064522544.webp" alt="Pornhub" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">Pornhub</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-green-600 to-green-800 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎴</div>
-                                <p class="font-semibold text-sm">百家乐</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064551673.webp" alt="JABLE" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">JABLE</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-purple-600 to-purple-800 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">♠️</div>
-                                <p class="font-semibold text-sm">21点</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064625559.webp" alt="NJAV" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">NJAV</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎯</div>
-                                <p class="font-semibold text-sm">炸金花</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064644161.webp" alt="BEEG" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">BEEG</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-pink-600 to-pink-800 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">♦️</div>
-                                <p class="font-semibold text-sm">龙虎斗</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064715315.webp" alt="YouPorn" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">YouPorn</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎪</div>
-                                <p class="font-semibold text-sm">牛牛游戏</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064757708.webp" alt="iQQTV" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">iQQTV</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-teal-600 to-teal-800 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎭</div>
-                                <p class="font-semibold text-sm">三公游戏</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064820268.webp" alt="13AV" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">13AV</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-orange-600 to-orange-800 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎨</div>
-                                <p class="font-semibold text-sm">抢庄牛牛</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064836390.webp" alt="麻豆传媒" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">麻豆传媒</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-cyan-600 to-cyan-800 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎲</div>
-                                <p class="font-semibold text-sm">骰宝游戏</p>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064857316.webp" alt="啪啪啦" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">啪啪啦</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064920138.webp" alt="吃瓜网" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">吃瓜网</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-xl p-3 text-center cursor-pointer border shadow-sm">
+                                <img src="https://www.pg1.mom/files/upload/20250722064937787.webp" alt="爆料网" class="game-logo mx-auto mb-2">
+                                <p class="font-semibold text-sm text-gray-800">爆料网</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 真人娱乐 -->
-                    <div id="live" class="tab-content">
+                    <!-- 优惠申请 -->
+                    <div id="discount" class="tab-content">
                         <div class="game-grid">
-                            <div class="game-item bg-gradient-to-br from-red-500 to-pink-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">👩‍💼</div>
-                                <p class="font-semibold text-sm">真人百家乐</p>
-                            </div>
-                            <div class="game-item bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎥</div>
-                                <p class="font-semibold text-sm">真人轮盘</p>
-                            </div>
-                            <div class="game-item bg-gradient-to-br from-green-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎬</div>
-                                <p class="font-semibold text-sm">真人骰宝</p>
+                            <div class="game-item bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">💰</div>
+                                <p class="font-semibold text-sm">新人返利</p>
                             </div>
                             <div class="game-item bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎭</div>
-                                <p class="font-semibold text-sm">真人龙虎</p>
-                            </div>
-                            <div class="game-item bg-gradient-to-br from-purple-500 to-red-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">💃</div>
-                                <p class="font-semibold text-sm">美女荷官</p>
-                            </div>
-                            <div class="game-item bg-gradient-to-br from-pink-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🌹</div>
-                                <p class="font-semibold text-sm">玫瑰厅</p>
-                            </div>
-                            <div class="game-item bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">💎</div>
-                                <p class="font-semibold text-sm">钻石厅</p>
-                            </div>
-                            <div class="game-item bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">👸</div>
-                                <p class="font-semibold text-sm">女王厅</p>
-                            </div>
-                            <div class="game-item bg-gradient-to-br from-orange-500 to-pink-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🔥</div>
-                                <p class="font-semibold text-sm">火爆厅</p>
-                            </div>
-                            <div class="game-item bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">⭐</div>
-                                <p class="font-semibold text-sm">明星厅</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 体育竞技 -->
-                    <div id="sport" class="tab-content">
-                        <div class="game-grid">
-                            <div class="game-item bg-gradient-to-br from-green-500 to-green-700 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">⚽</div>
-                                <p class="font-semibold text-sm">足球竞猜</p>
-                            </div>
-                            <div class="game-item bg-gradient-to-br from-orange-500 to-red-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🏀</div>
-                                <p class="font-semibold text-sm">篮球投注</p>
-                            </div>
-                            <div class="game-item bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎾</div>
-                                <p class="font-semibold text-sm">网球赛事</p>
+                                <div class="text-2xl mb-2">🎁</div>
+                                <p class="font-semibold text-sm">每日签到</p>
                             </div>
                             <div class="game-item bg-gradient-to-br from-red-500 to-pink-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🏈</div>
-                                <p class="font-semibold text-sm">美式足球</p>
+                                <div class="text-2xl mb-2">🏆</div>
+                                <p class="font-semibold text-sm">VIP特权</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">⚡</div>
+                                <p class="font-semibold text-sm">充值送礼</p>
                             </div>
                             <div class="game-item bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🏐</div>
-                                <p class="font-semibold text-sm">排球比赛</p>
+                                <div class="text-2xl mb-2">🎊</div>
+                                <p class="font-semibold text-sm">节日活动</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🏓</div>
-                                <p class="font-semibold text-sm">乒乓球</p>
+                            <div class="game-item bg-gradient-to-br from-pink-500 to-red-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">💎</div>
+                                <p class="font-semibold text-sm">钻石会员</p>
                             </div>
                             <div class="game-item bg-gradient-to-br from-teal-500 to-green-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🏸</div>
-                                <p class="font-semibold text-sm">羽毛球</p>
+                                <div class="text-2xl mb-2">🎯</div>
+                                <p class="font-semibold text-sm">推荐有礼</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🏊</div>
-                                <p class="font-semibold text-sm">游泳比赛</p>
+                            <div class="game-item bg-gradient-to-br from-orange-500 to-yellow-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🔥</div>
+                                <p class="font-semibold text-sm">限时抢购</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🏃</div>
-                                <p class="font-semibold text-sm">田径赛事</p>
+                            <div class="game-item bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🌟</div>
+                                <p class="font-semibold text-sm">星级福利</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-cyan-500 to-teal-600 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">⚾</div>
-                                <p class="font-semibold text-sm">棒球联赛</p>
+                            <div class="game-item bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎪</div>
+                                <p class="font-semibold text-sm">狂欢大礼</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 彩票游戏 -->
-                    <div id="lottery" class="tab-content">
+                    <!-- 试用工具 -->
+                    <div id="tools" class="tab-content">
                         <div class="game-grid">
-                            <div class="game-item bg-gradient-to-br from-red-500 to-red-700 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎲</div>
-                                <p class="font-semibold text-sm">时时彩</p>
+                            <div class="game-item bg-gradient-to-br from-gray-500 to-gray-700 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">📱</div>
+                                <p class="font-semibold text-sm">APP下载</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎯</div>
-                                <p class="font-semibold text-sm">快三彩票</p>
+                            <div class="game-item bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🔧</div>
+                                <p class="font-semibold text-sm">配置工具</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-green-500 to-green-700 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎪</div>
-                                <p class="font-semibold text-sm">11选5</p>
+                            <div class="game-item bg-gradient-to-br from-green-500 to-teal-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">💳</div>
+                                <p class="font-semibold text-sm">存款指南</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🌟</div>
-                                <p class="font-semibold text-sm">PK10</p>
+                            <div class="game-item bg-gradient-to-br from-orange-500 to-red-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">💸</div>
+                                <p class="font-semibold text-sm">提款助手</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎊</div>
-                                <p class="font-semibold text-sm">快乐8</p>
+                            <div class="game-item bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">📊</div>
+                                <p class="font-semibold text-sm">数据统计</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-pink-500 to-pink-700 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎈</div>
-                                <p class="font-semibold text-sm">六合彩</p>
+                            <div class="game-item bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🛡️</div>
+                                <p class="font-semibold text-sm">安全中心</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎭</div>
-                                <p class="font-semibold text-sm">双色球</p>
+                            <div class="game-item bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">⚙️</div>
+                                <p class="font-semibold text-sm">账户设置</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-teal-500 to-teal-700 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🎨</div>
-                                <p class="font-semibold text-sm">大乐透</p>
+                            <div class="game-item bg-gradient-to-br from-red-500 to-pink-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">📋</div>
+                                <p class="font-semibold text-sm">交易记录</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-orange-500 to-orange-700 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">🔮</div>
-                                <p class="font-semibold text-sm">七星彩</p>
+                            <div class="game-item bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🔍</div>
+                                <p class="font-semibold text-sm">检测工具</p>
                             </div>
-                            <div class="game-item bg-gradient-to-br from-cyan-500 to-cyan-700 rounded-xl p-3 text-center cursor-pointer text-white">
-                                <div class="text-2xl mb-2">💫</div>
-                                <p class="font-semibold text-sm">福彩3D</p>
+                            <div class="game-item bg-gradient-to-br from-teal-500 to-green-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎮</div>
+                                <p class="font-semibold text-sm">模拟器</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 在线客服 -->
+                    <div id="service" class="tab-content">
+                        <div class="game-grid">
+                            <div class="game-item bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">💬</div>
+                                <p class="font-semibold text-sm">在线客服</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-green-500 to-teal-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">📞</div>
+                                <p class="font-semibold text-sm">电话客服</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">📧</div>
+                                <p class="font-semibold text-sm">邮件客服</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-orange-500 to-red-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🔔</div>
+                                <p class="font-semibold text-sm">服务通知</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">❓</div>
+                                <p class="font-semibold text-sm">帮助中心</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">📖</div>
+                                <p class="font-semibold text-sm">使用指南</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎧</div>
+                                <p class="font-semibold text-sm">语音客服</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-red-500 to-pink-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">💡</div>
+                                <p class="font-semibold text-sm">意见反馈</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🏅</div>
+                                <p class="font-semibold text-sm">VIP客服</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-teal-500 to-green-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">⚡</div>
+                                <p class="font-semibold text-sm">快速响应</p>
                             </div>
                         </div>
                     </div>
