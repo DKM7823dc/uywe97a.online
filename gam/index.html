@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub - 游戏平台聚合中心</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        'light-gradient-start': '#f8fafc',
+                        'light-gradient-end': '#e2e8f0'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hover-scale {
+            transition: transform 0.2s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.75rem;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .tab-button.active {
+            background: linear-gradient(135deg, #5D5CDE 0%, #7C3AED 100%);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(93, 92, 222, 0.3);
+        }
+        .tab-button:not(.active) {
+            background: rgba(255, 255, 255, 0.7);
+            color: #374151;
+            border: 2px solid #e5e7eb;
+        }
+        .tab-button:not(.active):hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: #5D5CDE;
+            color: #5D5CDE;
+        }
+        .game-item {
+            transition: all 0.2s ease;
+        }
+        .game-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .left-content {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+        .right-content {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+    </style>
+</head>
+<body class="h-screen overflow-hidden gradient-bg">
+    <!-- 暗色模式检测脚本 -->
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+
+    <div class="h-screen flex p-12">
+        <!-- 左侧主内容区域 -->
+        <div class="w-2/5 pr-8 flex flex-col">
+            <div class="left-content rounded-3xl p-12 text-gray-800 h-full flex flex-col justify-center">
+                <!-- 品牌标识区 -->
+                <div class="mb-12">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h1 class="text-3xl font-bold text-gray-800">GameHub<span class="text-lg text-primary">.top</span> ⚛️ PG电子模拟器</h1>
+                        </div>
+                    </div>
+                    
+                    <p class="text-xl mb-3 text-gray-600">欢迎光临本站</p>
+                    <h2 class="text-2xl font-bold mb-8 leading-relaxed text-gray-800">全网最火爆娱乐，百万担保,大额无忧，<br/>认准PG电子模拟器⁡</h2>
+                </div>
+
+                <!-- 搜索功能区 -->
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 backdrop-blur-sm border border-blue-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="flex items-center gap-2">
+                            <div class="w-6 h-6 bg-red-500 rounded-sm"></div>
+                            <div class="w-6 h-6 bg-green-500 rounded-sm"></div>
+                            <div class="w-6 h-6 bg-yellow-500 rounded-sm"></div>
+                            <div class="w-6 h-6 bg-blue-500 rounded-sm"></div>
+                            <span class="text-sm font-semibold ml-2 text-gray-700">🌐 Microsoft Start</span>
+                        </div>
+                        <span class="text-sm text-gray-600">搜索-PG电子模拟器</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧游戏区域 -->
+        <div class="w-3/5 pl-8 flex items-center justify-center">
+            <div class="right-content rounded-3xl p-8 text-gray-800 h-full flex flex-col max-w-4xl w-full">
+                <!-- 新用户按钮 -->
+                <div class="mb-8 mt-6">
+                    <button id="newUserBtn" class="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white text-lg font-bold py-4 px-6 rounded-2xl hover-scale transition-all duration-200 shadow-lg">
+                        🔥 新用户必中大奖
+                    </button>
+                </div>
+
+                <!-- Tab导航 -->
+                <div class="flex mb-8 gap-3">
+                    <button class="tab-button active flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="slot">🎰 老虎机</button>
+                    <button class="tab-button flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="card">🃏 棋牌游戏</button>
+                    <button class="tab-button flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="live">🎥 真人娱乐</button>
+                    <button class="tab-button flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="sport">⚽ 体育竞技</button>
+                    <button class="tab-button flex-1 py-4 px-6 rounded-xl font-bold text-center border-2" data-tab="lottery">🎲 彩票游戏</button>
+                </div>
+
+                <!-- Tab内容区域 -->
+                <div class="flex-1 overflow-y-auto mb-6">
+                    <!-- 老虎机游戏 -->
+                    <div id="slot" class="tab-content active">
+                        <div class="game-grid">
+                            <div class="game-item bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎰</div>
+                                <p class="font-semibold text-sm">水果老虎机</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-red-500 to-orange-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">💎</div>
+                                <p class="font-semibold text-sm">钻石转轮</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-green-500 to-teal-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🍀</div>
+                                <p class="font-semibold text-sm">幸运777</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-yellow-500 to-red-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">👑</div>
+                                <p class="font-semibold text-sm">王者之路</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🌟</div>
+                                <p class="font-semibold text-sm">星光璀璨</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎪</div>
+                                <p class="font-semibold text-sm">马戏团</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-orange-500 to-red-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🔥</div>
+                                <p class="font-semibold text-sm">烈焰机器</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🌊</div>
+                                <p class="font-semibold text-sm">海洋之心</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-teal-500 to-green-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🏆</div>
+                                <p class="font-semibold text-sm">冠军转盘</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎯</div>
+                                <p class="font-semibold text-sm">命运轮盘</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 棋牌游戏 -->
+                    <div id="card" class="tab-content">
+                        <div class="game-grid">
+                            <div class="game-item bg-gradient-to-br from-red-600 to-red-800 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🀄</div>
+                                <p class="font-semibold text-sm">麻将胡了</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🃏</div>
+                                <p class="font-semibold text-sm">德州扑克</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-green-600 to-green-800 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎴</div>
+                                <p class="font-semibold text-sm">百家乐</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-purple-600 to-purple-800 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">♠️</div>
+                                <p class="font-semibold text-sm">21点</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎯</div>
+                                <p class="font-semibold text-sm">炸金花</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-pink-600 to-pink-800 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">♦️</div>
+                                <p class="font-semibold text-sm">龙虎斗</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎪</div>
+                                <p class="font-semibold text-sm">牛牛游戏</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-teal-600 to-teal-800 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎭</div>
+                                <p class="font-semibold text-sm">三公游戏</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-orange-600 to-orange-800 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎨</div>
+                                <p class="font-semibold text-sm">抢庄牛牛</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-cyan-600 to-cyan-800 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎲</div>
+                                <p class="font-semibold text-sm">骰宝游戏</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 真人娱乐 -->
+                    <div id="live" class="tab-content">
+                        <div class="game-grid">
+                            <div class="game-item bg-gradient-to-br from-red-500 to-pink-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">👩‍💼</div>
+                                <p class="font-semibold text-sm">真人百家乐</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎥</div>
+                                <p class="font-semibold text-sm">真人轮盘</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-green-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎬</div>
+                                <p class="font-semibold text-sm">真人骰宝</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎭</div>
+                                <p class="font-semibold text-sm">真人龙虎</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-purple-500 to-red-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">💃</div>
+                                <p class="font-semibold text-sm">美女荷官</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-pink-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🌹</div>
+                                <p class="font-semibold text-sm">玫瑰厅</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">💎</div>
+                                <p class="font-semibold text-sm">钻石厅</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">👸</div>
+                                <p class="font-semibold text-sm">女王厅</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-orange-500 to-pink-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🔥</div>
+                                <p class="font-semibold text-sm">火爆厅</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">⭐</div>
+                                <p class="font-semibold text-sm">明星厅</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 体育竞技 -->
+                    <div id="sport" class="tab-content">
+                        <div class="game-grid">
+                            <div class="game-item bg-gradient-to-br from-green-500 to-green-700 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">⚽</div>
+                                <p class="font-semibold text-sm">足球竞猜</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-orange-500 to-red-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🏀</div>
+                                <p class="font-semibold text-sm">篮球投注</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎾</div>
+                                <p class="font-semibold text-sm">网球赛事</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-red-500 to-pink-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🏈</div>
+                                <p class="font-semibold text-sm">美式足球</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🏐</div>
+                                <p class="font-semibold text-sm">排球比赛</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🏓</div>
+                                <p class="font-semibold text-sm">乒乓球</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-teal-500 to-green-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🏸</div>
+                                <p class="font-semibold text-sm">羽毛球</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🏊</div>
+                                <p class="font-semibold text-sm">游泳比赛</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🏃</div>
+                                <p class="font-semibold text-sm">田径赛事</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-cyan-500 to-teal-600 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">⚾</div>
+                                <p class="font-semibold text-sm">棒球联赛</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 彩票游戏 -->
+                    <div id="lottery" class="tab-content">
+                        <div class="game-grid">
+                            <div class="game-item bg-gradient-to-br from-red-500 to-red-700 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎲</div>
+                                <p class="font-semibold text-sm">时时彩</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎯</div>
+                                <p class="font-semibold text-sm">快三彩票</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-green-500 to-green-700 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎪</div>
+                                <p class="font-semibold text-sm">11选5</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🌟</div>
+                                <p class="font-semibold text-sm">PK10</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎊</div>
+                                <p class="font-semibold text-sm">快乐8</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-pink-500 to-pink-700 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎈</div>
+                                <p class="font-semibold text-sm">六合彩</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎭</div>
+                                <p class="font-semibold text-sm">双色球</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-teal-500 to-teal-700 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🎨</div>
+                                <p class="font-semibold text-sm">大乐透</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-orange-500 to-orange-700 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">🔮</div>
+                                <p class="font-semibold text-sm">七星彩</p>
+                            </div>
+                            <div class="game-item bg-gradient-to-br from-cyan-500 to-cyan-700 rounded-xl p-3 text-center cursor-pointer text-white">
+                                <div class="text-2xl mb-2">💫</div>
+                                <p class="font-semibold text-sm">福彩3D</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // k2函数 - 跳转到指定URL
+        function k2() {
+            window.open('https://sgty002.com', '_blank');
+        }
+
+        // Tab切换功能
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // 移除所有active类
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // 添加active类到当前按钮和对应内容
+                this.classList.add('active');
+                document.getElementById(this.dataset.tab).classList.add('active');
+            });
+        });
+
+        // 游戏点击事件 - 调用k2()方法
+        document.querySelectorAll('.game-item').forEach(game => {
+            game.addEventListener('click', function() {
+                k2();
+            });
+        });
+
+        // 新用户按钮点击事件
+        document.getElementById('newUserBtn').addEventListener('click', function() {
+            k2();
+        });
+    </script>
+</body>
+</html>
