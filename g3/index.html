@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马股投资策略 - AI选股辅助</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes breathing {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .breathing {
+            animation: breathing 2s ease-in-out infinite;
+        }
+        
+        .pulse-glow {
+            animation: pulse 1.5s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(93, 92, 222, 0.5);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .countdown-box {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(238, 90, 36, 0.3);
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #5D5CDE;
+        }
+
+        .dark .feature-card {
+            background: #2d3748;
+            color: white;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #5D5CDE, #667eea);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(93, 92, 222, 0.3);
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .price-tag {
+            background: linear-gradient(45deg, #00b894, #00cec9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .section-padding {
+            padding: 30px 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-4xl font-bold mb-4">🏆 想在马股市场中跑赢KLCI指数？</div>
+            <div class="text-xl mb-6">掌握3大投资秘诀＋AI选股辅助，让你的投资更有胜算</div>
+            
+            <img src="https://w.ladicdn.com/s750x750/64df167a1c724800125e738d/untitled-design-1-20250801070912-sdrra.png" 
+                 alt="投资策略" class="w-full max-w-md mx-auto rounded-lg mb-6">
+            
+            <div class="price-tag">
+                <span class="original-price">原价RM388</span><br>
+                <span class="text-2xl">FREE免费参加</span>
+            </div>
+            
+            <div class="countdown-box max-w-xs mx-auto">
+                <div class="text-lg">倒计时</div>
+                <div id="countdown" class="text-3xl font-bold"></div>
+            </div>
+            
+            <button onclick="k2()" class="cta-button text-lg">申请参加</button>
+        </div>
+    </div>
+
+    <!-- NVIDIA & YTL Section -->
+    <div class="section-padding">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold mb-4">近期 NVIDIA 与 YTL 有意联手打造<br>马来西亚 Data Center！</h2>
+                <p class="text-xl text-blue-600 dark:text-blue-400">🔍 对马股未来有什么影响？该注意什么？</p>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="text-xl font-bold mb-3">1. 科技板块是否将成为最大受惠者？</h3>
+                <p>尤其是那些涉及 AI、数据中心基础设施的公司，<br>有机会从中获得什么样的发展？</p>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="text-xl font-bold mb-3">2. 哪些建筑与工程公司会承包数据中心项目？</h3>
+                <p>这个项目会不会带动建筑股新一波订单潮？</p>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="text-xl font-bold mb-3">3. 能源和绿色科技股会因此受益吗？</h3>
+                <p>数据中心耗电巨大，马来西亚本地的绿色能源企业准备好了吗？</p>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="text-xl font-bold mb-3">4. NVIDIA 的投资会不会增强外资对马股的信心？</h3>
+                <p>这是否预示着更多国际科技巨头将进军马来西亚？</p>
+            </div>
+
+            <div class="text-center mt-8">
+                <button onclick="k2()" class="cta-button">免费报名</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Section -->
+    <div class="bg-white dark:bg-gray-800 section-padding">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-8">
+                <img src="https://w.ladicdn.com/s750x750/64df167a1c724800125e738d/ay--20250801065949-j-s4m.png" 
+                     alt="AI分析" class="w-full max-w-md mx-auto rounded-lg mb-6">
+                
+                <h2 class="text-3xl font-bold mb-4">AI</h2>
+                <p class="text-lg mb-4">近期 NVIDIA 与 YTL 有意联手打造<br>马来西亚 Data Center！</p>
+                <p class="text-xl text-blue-600 dark:text-blue-400">🔍 对马股未来有什么影响？该注意什么？</p>
+            </div>
+
+            <div class="grid gap-4 mb-8">
+                <div class="feature-card">
+                    <h3 class="text-lg font-bold mb-2">1. 科技板块是否将成为最大受惠者？</h3>
+                    <p class="text-sm">尤其是那些涉及 AI、数据中心基础设施的公司，<br>有机会从中获得什么样的发展？</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="text-lg font-bold mb-2">2. 哪些建筑与工程公司会承包数据中心项目？</h3>
+                    <p class="text-sm">这个项目会不会带动建筑股新一波订单潮？</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="text-lg font-bold mb-2">3. 能源和绿色科技股会因此受益吗？</h3>
+                    <p class="text-sm">数据中心耗电巨大，马来西亚本地的绿色能源企业准备好了吗？</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="text-lg font-bold mb-2">4. NVIDIA 的投资会不会增强外资对马股的信心？</h3>
+                    <p class="text-sm">这是否预示着更多国际科技巨头将进军马来西亚？</p>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 rounded-lg mb-6">
+                <h3 class="text-2xl font-bold mb-4">📈 你该如何布局？</h3>
+                
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-bold mb-2">✅ 短期策略该怎么应对？</h4>
+                        <p class="text-sm">是否要趁市场炒作时快进快出，还是等回调后才进场更安全？</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-2">✅ 中期策略应该关注哪些板块？</h4>
+                        <p class="text-sm">你是否已经锁定具备基本面、与 AI 或数据中心题材相关的潜力股？</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-2">✅ 长期策略有没有必要重新审视持仓？</h4>
+                        <p class="text-sm">面对马来西亚逐步成为区域科技枢纽的趋势，你准备好持有哪些受益股5年以上</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button onclick="k2()" class="cta-button">免费报名</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final CTA Section -->
+    <div class="section-padding bg-gray-100 dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto text-center">
+            <img src="https://w.ladicdn.com/s750x750/64df167a1c724800125e738d/kennet-247-20250723164846-ihgz0.png" 
+                 alt="投资专家" class="w-full max-w-md mx-auto rounded-lg mb-6">
+            
+            <h2 class="text-3xl font-bold mb-4">你离理想中的優質股...只差一个投资策略！</h2>
+            
+            <div class="price-tag mb-6">
+                <span class="original-price">只需 RM388</span><br>
+                <span class="text-2xl">免费参加</span>
+            </div>
+            
+            <button onclick="k2()" class="cta-button breathing pulse-glow text-lg">
+                仅限30个名额，马上领取您的AI投资策略
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating Button -->
+    <button onclick="k2()" class="floating-btn breathing pulse-glow">
+        免费参加
+    </button>
+
+    <script>
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Countdown Timer (10 minutes)
+        function startCountdown() {
+            let timeLeft = 10 * 60; // 10 minutes in seconds
+            
+            function updateCountdown() {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                
+                const countdownElement = document.getElementById('countdown');
+                countdownElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeLeft > 0) {
+                    timeLeft--;
+                } else {
+                    clearInterval(countdownInterval);
+                    countdownElement.textContent = '00:00';
+                }
+            }
+            
+            updateCountdown();
+            const countdownInterval = setInterval(updateCountdown, 1000);
+        }
+
+        // k2 function to redirect to www.qq.com
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        // Start countdown when page loads
+        window.addEventListener('load', startCountdown);
+    </script>
+
+</body>
+</html>
