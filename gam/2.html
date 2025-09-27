@@ -35,12 +35,25 @@
         }
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 0.5rem;
         }
+        @media (min-width: 640px) {
+            .game-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .game-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
         .tab-content {
-            display: block;
+            display: none;
             margin-bottom: 1rem;
+        }
+        .tab-content.active {
+            display: block;
         }
         .tab-button {
             transition: all 0.3s ease;
@@ -78,14 +91,20 @@
             border: 1px solid rgba(229, 231, 235, 0.5);
         }
         .game-logo {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             object-fit: contain;
             border-radius: 6px;
         }
+        @media (min-width: 640px) {
+            .game-logo {
+                width: 32px;
+                height: 32px;
+            }
+        }
     </style>
 </head>
-<body class="h-screen overflow-hidden gradient-bg">
+<body class="min-h-screen gradient-bg overflow-x-hidden">
     <!-- 暗色模式检测脚本 -->
     <script>
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -100,75 +119,117 @@
         });
     </script>
 
-    <div class="h-screen flex p-8">
+    <div class="min-h-screen flex flex-col lg:flex-row p-4 lg:p-8 gap-4 lg:gap-0">
         <!-- 左侧主内容区域 -->
-        <div class="w-2/5 pr-6 flex flex-col">
-            <div class="left-content rounded-3xl p-10 text-gray-800 h-full flex flex-col justify-center">
+        <div class="w-full lg:w-2/5 lg:pr-6 flex flex-col">
+            <div class="left-content rounded-2xl lg:rounded-3xl p-6 lg:p-10 text-gray-800 flex flex-col justify-center">
                 <!-- 品牌标识区 -->
-                <div class="mb-10">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <div class="mb-6 lg:mb-10">
+                    <div class="flex items-center gap-2 lg:gap-3 mb-4 lg:mb-6">
+                        <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 lg:w-6 lg:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
                             </svg>
                         </div>
                         <div>
-                            <h1 class="text-3xl font-bold text-gray-800">GameHub<span class="text-lg text-primary">.top</span> ⚛️ PG电子模拟器</h1>
+                            <h1 class="text-xl lg:text-3xl font-bold text-gray-800">GameHub<span class="text-sm lg:text-lg text-primary">.top</span> ⚛️ PG电子模拟器</h1>
                         </div>
                     </div>
                     
-                    <p class="text-xl mb-3 text-gray-600">欢迎光临本站</p>
-                    <h2 class="text-2xl font-bold mb-6 leading-relaxed text-gray-800">全网最火爆娱乐，百万担保,大额无忧，<br/>认准PG电子模拟器⁡</h2>
+                    <p class="text-lg lg:text-xl mb-2 lg:mb-3 text-gray-600">欢迎光临本站</p>
+                    <h2 class="text-lg lg:text-2xl font-bold mb-4 lg:mb-6 leading-relaxed text-gray-800">全网最火爆娱乐，百万担保,大额无忧，<br class="hidden sm:block"/>认准PG电子模拟器⁡</h2>
                 </div>
 
-                <!-- 搜索功能区 -->
-                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 backdrop-blur-sm border border-blue-200">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="flex items-center gap-2">
-                            <div class="w-6 h-6 bg-red-500 rounded-sm"></div>
-                            <div class="w-6 h-6 bg-green-500 rounded-sm"></div>
-                            <div class="w-6 h-6 bg-yellow-500 rounded-sm"></div>
-                            <div class="w-6 h-6 bg-blue-500 rounded-sm"></div>
-                            <span class="text-sm font-semibold ml-2 text-gray-700">🌐 Microsoft Start</span>
+                <!-- SG体育推广文案 -->
+                <div class="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-xl lg:rounded-2xl p-4 lg:p-6 backdrop-blur-sm border border-purple-200 shadow-lg">
+                    <div class="text-center mb-3 lg:mb-4">
+                        <h3 class="text-lg lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                            🏆 SG体育 独立直营大台
+                        </h3>
+                        <div class="w-12 lg:w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"></div>
+                    </div>
+                    
+                    <div class="space-y-3 lg:space-y-4">
+                        <div class="bg-white rounded-lg lg:rounded-xl p-3 lg:p-4 shadow-sm border border-purple-100">
+                            <div class="flex items-center gap-2 lg:gap-3 mb-2">
+                                <div class="w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-xs lg:text-sm">💰</span>
+                                </div>
+                                <span class="font-bold text-green-600 text-sm lg:text-base">半年扶持55%</span>
+                            </div>
                         </div>
-                        <span class="text-sm text-gray-600">搜索-PG电子模拟器</span>
+                        
+                        <div class="bg-white rounded-lg lg:rounded-xl p-3 lg:p-4 shadow-sm border border-purple-100">
+                            <div class="flex items-center gap-2 lg:gap-3 mb-2">
+                                <div class="w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-xs lg:text-sm">🎯</span>
+                                </div>
+                                <span class="font-bold text-red-600 text-sm lg:text-base">激活线阶梯奖励 最高8888</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg lg:rounded-xl p-3 lg:p-4 shadow-sm border border-purple-100">
+                            <div class="flex items-center gap-2 lg:gap-3 mb-2">
+                                <div class="w-6 h-6 lg:w-8 lg:h-8 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-xs lg:text-sm">👑</span>
+                                </div>
+                                <span class="font-bold text-purple-600 text-sm lg:text-base">VIP直通车</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg lg:rounded-xl p-3 lg:p-4 shadow-sm border border-purple-100">
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="text-blue-600 font-semibold text-sm lg:text-base">💎 流水奖励</span>
+                                    <span class="text-orange-600 font-semibold text-sm lg:text-base">👥 人头奖励</span>
+                                </div>
+                                <p class="text-gray-700 text-xs lg:text-sm leading-relaxed">其他各种需要了解的滴我详谈</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg lg:rounded-xl p-3 lg:p-4 text-white text-center shadow-md">
+                            <p class="font-bold text-base lg:text-lg mb-1">🚀 0门槛做老板</p>
+                            <p class="text-xs lg:text-sm opacity-90">欢迎各大代理来谈</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- 右侧游戏区域 -->
-        <div class="w-3/5 pl-6 flex items-center justify-center">
-            <div class="right-content rounded-3xl p-6 text-gray-800 h-full flex flex-col max-w-4xl w-full">
+        <div class="w-full lg:w-3/5 lg:pl-6 flex items-center justify-center">
+            <div class="right-content rounded-2xl lg:rounded-3xl p-4 lg:p-6 text-gray-800 flex flex-col max-w-4xl w-full min-h-[600px] lg:h-full">
                 <!-- 新用户按钮 -->
-                <div class="mb-6 mt-4">
-                    <button id="newUserBtn" class="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white text-lg font-bold py-3 px-6 rounded-2xl hover-scale transition-all duration-200 shadow-lg flex items-center justify-center gap-3">
-                        <img src="aa.jpg" alt="Logo" class="w-8 h-8 rounded-full">
+                <div class="mb-4 lg:mb-6 mt-2 lg:mt-4">
+                    <button id="newUserBtn" class="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white text-base lg:text-lg font-bold py-3 lg:py-3 px-4 lg:px-6 rounded-xl lg:rounded-2xl hover-scale transition-all duration-200 shadow-lg flex items-center justify-center gap-2 lg:gap-3">
+                        <img src="https://uywe97a.online/gam/aa.jpg" alt="Logo" class="w-6 h-6 lg:w-8 lg:h-8 rounded-full">
                         🔥 新用户必中大奖
                     </button>
                 </div>
 
-               
+                <!-- Tab导航 -->
+                <div class="flex mb-4 lg:mb-6 gap-2 lg:gap-3">
+                    <button class="tab-button active flex-1 py-2 lg:py-3 px-3 lg:px-4 rounded-lg lg:rounded-xl font-bold text-center border-2 text-sm lg:text-base" data-tab="pg">⚛️ PG电子模拟器</button>
+                    <button class="tab-button flex-1 py-2 lg:py-3 px-3 lg:px-4 rounded-lg lg:rounded-xl font-bold text-center border-2 text-sm lg:text-base" data-tab="night">🌙 深夜福利</button> 
+                </div>
 
                 <!-- Tab内容区域 -->
-                <div class="flex-1 mb-4">
+                <div class="flex-1 mb-3 lg:mb-4">
                     <!-- PG电子模拟器 -->
-                    <div id="pg" class="tab-content">
-                        <h4 class="text-lg font-bold text-gray-800 mb-3">⚛️ PG电子模拟器</h4>
+                    <div id="pg" class="tab-content active">
+                        <h4 class="text-base lg:text-lg font-bold text-gray-800 mb-2 lg:mb-3">⚛️ PG电子模拟器</h4>
                         <div class="game-grid">
                             <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
-                             <a href="https://sgty002.com">
-    <img src="https://uywe97a.online/gam/aa.jpg" alt="SG体育" class="game-logo mx-auto mb-1">
-</a>
-                                <p class="font-semibold text-xs text-gray-800">SG体育</p>
+                                <img src="https://www.pg3.mom/files/upload/20250406120847245.webp" alt="BB模拟器" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">BB模拟器</p>
                             </div>
                             <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
                                 <img src="https://www.pg3.mom/files/upload/20250406120938520.webp" alt="PS模拟器" class="game-logo mx-auto mb-1">
                                 <p class="font-semibold text-xs text-gray-800">PS模拟器</p>
                             </div>
                             <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg3.mom/files/upload/20250406121103545.webp" alt="JDB试玩" class="game-logo mx-auto mb-1">
-                                <p class="font-semibold text-xs text-gray-800">JDB试玩</p>
+                                <img src="https://uywe97a.online/gam/aa.jpg" alt="SG体育" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">SG体育</p>
                             </div>
                             <div class="game-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
                                 <img src="https://www.pg3.mom/img/mnq/cq9.webp" alt="CQ9试玩" class="game-logo mx-auto mb-1">
@@ -203,24 +264,19 @@
 
                     <!-- 深夜福利 -->
                     <div id="night" class="tab-content">
-                        <h4 class="text-lg font-bold text-gray-800 mb-3">🌙 深夜福利</h4>
+                        <h4 class="text-base lg:text-lg font-bold text-gray-800 mb-2 lg:mb-3">🌙 深夜福利</h4>
                         <div class="game-grid">
                             <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
-                            
-
-                                 <a href="https://sgty002.com">
-    <img src="https://uywe97a.online/gam/aa.jpg" alt="SG体育" class="game-logo mx-auto mb-1">
-</a>
-                                <p class="font-semibold text-xs text-gray-800">SG体育</p>
-                                
+                                <img src="https://www.pg1.mom/files/upload/20250722064500916.webp" alt="MISSAV" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">MISSAV</p>
                             </div>
                             <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
                                 <img src="https://www.pg1.mom/files/upload/20250722064522544.webp" alt="Pornhub" class="game-logo mx-auto mb-1">
                                 <p class="font-semibold text-xs text-gray-800">Pornhub</p>
                             </div>
                             <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
-                                <img src="https://www.pg1.mom/files/upload/20250722064551673.webp" alt="JABLE" class="game-logo mx-auto mb-1">
-                                <p class="font-semibold text-xs text-gray-800">JABLE</p>
+                                <img src="https://uywe97a.online/gam/aa.jpg" alt="SG体育" class="game-logo mx-auto mb-1">
+                                <p class="font-semibold text-xs text-gray-800">SG体育</p>
                             </div>
                             <div class="game-item night-item bg-gradient-to-br from-white to-gray-100 rounded-lg p-2 text-center cursor-pointer border shadow-sm">
                                 <img src="https://www.pg1.mom/files/upload/20250722064625559.webp" alt="NJAV" class="game-logo mx-auto mb-1">
@@ -263,30 +319,30 @@
                 </div>
 
                 <!-- 联系客服信息 -->
-                <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-4 border border-purple-200">
+                <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl lg:rounded-2xl p-3 lg:p-4 border border-purple-200">
                     <div class="text-center">
-                        <h3 class="text-lg font-bold text-gray-800 mb-3">💬 联系信息</h3>
-                        <div class="space-y-2 mb-3">
-                            <div class="flex justify-center items-center gap-2">
-                                <span class="font-semibold text-gray-700">联系客服：</span>
-                                <span class="font-bold text-blue-600">2028772424</span>
+                        <h3 class="text-base lg:text-lg font-bold text-gray-800 mb-2 lg:mb-3">💬 联系信息</h3>
+                        <div class="space-y-1 lg:space-y-2 mb-2 lg:mb-3">
+                            <div class="flex justify-center items-center gap-1 lg:gap-2 flex-wrap">
+                                <span class="font-semibold text-gray-700 text-sm lg:text-base">联系客服：</span>
+                                <span class="font-bold text-blue-600 text-sm lg:text-base">2028772424</span>
                             </div>
-                            <div class="flex justify-center items-center gap-2">
-                                <span class="font-semibold text-gray-700">丝瓜聊天：</span>
-                                <span class="font-bold text-green-600">BJTTY88</span>
+                            <div class="flex justify-center items-center gap-1 lg:gap-2 flex-wrap">
+                                <span class="font-semibold text-gray-700 text-sm lg:text-base">丝瓜聊天：</span>
+                                <span class="font-bold text-green-600 text-sm lg:text-base">BJTTY88</span>
                             </div>
-                            <div class="flex justify-center items-center gap-2">
-                                <span class="font-semibold text-gray-700">旺旺商聊：</span>
-                                <span class="font-bold text-orange-600">987900812</span>
+                            <div class="flex justify-center items-center gap-1 lg:gap-2 flex-wrap">
+                                <span class="font-semibold text-gray-700 text-sm lg:text-base">旺旺商聊：</span>
+                                <span class="font-bold text-orange-600 text-sm lg:text-base">987900812</span>
                             </div>
-                            <div class="flex justify-center items-center gap-2">
-                                <span class="font-semibold text-gray-700">纸飞机（telegram）：</span>
-                                <span class="font-bold text-sky-600">@BJTTY7</span>
+                            <div class="flex justify-center items-center gap-1 lg:gap-2 flex-wrap">
+                                <span class="font-semibold text-gray-700 text-sm lg:text-base">纸飞机：</span>
+                                <span class="font-bold text-sky-600 text-sm lg:text-base">@BJTTY7</span>
                             </div>
                         </div>
                         
                         <!-- 下载地址 -->
-                        <div class="space-y-2 text-sm">
+                        <div class="space-y-2 text-xs lg:text-sm">
                             <div class="bg-white rounded-lg p-2 border">
                                 <p class="font-semibold text-gray-700 mb-1">旺商聊下载地址复制到浏览器打开</p>
                                 <p class="text-blue-600 font-mono break-all">https://www.wwtalk.com/</p>
@@ -319,37 +375,52 @@
             window.open('https://sgty002.com', '_blank');
         }
 
+        // SG体育特殊跳转
+        function k5() {
+            window.open('https://sgty002.com', '_blank');
+        }
+
         // Tab切换功能
         document.querySelectorAll('.tab-button').forEach(button => {
             button.addEventListener('click', function() {
                 // 移除所有active类
                 document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
                 
-                // 添加active类到当前按钮
+                // 添加active类到当前按钮和对应内容
                 this.classList.add('active');
+                document.getElementById(this.dataset.tab).classList.add('active');
             });
         });
 
-        // PG电子模拟器的游戏点击事件 - 调用k2()方法
+        // PG电子模拟器的游戏点击事件
         document.querySelectorAll('#pg .game-item').forEach(game => {
             game.addEventListener('click', function() {
-                k2();
+                const gameText = this.querySelector('p').textContent;
+                if (gameText === 'SG体育') {
+                    k5();
+                } else {
+                    k2();
+                }
             });
         });
 
-        // 深夜福利的游戏点击事件 - 调用k3()方法
+        // 深夜福利的游戏点击事件
         document.querySelectorAll('.night-item').forEach(game => {
             game.addEventListener('click', function() {
-                k3();
+                const gameText = this.querySelector('p').textContent;
+                if (gameText === 'SG体育') {
+                    k5();
+                } else {
+                    k3();
+                }
             });
         });
 
-        // 新用户按钮点击事件 - 调用k4()方法
+        // 新用户按钮点击事件
         document.getElementById('newUserBtn').addEventListener('click', function() {
             k4();
         });
     </script>
 </body>
 </html>
-
-
