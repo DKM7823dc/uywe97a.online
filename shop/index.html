@@ -892,14 +892,31 @@
             
             .floating-btn {
                 bottom: 20px;
-                left: 20px;
-                right: 20px;
-                transform: none;
+                left: 50%;
+                right: auto;
+                width: calc(100% - 40px);
+                max-width: none;
+                transform: translateX(-50%);
             }
             
             .floating-cta {
                 min-width: auto;
                 width: 100%;
+            }
+            
+            @keyframes breathing {
+                0% {
+                    transform: translateX(-50%) scale(1);
+                    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+                }
+                50% {
+                    transform: translateX(-50%) scale(1.02);
+                    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
+                }
+                100% {
+                    transform: translateX(-50%) scale(1);
+                    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+                }
             }
         }
     </style>
