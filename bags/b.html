@@ -212,7 +212,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                class="breathe bg-green-500 hover:bg-green-600 text-white px-6 py-4 rounded-full shadow-2xl transition-all duration-300 flex items-center space-x-3 whitespace-nowrap">
                 <i class="fab fa-whatsapp text-xl"></i>
                 <span class="text-sm md:text-base font-medium">
-                  Contact us now
+                   Contact us now
                 </span>
             </a>
             <!-- Message notification badge -->
@@ -301,8 +301,10 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         // Message count functionality
         const messageCountElement = document.getElementById('messageCount');
         
-        // Set message count to 2
-        messageCountElement.textContent = '2';
+        // Start with 1, then change to 2 after 3 seconds
+        setTimeout(() => {
+            messageCountElement.textContent = '2';
+        }, 3000);
 
         // k2 function to navigate to qq.com
       
@@ -310,4 +312,3 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 </body>
 
 </html>
-
