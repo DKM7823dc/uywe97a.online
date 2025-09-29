@@ -206,14 +206,20 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
     <!-- Floating WhatsApp Button -->
     <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-        <a href="javascript:void(0)" 
-           onclick="k2()"
-           class="breathe bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-2xl transition-all duration-300 flex items-center space-x-2 whitespace-nowrap">
-            <i class="fab fa-whatsapp text-lg"></i>
-            <span class="text-xs md:text-sm font-medium">
-                For more styles, click here!
-            </span>
-        </a>
+        <div class="relative">
+            <a href="javascript:void(0)" 
+               onclick="k2()"
+               class="breathe bg-green-500 hover:bg-green-600 text-white px-6 py-4 rounded-full shadow-2xl transition-all duration-300 flex items-center space-x-3 whitespace-nowrap">
+                <i class="fab fa-whatsapp text-xl"></i>
+                <span class="text-sm md:text-base font-medium">
+                    For more styles, click here!
+                </span>
+            </a>
+            <!-- Message notification badge -->
+            <div class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-lg animate-pulse" id="messageCount">
+                1
+            </div>
+        </div>
     </div>
 
     <script>
@@ -292,13 +298,15 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             img.addEventListener('dragstart', (e) => e.preventDefault());
         });
 
+        // Message count functionality
+        const messageCountElement = document.getElementById('messageCount');
+        
+        // Set message count to 2
+        messageCountElement.textContent = '2';
+
         // k2 function to navigate to qq.com
       
     </script>
 </body>
 
 </html>
-
-
-
-
