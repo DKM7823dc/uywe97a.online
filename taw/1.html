@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>免費中醫補腎壯陽課程 - 專為50+男性設計</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #1e3a8a;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+        }
+        
+        .card-luxury {
+            background-color: #1e40af;
+            border: 2px solid #fbbf24;
+            box-shadow: 0 8px 32px rgba(251, 191, 36, 0.2);
+        }
+        
+        .option-button {
+            transition: all 0.3s ease;
+            background-color: #2563eb;
+            border: 1px solid #fbbf24;
+            color: #fff;
+        }
+        
+        .option-button:hover {
+            background-color: #fbbf24;
+            color: #1e3a8a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .fade-in.delay-1 { animation-delay: 0.2s; }
+        .fade-in.delay-2 { animation-delay: 0.4s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .pulse-gold {
+            animation: pulseGold 2s infinite;
+        }
+        
+        @keyframes pulseGold {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(251, 191, 36, 0);
+            }
+        }
+        
+        .btn-primary {
+            background-color: #fbbf24;
+            color: #1e3a8a;
+        }
+        
+        .btn-primary:hover {
+            background-color: #f59e0b;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-white">
+    <div class="container mx-auto px-4 py-4 pb-24 max-w-md flex flex-col justify-between">
+        <!-- 歡迎部分 -->
+        <div id="welcome-section" class="flex-1 flex flex-col justify-center">
+            <div class="card-luxury rounded-2xl p-4 mb-4 fade-in">
+                <div class="space-y-2 mb-3">
+                    <img src="https://yat910a.online/yag/images/01.jpg" alt="中醫補腎壯陽課程" class="w-full rounded-xl shadow-2xl object-contain">
+                    <img src="https://yat910a.online/yag/images/03.jpg" alt="中醫養生課程" class="w-full rounded-xl shadow-2xl object-contain">
+                </div>
+                
+                <div class="text-yellow-400 text-xl font-bold mb-3 text-center">
+                    👋 歡迎來到免費中醫補腎壯陽課程！
+                </div>
+                
+                <div class="bg-red-600 text-yellow-400 p-2 rounded-lg mb-2 text-center border-2 border-yellow-400 animate-pulse">
+                    <span class="font-black text-xs">⚠️ 限時免費 僅限前100名 ⚠️</span>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="bg-red-600 text-white p-2 rounded-lg mb-2 text-center">
+                        <span class="text-yellow-400 font-black text-lg">專為50+男性設計</span>
+                    </div>
+                    
+                    <div class="bg-yellow-400 text-blue-900 p-2 rounded-lg mb-2 text-center">
+                        <span class="font-bold text-sm">純中藥調理，真的有用</span>
+                    </div>
+                    
+                    <div class="bg-red-600 text-white p-2 rounded-lg mb-2 text-center">
+                        <span class="font-bold text-sm">重振雄風💪 恢復活力🔥 重燃激情</span>
+                    </div>
+                    
+
+                    
+                    <div class="bg-green-600 text-white p-2 rounded-lg mt-2 text-center">
+                        <span class="font-bold text-xs">✅ 已有2000+學員成功恢復活力</span>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+
+        <!-- 問題1 -->
+        <div id="question1" class="flex-1 flex flex-col justify-center" style="display: none;">
+            <div class="card-luxury rounded-2xl p-4 mb-4 fade-in">
+                <h3 class="text-xl font-bold mb-4 text-center text-yellow-400">
+                    問題 1/2
+                </h3>
+                <p class="text-white mb-4 text-center leading-relaxed text-sm">
+                    為了更好地為您匹配課程，請先告訴我您的年齡段？這能確保課程適合您的需求。
+                </p>
+                
+                <div class="space-y-3">
+                    <button onclick="selectAge('40-49歲')" class="option-button w-full p-3 rounded-xl text-left font-medium text-sm">
+                        📊 40-49歲
+                    </button>
+                    <button onclick="selectAge('50-59歲')" class="option-button w-full p-3 rounded-xl text-left font-medium text-sm">
+                        🎯 50-59歲
+                    </button>
+                    <button onclick="selectAge('60歲以上')" class="option-button w-full p-3 rounded-xl text-left font-medium text-sm">
+                        ⭐ 60歲以上
+                    </button>
+                    <button onclick="selectAge('其他')" class="option-button w-full p-3 rounded-xl text-left font-medium text-sm">
+                        ❓ 其他
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 問題2 -->
+        <div id="question2" class="flex-1 flex flex-col justify-center" style="display: none;">
+            <div class="card-luxury rounded-2xl p-4 mb-4 fade-in">
+                <h3 class="text-xl font-bold mb-4 text-center text-yellow-400">
+                    問題 2/2
+                </h3>
+                <p class="text-white mb-4 text-center leading-relaxed text-sm">
+                    感謝分享！現在，請告訴我您最關心的身體問題？我們的課程專攻補腎壯陽，幫助改善這些症狀，重獲自信和活力。
+                </p>
+                
+                <div class="space-y-3">
+                    <button onclick="selectConcern('腎虛腰酸')" class="option-button w-full p-3 rounded-xl text-left text-sm">
+                        <div class="font-medium mb-1">💪 腎虛腰酸、乏力無神</div>
+                        <div class="text-xs text-gray-200">恢復精力，日常活力滿滿</div>
+                    </button>
+                    <button onclick="selectConcern('早洩無力')" class="option-button w-full p-3 rounded-xl text-left text-sm">
+                        <div class="font-medium mb-1">🔥 早洩無力、雄風不再</div>
+                        <div class="text-xs text-gray-200">重振男人本色，夫妻和睦</div>
+                    </button>
+                    <button onclick="selectConcern('夜尿頻多')" class="option-button w-full p-3 rounded-xl text-left text-sm">
+                        <div class="font-medium mb-1">😴 夜尿頻多、睡眠不佳</div>
+                        <div class="text-xs text-gray-200">調養腎氣，一夜好眠</div>
+                    </button>
+                    <button onclick="selectConcern('其他養生')" class="option-button w-full p-3 rounded-xl text-left text-sm">
+                        <div class="font-medium mb-1">🌿 其他養生需求</div>
+                        <div class="text-xs text-gray-200">全面中醫調理</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 結果部分 -->
+        <div id="result-section" class="flex-1 flex flex-col justify-center" style="display: none;">
+            <div class="card-luxury rounded-2xl p-6 mb-4 fade-in">
+                <div class="text-center">
+                    <div class="text-4xl mb-4 animate-bounce">🎉</div>
+                    
+                    <div class="bg-yellow-400 text-blue-900 p-3 rounded-xl mb-4 border-2 border-yellow-300">
+                        <h3 class="text-xl font-black">
+                            恭喜您獲得免費學習名額！
+                        </h3>
+                    </div>
+                    
+                    <div class="bg-green-600 text-white p-3 rounded-xl mb-4">
+                        <div class="font-bold text-sm mb-2">👨‍⚕️ 專業老師一對一指導</div>
+                        <div class="text-xs">中醫文化傳承人，經驗豐富</div>
+                    </div>
+                    
+                    <div class="bg-red-600 text-white p-3 rounded-xl mb-4">
+                        <div class="font-bold text-sm mb-2">✨ 學習後的明顯效果</div>
+                        <div class="text-xs">精力充沛、重振雄風，生活煥然一新！</div>
+                    </div>
+                    
+                    <div class="bg-yellow-400 text-red-600 p-3 rounded-xl mb-4 border-2 border-red-600">
+                        <div class="font-black text-sm">⏰ 機會寶貴，請珍惜</div>
+                        <div class="text-xs mt-1">立即添加客服，馬上發放第一課</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 行動號召 -->
+            <div class="text-center">
+                <button onclick="k2()" class="w-full btn-primary font-bold py-4 px-6 rounded-xl text-lg pulse-gold transition-all duration-300 hover:scale-105 shadow-2xl">
+                    📱 立即添加微信客服，開始學習！
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部懸浮按鈕 -->
+    <div id="floating-button" class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-blue-900 to-transparent z-50">
+        <div class="max-w-md mx-auto">
+            <button onclick="startQuestionnaire()" class="w-full btn-primary font-bold py-4 px-6 rounded-xl text-lg pulse-gold transition-all duration-300 hover:scale-105 shadow-2xl">
+                🎯 立即開始免費課程評估
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 0;
+        let answers = {};
+
+        function startQuestionnaire() {
+            document.getElementById('welcome-section').style.display = 'none';
+            document.getElementById('floating-button').style.display = 'none';
+            document.getElementById('question1').style.display = 'flex';
+            document.getElementById('question1').classList.add('fade-in');
+            currentStep = 1;
+        }
+
+        function selectAge(age) {
+            answers.age = age;
+            
+            if (age === '其他') {
+                showCustomAlert('我們的課程主打中老年養生，建議50+參與哦！');
+                return;
+            }
+            
+            document.getElementById('question1').style.display = 'none';
+            document.getElementById('question2').style.display = 'flex';
+            document.getElementById('question2').classList.add('fade-in');
+            currentStep = 2;
+        }
+
+        function selectConcern(concern) {
+            answers.concern = concern;
+            
+            if (concern === '其他養生') {
+                showCustomConfirm('課程也能涵蓋其他中醫調理，歡迎詳聊！是否繼續？', () => {
+                    proceedToResult();
+                });
+                return;
+            }
+            
+            proceedToResult();
+        }
+
+        function proceedToResult() {
+            document.getElementById('question2').style.display = 'none';
+            document.getElementById('result-section').style.display = 'flex';
+            document.getElementById('result-section').classList.add('fade-in');
+            currentStep = 3;
+        }
+
+        function showCustomAlert(message) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-blue-800 border-2 border-yellow-400 p-6 rounded-lg shadow-lg max-w-sm w-full mx-4">
+                    <p class="text-white mb-4">${message}</p>
+                    <div class="flex justify-end">
+                        <button class="px-4 py-2 bg-yellow-400 text-blue-800 hover:bg-yellow-300 rounded font-medium" onclick="this.closest('.fixed').remove()">確定</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        function showCustomConfirm(message, onConfirm) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-blue-800 border-2 border-yellow-400 p-6 rounded-lg shadow-lg max-w-sm w-full mx-4">
+                    <p class="text-white mb-4">${message}</p>
+                    <div class="flex justify-end space-x-3">
+                        <button class="px-4 py-2 text-yellow-400 hover:bg-blue-700 rounded" onclick="this.closest('.fixed').remove()">取消</button>
+                        <button class="px-4 py-2 bg-yellow-400 text-blue-800 hover:bg-yellow-300 rounded font-medium" onclick="this.closest('.fixed').remove(); onConfirm()">確定</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        function k2() {
+            showWeChatQRCode();
+        }
+
+        function showWeChatQRCode() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50';
+            modal.innerHTML = `
+                <div class="bg-blue-800 border-2 border-yellow-400 p-6 rounded-lg shadow-lg max-w-sm w-full mx-4 text-center">
+                    <h3 class="text-yellow-400 text-lg font-bold mb-4">掃描微信二維碼添加客服</h3>
+                    <img src="https://uywe97a.online/taw/22.jpg" alt="微信二維碼" class="w-full max-w-xs mx-auto rounded-lg mb-4 bg-white p-2">
+                    <p class="text-white text-sm mb-4">掃描上方二維碼，立即添加客服開始學習！</p>
+                    <button class="px-6 py-2 bg-yellow-400 text-blue-800 hover:bg-yellow-300 rounded font-medium" onclick="this.closest('.fixed').remove()">關閉</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // 點擊背景關閉模態框
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
+
+        // 深色模式支持
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+</html>
