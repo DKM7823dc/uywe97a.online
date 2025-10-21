@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>תנאי שירות - הכשרה מקצועית להשקעות במניות</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #e8e8e8;
+            line-height: 1.8;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary-bg: #0a0a0a;
+            --secondary-bg: #1a1a2e;
+            --card-bg: #2a2a3e;
+            --text-primary: #e8e8e8;
+            --text-secondary: #c0c0c0;
+            --accent-gold: #ffd700;
+            --accent-orange: #ff6b35;
+            --success-green: #00ff88;
+            --danger-red: #ff4757;
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-bg: #0a0a0a;
+                --secondary-bg: #1a1a2e;
+                --card-bg: #2a2a3e;
+            }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+            padding: 4rem 0 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            background: linear-gradient(45deg, var(--accent-gold), #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .last-updated {
+            background: var(--card-bg);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            margin: 2rem auto;
+            display: inline-block;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .last-updated strong {
+            color: var(--accent-gold);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: var(--primary-bg);
+            padding: 3rem 0;
+        }
+
+        .terms-section {
+            background: linear-gradient(145deg, var(--card-bg), var(--secondary-bg));
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .terms-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 215, 0, 0.2);
+        }
+
+        .terms-section h2 {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-orange);
+        }
+
+        .terms-section h3 {
+            color: var(--accent-orange);
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .terms-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        .terms-section ul, .terms-section ol {
+            margin: 1rem 0;
+            padding-right: 2rem;
+        }
+
+        .terms-section li {
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .terms-section ul li::before {
+            content: '•';
+            color: var(--accent-gold);
+            font-weight: bold;
+            position: absolute;
+            right: -1.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 53, 0.1));
+            border: 1px solid var(--accent-gold);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .warning-notice {
+            background: linear-gradient(45deg, rgba(255, 71, 87, 0.1), rgba(255, 55, 66, 0.1));
+            border: 1px solid var(--danger-red);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .warning-notice h4 {
+            color: var(--danger-red);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .important-info {
+            background: linear-gradient(45deg, rgba(0, 255, 136, 0.1), rgba(0, 204, 102, 0.1));
+            border: 1px solid var(--success-green);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .important-info h4 {
+            color: var(--success-green);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .service-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--secondary-bg);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .service-table th,
+        .service-table td {
+            padding: 1rem;
+            text-align: right;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .service-table th {
+            background: var(--accent-gold);
+            color: #000;
+            font-weight: 600;
+        }
+
+        .service-table td {
+            color: var(--text-secondary);
+        }
+
+        .agreement-checkbox {
+            background: var(--card-bg);
+            border: 2px solid var(--accent-gold);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .agreement-checkbox h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .agreement-checkbox p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .accept-button {
+            background: linear-gradient(45deg, var(--success-green), #00cc66);
+            color: #000;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .accept-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
+        }
+
+        .decline-button {
+            background: transparent;
+            color: var(--text-secondary);
+            padding: 1rem 2rem;
+            border: 1px solid var(--text-secondary);
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .decline-button:hover {
+            background: var(--danger-red);
+            color: white;
+            border-color: var(--danger-red);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .footer p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(45deg, var(--accent-orange), var(--accent-gold));
+            color: #000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .terms-section {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .terms-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .terms-section h3 {
+                font-size: 1.2rem;
+            }
+
+            .header {
+                padding: 2rem 0 1rem;
+            }
+
+            .service-table th,
+            .service-table td {
+                padding: 0.8rem 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                left: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+
+            .accept-button,
+            .decline-button {
+                display: block;
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .terms-section {
+                padding: 1rem;
+            }
+
+            .terms-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .highlight-box,
+            .warning-notice,
+            .important-info {
+                padding: 1rem;
+            }
+
+            .agreement-checkbox {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>תנאי שירות</h1>
+            <p>הכשרה מקצועית להשקעות במניות - שירותים חינוכיים</p>
+            <div class="last-updated">
+                <strong>עדכון אחרון:</strong> ינואר 2025
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Introduction -->
+            <section class="terms-section">
+                <h2>1. מבוא וקבלת התנאים</h2>
+                
+                <div class="warning-notice">
+                    <h4>⚠️ הודעה חשובה - אנא קראו בעיון</h4>
+                    <p>תנאי השירות הללו מהווים הסכם מחייב בינכם לבין שירותי ההכשרה החינוכית שלנו. השימוש בשירותינו מותנה בהסכמתכם המלאה לתנאים אלה.</p>
+                </div>
+
+                <p>ברוכים הבאים לשירותי ההכשרה המקצועית בתחום השקעות במניות. אנו מספקים שירותים חינוכיים בלבד ואיננו מציעים עצות השקעה אישיות או שירותי ניהול תיקי השקעות.</p>
+
+                <h3>1.1 הגדרות</h3>
+                <ul>
+                    <li><strong>"החברה"/"אנחנו":</strong> ספק שירותי ההכשרה החינוכית</li>
+                    <li><strong>"השירות":</strong> כלל השירותים החינוכיים הניתנים על ידינו</li>
+                    <li><strong>"המשתמש"/"אתם":</strong> כל אדם המשתמש בשירותינו</li>
+                    <li><strong>"תוכן חינוכי":</strong> כל החומרים, הקורסים והדוחות שאנו מספקים</li>
+                </ul>
+
+                <h3>1.2 הסכמה לתנאים</h3>
+                <p>על ידי גישה לשירותינו, שימוש בהם או הרשמה אליהם, אתם מצהירים ומאשרים כי:</p>
+                <ul>
+                    <li>אתם בני 18 לפחות או בעלי יכולת משפטית מלאה</li>
+                    <li>קראתם והבנתם את תנאי השירות במלואם</li>
+                    <li>אתם מסכימים להיות כבולים על ידי תנאים אלה</li>
+                    <li>השימוש בשירותינו אינו מפר חוק כלשהו</li>
+                </ul>
+            </section>
+
+            <!-- Service Description -->
+            <section class="terms-section">
+                <h2>2. תיאור השירותים</h2>
+                
+                <div class="highlight-box">
+                    <h4>🎓 שירותים חינוכיים בלבד</h4>
+                    <p>כל השירותים שלנו מיועדים למטרות חינוכיות והעשרת ידע בלבד. אנו לא מספקים עצות השקעה מותאמות אישית.</p>
+                </div>
+
+                <h3>2.1 סוגי השירותים</h3>
+                <table class="service-table">
+                    <thead>
+                        <tr>
+                            <th>שירות</th>
+                            <th>תיאור</th>
+                            <th>מטרה</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>קורס בסיסי</td>
+                            <td>עקרונות יסוד בהשקעות במניות</td>
+                            <td>חינוכית</td>
+                        </tr>
+                        <tr>
+                            <td>דוחות אסטרטגיים</td>
+                            <td>ניתוח מגמות שוק כלליות</td>
+                            <td>מידע כללי</td>
+                        </tr>
+                        <tr>
+                            <td>תמיכה במסחר</td>
+                            <td>הדרכה על כלים וטכניקות</td>
+                            <td>חינוכית</td>
+                        </tr>
+                        <tr>
+                            <td>אסטרטגיות מסחר</td>
+                            <td>שיטות וגישות כלליות</td>
+                            <td>לימודית</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>2.2 מה השירותים אינם כוללים</h3>
+                <div class="warning-notice">
+                    <h4>🚫 חיוני להבין</h4>
+                    <p>השירותים שלנו אינם כוללים:</p>
+                    <ul>
+                        <li>עצות השקעה אישיות ומותאמות</li>
+                        <li>ניהול תיקי השקעות</li>
+                        <li>המלצות קנייה/מכירה ספציפיות</li>
+                        <li>ערבויות לרווחיות או הצלחה</li>
+                        <li>שירותי תיווך או מסחר</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- User Responsibilities -->
+            <section class="terms-section">
+                <h2>3. אחריות המשתמש והתחייבויות</h2>
+                
+                <h3>3.1 שימוש נאות בשירותים</h3>
+                <p>אתם מתחייבים להשתמש בשירותינו באופן חוקי, אתי ובהתאם למטרות החינוכיות שלהם:</p>
+                <ul>
+                    <li>לא להעביר או למכור את הגישה לשירותים לאחרים</li>
+                    <li>לא לשכפל, להפיץ או לעשות שימוש מסחרי בתוכן</li>
+                    <li>לשמור על סודיות פרטי הכניסה שלכם</li>
+                    <li>לא להפר זכויות יוצרים או קניין רוחני</li>
+                    <li>לא להתרבות בפעילות פלילית או הונאה</li>
+                </ul>
+
+                <h3>3.2 דיוק המידע</h3>
+                <p>אתם מתחייבים לספק מידע נכון, מדויק ועדכני בעת הרשמה או שימוש בשירותים. עליכם לעדכן אותנו על כל שינוי במידע.</p>
+
+                <h3>3.3 החלטות השקעה עצמאיות</h3>
+                <div class="warning-notice">
+                    <h4>⚖️ אחריות אישית</h4>
+                    <p>אתם מבינים ומקבלים כי:</p>
+                    <ul>
+                        <li>כל החלטת השקעה היא באחריותכם הבלעדית</li>
+                        <li>עליכם להתייעץ עם יועץ פיננסי מוסמך</li>
+                        <li>השקעות כרוכות בסיכונים וייתכנו הפסדים</li>
+                        <li>אין לנו אחריות לתוצאות ההשקעות שלכם</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Disclaimers and Limitations -->
+            <section class="terms-section">
+                <h2>4. כתבי ויתור והגבלות אחריות</h2>
+                
+                <h3>4.1 כתב ויתור כללי</h3>
+                <div class="warning-notice">
+                    <h4>⚠️ הגבלת אחריות חשובה</h4>
+                    <p>השירותים ניתנים "כפי שהם" ו"כפי שזמינים" ללא כל אחריות מפורשת או משתמעת. אנו לא מתחייבים לדיוק, שלמות או אמינות התוכן.</p>
+                </div>
+
+                <h3>4.2 סיכוני השקעות</h3>
+                <p>אתם מכירים ומבינים כי:</p>
+                <ul>
+                    <li>השקעות במניות כרוכות בסיכונים משמעותיים</li>
+                    <li>מחירי מניות יכולים לעלות או לרדת במהירות</li>
+                    <li>ייתכנו הפסדים חלקיים או מלאים</li>
+                    <li>ביצועי עבר אינם מבטיחים תוצאות עתידיות</li>
+                    <li>מידע שוק עשוי להיות לא מדויק או מיושן</li>
+                </ul>
+
+                <h3>4.3 הגבלות אחריות</h3>
+                <p>החברה ובעלי המניות, הדירקטורים והעובדים שלה לא יהיו אחראים בשום מקרה לנזקים:</p>
+                <ul>
+                    <li>ישירים, עקיפים, תוצאתיים או מיוחדים</li>
+                    <li>הפסדי רווחים או נזקים עסקיים</li>
+                    <li>הפסדי נתונים או מידע</li>
+                    <li>עלויות שירותים חלופיים</li>
+                </ul>
+
+                <table class="service-table">
+                    <thead>
+                        <tr>
+                            <th>סוג נזק</th>
+                            <th>חבות החברה</th>
+                            <th>הערות</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>הפסדים בהשקעות</td>
+                            <td>ללא חבות</td>
+                            <td>החלטות אישיות</td>
+                        </tr>
+                        <tr>
+                            <td>נזקים טכניים</td>
+                            <td>מוגבלת</td>
+                            <td>עד סכום התשלום</td>
+                        </tr>
+                        <tr>
+                            <td>הפרת פרטיות</td>
+                            <td>חבות מוגבלת</td>
+                            <td>לפי החוק</td>
+                        </tr>
+                        <tr>
+                            <td>אובדן נתונים</td>
+                            <td>ללא חבות</td>
+                            <td>גיבוי אחריותכם</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Intellectual Property -->
+            <section class="terms-section">
+                <h2>5. קניין רוחני וזכויות יוצרים</h2>
+                
+                <h3>5.1 בעלות על התוכן</h3>
+                <div class="highlight-box">
+                    <h4>© זכויות יוצרים</h4>
+                    <p>כל התוכן, הקורסים, הדוחות והחומרים החינוכיים הם קניינה הרוחני הבלעדי של החברה ומוגנים בזכויות יוצרים.</p>
+                </div>
+
+                <h3>5.2 רישיון שימוש מוגבל</h3>
+                <p>אנו מעניקים לכם רישיון מוגבל, אישי ולא ניתן להעברה לשימוש בתוכן החינוכי למטרות לימוד אישי בלבד.</p>
+
+                <h3>5.3 הגבלות שימוש</h3>
+                <p>אתם לא רשאים:</p>
+                <ul>
+                    <li>להעתיק, לשכפל או להפיץ את התוכן</li>
+                    <li>למכור או להשכיר את הגישה לשירותים</li>
+                    <li>ליצור יצירות נגזרות או עיבודים</li>
+                    <li>להסיר הודעות זכויות יוצרים</li>
+                    <li>להשתמש בתוכן למטרות מסחריות</li>
+                </ul>
+
+                <h3>5.4 תוכן של משתמשים</h3>
+                <p>אם אתם משתפים תוכן באמצעות השירותים שלנו (הערות, שאלות, תגובות), אתם מעניקים לנו רישיון להשתמש בו לצורכי שיפור השירות.</p>
+            </section>
+
+            <!-- Payment and Refund Policy -->
+            <section class="terms-section">
+                <h2>6. תשלומים ומדיניות החזרים</h2>
+                
+                <h3>6.1 שירותים חינמיים ובתשלום</h3>
+                <div class="important-info">
+                    <h4>💰 מדיניות תשלומים שקופה</h4>
+                    <p>אנו מציעים שילוב של שירותים חינמיים ובתשלום. כל תשלום יהיה ברור ומוסבר מראש.</p>
+                </div>
+
+                <table class="service-table">
+                    <thead>
+                        <tr>
+                            <th>סוג שירות</th>
+                            <th>מחיר</th>
+                            <th>תקופת גישה</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>מדדי בחירת מניות יומיים</td>
+                            <td>חינם</td>
+                            <td>ללא הגבלה</td>
+                        </tr>
+                        <tr>
+                            <td>קורס בסיסי מורחב</td>
+                            <td>לפי מחירון</td>
+                            <td>12 חודשים</td>
+                        </tr>
+                        <tr>
+                            <td>דוחות פרמיום</td>
+                            <td>לפי מחירון</td>
+                            <td>מנוי חודשי</td>
+                        </tr>
+                        <tr>
+                            <td>ייעוץ אישי</td>
+                            <td>לפי מחירון</td>
+                            <td>לפי סשן</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>6.2 מדיניות החזרים</h3>
+                <p>אנו מציעים מדיניות החזרים הוגנת:</p>
+                <ul>
+                    <li><strong>תוך 7 ימים:</strong> החזר מלא עבור שירותים שלא נוצלו</li>
+                    <li><strong>תוך 30 ימים:</strong> החזר חלקי בהתאם לשימוש</li>
+                    <li><strong>אחרי 30 ימים:</strong> ללא החזר, אלא במקרים חריגים</li>
+                </ul>
+
+                <h3>6.3 ביטול מנויים</h3>
+                <p>תוכלו לבטל מנוי בכל עת. הביטול ייכנס לתוקף בסוף תקופת החיוב הנוכחית.</p>
+            </section>
+
+            <!-- Privacy and Data Protection -->
+            <section class="terms-section">
+                <h2>7. פרטיות והגנת נתונים</h2>
+                
+                <div class="highlight-box">
+                    <h4>🔒 התחייבות לפרטיות</h4>
+                    <p>אנו מחויבים להגנה על הפרטיות שלכם. לפרטים נוספים, עיינו במדיניות הפרטיות שלנו.</p>
+                </div>
+
+                <h3>7.1 איסוף ושימוש במידע</h3>
+                <p>אנו אוספים ומשתמשים במידע האישי שלכם בהתאם למדיניות הפרטיות ולצורכי מתן השירותים החינוכיים.</p>
+
+                <h3>7.2 הגנת המידע</h3>
+                <p>אנו נוקטים באמצעי אבטחה מתקדמים להגנת המידע שלכם, כולל הצפנה ובקרות גישה קפדניות.</p>
+
+                <h3>7.3 זכויותיכם</h3>
+                <p>לכם יש זכויות חשובות לגבי המידע האישי שלכם, כמפורט במדיניות הפרטיות שלנו.</p>
+            </section>
+
+            <!-- Termination -->
+            <section class="terms-section">
+                <h2>8. סיום השירותים</h2>
+                
+                <h3>8.1 סיום על ידי המשתמש</h3>
+                <p>תוכלו להפסיק להשתמש בשירותינו בכל עת על ידי:</p>
+                <ul>
+                    <li>הפסקת השימוש באתר ובשירותים</li>
+                    <li>ביטול המנוי (אם רלוונטי)</li>
+                    <li>בקשה למחיקת החשבון</li>
+                </ul>
+
+                <h3>8.2 סיום על ידי החברה</h3>
+                <div class="warning-notice">
+                    <h4>⚖️ זכות סיום</h4>
+                    <p>אנו שומרים לעצמנו את הזכות להפסיק את השירותים במקרים של:</p>
+                    <ul>
+                        <li>הפרת תנאי השירות</li>
+                        <li>שימוש לא חוקי או לא אתי</li>
+                        <li>פעילות העלולה להזיק לחברה או למשתמשים אחרים</li>
+                        <li>אי תשלום (עבור שירותים בתשלום)</li>
+                    </ul>
+                </div>
+
+                <h3>8.3 השלכות הסיום</h3>
+                <p>עם סיום השירותים:</p>
+                <ul>
+                    <li>הגישה לתוכן החינוכי תופסק</li>
+                    <li>המידע האישי יטופל בהתאם למדיניות הפרטיות</li>
+                    <li>התחייבויות הדדיות יימשכו לפי הצורך</li>
+                </ul>
+            </section>
+
+            <!-- Dispute Resolution -->
+            <section class="terms-section">
+                <h2>9. יישוב סכסוכים</h2>
+                
+                <h3>9.1 דרכי פתרון מועדפות</h3>
+                <div class="important-info">
+                    <h4>🤝 גישה שיתופית</h4>
+                    <p>אנו מאמינים בפתרון חילוקי דעות בדרך ידידותית ופרקטית לפני נקיטת צעדים משפטיים.</p>
+                </div>
+
+                <h3>9.2 הליך יישוב סכסוכים</h3>
+                <ol>
+                    <li><strong>פנייה ישירה:</strong> פנו אלינו תחילה לפתרון הבעיה</li>
+                    <li><strong>משא ומתן:</strong> ננסה להגיע להסכמה הדדית</li>
+                    <li><strong>גישור:</strong> במידת הצורך, נפנה לגישור מקצועי</li>
+                    <li><strong>בוררות:</strong> כאפשרות לפני הליכים משפטיים</li>
+                </ol>
+
+                <h3>9.3 סמכות שיפוט וחוק החל</h3>
+                <p>תנאי שירות אלה יפורשו ויחולו עליהם חוקי מדינת ישראל. סמכות השיפוט הבלעדית תהיה לבתי המשפט בישראל.</p>
+            </section>
+
+            <!-- Updates and Changes -->
+            <section class="terms-section">
+                <h2>10. עדכונים ושינויים</h2>
+                
+                <h3>10.1 זכות עדכון התנאים</h3>
+                <p>אנו שומרים לעצמנו את הזכות לעדכן תנאי שירות אלה מעת לעת כדי לשקף:</p>
+                <ul>
+                    <li>שינויים בשירותים שלנו</li>
+                    <li>שינויים בחוקים ובתקנות</li>
+                    <li>שיפורים בבטיחות ובאבטחה</li>
+                    <li>משוב מלקוחות ושיפורים תפעוליים</li>
+                </ul>
+
+                <h3>10.2 הודעה על שינויים</h3>
+                <div class="highlight-box">
+                    <h4>📢 איך תדעו על עדכונים</h4>
+                    <p>כאשר נבצע שינויים משמעותיים בתנאים:</p>
+                    <ul>
+                        <li>נשלח הודעה בדואר אלקטרוני מראש</li>
+                        <li>נפרסם הודעה באתר</li>
+                        <li>נבקש הסכמה מחודשת במידת הצורך</li>
+                        <li>נתן תקופת התאמה לשינויים משמעותיים</li>
+                    </ul>
+                </div>
+
+                <h3>10.3 המשך השימוש</h3>
+                <p>המשך השימוש בשירותים אחרי פרסום שינויים מהווה הסכמה לתנאים המעודכנים.</p>
+            </section>
+
+            <!-- Contact Information -->
+            <section class="terms-section">
+                <h2>11. פרטי התקשרות ושאלות</h2>
+                
+                <div class="important-info">
+                    <h4>📞 נשמח לעזור</h4>
+                    <p><strong>לשאלות בנושא תנאי השירות:</strong><br>
+                    דואר אלקטרוני: legal@stockeducation.co.il<br>
+                    WhatsApp: זמין דרך האתר<br>
+                    זמני מענה: ראשון-חמישי, 09:00-17:00</p>
+                </div>
+
+                <h3>11.1 תמיכה טכנית</h3>
+                <p>לבעיות טכניות או שאלות על השירותים:</p>
+                <ul>
+                    <li>WhatsApp דרך האתר (מענה מהיר)</li>
+                    <li>דואר אלקטרוני: support@stockeducation.co.il</li>
+                    <li>פורום משתמשים (בפיתוח)</li>
+                </ul>
+
+                <h3>11.2 הצעות ומשוב</h3>
+                <p>אנו מעוניינים במשוב שלכם לשיפור השירותים. אתם מוזמנים לשתף אותנו ברעיונות והצעות.</p>
+            </section>
+
+            <!-- Agreement Confirmation -->
+            <section class="terms-section">
+                <div class="agreement-checkbox">
+                    <h3>אישור הסכמה לתנאי השירות</h3>
+                    <p>על ידי לחיצה על "מסכים לתנאים" למטה, אתם מאשרים כי קראתם, הבנתם ומסכימים לכל תנאי השירות שפורטו לעיל.</p>
+                    
+                    <div style="margin: 2rem 0;">
+                        <button class="accept-button" onclick="acceptTerms()">מסכים לתנאים וממשיך</button>
+                        <button class="decline-button" onclick="declineTerms()">לא מסכים</button>
+                    </div>
+                    
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                        על ידי הסכמה, אתם גם מאשרים שקראתם את <a href="privacy.html" style="color: var(--accent-gold);">מדיניות הפרטיות</a> שלנו.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 הכשרה מקצועית להשקעות במניות. כל הזכויות שמורות.</p>
+            <p>תוכן חינוכי בלבד | לא עצה פיננסית | השקעות סיכון גבוה</p>
+            <p>
+                <a href="#top">חזרה לראש העמוד</a> | 
+                <a href="privacy.html">מדיניות פרטיות</a> | 
+                <a href="risk-disclosure.html">גילוי סיכונים</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <script>
+        // Dark mode detection and application
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Back to top functionality
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Terms acceptance functionality
+        function acceptTerms() {
+            // Store acceptance in localStorage
+            localStorage.setItem('termsAccepted', 'true');
+            localStorage.setItem('termsAcceptedDate', new Date().toISOString());
+            
+            // Create a custom modal for success
+            showCustomModal(
+                'תנאי השירות אושרו בהצלחה',
+                'תודה על הסכמתכם לתנאי השירות. אתם יכולים כעת להמשיך להשתמש בשירותינו החינוכיים.',
+                'success',
+                () => {
+                    // Redirect to main page or continue with service
+                    window.location.href = 'index.html';
+                }
+            );
+        }
+
+        function declineTerms() {
+            showCustomModal(
+                'תנאי השירות לא אושרו',
+                'מצטערים, אך ללא הסכמה לתנאי השירות לא ניתן להשתמש בשירותינו. אתם מוזמנים לקרוא שוב את התנאים או לפנות אלינו עם שאלות.',
+                'warning',
+                () => {
+                    // Could redirect to contact page or stay on terms
+                    window.location.href = 'contact.html';
+                }
+            );
+        }
+
+        // Custom modal function to replace alert/confirm
+        function showCustomModal(title, message, type, callback) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 9999;
+            `;
+            
+            const typeColors = {
+                success: 'var(--success-green)',
+                warning: 'var(--danger-red)',
+                info: 'var(--accent-gold)'
+            };
+            
+            modal.innerHTML = `
+                <div style="
+                    background: var(--card-bg);
+                    padding: 2rem;
+                    border-radius: 20px;
+                    max-width: 500px;
+                    margin: 20px;
+                    border: 2px solid ${typeColors[type] || 'var(--accent-gold)'};
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+                ">
+                    <h3 style="
+                        color: ${typeColors[type] || 'var(--accent-gold)'};
+                        margin-bottom: 1rem;
+                        font-size: 1.3rem;
+                        text-align: center;
+                    ">${title}</h3>
+                    <p style="
+                        color: var(--text-secondary);
+                        margin-bottom: 2rem;
+                        line-height: 1.6;
+                        text-align: center;
+                    ">${message}</p>
+                    <div style="text-align: center;">
+                        <button style="
+                            background: ${typeColors[type] || 'var(--accent-gold)'};
+                            color: ${type === 'success' ? '#000' : '#fff'};
+                            padding: 0.8rem 2rem;
+                            border: none;
+                            border-radius: 25px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        " onclick="this.closest('.fixed').remove(); if(typeof callback === 'function') callback();">
+                            הבנתי
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Remove modal when clicking outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Performance optimization for mobile
+        if (window.innerWidth <= 768) {
+            document.body.style.setProperty('--animation-duration', '0.3s');
+        }
+
+        // Optimize touch interactions
+        document.addEventListener('touchstart', function() {}, {passive: true});
+
+        // Add reading progress indicator
+        function updateReadingProgress() {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (window.pageYOffset / totalHeight) * 100;
+            
+            let progressBar = document.getElementById('reading-progress');
+            if (!progressBar) {
+                progressBar = document.createElement('div');
+                progressBar.id = 'reading-progress';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: ${progress}%;
+                    height: 3px;
+                    background: linear-gradient(45deg, #ffd700, #ff6b35);
+                    z-index: 9999;
+                    transition: width 0.1s ease;
+                `;
+                document.body.appendChild(progressBar);
+            } else {
+                progressBar.style.width = progress + '%';
+            }
+        }
+
+        window.addEventListener('scroll', updateReadingProgress);
+        window.addEventListener('resize', updateReadingProgress);
+
+        // Check if user has previously accepted terms
+        window.addEventListener('load', () => {
+            const termsAccepted = localStorage.getItem('termsAccepted');
+            const acceptedDate = localStorage.getItem('termsAcceptedDate');
+            
+            if (termsAccepted === 'true' && acceptedDate) {
+                const acceptedDateTime = new Date(acceptedDate);
+                const now = new Date();
+                const daysSinceAcceptance = (now - acceptedDateTime) / (1000 * 60 * 60 * 24);
+                
+                // If terms were accepted more than 365 days ago, might want to ask for re-acceptance
+                if (daysSinceAcceptance > 365) {
+                    showCustomModal(
+                        'עדכון תנאי שירות',
+                        'תנאי השירות עודכנו מאז האישור האחרון שלכם. אנא עיינו בהם שוב ואשרו את הסכמתכם.',
+                        'info'
+                    );
+                }
+            }
+        });
+    </script>
+</body>
+</html>

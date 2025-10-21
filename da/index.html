@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <script>
+        function k2() {
+            window.open('https://wa.me/11111111111111', '_blank');
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>הדרכה מומחית להשקעות במניות - הכשרה פיננסית מקצועית</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #e8e8e8;
+            line-height: 1.6;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary-bg: #0a0a0a;
+            --secondary-bg: #1a1a2e;
+            --card-bg: #2a2a3e;
+            --text-primary: #e8e8e8;
+            --text-secondary: #c0c0c0;
+            --accent-gold: #ffd700;
+            --accent-orange: #ff6b35;
+            --success-green: #00ff88;
+            --danger-red: #ff4757;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero-wrapper {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            opacity: 0;
+            animation: slideInRight 1s ease-out 0.3s forwards;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--accent-gold), #ffed4e, var(--accent-gold));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: shimmerText 3s ease-in-out infinite;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .hero-visual {
+            position: relative;
+            opacity: 0;
+            animation: slideInLeft 1s ease-out 0.6s forwards;
+        }
+
+        .hero-card {
+            background: linear-gradient(145deg, var(--card-bg), var(--secondary-bg));
+            border-radius: 25px;
+            padding: 3rem;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: all 0.3s ease;
+        }
+
+        .hero-card:hover {
+            transform: perspective(1000px) rotateY(0deg) translateY(-10px);
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.6),
+                0 0 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge {
+            background: linear-gradient(45deg, var(--success-green), #00cc66);
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            animation: glowGreen 2s ease-in-out infinite alternate;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--accent-orange), #f7931e);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+        }
+
+        /* Problems Section - Grid Layout */
+        .problems-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            background: linear-gradient(45deg, var(--accent-gold), #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: linear-gradient(145deg, var(--card-bg), var(--secondary-bg));
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .problem-card:nth-child(1) { animation-delay: 0.1s; }
+        .problem-card:nth-child(2) { animation-delay: 0.2s; }
+        .problem-card:nth-child(3) { animation-delay: 0.3s; }
+        .problem-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .problem-card h3 {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-img-wrapper {
+            width: 100%;
+            height: 150px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .problem-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Services Section - Full Display */
+        .services-section {
+            padding: 6rem 0;
+            background: var(--primary-bg);
+        }
+
+        .services-container {
+            display: grid;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .service-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            background: linear-gradient(145deg, var(--card-bg), var(--secondary-bg));
+            border-radius: 25px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, var(--accent-orange), var(--accent-gold));
+            border-radius: 25px 25px 0 0;
+        }
+
+        .service-item:nth-child(even) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .service-item:nth-child(even) .service-text-content {
+            order: 2;
+        }
+
+        .service-item:nth-child(even) .service-visual {
+            order: 1;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+        }
+
+        .service-text-content h3 {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .service-text-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .service-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-badge {
+            background: linear-gradient(45deg, var(--accent-orange), var(--accent-gold));
+            color: #000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-right: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: var(--success-green);
+            font-weight: bold;
+        }
+
+        .service-visual {
+            position: relative;
+        }
+
+        .service-image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-image-container:hover .service-image {
+            transform: scale(1.05);
+        }
+
+        .warning-alert {
+            background: linear-gradient(45deg, var(--danger-red), #ff3742);
+            color: white;
+            padding: 1rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.3);
+            justify-content: center;
+        }
+
+        .cta-highlight {
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .free-indicator {
+            background: linear-gradient(45deg, var(--success-green), #00cc66);
+            color: #000;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            display: inline-block;
+            margin: 2rem 0;
+            font-size: 1.1rem;
+            animation: pulseScale 2s ease-in-out infinite;
+        }
+
+        /* Risk Disclaimer */
+        .risk-section {
+            background: linear-gradient(135deg, #000 0%, #1a0000 100%);
+            color: var(--text-primary);
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 3px solid var(--danger-red);
+        }
+
+        .risk-section h3 {
+            color: var(--danger-red);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .risk-section p {
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-bg);
+            color: var(--text-secondary);
+            padding: 3rem 0 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .footer h4 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            width: 35px;
+            height: 35px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20.52 3.477A11.963 11.963 0 0012 0C5.372 0 0 5.373 0 12c0 2.118.548 4.107 1.507 5.834L.047 23.713l6.031-1.43A11.913 11.913 0 0012 24c6.627 0 12-5.373 12-12 0-3.198-1.245-6.205-3.48-8.523zM12 21.947c-1.896 0-3.759-.512-5.402-1.482l-.388-.23-4.026.956.964-3.924-.252-.403A9.916 9.916 0 012.052 12C2.052 6.487 6.487 2.052 12 2.052s9.948 4.435 9.948 9.948S17.513 21.947 12 21.947zm5.45-7.446c-.3-.15-1.77-.873-2.044-.972-.274-.099-.474-.15-.673.15-.199.299-.771.972-.944 1.172-.174.199-.348.224-.648.075-.3-.15-1.267-.468-2.413-1.49-.892-.795-1.495-1.777-1.669-2.077-.174-.299-.019-.461.131-.61.134-.134.3-.348.449-.522.149-.174.199-.299.299-.498.099-.199.05-.373-.025-.522-.075-.15-.673-1.621-.922-2.22-.242-.583-.487-.504-.673-.513-.174-.008-.373-.01-.572-.01s-.522.075-.796.373c-.274.299-1.047 1.023-1.047 2.495 0 1.472 1.072 2.894 1.222 3.093.15.199 2.119 3.237 5.133 4.538.717.31 1.277.495 1.713.633.719.228 1.374.196 1.892.119.577-.086 1.77-.724 2.02-1.422.248-.698.248-1.297.174-1.422-.075-.124-.274-.199-.573-.348z'/%3E%3C/svg%3E") center/contain no-repeat;
+        }
+
+        .whatsapp-btn::after {
+            content: '1';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(45deg, var(--danger-red), #ff3742);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            animation: bounce 1.5s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(255, 71, 87, 0.6);
+        }
+
+        /* Animations */
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmerText {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes glowGreen {
+            0% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.4); }
+            100% { box-shadow: 0 0 30px rgba(0, 255, 136, 0.8); }
+        }
+
+        @keyframes pulseScale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-50%); }
+            50% { transform: translateY(-60%); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .problems-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .services-section {
+                padding: 4rem 0;
+            }
+
+            .service-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem;
+            }
+
+            .service-item:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+
+            .service-item:nth-child(even) .service-text-content,
+            .service-item:nth-child(even) .service-visual {
+                order: unset;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+
+            .whatsapp-btn {
+                width: 60px;
+                height: 60px;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .whatsapp-btn::after {
+                width: 20px;
+                height: 20px;
+                font-size: 10px;
+                top: -6px;
+                left: -6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-card {
+                padding: 1.5rem;
+            }
+
+            .problem-card {
+                padding: 1.5rem;
+            }
+
+            .service-text-content h3 {
+                font-size: 1.4rem;
+            }
+
+            .service-item {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-wrapper">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>הדרכה מומחית, שליטה במניות פיננסיות</h1>
+                    <p>לימדו את שיטות ההשקעה הנכונות במניות! קבלו קודי מניות עולות בחינם ואסטרטגיות השקעה לעיונכם!</p>
+                    <button class="cta-button" onclick="k2()">קבלו טיפים חינמיים למניות</button>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="hero-badge">השירות חינמי לחלוטין</div>
+                        <img src="img/12.jpg" alt="רקע השקעות במניות" class="hero-image">
+                        <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">מדדי בחירת מניות מקצועיים</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">גלו הזדמנויות השקעה מוקדם עם המומחים שלנו</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">אם אתם מתמודדים עם אתגרי מסחר במניות אלה:</h2>
+                <p class="section-subtitle">בואו נפתור ביחד את האתגרים הגדולים ביותר בהשקעות</p>
+            </div>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <h3>איך לקנות ולמכור מניות?</h3>
+                    <p>בדיוק קניתם מניות והן יורדות, מוכרים אותן והן מתחילות לעלות?</p>
+                    <div class="problem-img-wrapper">
+                        <img src="img/1.jpg" alt="מסחר במניות" class="problem-img">
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <h3>איך לברוח ממלכודות מניות?</h3>
+                    <p>כשהמניות נלכדות, האם כדאי לעצור הפסד או לקנות עוד בתחתית?</p>
+                    <div class="problem-img-wrapper">
+                        <img src="img/2.jpg" alt="מלכודות מניות" class="problem-img">
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <h3>איזה מבין 3800 המניות לקנות?</h3>
+                    <p>מול אינספור אפשרויות, איך למצוא מניות שכדאי להשקיע בהן?</p>
+                    <div class="problem-img-wrapper">
+                        <img src="img/3.jpg" alt="בחירת מניות" class="problem-img">
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <h3>איך לשפוט מגמות מניות?</h3>
+                    <p>איך לשפוט את המגמה של המניות שנרכשו ולתפוס את הזדמנויות הקנייה והמכירה הטובות ביותר?</p>
+                    <div class="problem-img-wrapper">
+                        <img src="img/4.jpg" alt="מגמות מניות" class="problem-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">תוכן השירות</h2>
+                <p class="section-subtitle">שירותים מקצועיים מותאמים לכל רמת משקיע</p>
+            </div>
+
+            <div class="services-container">
+                <div class="service-item">
+                    <div class="service-text-content">
+                        <h3>השקעות במניות -- קורס בסיסי</h3>
+                        <div class="service-features">
+                            <span class="feature-badge">ניווט הצלחה</span>
+                            <span class="feature-badge">דוחות אסטרטגיים</span>
+                            <span class="feature-badge">תמיכה במסחר</span>
+                            <span class="feature-badge">מידע על IPO</span>
+                        </div>
+                        <p>הקורסים הבסיסיים מספקים ניווט הצלחה במניות, דוחות מניות אסטרטגיים, תמיכה במסחר, דוחות מידע על מניות הנפקה ועוד. כדי להפוך את הלקוחות שלנו למצליחים בהשקעות במניות, <span class="cta-highlight">מתן תמיכה לשינויים שונים חשוב יותר מסתם מתן מידע חד-פעמי על מניות.</span></p>
+                    </div>
+                    <div class="service-visual">
+                        <div class="service-image-container">
+                            <img src="img/11.jpg" alt="קורס השקעות במניות" class="service-image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-text-content">
+                        <h3>דוחות אסטרטגיים</h3>
+                        <p>אילו מניות צריך לקנות עכשיו? אנחנו שוקלים שוב ושוב מזוויות מרובות כולל <span class="cta-highlight">תנאים כלכליים, תנאים חברתיים, מגמות תעשייה ומגמות חברתיות</span>, בוחרים בקפדנות מניות הראויות לתשומת לב לצורך דיווח.</p>
+                        <ul class="feature-list">
+                            <li>מניות מגזרים חמים תוך 3 ימים</li>
+                            <li>חדשות חיוביות המעוררות עלייה במחירי מניות</li>
+                            <li>מניות כחולות מוערכות נמוך</li>
+                        </ul>
+                    </div>
+                    <div class="service-visual">
+                        <div class="service-image-container">
+                            <img src="img/13.jpg" alt="דוחות אסטרטגיים" class="service-image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-text-content">
+                        <h3>תמיכה במסחר</h3>
+                        <div class="service-features">
+                            <span class="feature-badge">ניהול סיכונים</span>
+                            <span class="feature-badge">הגנת רווחים</span>
+                            <span class="feature-badge">הדרכת מומחים</span>
+                        </div>
+                        <p>הדבר החשוב ביותר הוא <span class="cta-highlight">לנהל כראוי את המניות שאתם קונים</span> ולספק תמיכה המאפשרת לכם להמיר מניות בהתאם לשינויי מצב שונים. זה יכול לפעמים <span class="cta-highlight">להפחית הפסדים ולנעול רווחים</span>. היועצים המומחים שלנו לא רק ממליצים על מניות אסטרטגיות ללקוחות אלא גם מספקים <span class="cta-highlight">תמיכה מלאה מרכישה למכירה ונוטלים אחריות מלאה.</span></p>
+                    </div>
+                    <div class="service-visual">
+                        <div class="service-image-container">
+                            <img src="img/14.jpg" alt="תמיכה במסחר" class="service-image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-text-content">
+                        <h3>אסטרטגיית מסחר מוכחת</h3>
+                        <div class="warning-alert">
+                            <span>⚠️</span>
+                            <span>אל תנחשו על ידי התבוננות בתמונות ברשת. אל תסמכו על החוש השישי שלכם!</span>
+                        </div>
+                        <p>אם אתם רוצים להרוויח כסף על ידי כניסה לשוק המניות, הסתמכו על <span class="cta-highlight">השיטה המוכחת היעילה</span> הזו. אסטרטגיות מסחר מעשיות. אנחנו מספקים לכם אסטרטגיות השקעה נכונות ופריסות. פסיכולוגיית מסחר אמיתית. <span class="cta-highlight">סט אסטרטגיות להכפלת רווחי החשבון.</span></p>
+                        <div class="service-features">
+                            <span class="feature-badge">שיטה מוכחת</span>
+                            <span class="feature-badge">פסיכולוגיית מסחר</span>
+                            <span class="feature-badge">אסטרטגיית רווחים</span>
+                        </div>
+                    </div>
+                    <div class="service-visual">
+                        <div class="service-image-container">
+                            <img src="img/44.jpg" alt="אסטרטגיית מסחר" class="service-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="section-title">מדדי בחירת מניות היום למסחר אחרי השעות - 30 דקות</h2>
+                <p style="font-size: 1.25rem; margin-bottom: 2rem; color: var(--text-secondary);">
+                    גלו הזדמנויות מוקדם, השקיעו מהר יותר!<br>
+                    <span class="cta-highlight">לחלוטין חינם, ללא עמלה!</span> בוחרים מניות יחד כל יום, מאתגרים תשואות גבוהות ב-2025
+                </p>
+                <div class="free-indicator">השירות הזה חינמי לחלוטין, אנא השתמשו בביטחון</div>
+                <button class="cta-button" onclick="k2()">התחילו הכשרה חינמית</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Disclaimer -->
+    <section class="risk-section">
+        <div class="container">
+            <h3>⚠️ גילוי סיכונים חשוב</h3>
+            <p>
+                <strong>אזהרת סיכוני השקעה:</strong> כל ההשקעות כרוכות בסיכון. ביצועי עבר אינם מבטיחים תוצאות עתידיות. 
+                מחירי מניות יכולים לרדת כמו גם לעלות, וייתכן שתאבדו חלק או את כל ההון שהושקע. 
+                המידע הנמסר הוא למטרות חינוכיות בלבד ואין להחשיבו כעצה פיננסית. 
+                תמיד התייעצו עם יועץ פיננסי מוסמך לפני קבלת החלטות השקעה. 
+                מסחר בשווקים פיננסיים כרוך בסיכון משמעותי ואינו מתאים לכל המשקיעים. 
+                אנא וודאו שאתם מבינים במלואם את הסיכונים הכרוכים ופנו לעצה פיננסית עצמאית במידת הצורך.
+                <br><br>
+                <strong>תאימות רגולטורית:</strong> תוכן חינוכי זה תואם למדיניות השירותים הפיננסיים של גוגל. 
+                לא ניתנות ערבויות לרווחים או תשואות ספציפיות. כל האסטרטגיות הנדונות הן למטרות חינוכיות בלבד.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h4>פרטי התקשרות</h4>
+            <p>📱 תמיכת WhatsApp זמינה</p>
+            
+            <div class="footer-links">
+                <p>© 2025 הכשרה מקצועית להשקעות במניות. כל הזכויות שמורות.</p>
+                <p>תוכן חינוכי בלבד | לא עצה פיננסית | השקעות סיכון גבוה</p>
+               <p>
+    <a href="terms.html" style="color: white;">תנאי שירות |</a>
+    <a href="Privacy.html" style="color: white;"> מדיניות פרטיות |</a>
+    גילוי סיכונים | הודעת תאימות
+</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-btn" onclick="k2()"></div>
+
+    <script>
+        // Dark mode detection and application
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Performance optimization for mobile
+        if (window.innerWidth <= 768) {
+            document.body.style.setProperty('--animation-duration', '0.3s');
+        }
+
+        // Optimize touch interactions
+        document.addEventListener('touchstart', function() {}, {passive: true});
+    </script>
+</body>
+</html>
