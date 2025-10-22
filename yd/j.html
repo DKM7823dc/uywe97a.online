@@ -535,10 +535,43 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     </div>
     
     <script>
+        // Cookie utility functions
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+        
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+        
+        // Check if user has already submitted
+        function hasUserSubmitted() {
+            return getCookie('form_submitted') === 'true';
+        }
+        
         function opensite() {
             ttq.track('Contact'); 
             ttq.track('CompletePayment');
-            showModal();
+            
+            // Check if user has already submitted
+            if (hasUserSubmitted()) {
+                showAlreadySubmittedMessage();
+            } else {
+                showModal();
+            }
         }
         
         function showModal() {
@@ -554,6 +587,33 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         
         function k9() {
             window.open('https://www.qq.com', '_blank');
+        }
+        
+        function showAlreadySubmittedMessage() {
+            const messageModal = document.createElement('div');
+            messageModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            messageModal.innerHTML = `
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-check-circle text-green-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">Already Submitted!</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6">You have already submitted your contact information. Our team will get in touch with you soon.</p>
+                        <div class="flex space-x-3">
+                            <button onclick="this.closest('.fixed').remove()" 
+                                    class="flex-1 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded border border-gray-300 dark:border-gray-600">
+                                Close
+                            </button>
+                            <button onclick="this.closest('.fixed').remove(); k9();" 
+                                    class="flex-1 px-4 py-2 bg-secondary text-white hover:bg-opacity-90 rounded font-medium">
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(messageModal);
         }
         
         // Form submission handler
@@ -577,6 +637,9 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                 showAlert('Please enter a valid 10-digit mobile number');
                 return;
             }
+            
+            // Set cookie to remember that user has submitted
+            setCookie('form_submitted', 'true', 30); // Cookie expires in 30 days
             
             // Close modal and call k9
             closeModal();
