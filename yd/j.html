@@ -601,9 +601,7 @@
             return 'Submission record cleared';
         }
         
-        function opensite() {
-            ttq.track('Contact'); 
-            ttq.track('CompletePayment');
+        function opensite() { 
             
             // Check if resubmission is allowed (1) or disabled (2) and if user has already submitted
             if (resubmitControl === 2 && hasUserSubmitted()) {
@@ -725,5 +723,6 @@
     </script>
 </body>
 </html>
+
 
 
