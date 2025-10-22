@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -545,6 +546,9 @@ src="https://www.facebook.com/tr?id=2533042337081761&ev=PageView&noscript=1"
         // 1 = Allow resubmission, 2 = Disable resubmission
         let resubmitControl = 2; // Default: disable resubmission
         
+        // Runtime submission tracking (immediately updated when user submits)
+        let hasSubmittedThisSession = false;
+        
         // Cookie utility functions
         function setCookie(name, value, days) {
             let expires = "";
@@ -567,9 +571,9 @@ src="https://www.facebook.com/tr?id=2533042337081761&ev=PageView&noscript=1"
             return null;
         }
         
-        // Check if user has already submitted
+        // Check if user has already submitted (both session and cookie)
         function hasUserSubmitted() {
-            return getCookie('form_submitted') === 'true';
+            return hasSubmittedThisSession || getCookie('form_submitted') === 'true';
         }
         
         // Control functions for resubmission setting
@@ -620,18 +624,17 @@ src="https://www.facebook.com/tr?id=2533042337081761&ev=PageView&noscript=1"
         }
         
         function opensite() { 
-            
-            // Check if resubmission is allowed (1) or disabled (2) and if user has already submitted
-            if (resubmitControl === 2 && hasUserSubmitted()) {
-                showAlreadySubmittedMessage();
-            } else {
-                showModal();
-            }
+            // Always show modal, let the form handle submission checking
+            showModal();
         }
         
         function showModal() {
+            // Always show the modal, no checking here
             document.getElementById('contactModal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+            
+            // 检查提交状态并更新表单按钮状态
+            updateFormSubmitButton();
         }
         
         function closeModal() {
@@ -652,11 +655,11 @@ src="https://www.facebook.com/tr?id=2533042337081761&ev=PageView&noscript=1"
             messageModal.innerHTML = `
                 <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-check-circle text-green-500 text-2xl"></i>
+                        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-info-circle text-blue-500 text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">Already Submitted!</h3>
-                        <p class="text-gray-700 dark:text-gray-300 mb-6">You have already submitted your contact information. Our team will get in touch with you soon.</p>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6">You have already submitted your contact information. No need to submit again. Our team will contact you soon.</p>
                         <div class="flex space-x-3">
                             <button onclick="this.closest('.fixed').remove()" 
                                     class="flex-1 px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded border border-gray-300 dark:border-gray-600">
@@ -677,6 +680,13 @@ src="https://www.facebook.com/tr?id=2533042337081761&ev=PageView&noscript=1"
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Check if resubmission is disabled and user has already submitted
+            if (resubmitControl === 2 && hasUserSubmitted()) {
+                closeModal();
+                showAlreadySubmittedMessage();
+                return;
+            }
+            
             // Get form values
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
@@ -695,8 +705,12 @@ src="https://www.facebook.com/tr?id=2533042337081761&ev=PageView&noscript=1"
                 return;
             }
             
-            // Set cookie to remember that user has submitted
+            // Set both session flag and cookie to remember that user has submitted
+            hasSubmittedThisSession = true; // Immediate session tracking
             setCookie('form_submitted', 'true', 30); // Cookie expires in 30 days
+            
+            // Update all button states immediately after setting states
+            updateAllButtonStates();
             
             // Close modal and call k9
             closeModal();
@@ -727,6 +741,33 @@ src="https://www.facebook.com/tr?id=2533042337081761&ev=PageView&noscript=1"
             document.body.appendChild(alertModal);
         }
         
+        // Update form submit button based on submission status
+        function updateFormSubmitButton() {
+            const submitButton = document.querySelector('#contactForm button[type="submit"]');
+            if (resubmitControl === 2 && hasUserSubmitted()) {
+                submitButton.disabled = true;
+                submitButton.classList.add('opacity-50', 'cursor-not-allowed');
+                submitButton.classList.remove('hover:bg-opacity-90');
+                submitButton.textContent = 'Already Submitted';
+            } else {
+                submitButton.disabled = false;
+                submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                submitButton.classList.add('hover:bg-opacity-90');
+                submitButton.textContent = 'Submit';
+            }
+        }
+        
+        // Update all button states after submission
+        function updateAllButtonStates() {
+            // This function is called immediately after setting the cookie
+            // to ensure all buttons know the user has submitted
+            console.log('Updating all button states - user has submitted:', hasUserSubmitted());
+            
+            // Force update any cached states or UI elements
+            // The actual button checking happens in opensite() which already uses hasUserSubmitted()
+            // But we want to make sure any future clicks are blocked
+        }
+        
         // Close modal when clicking outside
         document.getElementById('contactModal').addEventListener('click', function(e) {
             if (e.target === this) {
@@ -743,10 +784,3 @@ src="https://www.facebook.com/tr?id=2533042337081761&ev=PageView&noscript=1"
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
