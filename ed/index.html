@@ -1,0 +1,742 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股道实战班</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <script>
+	function a2()
+	{
+	window.location.href="https://www.qq.com";
+	}
+	</script>
+    <style>
+        /* CSS 代码开始 */
+        :root {
+            --primary-color: #e67e22; /* 主题色 */
+            --secondary-color: #2c3e50; /* 辅助色 */
+            --dark-bg: #0f1c2d; /* 深色背景 */
+            --light-text: #e0e7ff; /* 浅色文字 */
+            --card-bg: rgba(255, 255, 255, 0.08); /* 卡片背景 */
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 28, 45, 0.9);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        /* 手机菜单按钮 */
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5em;
+            color: #fff;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 顶部横幅 */
+        .hero-section {
+            background: linear-gradient(135deg, #1f2a40, #2a3a50);
+            color: #fff;
+            text-align: center;
+            padding: 120px 20px 80px;
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #d35400;
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-light {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .section-dark {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+        }
+
+        /* 课程内容 - 特效拉满 */
+        .content-section {
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .content-section h2 {
+            text-align: center;
+            font-size: 2.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 60px;
+            text-shadow: 0 0 10px rgba(230, 126, 34, 0.6);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .content-item {
+            background-color: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.6s ease;
+        }
+
+        .content-item:hover {
+            transform: translateY(-15px) rotateX(5deg) scale(1.03);
+            box-shadow: 0 15px 40px rgba(230, 126, 34, 0.2);
+        }
+
+        .content-item h3 {
+            color: #fff;
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .content-item h3::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin-top: 10px;
+            box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
+        }
+
+        .content-item p {
+            color: #b0c2e3;
+            font-size: 1em;
+            line-height: 1.8;
+        }
+        
+        /* 痛点和优势部分 */
+        .problem-section, .advantage-section {
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+        }
+        
+        .advantage-section h2 {
+            color: var(--secondary-color);
+        }
+
+        .advantage-item {
+            margin-bottom: 40px;
+        }
+        
+        .advantage-item h3 {
+            color: var(--secondary-color);
+            font-size: 1.5em;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .advantage-item p, .advantage-item li {
+            font-size: 1.1em;
+            line-height: 1.8;
+            list-style: none;
+            margin-left: -20px;
+        }
+        
+        .advantage-item ul li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #28a745;
+            margin-right: 10px;
+        }
+        
+        /* FAQ 部分 */
+        .faq-section {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .faq-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .faq-item h3 {
+            color: var(--secondary-color);
+            font-size: 1.2em;
+            margin: 0;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .faq-item h3::after {
+            content: '\f078';
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active h3::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-item p {
+            display: none;
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-item.active p {
+            display: block;
+        }
+
+        /* 底部行动号召 */
+        .cta-footer-section {
+            background: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .cta-footer-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .cta-footer-section .course-details {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .cta-footer-section .course-details li {
+            list-style: none;
+            margin: 10px 0;
+        }
+        
+        .cta-footer-section .course-details ul {
+            padding: 0;
+        }
+
+        .special-offer {
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #1f2a40;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        
+        /* 悬浮按钮样式 */
+        .floating-cta-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .floating-cta {
+            position: relative;
+            display: block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            font-size: 1.1em;
+            overflow: hidden;
+            z-index: 1;
+            /* 新增：微幅度跳动动画 */
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        /* 悬停微光效果 */
+        .floating-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: skewX(-20deg);
+            z-index: -1;
+            opacity: 0; /* 默认隐藏 */
+        }
+
+        .floating-cta:hover::before {
+            animation: shimmer 1s forwards;
+            opacity: 1;
+        }
+
+        .floating-cta:hover {
+            transform: scale(1.05);
+            background-color: #d35400;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+        }
+        
+        @keyframes shimmer {
+            0% { left: -75%; }
+            100% { left: 125%; }
+        }
+
+        /* ---------------------------------- */
+        /* 手机端适配优化 */
+        /* ---------------------------------- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            /* 手机端导航栏 */
+            .navbar .container {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100%;
+                /* 新增：不透明背景色 */
+                background-color: var(--secondary-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.4s ease-in-out;
+                z-index: 999;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2em;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero-section {
+                padding: 100px 15px 60px;
+            }
+
+            .hero-section h1 {
+                font-size: 2em;
+            }
+
+            .hero-section .subtitle {
+                font-size: 1em;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .content-section h2, .advantage-section h2, .faq-section h2, .cta-footer-section h2 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-item {
+                padding: 20px;
+            }
+
+            .problem-list {
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            
+            .problem-list ul {
+                text-align: left;
+            }
+
+            .floating-cta-container {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .floating-cta {
+                font-size: 1em;
+                padding: 12px 20px;
+            }
+            
+            .floating-cta::before {
+                transition: none; /* 禁用手机端微光效果 */
+            }
+
+            .floating-cta:hover::before {
+                animation: none;
+                opacity: 0;
+            }
+        }
+        /* CSS 代码结束 */
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a onclick="a2()" class="logo">SHARIX</a>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-list">
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#content">课程内容</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li><a onclick="a2()" class="cta-button">立即报名</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header class="hero-section" id="hero">
+        <div class="container" data-aos="fade-up">
+            <h1>股道实战班 - 免费学习经验丰富投资者的投资技巧</h1>
+            <p class="subtitle">马股最精确的股票资讯订阅平台，掌握全球经济脉动，开拓个人投资视野，深入解析企业赛道，传递精准股市资讯。</p>
+            <a onclick="a2()" class="cta-button">免费报名参加</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-light problem-section" id="about" data-aos="fade-up">
+            <div class="container">
+                <h2>您知道下一步操作是什么吗?</h2>
+                <p>股票投资如下棋，每一步都需要预想下几步要如何部署。而不是等到出现股价大幅上涨或下滑的时候才考虑要如何处理。实战班配合利用导师们多年累计的投资经验及数据研究，分享导师们面对各种情况下的应对手法给学员们。</p>
+                <div class="problem-list">
+                    <h3>投资者经常犯的错误</h3>
+                    <ul>
+                        <li><i class="fas fa-exclamation-triangle"></i> 在错的时间点入场买股</li>
+                        <li><i class="fas fa-exclamation-triangle"></i> 不了解股价处于什么阶段</li>
+                        <li><i class="fas fa-exclamation-triangle"></i> 买卖股票完全没有拟定策略</li>
+                        <li><i class="fas fa-exclamation-triangle"></i> 股票大涨才决定是否要套利</li>
+                        <li><i class="fas fa-exclamation-triangle"></i> 股票大跌才决定是否要止损</li>
+                    </ul>
+                    <p>不论是新手或有经验的投资者，都同样会面对这些问题。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-dark content-section" id="content">
+            <div class="container">
+                <h2 data-aos="zoom-in-up">课程内容</h2>
+                <div class="content-grid">
+                    <div class="content-item" data-aos="fade-right">
+                        <h3>选股六大法则</h3>
+                        <p>SHARIX独创6+6选股法则，为上市公司各方面的表现评分，选出优质潜力股。</p>
+                    </div>
+                    <div class="content-item" data-aos="fade-right" data-aos-delay="200">
+                        <h3>趋势六大阶段</h3>
+                        <p>认识各领域的领头公司，趋势的形成，如何部署策略及止损/套利。</p>
+                    </div>
+                    <div class="content-item" data-aos="fade-right" data-aos-delay="400">
+                        <h3>现金流看未来</h3>
+                        <p>解析公司现金流状况，从现金流分析出公司前景和未来潜能。</p>
+                    </div>
+                    <div class="content-item" data-aos="fade-right" data-aos-delay="600">
+                        <h3>操作 vs 风险</h3>
+                        <p>通过听取不同导师的实战操作及经验分享，从而改进自己本身在操作上的失误。</p>
+                    </div>
+                    <div class="content-item" data-aos="fade-left">
+                        <h3>成长企业特质</h3>
+                        <p>了解上市公司商业模式及其独特的护城河。发掘正在高速成长，持续创新的卓越企业。</p>
+                    </div>
+                    <div class="content-item" data-aos="fade-left" data-aos-delay="200">
+                        <h3>企业估值解读</h3>
+                        <p>学习如何衡量一家公司的估值，作为是否可以入场投资或套利的参考。</p>
+                    </div>
+                    <div class="content-item" data-aos="fade-left" data-aos-delay="400">
+                        <h3>投资组合管理</h3>
+                        <p>依据个人的投资资本及风险偏好，打造出最适合自己的投资组合。</p>
+                    </div>
+                    <div class="content-item" data-aos="fade-left" data-aos-delay="600">
+                        <h3>总结：心态管理</h3>
+                        <p>学习如何打造良好的投资心态，并配合自身操作，进而制定一套自己的交易策略。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light advantage-section">
+            <div class="container" data-aos="fade-up">
+                <h2>课程优势</h2>
+                <div class="advantage-item">
+                    <h3>专业导师传授经验</h3>
+                    <p>三位分别来自金融银行，基金和医疗背景的导师，无私分享和传授自己 8-10年股票操作的实战经验。可透过吸取和借鉴导师们的投资经验来完善自己的投资策略。</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>知识与实战操作串联，融合运用</h3>
+                    <p>学习是体验别人的经验，实践是获得自己经验的好途径。实战操作在股票投资也是必不可少，只有自己经历过才能找到属于自己的操作方式。</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>系统教学计算法</h3>
+                    <p>Sharix 特别研发 MAGICS 6+6 计算法，让学员们可以赛选公司并作为一个重要的参考。</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>正确的买卖前策略</h3>
+                    <ul>
+                        <li>了解公司基本面背景及生意</li>
+                        <li>根据公司前景拟定持股期限</li>
+                        <li>股价达到什么价位选择套利</li>
+                        <li>不如预期什么价位选择止损</li>
+                        <li>公司基本面变动如何处理</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light faq-section" id="faq" data-aos="fade-up">
+            <div class="container">
+                <h2>FAQ (常问问题)</h2>
+                <div class="faq-item">
+                    <h3>请问活动是线上还是线下举办?</h3>
+                    <p>Sharix 举办的课程绝大部分都是线上课程，主要原因是为了不受时间限制，提供更多知识内容给学员，如果临时有任何内容需要跟进，我们都可以做得到，并且有兴趣的学员不受地点限制都可以参加课程。只有特定课程及活动会做线下。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>如果错过上课时间，还可以重播吗?</h3>
+                    <p>Sharix 所有线上课程都可以无限重播，我们不会删除任何课程影片，内容或群组。学员们可以安排自己的时间上课和复习课程内容。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>线下课程是否会获得线上重播内容版本?</h3>
+                    <p>参与线下活动的学员将不会获得线上重播内容。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>是否可以退款?</h3>
+                    <p>非常抱歉，在付款确认参与本公司任何课程、活动及订阅服务之后，本公司一律不会退款。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-footer-section" id="register" data-aos="zoom-in">
+            <div class="container">
+                <h2>千万不要错过，赶快报名参加！</h2>
+                <p>拟定您的投资策略! 一年一次的实战班课程</p>
+                <div class="course-details">
+                    <p>配套包含:</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 线上(Online)课程</li>
+                        <li><i class="fas fa-check-circle"></i> 可无限重播观看</li>
+                        <li><i class="fas fa-check-circle"></i> 课程相关问答环节</li>
+                    </ul>
+                </div>
+                <a onclick="a2()" class="cta-button">免费参与课程</a>
+                <p class="special-offer">特别优惠配套：即日起，将免费送股道实战班。赶紧了解我们的 Sharix Prime 订阅服务吧！</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>� 2025 Sharix. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="floating-cta-container">
+        <a onclick="a2()" class="floating-cta">免费报名参加</a>
+    </div>
+
+    <script src="js/aos.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script>
+        // AOS 初始化
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+
+        // GSAP 动画
+        gsap.from(".hero-section h1", { opacity: 0, y: 50, duration: 1.2, ease: "power2.out" });
+        gsap.from(".hero-section .subtitle", { opacity: 0, y: 50, duration: 1.2, delay: 0.3, ease: "power2.out" });
+        gsap.from(".hero-section .cta-button", { opacity: 0, scale: 0.8, duration: 1, delay: 0.6, ease: "back.out(1.7)" });
+
+        // FAQ 折叠效果
+        document.querySelectorAll('.faq-item h3').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+        
+        // 手机导航菜单切换
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // 点击后隐藏手机菜单
+                if (document.querySelector('.nav-links').classList.contains('active')) {
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+        
+        
+        
+//         const url = "https://sdlink.cc/9cnWrL";
+//         let seconds = 5;
+
+//         function updateCountdown() {
+//          seconds--;
+//         if (seconds <= 0) {
+//             window.location.href = url;
+//             }
+//         }
+
+// setInterval(updateCountdown, 1000);
+        
+        
+        
+        
+    </script>
+
+</body></html>
