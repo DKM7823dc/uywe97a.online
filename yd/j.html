@@ -535,6 +535,10 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     </div>
     
     <script>
+        // Global control switch for resubmission
+        // 1 = Allow resubmission, 2 = Disable resubmission
+        let resubmitControl = 2; // Default: disable resubmission
+        
         // Cookie utility functions
         function setCookie(name, value, days) {
             let expires = "";
@@ -562,12 +566,59 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             return getCookie('form_submitted') === 'true';
         }
         
+        // Control functions for resubmission setting
+        function setResubmitControl(value) {
+            if (value === 1) {
+                resubmitControl = 1;
+                console.log('Resubmission control set to 1: Users can submit multiple times');
+                return 'Resubmission enabled (1)';
+            } else if (value === 2) {
+                resubmitControl = 2;
+                console.log('Resubmission control set to 2: Users can only submit once');
+                return 'Resubmission disabled (2)';
+            } else {
+                console.log('Invalid value. Use 1 to enable or 2 to disable resubmission');
+                return 'Invalid value. Use 1 to enable or 2 to disable resubmission';
+            }
+        }
+        
+        function enableResubmit() {
+            return setResubmitControl(1);
+        }
+        
+        function disableResubmit() {
+            return setResubmitControl(2);
+        }
+        
+        function toggleResubmit() {
+            const newValue = resubmitControl === 1 ? 2 : 1;
+            return setResubmitControl(newValue);
+        }
+        
+        function getResubmitStatus() {
+            const status = resubmitControl === 1 ? 'enabled (1)' : 'disabled (2)';
+            console.log(`Resubmission is currently ${status}`);
+            return `Resubmission is ${status}`;
+        }
+        
+        function getResubmitValue() {
+            console.log(`Current resubmit control value: ${resubmitControl}`);
+            return resubmitControl;
+        }
+        
+        // Clear submission record (useful for testing or admin purposes)
+        function clearSubmissionRecord() {
+            setCookie('form_submitted', '', -1); // Delete the cookie
+            console.log('Submission record cleared');
+            return 'Submission record cleared';
+        }
+        
         function opensite() {
             ttq.track('Contact'); 
             ttq.track('CompletePayment');
             
-            // Check if user has already submitted
-            if (hasUserSubmitted()) {
+            // Check if resubmission is allowed (1) or disabled (2) and if user has already submitted
+            if (resubmitControl === 2 && hasUserSubmitted()) {
                 showAlreadySubmittedMessage();
             } else {
                 showModal();
