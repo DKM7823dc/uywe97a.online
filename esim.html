@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>eSIM 深度优化版</title>
+    <style>
+        :root {
+            --primary: #0066FF;
+            --primary-dark: #004ECC;
+            --accent: #FF3B30;
+            --best-value: #FF9500;
+            --bg: #F5F7FA;
+            --card-bg: #FFFFFF;
+            --text-main: #1D1D1F;
+            --text-sub: #86868B;
+            --border-radius: 18px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+            --gradient-premium: linear-gradient(135deg, #0066FF 0%, #5AC8FA 100%);
+            --gradient-gold: linear-gradient(135deg, #FFD700 0%, #FF9500 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding-bottom: 120px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* 顶部导航：强调目的地 */
+        .header {
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+            padding: 16px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dest-info { font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+        .dest-flag { font-size: 1.4rem; }
+
+        /* 布局容器 */
+        .container { padding: 20px; max-width: 600px; margin: 0 auto; }
+
+        /* 1. 天数选择：滑块设计，强调“情境” */
+        .section-label {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .duration-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding-bottom: 5px;
+            margin-bottom: 24px;
+            scrollbar-width: none;
+        }
+        .duration-slider::-webkit-scrollbar { display: none; }
+
+        .d-chip {
+            background: var(--card-bg);
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 14px;
+            padding: 10px 18px;
+            min-width: 50px;
+            text-align: center;
+            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .d-chip.active {
+            background: var(--text-main);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+            border-color: var(--text-main);
+        }
+        .d-chip .val { font-size: 1.1rem; font-weight: 700; display: block; }
+        .d-chip .unit { font-size: 0.7rem; opacity: 0.8; }
+        
+        /* 2. 模式切换：胶囊式 */
+        .mode-switch {
+            background: #Eef1f5;
+            border-radius: 14px;
+            padding: 4px;
+            display: flex;
+            margin-bottom: 28px;
+            position: relative;
+        }
+        .mode-btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            z-index: 2;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .mode-btn.active { color: var(--text-main); }
+        /* 滑块背景动画 */
+        .mode-bg {
+            position: absolute;
+            top: 4px; left: 4px; bottom: 4px;
+            width: calc(50% - 4px);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            z-index: 1;
+        }
+
+        /* 3. 流量卡片布局策略 */
+        
+        /* A. 明星推荐区 (Hero Section) - 放置高利润产品 (10GB, 20GB, 30GB) */
+        .hero-section {
+            margin-bottom: 30px;
+        }
+        .hero-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hero-icon { color: var(--best-value); }
+
+        .hero-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 16px;
+            padding: 4px 4px 20px 4px; /* Space for shadow */
+            scroll-snap-type: x mandatory;
+        }
+        
+        .hero-card {
+            background: var(--card-bg);
+            min-width: 260px;
+            border-radius: 20px;
+            padding: 20px;
+            position: relative;
+            box-shadow: var(--shadow-md);
+            border: 2px solid transparent;
+            scroll-snap-align: center;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        
+        /* 选中状态 */
+        .hero-card.selected {
+            border-color: var(--primary);
+            background: #F0F7FF;
+        }
+
+        .tag-best {
+            position: absolute;
+            top: -12px; left: 20px;
+            background: var(--text-main);
+            color: white;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .tag-save {
+            background: #E3F9E5;
+            color: #008a1e;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .hero-gb { font-size: 2.2rem; font-weight: 800; line-height: 1; margin-bottom: 4px; color: var(--text-main); }
+        .hero-gb span { font-size: 1rem; font-weight: 600; margin-left: 2px; }
+        
+        .hero-price-row {
+            display: flex;
+            align-items: baseline;
+            margin-top: 15px;
+            justify-content: space-between;
+        }
+        .hero-price { font-size: 1.4rem; font-weight: 700; color: var(--text-main); }
+        .hero-old-price { text-decoration: line-through; color: var(--text-sub); font-size: 0.9rem; margin-left: 6px;}
+        
+        .hero-per-gb {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            background: rgba(0, 102, 255, 0.1);
+            padding: 4px 8px;
+            border-radius: 8px;
+        }
+
+        /* B. 无限流量 (Premium) - 诱饵与高端选项 */
+        .premium-card {
+            background: var(--gradient-premium);
+            color: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.25);
+            cursor: pointer;
+        }
+        .premium-card::after {
+            content: "";
+            position: absolute;
+            top: -50%; right: -50%;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+            transform: rotate(45deg);
+        }
+        .premium-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .premium-title { font-size: 1.2rem; font-weight: 800; display: flex; align-items: center; gap: 6px;}
+        .premium-price { font-size: 1.4rem; font-weight: 700; }
+        .premium-desc { font-size: 0.9rem; opacity: 0.9; line-height: 1.4; }
+        .premium-card.selected { ring: 4px solid rgba(0,102,255,0.3); transform: scale(0.99); }
+
+        /* C. 基础列表 (Basic) - 1GB, 3GB, 5GB (降低视觉权重) */
+        .basic-list-title { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 10px; font-weight: 600; }
+        .basic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .basic-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 15px 10px;
+            text-align: center;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        .basic-card.selected { border-color: var(--primary); background: #F0F7FF; color: var(--primary); }
+        .basic-gb { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+        .basic-price { font-size: 0.9rem; color: var(--text-sub); }
+        .basic-card.selected .basic-price { color: var(--primary); font-weight: 600; }
+
+        /* 底部结算栏 */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: var(--card-bg);
+            padding: 16px 20px 30px 20px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 99;
+        }
+        .total-info { display: flex; flex-direction: column; }
+        .total-label { font-size: 0.8rem; color: var(--text-sub); }
+        .total-amount { font-size: 1.6rem; font-weight: 800; color: var(--text-main); }
+        
+        .checkout-btn {
+            background: var(--text-main);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        .checkout-btn:active { transform: scale(0.95); }
+
+        .hidden { display: none; }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="dest-info">
+            <span class="dest-flag">🇺🇸</span> 美国 USA
+        </div>
+        <!-- 心理暗示：显示已有多少人购买 -->
+        <div style="font-size: 0.75rem; color: var(--text-sub);">🔥 本周 1.2k 人购买</div>
+    </div>
+
+    <div class="container">
+        
+        <!-- 1. 天数选择 -->
+        <div class="section-label">
+            <span>行程时长</span>
+            <span style="color: var(--primary)">如何选择?</span>
+        </div>
+        <div class="duration-slider" id="durationSlider">
+            <!-- JS 填充 -->
+        </div>
+
+        <!-- 2. 模式切换 -->
+        <div class="mode-switch">
+            <div class="mode-bg" id="modeBg"></div>
+            <div class="mode-btn active" onclick="setMode(0)">按总流量 (Total)</div>
+            <div class="mode-btn" onclick="setMode(1)">按天计算 (Daily)</div>
+        </div>
+
+        <!-- 总流量模式内容 -->
+        <div id="totalModeContent">
+            
+            <!-- A. 明星推荐区 (高客单价区) -->
+            <!-- 这里放 10GB, 20GB, 30GB -->
+            <div class="hero-section">
+                <div class="hero-title">
+                    <span class="hero-icon">★</span> 畅享套餐 (推荐)
+                </div>
+                <div class="hero-scroll">
+                    
+                    <!-- 10GB -->
+                    <div class="hero-card" onclick="selectPlan(this, 28, '10GB')">
+                        <div class="hero-gb">10<span>GB</span></div>
+                        <div style="font-size: 0.8rem; color: var(--text-sub);">适合 1-2 周出差旅游</div>
+                        <div class="hero-price-row">
+                            <div>
+                                <span class="hero-price">$28</span>
+                                <span class="hero-old-price">$35</span>
+                            </div>
+                            <div class="hero-per-gb">$2.8/GB</div>
+                        </div>
+                    </div>
+
+                    <!-- 20GB (核心主推 - 默认选中) -->
+                    <div class="hero-card selected" onclick="selectPlan(this, 45, '20GB')">
+                        <div class="tag-best">性价比之王</div>
+                        <div class="hero-gb">20<span>GB</span> <span class="tag-save">省 30%</span></div>
+                        <div style="font-size: 0.8rem; color: var(--text-sub);">视频会议、导航、社媒无忧</div>
+                        <div class="hero-price-row">
+                            <div>
+                                <span class="hero-price">$45</span>
+                                <span class="hero-old-price">$65</span>
+                            </div>
+                            <div class="hero-per-gb">$2.2/GB</div>
+                        </div>
+                    </div>
+
+                    <!-- 30GB (高价锚点) -->
+                    <div class="hero-card" onclick="selectPlan(this, 58, '30GB')">
+                        <div class="hero-gb">30<span>GB</span></div>
+                        <div style="font-size: 0.8rem; color: var(--text-sub);">超大流量，可开热点</div>
+                        <div class="hero-price-row">
+                            <div>
+                                <span class="hero-price">$58</span>
+                            </div>
+                            <div class="hero-per-gb">$1.9/GB</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- B. 无限流量 (高端诱饵) -->
+            <div class="premium-card" onclick="selectPlan(this, 69, 'Unlimited')">
+                <div class="premium-header">
+                    <div class="premium-title">♾️ 无限流量 Unlimited</div>
+                    <div class="premium-price">$69</div>
+                </div>
+                <div class="premium-desc">
+                    彻底告别流量焦虑。<br>
+                    <span style="font-size:0.8rem; opacity:0.8">含 2GB 高速热点分享</span>
+                </div>
+            </div>
+
+            <!-- C. 基础尝鲜区 (低客单价 - 视觉降级) -->
+            <div class="basic-list-title">轻量尝鲜 / 短途备用</div>
+            <div class="basic-grid">
+                <div class="basic-card" onclick="selectPlan(this, 5, '1GB')">
+                    <div class="basic-gb">1GB</div>
+                    <div class="basic-price">$5.00</div>
+                </div>
+                <div class="basic-card" onclick="selectPlan(this, 12, '3GB')">
+                    <div class="basic-gb">3GB</div>
+                    <div class="basic-price">$12.00</div>
+                </div>
+                <div class="basic-card" onclick="selectPlan(this, 18, '5GB')">
+                    <div class="basic-gb">5GB</div>
+                    <div class="basic-price">$18.00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 按天模式内容 (默认隐藏) -->
+        <div id="dailyModeContent" class="hidden">
+            <div class="hero-section">
+                <div class="hero-title">每日自动续量</div>
+                <div class="hero-scroll">
+                    <div class="hero-card" onclick="selectPlan(this, 15, '1GB/Day')">
+                        <div class="hero-gb">1<span>GB/天</span></div>
+                        <div class="hero-price-row">
+                            <span class="hero-price">$15</span>
+                            <div class="hero-per-gb">$0.5/天</div>
+                        </div>
+                    </div>
+                    <div class="hero-card selected" onclick="selectPlan(this, 25, '2GB/Day')">
+                        <div class="tag-best">推荐</div>
+                        <div class="hero-gb">2<span>GB/天</span></div>
+                        <div class="hero-price-row">
+                            <span class="hero-price">$25</span>
+                            <div class="hero-per-gb">$0.8/天</div>
+                        </div>
+                    </div>
+                    <div class="hero-card" onclick="selectPlan(this, 35, '3GB/Day')">
+                        <div class="hero-gb">3<span>GB/天</span></div>
+                        <div class="hero-price-row">
+                            <span class="hero-price">$35</span>
+                            <div class="hero-per-gb">$1.1/天</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 底部栏 -->
+    <div class="bottom-bar">
+        <div class="total-info">
+            <span class="total-label" id="summaryText">30天 · 20GB 总流量</span>
+            <span class="total-amount" id="finalPrice">$45.00</span>
+        </div>
+        <button class="checkout-btn">立即激活</button>
+    </div>
+
+    <script>
+        // 初始化天数
+        const days = [3, 7, 15, 30];
+        const slider = document.getElementById('durationSlider');
+        let currentDay = 30;
+
+        days.forEach(d => {
+            const el = document.createElement('div');
+            el.className = `d-chip ${d === 30 ? 'active' : ''}`;
+            el.innerHTML = `<span class="val">${d}</span><span class="unit">天</span>`;
+            el.onclick = () => {
+                document.querySelectorAll('.d-chip').forEach(c => c.classList.remove('active'));
+                el.classList.add('active');
+                currentDay = d;
+                updateSummary();
+            };
+            slider.appendChild(el);
+        });
+
+        // 模式切换
+        function setMode(index) {
+            const bg = document.getElementById('modeBg');
+            const btns = document.querySelectorAll('.mode-btn');
+            const totalContent = document.getElementById('totalModeContent');
+            const dailyContent = document.getElementById('dailyModeContent');
+
+            btns.forEach(b => b.classList.remove('active'));
+            btns[index].classList.add('active');
+            
+            // 移动背景滑块
+            bg.style.transform = index === 0 ? 'translateX(0)' : 'translateX(100%)';
+
+            if(index === 0) {
+                totalContent.classList.remove('hidden');
+                dailyContent.classList.add('hidden');
+            } else {
+                totalContent.classList.add('hidden');
+                dailyContent.classList.remove('hidden');
+            }
+        }
+
+        // 选择套餐逻辑
+        let currentPlanName = "20GB";
+        let currentPrice = 45;
+
+        function selectPlan(el, price, name) {
+            // 清除所有选中状态
+            document.querySelectorAll('.hero-card, .basic-card, .premium-card').forEach(c => c.classList.remove('selected'));
+            
+            // 添加选中状态
+            el.classList.add('selected');
+            
+            // 简单的价格模拟逻辑 (实际开发中应根据天数和规格查表)
+            // 这里为了演示，假设价格是固定的，实际价格通常随天数变化
+            currentPrice = price;
+            currentPlanName = name;
+            
+            // 动画更新价格
+            const priceEl = document.getElementById('finalPrice');
+            priceEl.style.transform = 'scale(1.1)';
+            setTimeout(() => priceEl.style.transform = 'scale(1)', 150);
+            
+            priceEl.innerText = '$' + price.toFixed(2);
+            updateSummary();
+        }
+
+        function updateSummary() {
+            document.getElementById('summaryText').innerText = `${currentDay}天 · ${currentPlanName}`;
+        }
+    </script>
+</body>
+</html>
