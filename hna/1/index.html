@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS - 사고의 기술</title>
-    <meta name="description" content="NEXUS는 논리적 사고와 판단력을 향상시키는 체계적인 교육 플랫폼입니다.">
-	
+    <title>NEXUS - 스마트 투자자를 위한 사고의 기술</title>
+    <meta name="description" content="NEXUS는 체계적인 투자 사고와 분석력을 키우는 교육 플랫폼입니다. 주식투자 기초부터 고급 분석까지.">
+
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRKGVFEY8"></script>
 <script>
@@ -16,8 +16,7 @@
   gtag('config', 'G-HWRKGVFEY8');
 </script>
 
-<!-- Event snippet for 购买 conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<!-- Event snippet for 购买 conversion page -->
 <script>
 function gtag_report_conversion(url) {
   var callback = function () {
@@ -36,7 +35,7 @@ function gtag_report_conversion(url) {
 
 	<script>
 	 function k2() {
-	 gtag_report_conversion('https://www.qq.com'); 
+	 gtag_report_conversion('https://www.qq.com');
         }
 	</script>
     <style>
@@ -49,6 +48,8 @@ function gtag_report_conversion(url) {
             --text-secondary: #a0a0a0;
             --accent-hover: #f0c952;
             --modal-bg: #1f2229;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
         }
 
         * {
@@ -147,6 +148,16 @@ function gtag_report_conversion(url) {
             line-height: 1.8;
         }
 
+        .hero-highlight {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+            border-left: 3px solid var(--primary-color);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
         .hero-image {
             width: 100%;
             height: auto;
@@ -186,6 +197,33 @@ function gtag_report_conversion(url) {
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
         }
 
+        /* --- 통계 섹션 (Stats Section) --- */
+        .stats-section {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.02));
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+        }
+
+        .stat-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
         /* --- 공통 섹션 스타일 (Section Styles) --- */
         section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 4rem; }
@@ -204,32 +242,81 @@ function gtag_report_conversion(url) {
             padding: 2.5rem;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .feature-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
-        .feature-icon { font-size: 2rem; color: var(--primary-color); margin-bottom: 1.5rem; }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
         .feature-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
 
-        /* --- 프로세스 그리드 (Process) --- */
-        .process-grid {
+        /* --- 투자 학습 모듈 (Investment Modules) --- */
+        .modules-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
-        .process-item {
-            background: rgba(255, 255, 255, 0.03);
+
+        .module-card {
+            background: linear-gradient(135deg, var(--card-bg), #15181f);
             padding: 2rem;
             border-radius: 12px;
-            border-left: 3px solid transparent;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-        .process-item:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-left: 3px solid var(--primary-color);
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-color);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
         }
-        .process-item h4 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-main); }
-        .process-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .module-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .module-card:hover {
+            transform: translateX(5px);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .module-number {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .module-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+        .module-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
 
         /* --- CTA 섹션 --- */
         #cta {
@@ -240,7 +327,13 @@ function gtag_report_conversion(url) {
             padding: 5rem 2rem;
             border: 1px solid rgba(212, 175, 55, 0.2);
         }
-        .cta-note { display: block; margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-secondary); opacity: 0.7; }
+        .cta-note {
+            display: block;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
 
         /* --- 푸터 및 법적 고지 (Footer & Legal) --- */
         footer {
@@ -249,7 +342,7 @@ function gtag_report_conversion(url) {
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 0.85rem;
             color: #666;
-            margin-bottom: 60px; /* 하단 버튼에 가려지지 않도록 여백 추가 */
+            margin-bottom: 60px;
         }
 
         .footer-content {
@@ -283,8 +376,17 @@ function gtag_report_conversion(url) {
             background: rgba(255, 255, 255, 0.02);
         }
 
-        .disclaimer-box h4 { color: #888; margin-bottom: 0.5rem; font-size: 0.9rem; }
-        .disclaimer-box p { margin-bottom: 0.5rem; line-height: 1.5; }
+        .disclaimer-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .disclaimer-box p {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+            color: #999;
+        }
 
         /* --- 모달 팝업 스타일 (Modal Styles) --- */
         .modal {
@@ -325,9 +427,24 @@ function gtag_report_conversion(url) {
 
         .close-modal:hover { color: #fff; }
 
-        .modal-body h2 { color: var(--primary-color); margin-bottom: 1.5rem; border-bottom: 1px solid #444; padding-bottom: 10px; }
-        .modal-body h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: #fff; font-size: 1.1rem; }
-        .modal-body p { margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.6; color: #ccc; }
+        .modal-body h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+        .modal-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+        .modal-body p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #ccc;
+        }
 
         /* --- 하단 悬浮 버튼 스타일 (Floating Button) --- */
         .floating-btn-container {
@@ -338,11 +455,11 @@ function gtag_report_conversion(url) {
             display: flex;
             justify-content: center;
             z-index: 9999;
-            pointer-events: none; /* 컨테이너 영역 클릭 통과 */
+            pointer-events: none;
         }
 
         .floating-btn {
-            pointer-events: auto; /* 버튼 클릭 활성화 */
+            pointer-events: auto;
             background-color: var(--primary-color);
             color: #000;
             font-weight: 800;
@@ -382,13 +499,19 @@ function gtag_report_conversion(url) {
             #home {
                 padding: 6rem 1.5rem 3rem;
             }
-            .nav-links { display: none; } /* 모바일에서는 메뉴 숨김 (간소화) */
+            .nav-links { display: none; }
             section { padding: 4rem 1.5rem; }
             .modal-content { margin: 15% auto; width: 95%; padding: 1.5rem; }
 
             .floating-btn {
                 width: 90%;
                 padding: 1rem;
+                font-size: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
         }
     </style>
@@ -402,7 +525,7 @@ function gtag_report_conversion(url) {
             <ul class="nav-links">
                 <li><a href="#home">홈</a></li>
                 <li><a href="#why-nexus">소개</a></li>
-                <li><a href="#core-process">과정</a></li>
+                <li><a href="#investment-modules">학습모듈</a></li>
                 <li><a href="#cta">시작하기</a></li>
             </ul>
         </nav>
@@ -412,14 +535,39 @@ function gtag_report_conversion(url) {
     <section id="home">
         <div class="hero-container">
             <div class="hero-content">
-                <h2 class="hero-subtitle">사고의 기술</h2>
-                <h1 class="hero-title">사고의 기술을<br>재정의하다</h1>
+                <h2 class="hero-subtitle">투자 사고의 기술</h2>
+                <h1 class="hero-title">스마트한 투자자가<br>되는 첫걸음</h1>
                 <p class="hero-desc">
-                    혁신적인 학습 방법을 통해 논리적 사고와 판단력을 향상시키고, 당신의 잠재력을 최대한 발휘하세요.
+                    체계적인 주식 투자 교육을 통해 시장을 읽는 안목을 키우고, 논리적 분석 능력을 향상시키세요.
+                    감정이 아닌 데이터와 전략으로 투자하는 방법을 배웁니다.
                 </p>
+                <div class="hero-highlight">
+                    💡 <strong>교육 목적 안내:</strong> NEXUS는 투자 지식 습득을 위한 교육 플랫폼입니다.
+                    실제 투자 수익을 보장하지 않으며, 모든 투자 결정은 본인의 책임 하에 이루어져야 합니다.
+                </div>
             </div>
             <div class="hero-image-container">
-                <img src="img/1.jpg" alt="NEXUS Learning" class="hero-image">
+                <img src="img/1.jpg" alt="NEXUS Investment Learning" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- 통계 섹션 -->
+    <section>
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>12+</h3>
+                    <p>핵심 투자 학습 모듈</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3,500+</h3>
+                    <p>활동 중인 학습 회원</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>커뮤니티 지식 공유</p>
+                </div>
             </div>
         </div>
     </section>
@@ -428,77 +576,121 @@ function gtag_report_conversion(url) {
     <section id="why-nexus">
         <div class="section-header">
             <h2 class="section-title">왜 NEXUS인가?</h2>
-            <p class="section-subtitle">우리의 독창적인 접근 방식은 사고방식의 변화를 돕습니다.</p>
+            <p class="section-subtitle">체계적인 투자 교육으로 시장 분석 능력을 키워드립니다.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">✦</div>
-                <h3>체계적인 학습</h3>
-                <p>단계별 커리큘럼 설계를 통해 사고력을 체계적으로 훈련합니다.</p>
+                <div class="feature-icon">📊</div>
+                <h3>실전 차트 분석 훈련</h3>
+                <p>기술적 분석의 기초부터 고급 차트 패턴 인식까지, 실제 시장 데이터를 활용한 체계적인 학습을 제공합니다.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">✦</div>
-                <h3>활발한 커뮤니티</h3>
-                <p>같은 목표를 가진 학습자들과 실시간으로 소통하며 함께 성장하세요.</p>
+                <div class="feature-icon">💼</div>
+                <h3>포트폴리오 설계 전략</h3>
+                <p>리스크 관리와 자산 배분의 원칙을 배우고, 개인의 투자 성향에 맞는 포트폴리오 구성 방법을 익힙니다.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">✦</div>
-                <h3>실전 경험</h3>
-                <p>시뮬레이션과 실습을 통해 배운 이론을 적용해볼 수 있습니다.</p>
+                <div class="feature-icon">🧠</div>
+                <h3>투자 심리 & 행동 분석</h3>
+                <p>투자 결정에 영향을 미치는 심리적 편향을 이해하고, 감정에 흔들리지 않는 투자 습관을 형성합니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>재무제표 읽기</h3>
+                <p>기업의 실적과 가치를 분석하는 기본기를 다지고, 재무 지표를 활용한 종목 평가 능력을 키웁니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>글로벌 시장 인사이트</h3>
+                <p>국내 주식뿐만 아니라 글로벌 시장 동향과 경제 지표를 읽는 방법을 학습하여 시야를 넓힙니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>활발한 투자자 커뮤니티</h3>
+                <p>같은 목표를 가진 학습자들과 투자 아이디어를 공유하고, 다양한 관점에서 시장을 분석하는 경험을 쌓습니다.</p>
             </div>
         </div>
     </section>
 
-    <!-- 핵심 과정 (Core Learning Process) -->
-    <section id="core-process">
+    <!-- 투자 학습 모듈 (Investment Learning Modules) -->
+    <section id="investment-modules">
         <div class="section-header">
-            <h2 class="section-title">핵심 학습 과정</h2>
-            <p class="section-subtitle">전문적으로 설계된 8가지 모듈을 통해 역량을 강화하세요.</p>
+            <h2 class="section-title">체계적인 투자 학습 로드맵</h2>
+            <p class="section-subtitle">초보 투자자부터 중급 투자자까지, 단계별로 성장할 수 있는 12가지 핵심 모듈</p>
         </div>
-        <div class="process-grid">
-            <div class="process-item">
-                <h4>장기 학습 전략</h4>
-                <p>지속 가능한 학습 방법론과 목표 설정 전략을 습득합니다.</p>
+        <div class="modules-grid">
+            <div class="module-card">
+                <span class="module-number">MODULE 01</span>
+                <h4>주식 투자 기초</h4>
+                <p>주식 시장의 기본 원리, 거래 방법, 계좌 개설부터 주문 유형까지 투자의 첫걸음을 배웁니다.</p>
             </div>
-            <div class="process-item">
-                <h4>학습 노트 기술</h4>
-                <p>효과적인 복습과 기억을 위한 노트 필기법을 배웁니다.</p>
+            <div class="module-card">
+                <span class="module-number">MODULE 02</span>
+                <h4>차트 분석 입문</h4>
+                <p>캔들스틱, 이동평균선, 거래량 등 기술적 분석의 핵심 요소를 이해하고 활용하는 법을 익힙니다.</p>
             </div>
-            <div class="process-item">
-                <h4>학습 계획 관리</h4>
-                <p>체계적인 일정 관리를 실습하고 습관화합니다.</p>
+            <div class="module-card">
+                <span class="module-number">MODULE 03</span>
+                <h4>재무제표 해석</h4>
+                <p>손익계산서, 재무상태표, 현금흐름표를 읽고 기업의 재무 건전성을 평가하는 방법을 습득합니다.</p>
             </div>
-            <div class="process-item">
-                <h4>의사결정 시뮬레이션</h4>
-                <p>다양한 상황에서 판단력을 연습합니다.</p>
+            <div class="module-card">
+                <span class="module-number">MODULE 04</span>
+                <h4>가치 투자 원칙</h4>
+                <p>PER, PBR, ROE 등 핵심 지표를 활용하여 저평가된 우량 기업을 발굴하는 전략을 배웁니다.</p>
             </div>
-            <div class="process-item">
-                <h4>논리적 사고 훈련</h4>
-                <p>체계적인 분석 능력과 추론 능력을 훈련합니다.</p>
+            <div class="module-card">
+                <span class="module-number">MODULE 05</span>
+                <h4>리스크 관리</h4>
+                <p>손절매 원칙, 분산투자, 포지션 사이징 등 투자 리스크를 효과적으로 관리하는 기법을 학습합니다.</p>
             </div>
-            <div class="process-item">
-                <h4>정보 분석 실습</h4>
-                <p>데이터를 읽고 해석하는 능력을 배양합니다.</p>
+            <div class="module-card">
+                <span class="module-number">MODULE 06</span>
+                <h4>시장 심리 분석</h4>
+                <p>투자 심리 지표와 시장 센티먼트를 읽어 매수/매도 타이밍을 포착하는 능력을 키웁니다.</p>
             </div>
-            <div class="process-item">
-                <h4>문제 해결 능력</h4>
-                <p>복잡한 문제를 창의적으로 해결하는 방법을 익힙니다.</p>
+            <div class="module-card">
+                <span class="module-number">MODULE 07</span>
+                <h4>섹터별 투자 전략</h4>
+                <p>IT, 바이오, 금융 등 각 산업 섹터의 특성을 이해하고 섹터 순환에 따른 투자 기회를 발견합니다.</p>
             </div>
-            <div class="process-item">
-                <h4>투자 인사이트 교류</h4>
-                <p>다양한 관점을 공유하며 분석 기술을 향상시킵니다.</p>
+            <div class="module-card">
+                <span class="module-number">MODULE 08</span>
+                <h4>배당주 투자</h4>
+                <p>안정적인 현금흐름을 창출하는 배당주 선정 기준과 배당 재투자 전략을 배웁니다.</p>
+            </div>
+            <div class="module-card">
+                <span class="module-number">MODULE 09</span>
+                <h4>경제 지표 해석</h4>
+                <p>금리, 환율, GDP, 실업률 등 거시경제 지표가 주식 시장에 미치는 영향을 분석합니다.</p>
+            </div>
+            <div class="module-card">
+                <span class="module-number">MODULE 10</span>
+                <h4>포트폴리오 구성</h4>
+                <p>개인의 투자 목표와 위험 성향에 맞춰 최적의 자산 배분 전략을 수립하는 방법을 익힙니다.</p>
+            </div>
+            <div class="module-card">
+                <span class="module-number">MODULE 11</span>
+                <h4>투자 일지 작성법</h4>
+                <p>매매 기록과 투자 결정 과정을 체계적으로 관리하여 실수를 줄이고 성과를 개선하는 습관을 만듭니다.</p>
+            </div>
+            <div class="module-card">
+                <span class="module-number">MODULE 12</span>
+                <h4>커뮤니티 토론 & 실전</h4>
+                <p>회원들과 투자 아이디어를 공유하고 실시간 시장 분석을 통해 실전 감각을 키웁니다.</p>
             </div>
         </div>
     </section>
 
     <!-- 행동 유도 (Call to Action) -->
     <section id="cta">
-        <h2 class="section-title">지금 바로 시작하세요</h2>
+        <h2 class="section-title">투자 공부, 지금 시작하세요</h2>
         <p class="hero-desc" style="margin-bottom: 2rem;">
-            NEXUS 커뮤니티에 가입하여 성장하는 학습자 그룹의 일원이 되십시오.
+            NEXUS 커뮤니티에 가입하여 체계적인 투자 교육과 함께<br>
+            똑똑한 투자자로 성장하는 여정을 시작하세요.
         </p>
-        <a href="#" class="btn-primary" onclick="k2()">NEXUS 가입하기</a>
-        <span class="cta-note">신용카드 필요 없음 • 언제든지 취소 가능</span>
+        <a href="#" class="btn-primary" onclick="k2()">NEXUS 무료 체험 시작</a>
+        <span class="cta-note">신용카드 필요 없음 • 언제든지 취소 가능 • 7일 무료 체험</span>
     </section>
 
     <!-- 푸터 및 법적 준수 (Footer & Legal Compliance) -->
@@ -511,21 +703,22 @@ function gtag_report_conversion(url) {
                 <a onclick="openModal('termsModal')">이용약관</a>
             </div>
 
-            <!-- 면책 조항 및 위험 고지 (Google Ads 정책 준수) -->
+            <!-- 면책 조항 및 위험 고지 -->
             <div class="disclaimer-box">
-                <h4>면책 조항 및 위험 고지</h4>
-                <p><strong>교육 목적:</strong> NEXUS는 비판적 사고 및 분석 기술 향상을 위한 교육 플랫폼입니다. 본 사이트에서 제공하는 모든 정보는 교육 목적으로만 제공되며, 재정적, 법적 또는 전문적인 조언으로 간주되어서는 안 됩니다.</p>
-                <p><strong>결과 보장 없음:</strong> 개인의 학습 결과는 개인의 노력, 배경, 헌신 수준에 따라 달라질 수 있습니다. 우리는 특정 결과나 수익을 보장하지 않습니다. 모든 결정은 사용자 본인의 책임하에 이루어져야 합니다.</p>
-                <p><strong>제휴 및 광고:</strong> 본 웹사이트는 광고 목적으로 운영될 수 있으며, 제휴 링크가 포함될 수 있습니다.</p>
+                <h4>⚠️ 투자 위험 고지 및 면책 조항</h4>
+                <p><strong>교육 목적:</strong> NEXUS는 주식 투자 지식과 분석 기술을 교육하는 플랫폼입니다. 본 사이트에서 제공하는 모든 정보는 교육 목적으로만 제공되며, 특정 종목의 매수/매도를 권유하거나 투자 수익을 보장하는 것이 아닙니다.</p>
+                <p><strong>투자 위험:</strong> 주식 투자는 원금 손실의 위험이 있으며, 과거의 수익률이 미래의 수익을 보장하지 않습니다. 모든 투자 결정은 본인의 판단과 책임 하에 이루어져야 하며, 필요시 전문 재무상담가와 상담하시기 바랍니다.</p>
+                <p><strong>결과 보장 없음:</strong> 학습 성과는 개인의 노력, 시장 상황, 투자 경험에 따라 크게 달라질 수 있습니다. 우리는 특정 투자 수익이나 학습 결과를 보장하지 않습니다.</p>
+                <p><strong>제휴 및 광고:</strong> 본 웹사이트는 광고 및 제휴 링크를 포함할 수 있습니다. 광고주 또는 제휴사의 서비스 이용으로 인한 결과에 대해 NEXUS는 책임을 지지 않습니다.</p>
             </div>
 
-            <p>&copy; 2023 NEXUS. All rights reserved.</p>
+            <p>&copy; 2023 NEXUS. All rights reserved. | 투자 교육 플랫폼</p>
         </div>
     </footer>
 
     <!-- 하단 悬浮 버튼 (Floating Button) -->
     <div class="floating-btn-container">
-        <button class="floating-btn" onclick="k2()">지금 바로 시작하기</button>
+        <button class="floating-btn" onclick="k2()">무료로 시작하기</button>
     </div>
 
     <!-- 개인정보 처리방침 모달 (Privacy Policy Modal) -->
@@ -537,16 +730,19 @@ function gtag_report_conversion(url) {
                 <p>본 개인정보 처리방침은 NEXUS(이하 "회사")가 사용자의 개인정보를 어떻게 수집, 사용 및 보호하는지 설명합니다.</p>
 
                 <h3>1. 수집하는 정보</h3>
-                <p>회사는 서비스 제공을 위해 이름, 이메일 주소, 접속 로그 등의 최소한의 정보를 수집할 수 있습니다.</p>
+                <p>회사는 서비스 제공을 위해 이름, 이메일 주소, 접속 로그, 학습 진행 상황 등의 최소한의 정보를 수집할 수 있습니다.</p>
 
                 <h3>2. 정보의 사용 목적</h3>
-                <p>수집된 정보는 서비스 운영, 고객 지원, 서비스 개선 및 마케팅 자료 발송(동의 시)을 위해 사용됩니다.</p>
+                <p>수집된 정보는 서비스 운영, 고객 지원, 학습 경험 개선, 서비스 업데이트 공지 및 마케팅 자료 발송(동의 시)을 위해 사용됩니다.</p>
 
                 <h3>3. 정보의 보호</h3>
-                <p>회사는 사용자의 개인정보를 보호하기 위해 기술적, 관리적 보호 조치를 취하고 있습니다. 법적 요구가 없는 한 제3자에게 정보를 제공하지 않습니다.</p>
+                <p>회사는 사용자의 개인정보를 보호하기 위해 암호화, 접근 제한 등 기술적·관리적 보호 조치를 취하��� 있습니다. 법적 요구가 없는 한 제3자에게 정보를 제공하지 않습니다.</p>
 
                 <h3>4. 사용자의 권리</h3>
-                <p>사용자는 언제든지 자신의 개인정보 조회, 수정 및 삭제를 요청할 수 있습니다.</p>
+                <p>사용자는 언제든지 자신의 개인정보 조회, 수정 및 삭제를 요청할 수 있으며, 마케팅 수신 동의를 철회할 수 있습니다.</p>
+
+                <h3>5. 쿠키 사용</h3>
+                <p>본 사이트는 사용자 경험 개선 및 분석을 위해 쿠키를 사용할 수 있습니다. 브라우저 설정을 통해 쿠키 사용을 거부할 수 있습니다.</p>
 
                 <p style="margin-top:20px; font-size: 0.8rem; color: #888;">* 본 내용은 예시이며 실제 운영 시 법률 전문가의 검토가 필요합니다.</p>
             </div>
@@ -559,19 +755,25 @@ function gtag_report_conversion(url) {
             <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
             <div class="modal-body">
                 <h2>이용약관</h2>
-                <p>본 약관은 NEXUS(이하 "회사")가 제공하는 서비스의 이용 조건 및 절차를 규정합니다.</p>
+                <p>본 약관은 NEXUS(이하 "회사")가 제공하는 투자 교육 서비스의 이용 조건 및 절차를 규정합니다.</p>
 
                 <h3>1. 서비스의 목적</h3>
-                <p>본 서비스는 사용자의 사고력 및 학습 능력 향상을 돕기 위한 교육 자료를 제공합니다.</p>
+                <p>본 서비스는 주식 투자에 대한 교육 콘텐츠와 학습 자료를 제공하여 사용자의 투자 지식과 분석 능력 향상을 돕는 것을 목적으로 합니다.</p>
 
                 <h3>2. 사용자의 의무</h3>
-                <p>사용자는 본 약관 및 관련 법령을 준수해야 하며, 타인의 권리를 침해하거나 서비스 운영을 방해해서는 안 됩니다.</p>
+                <p>사용자는 본 약관 및 관련 법령을 준수해야 하며, 타인의 권리를 침해하거나 서비스 운영을 방해해서는 안 됩니다. 또한 학습한 내용을 무단으로 복제, 배포, 상업적으로 이용할 수 없습니다.</p>
 
-                <h3>3. 책임의 한계</h3>
-                <p>회사는 서비스 이용과 관련하여 발생한 간접적, 우발적 손해에 대해 법적 허용 범위 내에서 책임을 지지 않습니다. 제공되는 교육 내용은 참고용이며, 실행 결과에 대한 책임은 사용자에게 있습니다.</p>
+                <h3>3. 투자 책임</h3>
+                <p>본 서비스에서 제공하는 교육 콘텐츠는 정보 제공 및 학습 목적이며, 투자 권유나 종목 추천이 아닙니다. 모든 투자 결정과 그 결과에 대한 책임은 전적으로 사용자 본인에게 있습니다.</p>
 
-                <h3>4. 서비스 변경 및 중단</h3>
-                <p>회사는 운영상 필요에 따라 서비스의 내용을 변경하거나 중단할 수 있습니다.</p>
+                <h3>4. 책임의 한계</h3>
+                <p>회사는 서비스 이용으로 인해 발생한 투자 손실, 간접적 손해, 데이터 손실 등에 대해 법적 허용 범위 내에서 책임을 지지 않습니다. 서비스는 "있는 그대로" 제공되며, 특정 목적에 대한 적합성을 보장하지 않습니다.</p>
+
+                <h3>5. 서비스 변경 및 중단</h3>
+                <p>회사는 운영상 필요에 따라 서비스의 내용을 변경하거나 일시 중단할 수 있으며, 이 경우 사전에 공지합니다.</p>
+
+                <h3>6. 환불 정책</h3>
+                <p>유료 서비스의 환불은 별도의 환불 정책에 따라 처리되며, 서비스 이용 후 일정 기간이 지난 경우 환불이 제한될 수 있습니다.</p>
 
                 <p style="margin-top:20px; font-size: 0.8rem; color: #888;">* 본 내용은 예시이며 실제 운영 시 법률 전문가의 검토가 필요합니다.</p>
             </div>
@@ -580,9 +782,6 @@ function gtag_report_conversion(url) {
 
     <!-- 자바스크립트 (JavaScript) -->
     <script>
-        // k2 함수 정의 (QQ로 이동)
-       
-
         // 모달 로직 (Modal Logic)
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
@@ -606,11 +805,15 @@ function gtag_report_conversion(url) {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = this.getAttribute('href');
+                if (target !== '#') {
+                    document.querySelector(target).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
+
 </body>
 </html>
