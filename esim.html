@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -349,8 +350,7 @@
         <!-- 1. 天数选择 (包裹在 duration-section 中以便控制显示/隐藏) -->
         <div class="duration-section" id="durationSection">
             <div class="section-label">
-                <span>行程时长</span>
-                <span style="color: var(--primary)">如何选择?</span>
+                <span>行程时长</span> 
             </div>
             <div class="duration-slider" id="durationSlider">
                 <!-- JS 填充 -->
@@ -360,9 +360,9 @@
         <!-- 2. 模式切换 (3个 Tab) -->
         <div class="mode-switch">
             <div class="mode-bg" id="modeBg"></div>
-            <div class="mode-btn active" onclick="setMode(0)">总流量 (Total)</div>
-            <div class="mode-btn" onclick="setMode(1)">按天 (Daily)</div>
-            <div class="mode-btn" onclick="setMode(2)">通话 (Calls)</div>
+            <div class="mode-btn active" onclick="setMode(0)">总流量 </div>
+            <div class="mode-btn" onclick="setMode(1)">按天</div>
+            <div class="mode-btn" onclick="setMode(2)">通话+流量 </div>
         </div>
 
         <!-- Tab 1: 总流量模式内容 -->
@@ -420,7 +420,7 @@
                 </div>
                 <div class="premium-desc">
                     彻底告别流量焦虑。<br>
-                    <span style="font-size:0.8rem; opacity:0.8">含 2GB 高速热点分享</span>
+                    <span style="font-size:0.8rem; opacity:0.8">可高速热点分享</span>
                 </div>
             </div>
 
@@ -445,7 +445,7 @@
         <!-- Tab 2: 按天模式内容 -->
         <div id="dailyModeContent" class="hidden">
             <div class="hero-section">
-                <div class="hero-title">每日自动续量</div>
+                <div class="hero-title">每日套餐</div>
                 <div class="daily-grid">
                     <div class="daily-card" onclick="selectPlan(this, 15, '1GB/Day', 30)">
                         <div class="daily-gb">1<span>GB</span></div>
@@ -465,7 +465,7 @@
                     </div>
                 </div>
                 <div style="margin-top:15px; font-size:0.8rem; color:var(--text-sub); text-align:center;">
-                    * 每日流量用尽后降速至 128kbps，次日恢复
+                    * 每日1GB高速流量后，降速至 5Mbps，次日零点恢复
                 </div>
             </div>
         </div>
@@ -687,5 +687,6 @@
         }
     </script>
  
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"48615963fdef450cbdc295358554f39e","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
