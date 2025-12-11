@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매일 프리미엄 급등주 추천 - 부의 축적을 시작하세요</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* --- 基础设置 --- */
+        :root {
+            --primary-color: #0f172a; /* 深蓝黑 */
+            --accent-color: #d97706; /* 金橙色 */
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --red-stock: #ef4444; /* 股票上涨红 */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Dotum', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+            /* 关键：底部留白，防止内容被悬浮按钮遮挡 */
+            padding-bottom: 100px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- 按钮样式 --- */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.6);
+        }
+
+        /* --- 布局样式 --- */
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--white);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            line-height: 1.3;
+        }
+
+        .hero p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .hero-img {
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* Persona Section */
+        .persona {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .persona-img {
+            border-radius: 15px;
+            border: 4px solid rgba(255,255,255,0.1);
+            width: 100%;
+        }
+
+        .persona-text h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        /* Stats & Features */
+        .stats {
+            padding: 50px 0;
+            background: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-color);
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-box {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* --- Reviews Section (新增 & 修改) --- */
+        .reviews {
+            padding: 60px 0;
+            background-color: #f1f5f9;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--red-stock);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        /* 头像样式：圆形，真实照片 */
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%; /* 圆形 */
+            object-fit: cover; /* 保证图片不变形，自动裁切 */
+            margin-right: 15px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .user-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 0.9rem;
+        }
+
+        .stock-gain {
+            color: var(--red-stock);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .review-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            position: relative;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .footer-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- Floating Button (Mobile Compatible) --- */
+        .floating-container {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 9999;
+            padding: 0 20px;
+            pointer-events: none;
+        }
+
+        .floating-btn {
+            pointer-events: auto;
+            width: 100%;
+            max-width: 600px;
+            background: linear-gradient(to right, #ff512f, #dd2476);
+            color: white;
+            font-size: 1.1rem;
+            padding: 16px 20px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            cursor: pointer;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(221, 36, 118, 0.7); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(221, 36, 118, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(221, 36, 118, 0); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            /* 修复图片对称性 */
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-img,
+            .persona-img {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .persona-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            /* 优化悬浮按钮在手机端的显示 */
+            .floating-container {
+                padding: 0 15px;
+            }
+
+            .floating-btn {
+                font-size: 0.95rem;
+                padding: 14px 16px;
+                gap: 6px;
+                white-space: nowrap;
+            }
+
+            .floating-btn i {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* 超小屏幕优化 */
+        @media (max-width: 380px) {
+            .floating-container {
+                padding: 0 10px;
+            }
+
+            .floating-btn {
+                font-size: 0.85rem;
+                padding: 12px 14px;
+            }
+        }
+    </style>
+
+    <script>
+        // 跳转函数
+        function k2() {
+            window.location.href = "http://www.qq.com";
+        }
+    </script>
+</head>
+<body>
+
+    <!-- 1. Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>매일 쏟아지는 우량 급등주 추천,<br>지금 바로 확인하세요!</h1>
+            <p>
+                초보 투자자부터 경험 많은 트레이더까지 누구나 환영합니다.<br>
+                매일 엄선된 상승 유망 종목 정보를 받아보세요.
+            </p>
+
+            <!-- 图片调用 1 -->
+            <img src="img/5.jpg" alt="Luxury Wealth" class="hero-img">
+
+            <div style="margin-top: 30px;">
+                <button class="btn" onclick="k2()">급등주 정보 무료 받기 <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Persona Section -->
+    <section class="persona">
+        <div class="container">
+            <div class="persona-grid">
+                <div class="persona-text">
+                    <h2>안녕하세요, 남석관.</h2>
+                    <p>"하루 30초 투자로 내일 가장 강력하게 오를 종목을 발견하세요."</p>
+                    <p>
+                        저는 지난 15년간 주식 투자를 통해 부를 축적해왔습니다.
+                        저와 함께라면 여러분도 지속적인 수익을 창출할 수 있습니다.
+                    </p>
+                    <p style="margin-top: 15px; font-weight: bold; color: #fbbf24;">
+                        <i class="fas fa-check-circle"></i> 15년 실전 투자 노하우<br>
+                        <i class="fas fa-check-circle"></i> 검증된 수익률
+                    </p>
+                    <div style="margin-top: 25px;">
+                        <button class="btn" onclick="k2()" style="background: white; color: var(--accent-color);">전문가와 함께하기</button>
+                    </div>
+                </div>
+                <!-- 图片调用 2 -->
+                <div class="persona-img-wrapper">
+                    <img src="img/1.jpg" alt="Kuraki Mai Expert" class="persona-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Stats & Features -->
+    <section class="stats">
+        <div class="container">
+            <h2 class="section-title">왜 우리를 선택해야 할까요?</h2>
+
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number">85%</div>
+                    <div>평균 상승률</div>
+                </div>
+                <div>
+                    <div class="stat-number">300%</div>
+                    <div>연 수익률</div>
+                </div>
+                <div>
+                    <div class="stat-number">15년</div>
+                    <div>투자 경험</div>
+                </div>
+            </div>
+
+            <div class="features-list">
+                <div class="feature-box">
+                    <h3><i class="fas fa-chart-line"></i> 데이터 기반 의사결정</h3>
+                    <p>최첨단 데이터 분석 도구를 활용하여 과학적이고 합리적인 투자 선택을 돕습니다.</p>
+                </div>
+                <div class="feature-box">
+                    <h3><i class="fas fa-bullseye"></i> 개인 맞춤형 전략</h3>
+                    <p>고객님의 위험 감수 능력과 투자 목표에 맞춰 1:1 맞춤형 투자 솔루션을 설계합니다.</p>
+                </div>
+                <div class="feature-box">
+                    <h3><i class="fas fa-shield-alt"></i> 철저한 리스크 관리</h3>
+                    <p>전문적인 위험 평가 및 통제 조언을 통해 손실을 최소화하고 투자를 보호합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. User Reviews Section (Updated with Real Avatars) -->
+    <section class="reviews">
+        <div class="container">
+            <h2 class="section-title">실전 투자자들의 생생한 후기</h2>
+            <p style="text-align: center; color: #64748b; margin-bottom: 30px;">이미 많은 분들이 수익을 경험하고 있습니다.</p>
+
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <!-- 真实头像 1 -->
+                        <img src="img/a1.png" alt="User 1" class="user-avatar">
+                        <div class="user-info">
+                            <h4>김** (45세, 자영업)</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <span class="stock-gain">▲ 32% 수익 달성!</span>
+                    <p class="review-text">"추천해주신 종목이 일주일 만에 급등했습니다. 혼자 할 때는 맨날 손해만 봤는데, 전문가님 덕분에 처음으로 큰 수익을 봤네요. 감사합니다!"</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <!-- 真实头像 2 -->
+                        <img src="img/a2.jpg" alt="User 2" class="user-avatar">
+                        <div class="user-info">
+                            <h4>이** (38세, 직장인)</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <span class="stock-gain">▲ 상한가 적중!</span>
+                    <p class="review-text">"바쁜 직장 생활 중에 주식 공부할 시간이 없었는데, 매일 아침 보내주시는 정보만 따라했더니 오늘 상한가 갔습니다. 정말 신기하네요."</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <!-- 真实头像 3 -->
+                        <img src="img/a3.png" alt="User 3" class="user-avatar">
+                        <div class="user-info">
+                            <h4>박** (52세, 주부)</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        </div>
+                    </div>
+                    <span class="stock-gain">▲ 원금 회복 성공</span>
+                    <p class="review-text">"작년에 잃었던 돈을 드디어 다 복구하고 이제 수익권입니다. 리스크 관리까지 철저하게 해주시니 마음 편하게 투자하고 있어요."</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn" onclick="k2()">나도 수익 내러 가기</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Footer CTA (Image 3 Background) -->
+    <section class="footer-cta">
+        <!-- 图片调用 3 (作为背景) -->
+        <img src="img/3.jpg" class="footer-bg" alt="Success Background">
+
+        <div class="container footer-content">
+            <h2>성공적인 투자의 시작,<br>지금 바로 행동하세요!</h2>
+            <p style="margin: 20px 0;">더 이상 혼자 고민하지 마세요. 저희와 함께 부의 추월차선에 올라타세요.</p>
+            <button class="btn" onclick="k2()">지금 바로 시작하기</button>
+        </div>
+    </section>
+
+    <!-- 6. Floating Button (Mobile Compatible & Centered) -->
+    <div class="floating-container">
+        <button class="floating-btn" onclick="k2()">
+            <i class="fas fa-chart-line"></i> 급등주 정보 무료 받기
+        </button>
+    </div>
+
+</body>
+</html>
