@@ -1525,7 +1525,7 @@
 
         // 生成比价按钮HTML
         function getCompareBtn(price) {
-            return '<div class="btn-compare" onclick="showComparison(event, ' + price + ')">vs 全网比价</div>';
+            return '<div class="btn-compare" onclick="showComparison(event, ' + price + ')">🆚 全网比价</div>';
         }
 
         // 生成详情链接HTML
@@ -1580,7 +1580,7 @@
                     var isSale = false;
                     if (p.price > 15) {
                         if (bigPlanIndex === 0) {
-                            tagText = '64% OFF';
+                            tagText = '- 64%';
                             tagClass = 'tag-corner sale';
                         } else {
                             tagText = '推荐';
