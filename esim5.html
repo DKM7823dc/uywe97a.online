@@ -195,7 +195,7 @@
             background: #F2FBF4;
         }
 
-        .lc-left { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+        .lc-left { display: flex; flex-direction: column; gap: 4px; flex: 1; align-items: flex-start; }
         .lc-gb { font-size: 1.5rem; font-weight: 800; color: var(--text-main); line-height: 1; display: flex; align-items: center; }
         .lc-gb span.unit { font-size: 0.9rem; font-weight: 600; margin-left: 2px; }
         .lc-desc { font-size: 0.8rem; color: var(--text-sub); line-height: 1.3; max-width: 95%; margin-top: 2px; }
@@ -232,17 +232,17 @@
             align-items: center;
         }
 
-        /* 标签 */
+        /* 标签 - 左上角 */
         .tag-corner {
             position: absolute;
-            top: 0; right: 0;
+            top: 0; left: 0;
             background: var(--best-value);
             color: white;
             font-size: 0.65rem;
             font-weight: 700;
             padding: 4px 10px;
-            border-bottom-left-radius: 12px;
-            border-top-right-radius: 16px;
+            border-bottom-right-radius: 12px;
+            border-top-left-radius: 16px;
         }
         .tag-corner.long-term { background: #5856D6; }
 
@@ -285,6 +285,7 @@
             display: flex;
             flex-direction: column;
             gap: 4px;
+            align-items: flex-start;
         }
         .daily-gb {
             font-size: 1.5rem;
@@ -336,27 +337,37 @@
 
         .daily-tag {
             position: absolute;
-            top: 0; right: 0;
+            top: 0; left: 0;
             background: var(--best-value);
             color: white;
             font-size: 0.65rem;
             padding: 4px 10px;
-            border-bottom-left-radius: 12px;
-            border-top-right-radius: 18px;
+            border-bottom-right-radius: 12px;
+            border-top-left-radius: 18px;
             font-weight: 700;
         }
 
-        /* Premium Card (无限流量) 样式调整 */
+        /* Premium Card (无限流量) 样式调整 - 左右两栏布局 */
         .premium-card {
             background: var(--gradient-premium);
             color: white;
             border-radius: 20px;
-            padding: 16px 18px;
+            padding: 18px 20px;
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(0, 102, 255, 0.25);
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .premium-left {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+            align-items: flex-start;
         }
         .premium-net-badge {
             background: rgba(0,0,0,0.2);
@@ -371,14 +382,17 @@
             box-shadow: 0 0 10px rgba(255,255,255,0.1);
             vertical-align: middle;
         }
-        .premium-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .premium-title { font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; }
+        .premium-desc { font-size: 0.8rem; opacity: 0.9; line-height: 1.4; }
 
-        .premium-title { font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; flex: 1;}
-
-        .premium-price-block { text-align: right; margin-left: 10px; }
-        .premium-price { font-size: 1.25rem; font-weight: 700; line-height: 1; }
-        .premium-old-price { font-size: 0.75rem; text-decoration: line-through; opacity: 0.7; display: block; margin-bottom: 2px;}
-        .premium-desc { font-size: 0.8rem; opacity: 0.9; line-height: 1.4; margin-top: 4px; }
+        .premium-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            min-width: 80px;
+        }
+        .premium-price { font-size: 1.4rem; font-weight: 700; line-height: 1; }
+        .premium-old-price { font-size: 0.8rem; text-decoration: line-through; opacity: 0.7; margin-top: 4px;}
         .premium-card.selected { ring: 4px solid rgba(0,102,255,0.3); transform: scale(0.99); }
 
         /* 基础包 Grid (轻量尝鲜) 样式调整 */
@@ -445,10 +459,9 @@
         .btn-compare {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            font-size: 0.7rem;
-            padding: 6px 14px;
-            border-radius: 16px;
+            font-size: 0.68rem;
+            padding: 5px 12px;
+            border-radius: 14px;
             cursor: pointer;
             transition: all 0.2s;
             font-weight: 600;
@@ -461,11 +474,11 @@
         .btn-compare:hover { background: rgba(255, 149, 0, 0.12); }
         .btn-compare:active { transform: scale(0.96); }
 
-        /* 右上角详情链接 */
+        /* 详情链接 - 卡片右上角 */
         .detail-link {
             position: absolute;
-            top: 12px;
-            right: 14px;
+            top: 14px;
+            right: 16px;
             font-size: 0.72rem;
             color: var(--primary);
             cursor: pointer;
@@ -478,7 +491,7 @@
         .detail-link:hover { opacity: 1; }
         .detail-link:active { opacity: 0.6; }
 
-        /* Premium卡片内的按钮 */
+        /* Premium卡片 */
         .premium-card .btn-compare {
             background: rgba(255,255,255,0.12);
             color: white;
@@ -488,39 +501,24 @@
         .premium-card .btn-compare:hover { background: rgba(255,255,255,0.2); }
         .premium-card .detail-link {
             color: rgba(255,255,255,0.9);
-            top: 14px;
-            right: 16px;
         }
 
-        /* 基础卡片内的按钮 */
+        /* 基础卡片 */
         .basic-card .btn-compare {
             font-size: 0.6rem;
-            padding: 4px 10px;
+            padding: 4px 8px;
             margin-top: 8px;
         }
         .basic-card .detail-link {
-            font-size: 0.6rem;
+            font-size: 0.62rem;
             top: 8px;
             right: 8px;
         }
 
-        /* 每日卡片内的按钮 */
-        .daily-card .btn-compare {
+        /* 每日卡片和列表卡片 */
+        .daily-card .btn-compare,
+        .list-card .btn-compare {
             margin-top: 8px;
-        }
-        .daily-card .detail-link {
-            top: 14px;
-            right: 16px;
-        }
-
-        /* 通话卡片 - 有角标时调整详情链接位置 */
-        .list-card .detail-link {
-            top: 14px;
-            right: 16px;
-        }
-        .list-card .tag-corner ~ .detail-link,
-        .daily-card .daily-tag ~ .daily-left .detail-link {
-            top: 32px;
         }
 
         /* 弹窗 */
@@ -1196,7 +1194,7 @@
                 <div class="tips-card">
                     <div class="tips-title">💡 使用小贴士</div>
                     <div class="tips-content" id="detailTips">
-                        每天1GB后，全程5Mbps。即使在公平使用政策下，也可畅享 1080p 高清视频���各类应用。请在抵达目的地后进行激活，并确保开启 eSIM 数据漫游功能。
+                        每天1GB后，全程5Mbps。即使在公平使用政策下，也可畅享 1080p 高清视频和各类应用。请在抵达目的地后进行激活，并确保开启 eSIM 数据漫游功能。
                     </div>
                 </div>
             </div>
@@ -1370,7 +1368,7 @@
 
         // 生成比价按钮HTML
         function getCompareBtn(price) {
-            return '<div class="btn-compare" onclick="showComparison(event, ' + price + ')">🆚 全网比价</div>';
+            return '<div class="btn-compare" onclick="showComparison(event, ' + price + ')">比价</div>';
         }
 
         // 生成详情链接HTML
@@ -1391,21 +1389,21 @@
                 var oldPrice = (unlimitedPlan.price * 1.3).toFixed(2);
                 var html = '<div class="premium-card" onclick="selectPlan(this, ' + unlimitedPlan.price + ', ' + oldPrice + ', \'Unlimited\', ' + selectedDuration + ')">' +
                     getDetailLink('Unlimited', selectedDuration, unlimitedPlan.price, oldPrice, false, false, '5G/4G/LTE', false) +
-                    '<div class="premium-header">' +
+                    '<div class="premium-left">' +
                         '<div class="premium-title">' +
                             '♾️ 无限流量' +
                             '<span class="premium-net-badge">5G/4G</span>' +
                         '</div>' +
-                        '<div class="premium-price-block">' +
-                            '<span class="premium-old-price">$' + oldPrice + '</span>' +
-                            '<div class="premium-price">$' + unlimitedPlan.price + '</div>' +
+                        '<div class="premium-desc">' +
+                            getPlanDesc('Unlimited') + '<br>' +
+                            '<span style="font-size:0.75rem; opacity:0.8">≈ $' + (unlimitedPlan.price/selectedDuration).toFixed(2) + '/天 · 含热点</span>' +
                         '</div>' +
+                        getCompareBtn(unlimitedPlan.price) +
                     '</div>' +
-                    '<div class="premium-desc">' +
-                        getPlanDesc('Unlimited') + '<br>' +
-                        '<span style="font-size:0.75rem; opacity:0.8">≈ $' + (unlimitedPlan.price/selectedDuration).toFixed(2) + '/天 · 含热点</span>' +
+                    '<div class="premium-right">' +
+                        '<div class="premium-price">$' + unlimitedPlan.price + '</div>' +
+                        '<span class="premium-old-price">$' + oldPrice + '</span>' +
                     '</div>' +
-                    getCompareBtn(unlimitedPlan.price) +
                 '</div>';
                 container.innerHTML += html;
             }
@@ -1602,7 +1600,7 @@
         }
 
         // ==========================================
-        // 5. 详情页逻辑
+        // 5. 详情���逻辑
         // ==========================================
         function openDetailPage(event, spec, planDays, price, oldPrice, hasCall, hasSms, network, isDaily) {
             event.stopPropagation();
