@@ -194,6 +194,9 @@
             border-color: var(--call-color);
             background: #F2FBF4;
         }
+        .list-card.has-tag {
+            padding-top: 28px;
+        }
 
         .lc-left { display: flex; flex-direction: column; gap: 4px; flex: 1; align-items: flex-start; }
         .lc-gb { font-size: 1.5rem; font-weight: 800; color: var(--text-main); line-height: 1; display: flex; align-items: center; }
@@ -594,20 +597,21 @@
         .btn-compare {
             display: inline-flex;
             align-items: center;
-            font-size: 0.68rem;
-            padding: 5px 12px;
-            border-radius: 14px;
+            gap: 2px;
+            font-size: 0.7rem;
+            color: var(--primary);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            padding: 2px 6px;
+            border-radius: 8px;
+            margin-top: 6px;
             cursor: pointer;
             transition: all 0.2s;
             font-weight: 600;
-            background: rgba(255, 149, 0, 0.08);
-            color: var(--best-value);
-            border: 1px solid rgba(255, 149, 0, 0.25);
-            margin-top: 10px;
+            background: rgba(255,255,255,0.5);
             -webkit-tap-highlight-color: transparent;
         }
-        .btn-compare:hover { background: rgba(255, 149, 0, 0.12); }
-        .btn-compare:active { transform: scale(0.96); }
+        .btn-compare:hover { background: rgba(0, 102, 255, 0.05); border-color: var(--primary); }
+        .selected .btn-compare { background: white; border-color: var(--primary); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
 
         /* 详情链接 - 卡片右上角 */
         .detail-link {
@@ -628,10 +632,13 @@
 
         /* Premium卡片 */
         .premium-card .btn-compare {
-            background: rgba(255,255,255,0.12);
             color: white;
-            border-color: rgba(255,255,255,0.25);
-            margin-top: 12px;
+            border-color: rgba(255,255,255,0.4);
+            background: rgba(0,0,0,0.1);
+            margin-top: 0;
+            margin-left: 0;
+            font-size: 0.65rem;
+            padding: 1px 6px;
         }
         .premium-card .btn-compare:hover { background: rgba(255,255,255,0.2); }
         .premium-card .detail-link {
@@ -640,10 +647,20 @@
 
         /* 基础卡片 */
         .basic-card .btn-compare {
-            font-size: 0.6rem;
-            padding: 4px 8px;
-            margin-top: 8px;
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            font-size: 0.55rem;
+            padding: 1px 4px;
+            border: none;
+            background: transparent;
+            color: var(--text-sub);
+            text-decoration: underline;
+            width: 100%;
         }
+        .basic-card.selected .btn-compare { color: var(--primary); }
         .basic-card .detail-link {
             font-size: 0.62rem;
             top: 8px;
@@ -653,7 +670,7 @@
         /* 每日卡片和列表卡片 */
         .daily-card .btn-compare,
         .list-card .btn-compare {
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         /* 弹窗 */
@@ -1120,8 +1137,7 @@
                 <div class="daily-grid" id="daily-plans-container">
                 </div>
                 <div style="margin-top:15px; font-size:0.8rem; color:var(--text-sub); text-align:center;">
-                    * 每日流量用尽后，我们将为您补充提供128kbs网络，可用于收发文字、语音信息。
-高速流量在次日零点第一时间恢复。
+                    * 每日流量用尽后降速至128kbps，次日零点恢复
                 </div>
             </div>
         </div>
@@ -1412,7 +1428,7 @@
                 { days: 15, data: 'Unlimited', call: 'Unlimited', price: 25.99, oldPrice: 35.99, desc: '短期商务差旅首选', network: '5G/4G' },
                 { days: 30, data: 'Unlimited', call: 'Unlimited', price: 49.99, oldPrice: 69.99, desc: '月度畅聊，无忧上网', network: '5G/4G', tag: '热销' },
                 { days: 30, data: '20GB', call: '15分钟', price: 49.99, oldPrice: 59.99, desc: '适合主要上网，偶尔电话', network: '4G' },
-                { days: 60, data: 'Unlimited', call: 'Unlimited', price: 99.99, oldPrice: 129.99, desc: '双月套餐，省去续���烦恼', network: '5G/4G', tagType: 'long-term', tag: '长效' },
+                { days: 60, data: 'Unlimited', call: 'Unlimited', price: 99.99, oldPrice: 129.99, desc: '双月套餐，省去续费烦恼', network: '5G/4G', tagType: 'long-term', tag: '长效' },
                 { days: 90, data: 'Unlimited', call: 'Unlimited', price: 135.99, oldPrice: 169.99, desc: '季度探亲、留学必备', network: '5G/4G', tagType: 'long-term', tag: '季度包' }
             ]
         };
@@ -1531,7 +1547,7 @@
                         '</div>' +
                         '<div class="premium-desc">' +
                             getPlanDesc('Unlimited') + '<br>' +
-                            '<span style="font-size:0.75rem; opacity:0.8">≈ $' + (unlimitedPlan.price/selectedDuration).toFixed(2) + '/天 </span>' +
+                            '<span style="font-size:0.75rem; opacity:0.8">≈ $' + (unlimitedPlan.price/selectedDuration).toFixed(2) + '/天 · 含热点</span>' +
                         '</div>' +
                         getCompareBtn(unlimitedPlan.price) +
                     '</div>' +
@@ -1559,16 +1575,15 @@
                     var isSale = false;
                     if (p.price > 15) {
                         if (bigPlanIndex === 0) {
-                            tagText = '特价中';
+                            tagText = '64% OFF';
                             tagClass = 'tag-corner sale';
-                            isSale = true;
                         } else {
                             tagText = '推荐';
                         }
                         bigPlanIndex++;
                     }
-                    var couponHtml = isSale ? '<div class="discount-coupon"><div class="coupon-ticket"><div class="coupon-left"><div class="coupon-discount"><span class="coupon-num">64</span><span class="coupon-percent"><span class="coupon-percent-symbol">%</span><span class="coupon-percent-off">OFF</span></span></div></div></div></div>' : '';
-                    var html = '<div class="list-card" onclick="selectPlan(this, ' + p.price + ', ' + oldPrice + ', \'' + p.gb + '\', ' + selectedDuration + ')">' +
+                    var couponHtml = '';
+                    var html = '<div class="list-card' + (tagText ? ' has-tag' : '') + '" onclick="selectPlan(this, ' + p.price + ', ' + oldPrice + ', \'' + p.gb + '\', ' + selectedDuration + ')">' +
                         (tagText ? '<div class="' + tagClass + '">' + tagText + '</div>' : '') +
                         getDetailLink(p.gb, selectedDuration, p.price, oldPrice, false, false, '5G/4G/LTE', false) +
                         '<div class="lc-left">' +
