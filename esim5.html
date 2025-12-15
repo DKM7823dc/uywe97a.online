@@ -460,20 +460,33 @@
         .btn-compare {
             display: inline-flex;
             align-items: center;
-            font-size: 0.68rem;
-            padding: 5px 12px;
-            border-radius: 14px;
+            gap: 5px;
+            font-size: 0.7rem;
+            padding: 6px 14px;
+            border-radius: 20px;
             cursor: pointer;
             transition: all 0.2s;
             font-weight: 600;
-            background: rgba(255, 149, 0, 0.08);
-            color: var(--best-value);
-            border: 1px solid rgba(255, 149, 0, 0.25);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
             margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.35);
             -webkit-tap-highlight-color: transparent;
         }
-        .btn-compare:hover { background: rgba(255, 149, 0, 0.12); }
+        .btn-compare:hover {
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+            transform: translateY(-1px);
+        }
         .btn-compare:active { transform: scale(0.96); }
+        .btn-compare .vs-tag {
+            background: rgba(255,255,255,0.25);
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
 
         /* 详情链接 - 卡片右上角 */
         .detail-link {
@@ -958,7 +971,8 @@
         <!-- 1. 天数选择 -->
         <div class="duration-section" id="durationSection">
             <div class="section-label">
-                <span>行程时长</span> 
+                <span>行程时长</span>
+                <span style="color: var(--primary)">如何选择?</span>
             </div>
             <div class="duration-slider" id="durationSlider">
                 <!-- JS 填充 -->
@@ -985,9 +999,7 @@
                 <div class="daily-grid" id="daily-plans-container">
                 </div>
                 <div style="margin-top:15px; font-size:0.8rem; color:var(--text-sub); text-align:center;">
-                    *
-每日流量用尽后，我们将为您补充提供128kbs网络，可用于收发文字、语音信息。
-高速流量在次日零点第一时间恢复。
+                    * 每日流量用尽后降速至128kbps，次日零点恢复
                 </div>
             </div>
         </div>
@@ -1196,7 +1208,7 @@
                 <div class="tips-card">
                     <div class="tips-title">💡 使用小贴士</div>
                     <div class="tips-content" id="detailTips">
-                        每天1GB后，全程5Mbps。即使在公平使用政策下，也可畅享 1080p 高清视频和各类应用。请在抵达目的地后进行激活，并确保开启 eSIM 数据漫游功���。
+                        每天1GB后，全程5Mbps。即使在公平使用政策下，也可畅享 1080p 高清视频和各类应用。请在抵达目的地后进行激活，并确保开启 eSIM 数据漫游功能。
                     </div>
                 </div>
             </div>
@@ -1370,7 +1382,7 @@
 
         // 生成比价按钮HTML
         function getCompareBtn(price) {
-            return '<div class="btn-compare" onclick="showComparison(event, ' + price + ')">vs 全网比价</div>';
+            return '<div class="btn-compare" onclick="showComparison(event, ' + price + ')"><span class="vs-tag">VS</span>全网比价</div>';
         }
 
         // 生成详情链接HTML
@@ -1397,7 +1409,7 @@
                         '</div>' +
                         '<div class="premium-desc">' +
                             getPlanDesc('Unlimited') + '<br>' +
-                            '<span style="font-size:0.75rem; opacity:0.8">≈ $' + (unlimitedPlan.price/selectedDuration).toFixed(2) + '/天 </span>' +
+                            '<span style="font-size:0.75rem; opacity:0.8">≈ $' + (unlimitedPlan.price/selectedDuration).toFixed(2) + '/天 · 含热点</span>' +
                         '</div>' +
                         getCompareBtn(unlimitedPlan.price) +
                     '</div>' +
