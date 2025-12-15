@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>eSIM 动态定价版 (优化版)</title>
+    <title>eSIM 场景化文案版</title>
     <style>
         :root {
             --primary: #0066FF;
@@ -770,6 +770,19 @@
         // 3. 动态渲染逻辑
         // ==========================================
 
+        // 核心：获取场景化文案
+        function getPlanDesc(gbName) {
+            const n = parseInt(gbName);
+            if (gbName === 'Unlimited') return '彻底告别流量焦虑，随心所欲';
+            if (n === 30) return '超大流量，可开热点';
+            if (n === 20) return '视频会议，导航，社媒无忧';
+            if (n === 10) return '适合1-2周出差旅游';
+            if (n === 5) return '轻度上网，地图导航';
+            if (n === 3) return '短期备用，查收消息';
+            if (n === 1) return '仅限紧急联系';
+            return '高速流量，稳定网络';
+        }
+
         // 渲染总流量套餐 (Tab 0)
         function renderTotalPlans() {
             const container = document.getElementById('total-plans-container');
@@ -798,7 +811,7 @@
                         </div>
                     </div>
                     <div class="premium-desc">
-                        彻底告别流量焦虑。<br>
+                        ${getPlanDesc('Unlimited')}<br>
                         <span style="font-size:0.75rem; opacity:0.8">≈ $${(unlimitedPlan.price/selectedDuration).toFixed(2)}/天 · 含热点</span>
                     </div>
                 </div>`;
@@ -824,7 +837,7 @@
                                 ${parseInt(p.gb)}<span class="unit">GB</span>
                                 <span class="net-tag net-5g">5G/4G</span>
                             </div>
-                            <div class="lc-desc">高速流量，用完即止</div>
+                            <div class="lc-desc">${getPlanDesc(p.gb)}</div>
                         </div>
                         <div class="lc-right">
                             <div class="lc-price">$${p.price}</div>
