@@ -403,86 +403,87 @@
         .action-btns {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 12px;
+            margin-top: 12px;
         }
         .action-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 4px;
-            font-size: 0.72rem;
-            padding: 5px 12px;
-            border-radius: 20px;
+            font-size: 0.7rem;
+            padding: 6px 14px;
+            border-radius: 16px;
             cursor: pointer;
             transition: all 0.2s;
             font-weight: 600;
             border: none;
+            -webkit-tap-highlight-color: transparent;
         }
-        .action-btn:active { transform: scale(0.95); }
+        .action-btn:active { transform: scale(0.96); }
 
         /* 比价按钮 */
         .btn-compare {
-            background: rgba(255, 149, 0, 0.1);
+            background: rgba(255, 149, 0, 0.08);
             color: var(--best-value);
-            border: 1px solid rgba(255, 149, 0, 0.3);
+            border: 1px solid rgba(255, 149, 0, 0.25);
         }
         .btn-compare:hover {
-            background: rgba(255, 149, 0, 0.15);
+            background: rgba(255, 149, 0, 0.12);
         }
 
         /* 详情按钮 */
         .btn-detail {
-            background: rgba(0, 102, 255, 0.08);
+            background: rgba(0, 102, 255, 0.06);
             color: var(--primary);
             border: 1px solid rgba(0, 102, 255, 0.2);
         }
         .btn-detail:hover {
-            background: rgba(0, 102, 255, 0.12);
+            background: rgba(0, 102, 255, 0.1);
         }
 
         /* Premium卡片内的按钮 */
         .premium-card .action-btns {
-            margin-top: 12px;
+            margin-top: 14px;
         }
         .premium-card .btn-compare {
+            background: rgba(255,255,255,0.12);
+            color: white;
+            border-color: rgba(255,255,255,0.25);
+        }
+        .premium-card .btn-compare:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .premium-card .btn-detail {
             background: rgba(255,255,255,0.15);
             color: white;
             border-color: rgba(255,255,255,0.3);
         }
-        .premium-card .btn-compare:hover {
-            background: rgba(255,255,255,0.25);
-        }
-        .premium-card .btn-detail {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border-color: rgba(255,255,255,0.4);
-        }
         .premium-card .btn-detail:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.25);
         }
 
         /* 基础卡片内的按钮组 */
         .basic-card .action-btns {
             flex-direction: column;
-            gap: 4px;
+            gap: 6px;
             margin-top: 8px;
         }
         .basic-card .action-btn {
-            font-size: 0.6rem;
-            padding: 3px 8px;
+            font-size: 0.62rem;
+            padding: 5px 8px;
             width: 100%;
-            justify-content: center;
         }
 
         /* 每日卡片内的按钮组 */
         .daily-card .action-btns {
             flex-direction: column;
-            gap: 4px;
+            gap: 6px;
             margin-top: 8px;
         }
         .daily-card .action-btn {
-            font-size: 0.6rem;
-            padding: 3px 8px;
+            font-size: 0.62rem;
+            padding: 5px 8px;
         }
 
         /* 弹窗 */
@@ -1099,7 +1100,7 @@
                     <div class="detail-list">
                         <div class="detail-list-item">
                             <div class="detail-list-left">
-                                <div class="detail-list-icon">🎧</div>
+                                <div class="detail-list-icon">����</div>
                                 <div class="detail-list-label">真人客服</div>
                             </div>
                             <div class="detail-list-value green">7×24小时在线</div>
