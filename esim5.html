@@ -1211,7 +1211,7 @@
         </div>
     </div>
 
-    <!-- 详情弹窗 -->
+    <!-- 详情弹窗 - 通用版 -->
     <div class="detail-overlay" id="detailOverlay" onclick="closeDetailPage()">
         <div class="detail-sheet" onclick="event.stopPropagation()">
             <div class="detail-header">
@@ -1220,140 +1220,8 @@
             </div>
 
         <div class="detail-scroll-area">
-            <div class="detail-container">
-                <!-- 套餐摘要 -->
-                <div class="plan-summary-card">
-                    <div class="plan-dest">
-                        <span class="plan-dest-flag">🇺🇸</span>
-                        <span>美国 · eSIM</span>
-                    </div>
-                    <div class="plan-main-info">
-                        <div>
-                            <div class="plan-spec" id="detailPlanSpec">20GB</div>
-                            <div class="plan-spec-sub" id="detailPlanDays">30天有效期</div>
-                        </div>
-                        <div class="plan-price-block">
-                            <div class="plan-price-old" id="detailOldPrice">$65.00</div>
-                            <div class="plan-price-current" id="detailPrice">$45.00</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 返现提示 -->
-                <div class="cashback-banner">
-                    <div class="cashback-icon">💰</div>
-                    <div class="cashback-text">
-                        <div class="cashback-title">预计获得 0.5 USD Cashback</div>
-                        <div class="cashback-amount">购买成功后自动返还到账户余额</div>
-                    </div>
-                </div>
-
-                <!-- 服务支持 -->
-                <div class="detail-section">
-                    <div class="detail-section-title">服务支持</div>
-                    <div class="detail-grid">
-                        <div class="detail-grid-item">
-                            <div class="detail-grid-icon">📶</div>
-                            <div class="detail-grid-label">数据流量</div>
-                            <div class="detail-grid-value supported" id="detailDataSupport">支持</div>
-                        </div>
-                        <div class="detail-grid-item">
-                            <div class="detail-grid-icon">📞</div>
-                            <div class="detail-grid-label">语音通话</div>
-                            <div class="detail-grid-value" id="detailCallSupport">不支持</div>
-                        </div>
-                        <div class="detail-grid-item">
-                            <div class="detail-grid-icon">💬</div>
-                            <div class="detail-grid-label">短信</div>
-                            <div class="detail-grid-value" id="detailSmsSupport">不支持</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 网络详情 -->
-                <div class="detail-section">
-                    <div class="detail-section-title">网络信息</div>
-                    <div class="detail-list">
-                        <div class="detail-list-item">
-                            <div class="detail-list-left">
-                                <div class="detail-list-icon">🏢</div>
-                                <div class="detail-list-label">网络服务商</div>
-                            </div>
-                            <div class="detail-list-value">Verizon / T-Mobile</div>
-                        </div>
-                        <div class="detail-list-item">
-                            <div class="detail-list-left">
-                                <div class="detail-list-icon">📡</div>
-                                <div class="detail-list-label">网络制式</div>
-                            </div>
-                            <div class="detail-list-value" id="detailNetworkType">5G / 4G / LTE</div>
-                        </div>
-                        <div class="detail-list-item">
-                            <div class="detail-list-left">
-                                <div class="detail-list-icon">📲</div>
-                                <div class="detail-list-label">热点共享</div>
-                            </div>
-                            <div class="detail-list-value green">支持</div>
-                        </div>
-                        <div class="detail-list-item">
-                            <div class="detail-list-left">
-                                <div class="detail-list-icon">⚡</div>
-                                <div class="detail-list-label">速度限制</div>
-                            </div>
-                            <div class="detail-list-value green">不受限制</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 服务保障 -->
-                <div class="detail-section">
-                    <div class="detail-section-title">服务保障</div>
-                    <div class="detail-list">
-                        <div class="detail-list-item">
-                            <div class="detail-list-left">
-                                <div class="detail-list-icon">👨‍💼</div>
-                                <div class="detail-list-label">真人客服</div>
-                            </div>
-                            <div class="detail-list-value green">7×24小时在线</div>
-                        </div>
-                        <div class="detail-list-item">
-                            <div class="detail-list-left">
-                                <div class="detail-list-icon">🪪</div>
-                                <div class="detail-list-label">实名认证 (eKYC)</div>
-                            </div>
-                            <div class="detail-list-value green">无需</div>
-                        </div>
-                        <div class="detail-list-item">
-                            <div class="detail-list-left">
-                                <div class="detail-list-icon">📧</div>
-                                <div class="detail-list-label">发货方式</div>
-                            </div>
-                            <div class="detail-list-value gray">邮件发送二维码</div>
-                        </div>
-                        <div class="detail-list-item">
-                            <div class="detail-list-left">
-                                <div class="detail-list-icon">💳</div>
-                                <div class="detail-list-label">退款政策</div>
-                            </div>
-                            <div class="detail-list-value gray">无法使用可退款</div>
-                        </div>
-                        <div class="detail-list-item">
-                            <div class="detail-list-left">
-                                <div class="detail-list-icon">🚀</div>
-                                <div class="detail-list-label">激活时间</div>
-                            </div>
-                            <div class="detail-list-value gray">到达目的地激活</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 小贴士 -->
-                <div class="tips-card">
-                    <div class="tips-title">💡 使用小贴士</div>
-                    <div class="tips-content" id="detailTips">
-                        每天1GB后，全程5Mbps。即使在公平使用政策下，也可畅享 1080p 高清视频和各类应用。请在抵达目的地后进行激活，并确保开启 eSIM 数据漫游功能。
-                    </div>
-                </div>
+            <div class="detail-container" id="detailContainer">
+                <!-- 内容由JS动态填充 -->
             </div>
         </div>
 
@@ -1455,7 +1323,8 @@
             hasCall: false,
             hasSms: false,
             network: '5G/4G/LTE',
-            isDaily: false
+            isDaily: false,
+            isCallPlan: false
         };
 
         // 初始化天数滑块
@@ -1528,9 +1397,14 @@
             return '<div class="btn-compare" onclick="showComparison(event, ' + price + ')">🆚 全网比价</div>';
         }
 
-        // 生成详情链接HTML
+        // 生成详情链接HTML - 数据流量套餐
         function getDetailLink(spec, days, price, oldPrice, hasCall, hasSms, network, isDaily) {
-            return '<span class="detail-link" onclick="openDetailPage(event, \'' + spec + '\', ' + days + ', ' + price + ', ' + oldPrice + ', ' + hasCall + ', ' + hasSms + ', \'' + network + '\', ' + isDaily + ')">详情 ›</span>';
+            return '<span class="detail-link" onclick="openDetailPage(event, \'' + spec + '\', ' + days + ', ' + price + ', ' + oldPrice + ', ' + hasCall + ', ' + hasSms + ', \'' + network + '\', ' + isDaily + ', false)">详情 ›</span>';
+        }
+
+        // 生成详情链接HTML - 通话套餐专用
+        function getCallDetailLink(spec, days, price, oldPrice, network) {
+            return '<span class="detail-link" onclick="openDetailPage(event, \'' + spec + '\', ' + days + ', ' + price + ', ' + oldPrice + ', true, true, \'' + network + '\', false, true)">详情 ›</span>';
         }
 
         // 渲染总流量套餐
@@ -1577,7 +1451,6 @@
                     var oldPrice = (p.price * 1.35).toFixed(2);
                     var tagText = '';
                     var tagClass = 'tag-corner';
-                    var isSale = false;
                     if (p.price > 15) {
                         if (bigPlanIndex === 0) {
                             tagText = '- 64%';
@@ -1587,7 +1460,6 @@
                         }
                         bigPlanIndex++;
                     }
-                    var couponHtml = '';
                     var html = '<div class="list-card' + (tagText ? ' has-tag' : '') + '" onclick="selectPlan(this, ' + p.price + ', ' + oldPrice + ', \'' + p.gb + '\', ' + selectedDuration + ')">' +
                         (tagText ? '<div class="' + tagClass + '">' + tagText + '</div>' : '') +
                         getDetailLink(p.gb, selectedDuration, p.price, oldPrice, false, false, '5G/4G/LTE', false) +
@@ -1601,7 +1473,6 @@
                         '<div class="lc-right">' +
                             '<div class="lc-price">$' + p.price + '</div>' +
                             '<div class="lc-old-price">$' + oldPrice + '</div>' +
-                            couponHtml +
                         '</div>' +
                     '</div>';
                     stack.innerHTML += html;
@@ -1693,7 +1564,7 @@
 
                 var html = '<div class="list-card call-plan' + (index === 1 ? ' selected' : '') + '" onclick="selectPlan(this, ' + p.price + ', ' + p.oldPrice + ', \'' + (p.call === 'Unlimited' ? 'Unlimited Call + Data' : p.data + ' + ' + p.call + ' Call') + '\', ' + p.days + ')">' +
                     tagHtml +
-                    getDetailLink(specData, p.days, p.price, p.oldPrice, true, true, p.network + '/LTE', false) +
+                    getCallDetailLink(specData, p.days, p.price, p.oldPrice, p.network + '/LTE') +
                     '<div class="lc-left">' +
                         '<div class="call-badge"' + (!isUnlimitedCall ? ' style="background: #f0f0f0; color: #666;"' : '') + '>' + (isUnlimitedCall ? '📞 无限通话+短信' : '⏳ ' + p.call + '通话+短信') + '</div>' +
                         '<div class="call-detail">' +
@@ -1779,7 +1650,7 @@
         // ==========================================
         // 5. 详情页逻辑
         // ==========================================
-        function openDetailPage(event, spec, planDays, price, oldPrice, hasCall, hasSms, network, isDaily) {
+        function openDetailPage(event, spec, planDays, price, oldPrice, hasCall, hasSms, network, isDaily, isCallPlan) {
             event.stopPropagation();
 
             currentDetailPlan = {
@@ -1790,48 +1661,40 @@
                 hasCall: hasCall,
                 hasSms: hasSms,
                 network: network,
-                isDaily: isDaily
+                isDaily: isDaily,
+                isCallPlan: isCallPlan
             };
 
-            // 更新详情页内容
-            var specText = spec;
-            if (spec === 'Unlimited') {
-                specText = '无限流量';
-            } else if (isDaily) {
-                specText = spec;
+            var container = document.getElementById('detailContainer');
+
+            // 根据套餐类型渲染不同的详情内容
+            if (isCallPlan) {
+                container.innerHTML = renderCallPlanDetail(spec, planDays, price, oldPrice, network);
+            } else {
+                container.innerHTML = renderDataPlanDetail(spec, planDays, price, oldPrice, hasCall, hasSms, network, isDaily);
             }
 
-            document.getElementById('detailPlanSpec').innerText = specText;
-            document.getElementById('detailPlanDays').innerText = planDays + '天有效期';
-            document.getElementById('detailPrice').innerText = '$' + parseFloat(price).toFixed(2);
-            document.getElementById('detailOldPrice').innerText = '$' + parseFloat(oldPrice).toFixed(2);
+            // 更新底部价格
             document.getElementById('detailBottomPrice').innerText = '$' + parseFloat(price).toFixed(2);
             document.getElementById('detailBottomOldPrice').innerText = '$' + parseFloat(oldPrice).toFixed(2);
 
-            // 更新服务支持
-            var callSupportEl = document.getElementById('detailCallSupport');
-            var smsSupportEl = document.getElementById('detailSmsSupport');
+            // 显示详情弹窗
+            document.getElementById('detailOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-            if (hasCall) {
-                callSupportEl.innerText = '支持';
-                callSupportEl.className = 'detail-grid-value supported';
-            } else {
-                callSupportEl.innerText = '不支持';
-                callSupportEl.className = 'detail-grid-value not-supported';
+        // 渲染数据流量套餐详情
+        function renderDataPlanDetail(spec, planDays, price, oldPrice, hasCall, hasSms, network, isDaily) {
+            var specText = spec;
+            if (spec === 'Unlimited') {
+                specText = '无限流量';
             }
 
-            if (hasSms) {
-                smsSupportEl.innerText = '支持';
-                smsSupportEl.className = 'detail-grid-value supported';
-            } else {
-                smsSupportEl.innerText = '不支持';
-                smsSupportEl.className = 'detail-grid-value not-supported';
-            }
+            var callSupportClass = hasCall ? 'supported' : 'not-supported';
+            var callSupportText = hasCall ? '支持' : '不支持';
+            var smsSupportClass = hasSms ? 'supported' : 'not-supported';
+            var smsSupportText = hasSms ? '支持' : '不支持';
 
-            // 更新网络类型
-            document.getElementById('detailNetworkType').innerText = network;
-
-            // 更新小贴士
             var tipsText = '';
             if (isDaily) {
                 tipsText = '每日流量用尽后降速至5Mbps，次日零点（目的地时间）自动恢复高速。即使降速后，也可畅享 1080p 高清视频和各类应用。请在抵达目的地后进行激活，并确保开启 eSIM 数据漫游功能。';
@@ -1840,11 +1703,247 @@
             } else {
                 tipsText = '每天1GB后，全程5Mbps。即使在公平使用政策下，也可畅享 1080p 高清视频和各类应用。请在抵达目的地后进行激活，并确保开启 eSIM 数据漫游功能。';
             }
-            document.getElementById('detailTips').innerText = tipsText;
 
-            // 显示详情弹窗
-            document.getElementById('detailOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            return '\
+                <div class="plan-summary-card">\
+                    <div class="plan-dest">\
+                        <span class="plan-dest-flag">🇺🇸</span>\
+                        <span>美国 · eSIM</span>\
+                    </div>\
+                    <div class="plan-main-info">\
+                        <div>\
+                            <div class="plan-spec">' + specText + '</div>\
+                            <div class="plan-spec-sub">' + planDays + '天有效期</div>\
+                        </div>\
+                        <div class="plan-price-block">\
+                            <div class="plan-price-old">$' + parseFloat(oldPrice).toFixed(2) + '</div>\
+                            <div class="plan-price-current">$' + parseFloat(price).toFixed(2) + '</div>\
+                        </div>\
+                    </div>\
+                </div>\
+                <div class="cashback-banner">\
+                    <div class="cashback-icon">💰</div>\
+                    <div class="cashback-text">\
+                        <div class="cashback-title">预计获得 0.5 USD Cashback</div>\
+                        <div class="cashback-amount">购买成功后自动返还到账户余额</div>\
+                    </div>\
+                </div>\
+                <div class="detail-section">\
+                    <div class="detail-section-title">服务支持</div>\
+                    <div class="detail-grid">\
+                        <div class="detail-grid-item">\
+                            <div class="detail-grid-icon">📶</div>\
+                            <div class="detail-grid-label">数据流量</div>\
+                            <div class="detail-grid-value supported">支持</div>\
+                        </div>\
+                        <div class="detail-grid-item">\
+                            <div class="detail-grid-icon">📞</div>\
+                            <div class="detail-grid-label">语音通话</div>\
+                            <div class="detail-grid-value ' + callSupportClass + '">' + callSupportText + '</div>\
+                        </div>\
+                        <div class="detail-grid-item">\
+                            <div class="detail-grid-icon">💬</div>\
+                            <div class="detail-grid-label">短信</div>\
+                            <div class="detail-grid-value ' + smsSupportClass + '">' + smsSupportText + '</div>\
+                        </div>\
+                    </div>\
+                </div>\
+                <div class="detail-section">\
+                    <div class="detail-section-title">网络信息</div>\
+                    <div class="detail-list">\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">🏢</div>\
+                                <div class="detail-list-label">网络服务商</div>\
+                            </div>\
+                            <div class="detail-list-value">Verizon / T-Mobile</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">📡</div>\
+                                <div class="detail-list-label">网络制式</div>\
+                            </div>\
+                            <div class="detail-list-value">' + network + '</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">📲</div>\
+                                <div class="detail-list-label">热点共享</div>\
+                            </div>\
+                            <div class="detail-list-value green">支持</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">⚡</div>\
+                                <div class="detail-list-label">速度限制</div>\
+                            </div>\
+                            <div class="detail-list-value green">不受限制</div>\
+                        </div>\
+                    </div>\
+                </div>\
+                <div class="detail-section">\
+                    <div class="detail-section-title">服务保障</div>\
+                    <div class="detail-list">\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">👨‍💼</div>\
+                                <div class="detail-list-label">真人客服</div>\
+                            </div>\
+                            <div class="detail-list-value green">7×24小时在线</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">🪪</div>\
+                                <div class="detail-list-label">实名认证 (eKYC)</div>\
+                            </div>\
+                            <div class="detail-list-value green">无需</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">📧</div>\
+                                <div class="detail-list-label">发货方式</div>\
+                            </div>\
+                            <div class="detail-list-value gray">邮件发送二维码</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">💳</div>\
+                                <div class="detail-list-label">退款政策</div>\
+                            </div>\
+                            <div class="detail-list-value gray">无法使用可退款</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">🚀</div>\
+                                <div class="detail-list-label">激活时间</div>\
+                            </div>\
+                            <div class="detail-list-value gray">到达目的地激活</div>\
+                        </div>\
+                    </div>\
+                </div>\
+                <div class="tips-card">\
+                    <div class="tips-title">💡 使用小贴士</div>\
+                    <div class="tips-content">' + tipsText + '</div>\
+                </div>';
+        }
+
+        // 渲染通话套餐详情
+        function renderCallPlanDetail(spec, planDays, price, oldPrice, network) {
+            var specText = spec === 'Unlimited' ? '无限流量' : spec;
+
+            return '\
+                <div class="plan-summary-card">\
+                    <div class="plan-dest">\
+                        <span class="plan-dest-flag">🇺🇸</span>\
+                        <span>美国 · eSIM</span>\
+                    </div>\
+                    <div class="plan-main-info">\
+                        <div>\
+                            <div class="plan-spec">' + specText + '</div>\
+                            <div class="plan-spec-sub">' + planDays + '天有效期</div>\
+                        </div>\
+                        <div class="plan-price-block">\
+                            <div class="plan-price-old">$' + parseFloat(oldPrice).toFixed(2) + '</div>\
+                            <div class="plan-price-current">$' + parseFloat(price).toFixed(2) + '</div>\
+                        </div>\
+                    </div>\
+                </div>\
+                <div class="cashback-banner">\
+                    <div class="cashback-icon">💰</div>\
+                    <div class="cashback-text">\
+                        <div class="cashback-title">预计获得 0.5 USD Cashback</div>\
+                        <div class="cashback-amount">购买成功后自动返还到账户余额</div>\
+                    </div>\
+                </div>\
+                <div class="detail-section">\
+                    <div class="detail-section-title">通话</div>\
+                    <div class="detail-list">\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">📞</div>\
+                                <div class="detail-list-label">本地通话</div>\
+                            </div>\
+                            <div class="detail-list-value green">400 Mins</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">🌍</div>\
+                                <div class="detail-list-label">漫游通话</div>\
+                            </div>\
+                            <div class="detail-list-value gray">0 Mins</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">📲</div>\
+                                <div class="detail-list-label">接听电话</div>\
+                            </div>\
+                            <div class="detail-list-value gray">0 Mins</div>\
+                        </div>\
+                    </div>\
+                </div>\
+                <div class="detail-section">\
+                    <div class="detail-section-title">短信</div>\
+                    <div class="detail-list">\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">💬</div>\
+                                <div class="detail-list-label">发送短信</div>\
+                            </div>\
+                            <div class="detail-list-value green">200 SMS</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">📩</div>\
+                                <div class="detail-list-label">接收短信</div>\
+                            </div>\
+                            <div class="detail-list-value green">不限量</div>\
+                        </div>\
+                    </div>\
+                </div>\
+                <div class="detail-section">\
+                    <div class="detail-section-title">网络信息</div>\
+                    <div class="detail-list">\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">🏢</div>\
+                                <div class="detail-list-label">网络</div>\
+                            </div>\
+                            <div class="detail-list-value">EE/OO</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">⚡</div>\
+                                <div class="detail-list-label">是否降速</div>\
+                            </div>\
+                            <div class="detail-list-value green">否，极速5G</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">🪪</div>\
+                                <div class="detail-list-label">eKYC</div>\
+                            </div>\
+                            <div class="detail-list-value green">不需要</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">📅</div>\
+                                <div class="detail-list-label">有效期</div>\
+                            </div>\
+                            <div class="detail-list-value">' + planDays + '天</div>\
+                        </div>\
+                        <div class="detail-list-item">\
+                            <div class="detail-list-left">\
+                                <div class="detail-list-icon">📱</div>\
+                                <div class="detail-list-label">电话号码</div>\
+                            </div>\
+                            <div class="detail-list-value">美国号码</div>\
+                        </div>\
+                    </div>\
+                </div>\
+                <div class="tips-card" style="border-left-color: #FF9500;">\
+                    <div class="tips-title" style="color: #FF9500;">⚠️ 套餐说明</div>\
+                    <div class="tips-content">此套餐一经安装，除网络问题外不支持退款，请确认无误后再进行安装。</div>\
+                </div>';
         }
 
         function closeDetailPage() {
