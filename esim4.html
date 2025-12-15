@@ -522,14 +522,17 @@
             z-index: 200;
             transform: translateX(100%);
             transition: transform 0.35s cubic-bezier(0.4, 0.0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
+            overflow: hidden;
         }
         .detail-page.active {
             transform: translateX(0);
         }
 
         .detail-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(10px);
             padding: 16px 20px;
@@ -537,7 +540,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            flex-shrink: 0;
+            z-index: 210;
         }
         .back-btn {
             width: 36px;
@@ -562,13 +565,18 @@
         }
 
         .detail-scroll-area {
-            flex: 1;
+            position: absolute;
+            top: 68px; /* header height */
+            left: 0;
+            right: 0;
+            bottom: 100px; /* bottom bar height */
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
         }
 
         .detail-container {
             padding: 20px;
+            padding-bottom: 30px;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -813,14 +821,18 @@
             line-height: 1.6;
         }
 
-        /* 详情页底部栏 - App风格 */
+        /* 详情页底部栏 - App风格固定底部 */
         .detail-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
             background: var(--card-bg);
             padding: 16px 20px;
             padding-bottom: calc(16px + env(safe-area-inset-bottom, 20px));
             box-shadow: 0 -4px 24px rgba(0,0,0,0.1);
-            flex-shrink: 0;
             border-top: 1px solid rgba(0,0,0,0.04);
+            z-index: 220;
         }
         .detail-bottom-inner {
             max-width: 600px;
