@@ -245,6 +245,7 @@
             border-top-left-radius: 16px;
         }
         .tag-corner.long-term { background: #5856D6; }
+        .tag-corner.sale { background: #FF3B30; }
 
         .tag-save {
             display: inline-block;
@@ -957,8 +958,7 @@
         <!-- 1. 天数选择 -->
         <div class="duration-section" id="durationSection">
             <div class="section-label">
-                <span>行程时长</span>
-                <span style="color: var(--primary)">如何选择?</span>
+                <span>行程时长</span> 
             </div>
             <div class="duration-slider" id="durationSlider">
                 <!-- JS 填充 -->
@@ -985,7 +985,9 @@
                 <div class="daily-grid" id="daily-plans-container">
                 </div>
                 <div style="margin-top:15px; font-size:0.8rem; color:var(--text-sub); text-align:center;">
-                    * 每日流量用尽后降速至128kbps，次日零点恢复
+                    *
+每日流量用尽后，我们将为您补充提供128kbs网络，可用于收发文字、语音信息。
+高速流量在次日零点第一时间恢复。
                 </div>
             </div>
         </div>
@@ -1194,7 +1196,7 @@
                 <div class="tips-card">
                     <div class="tips-title">💡 使用小贴士</div>
                     <div class="tips-content" id="detailTips">
-                        每天1GB后，全程5Mbps。即使在公平使用政策下，也可畅享 1080p 高清视频和各类应用。请在抵达目的地后进行激活，并确保开启 eSIM 数据漫游功能。
+                        每天1GB后，全程5Mbps。即使在公平使用政策下，也可畅享 1080p 高清视频和各类应用。请在抵达目的地后进行激活，并确保开启 eSIM 数据漫游功���。
                     </div>
                 </div>
             </div>
@@ -1368,7 +1370,7 @@
 
         // 生成比价按钮HTML
         function getCompareBtn(price) {
-            return '<div class="btn-compare" onclick="showComparison(event, ' + price + ')">比价</div>';
+            return '<div class="btn-compare" onclick="showComparison(event, ' + price + ')">vs 全网比价</div>';
         }
 
         // 生成详情链接HTML
@@ -1392,11 +1394,10 @@
                     '<div class="premium-left">' +
                         '<div class="premium-title">' +
                             '♾️ 无限流量' +
-                            '<span class="premium-net-badge">5G/4G</span>' +
                         '</div>' +
                         '<div class="premium-desc">' +
                             getPlanDesc('Unlimited') + '<br>' +
-                            '<span style="font-size:0.75rem; opacity:0.8">≈ $' + (unlimitedPlan.price/selectedDuration).toFixed(2) + '/天 · 含热点</span>' +
+                            '<span style="font-size:0.75rem; opacity:0.8">≈ $' + (unlimitedPlan.price/selectedDuration).toFixed(2) + '/天 </span>' +
                         '</div>' +
                         getCompareBtn(unlimitedPlan.price) +
                     '</div>' +
@@ -1416,15 +1417,26 @@
                 container.appendChild(heroSection);
 
                 var stack = heroSection.querySelector('#big-stack');
+                var bigPlanIndex = 0;
                 bigPlans.forEach(function(p) {
                     var oldPrice = (p.price * 1.35).toFixed(2);
+                    var tagText = '';
+                    var tagClass = 'tag-corner';
+                    if (p.price > 15) {
+                        if (bigPlanIndex === 0) {
+                            tagText = '特价中';
+                            tagClass = 'tag-corner sale';
+                        } else {
+                            tagText = '推荐';
+                        }
+                        bigPlanIndex++;
+                    }
                     var html = '<div class="list-card" onclick="selectPlan(this, ' + p.price + ', ' + oldPrice + ', \'' + p.gb + '\', ' + selectedDuration + ')">' +
-                        (p.price > 15 ? '<div class="tag-corner">推荐</div>' : '') +
+                        (tagText ? '<div class="' + tagClass + '">' + tagText + '</div>' : '') +
                         getDetailLink(p.gb, selectedDuration, p.price, oldPrice, false, false, '5G/4G/LTE', false) +
                         '<div class="lc-left">' +
                             '<div class="lc-gb">' +
                                 parseInt(p.gb) + '<span class="unit">GB</span>' +
-                                '<span class="net-tag net-5g">5G/4G</span>' +
                             '</div>' +
                             '<div class="lc-desc">' + getPlanDesc(p.gb) + '</div>' +
                             getCompareBtn(p.price) +
@@ -1481,7 +1493,7 @@
                     (gbNum >= 2 ? '<div class="daily-tag">推荐</div>' : '') +
                     getDetailLink(p.gb, selectedDuration, p.price, oldPrice, false, false, '5G/4G/LTE', true) +
                     '<div class="daily-left">' +
-                        '<div class="daily-gb">' + gbNum + '<span>GB/天</span><span class="daily-net-tag">5G/4G</span></div>' +
+                        '<div class="daily-gb">' + gbNum + '<span>GB/天</span></div>' +
                         '<div class="daily-desc">' + dailyDesc + '</div>' +
                         getCompareBtn(p.price) +
                     '</div>' +
@@ -1520,7 +1532,6 @@
                         '<div class="call-badge"' + (!isUnlimitedCall ? ' style="background: #f0f0f0; color: #666;"' : '') + '>' + (isUnlimitedCall ? '📞 无限通话+短信' : '⏳ ' + p.call + '通话+短信') + '</div>' +
                         '<div class="call-detail">' +
                             '<span class="call-days">' + p.days + '天</span> ' + (p.data === 'Unlimited' ? '无限流量' : p.data + ' 流量') +
-                            '<span class="net-tag ' + (p.network === '5G/4G' ? 'net-5g' : 'net-4g') + '" style="font-size:0.5rem; height:14px;">' + p.network + '</span>' +
                         '</div>' +
                         '<div class="lc-desc">' + p.desc + '</div>' +
                         getCompareBtn(p.price) +
@@ -1600,7 +1611,7 @@
         }
 
         // ==========================================
-        // 5. 详情���逻辑
+        // 5. 详情页逻辑
         // ==========================================
         function openDetailPage(event, spec, planDays, price, oldPrice, hasCall, hasSms, network, isDaily) {
             event.stopPropagation();
