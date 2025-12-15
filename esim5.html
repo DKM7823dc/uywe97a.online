@@ -533,23 +533,37 @@
         .premium-old-price { font-size: 0.8rem; text-decoration: line-through; opacity: 0.7; margin-top: 4px;}
         .premium-card.selected { ring: 4px solid rgba(0,102,255,0.3); transform: scale(0.99); }
 
-        /* 基础包 Grid (轻量尝鲜) 样式调整 */
+        /* 基础包 Grid (轻量尝鲜) 样式调整 - 一排一个 */
         .basic-list-title { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 10px; font-weight: 600; }
-        .basic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .basic-grid { display: flex; flex-direction: column; gap: 10px; }
         .basic-card {
             background: var(--card-bg);
-            border-radius: 14px;
-            padding: 12px 4px;
-            padding-bottom: 10px;
-            text-align: center;
+            border-radius: 16px;
+            padding: 14px 18px;
             border: 1px solid transparent;
             cursor: pointer;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
         }
-        .basic-card.selected { border-color: var(--primary); background: #F0F7FF; color: var(--primary); }
-        .basic-gb { font-size: 1.0rem; font-weight: 700; margin-bottom: 4px; }
-        .basic-price { font-size: 0.85rem; color: var(--text-sub); }
-        .basic-card.selected .basic-price { color: var(--primary); font-weight: 600; }
+        .basic-card.selected { border-color: var(--primary); background: #F0F7FF; }
+        .basic-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .basic-gb { font-size: 1.2rem; font-weight: 700; color: var(--text-main); }
+        .basic-card.selected .basic-gb { color: var(--primary); }
+        .basic-desc { font-size: 0.75rem; color: var(--text-sub); }
+        .basic-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .basic-price { font-size: 1.1rem; font-weight: 700; color: var(--text-main); }
+        .basic-card.selected .basic-price { color: var(--primary); }
         .basic-net-tag {
             position: absolute; top: 4px; right: 4px;
             font-size: 0.45rem;
@@ -647,24 +661,14 @@
 
         /* 基础卡片 */
         .basic-card .btn-compare {
-            position: absolute;
-            bottom: 6px;
-            left: 50%;
-            transform: translateX(-50%);
             margin: 0;
-            font-size: 0.55rem;
-            padding: 1px 4px;
-            border: none;
-            background: transparent;
-            color: var(--text-sub);
-            text-decoration: underline;
-            width: 100%;
+            font-size: 0.65rem;
+            padding: 2px 6px;
         }
-        .basic-card.selected .btn-compare { color: var(--primary); }
         .basic-card .detail-link {
-            font-size: 0.62rem;
-            top: 8px;
-            right: 8px;
+            font-size: 0.68rem;
+            top: 10px;
+            right: 14px;
         }
 
         /* 每日卡片和列表卡片 */
@@ -1137,7 +1141,8 @@
                 <div class="daily-grid" id="daily-plans-container">
                 </div>
                 <div style="margin-top:15px; font-size:0.8rem; color:var(--text-sub); text-align:center;">
-                    * 每日流量用尽后降速至128kbps，次日零点恢复
+                    *每日流量用尽后，我们将为您补充提供128kbs网络，可用于收发文字、语音信息。
+高速流量在次日零点第一时间恢复。
                 </div>
             </div>
         </div>
@@ -1547,7 +1552,7 @@
                         '</div>' +
                         '<div class="premium-desc">' +
                             getPlanDesc('Unlimited') + '<br>' +
-                            '<span style="font-size:0.75rem; opacity:0.8">≈ $' + (unlimitedPlan.price/selectedDuration).toFixed(2) + '/天 · 含热点</span>' +
+                            '<span style="font-size:0.75rem; opacity:0.8">≈ $' + (unlimitedPlan.price/selectedDuration).toFixed(2) + '/天  </span>' +
                         '</div>' +
                         getCompareBtn(unlimitedPlan.price) +
                     '</div>' +
@@ -1606,20 +1611,28 @@
             var smallPlans = plans.filter(function(p) { return p.gb !== 'Unlimited' && parseInt(p.gb) < 10; });
             if (smallPlans.length > 0) {
                 container.innerHTML += '<div class="basic-list-title">轻量尝鲜,适合短途</div>';
-                var grid = document.createElement('div');
-                grid.className = 'basic-grid';
+                var smallStack = document.createElement('div');
+                smallStack.className = 'hero-stack';
 
                 smallPlans.forEach(function(p) {
                     var oldPrice = (p.price * 1.2).toFixed(2);
-                    var html = '<div class="basic-card" onclick="selectPlan(this, ' + p.price + ', ' + oldPrice + ', \'' + p.gb + '\', ' + selectedDuration + ')">' +
+                    var html = '<div class="list-card" onclick="selectPlan(this, ' + p.price + ', ' + oldPrice + ', \'' + p.gb + '\', ' + selectedDuration + ')">' +
                         getDetailLink(p.gb, selectedDuration, p.price, oldPrice, false, false, '5G/4G/LTE', false) +
-                        '<div class="basic-gb">' + p.gb + '</div>' +
-                        '<div class="basic-price">$' + p.price + '</div>' +
-                        getCompareBtn(p.price) +
+                        '<div class="lc-left">' +
+                            '<div class="lc-gb">' +
+                                parseInt(p.gb) + '<span class="unit">GB</span>' +
+                            '</div>' +
+                            '<div class="lc-desc">' + getPlanDesc(p.gb) + '</div>' +
+                            getCompareBtn(p.price) +
+                        '</div>' +
+                        '<div class="lc-right">' +
+                            '<div class="lc-price">$' + p.price + '</div>' +
+                            '<div class="lc-old-price">$' + oldPrice + '</div>' +
+                        '</div>' +
                     '</div>';
-                    grid.innerHTML += html;
+                    smallStack.innerHTML += html;
                 });
-                container.appendChild(grid);
+                container.appendChild(smallStack);
             }
 
             setTimeout(function() {
