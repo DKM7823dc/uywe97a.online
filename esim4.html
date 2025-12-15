@@ -973,7 +973,9 @@
                 <div class="daily-grid" id="daily-plans-container">
                 </div>
                 <div style="margin-top:15px; font-size:0.8rem; color:var(--text-sub); text-align:center;">
-                    * 每日流量用尽后降速至128kbps，次日零点恢复
+                    *
+每日流量用尽后，我们将为您补充提供128kbs网络，可用于收发文字、语音信息。
+高速流量在次日零点第一时间恢复。
                 </div>
             </div>
         </div>
@@ -1355,8 +1357,8 @@
         // 生成按钮组HTML
         function getActionBtns(price, spec, days, oldPrice, hasCall, hasSms, network, isDaily) {
             return '<div class="action-btns">' +
-                '<div class="action-btn btn-compare" onclick="showComparison(event, ' + price + ')">🆚 全网比价</div>' +
-                '<div class="action-btn btn-detail" onclick="openDetailPage(event, \'' + spec + '\', ' + days + ', ' + price + ', ' + oldPrice + ', ' + hasCall + ', ' + hasSms + ', \'' + network + '\', ' + isDaily + ')">📋 查看详情</div>' +
+                '<div class="action-btn btn-compare" onclick="showComparison(event, ' + price + ')">🆚 比价</div>' +
+                '<div class="action-btn btn-detail" onclick="openDetailPage(event, \'' + spec + '\', ' + days + ', ' + price + ', ' + oldPrice + ', ' + hasCall + ', ' + hasSms + ', \'' + network + '\', ' + isDaily + ')">📋 详情</div>' +
             '</div>';
         }
 
