@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>eSIM 动态定价版 (5G/4G)</title>
+    <title>eSIM 动态定价版 (优化版)</title>
     <style>
         :root {
             --primary: #0066FF;
@@ -305,12 +305,12 @@
             box-shadow: 0 2px 4px rgba(255, 149, 0, 0.3);
         }
 
-        /* Premium Card */
+        /* Premium Card (无限流量) 样式调整 */
         .premium-card {
             background: var(--gradient-premium);
             color: white;
             border-radius: 20px;
-            padding: 20px;
+            padding: 16px 18px; /* 减小内边距 */
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
@@ -322,38 +322,46 @@
             backdrop-filter: blur(4px);
             border: 1px solid rgba(255,255,255,0.2);
             color: #fff;
-            font-size: 0.7rem;
-            padding: 2px 8px;
+            font-size: 0.6rem; /* 字体改小 */
+            padding: 2px 6px;
             border-radius: 20px;
             font-weight: 700;
-            margin-left: 8px;
+            margin-left: 6px;
             box-shadow: 0 0 10px rgba(255,255,255,0.1);
+            vertical-align: middle;
         }
-        .premium-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .premium-title { font-size: 1.2rem; font-weight: 800; display: flex; align-items: center;}
-        .premium-price-block { text-align: right; }
-        .premium-price { font-size: 1.4rem; font-weight: 700; line-height: 1; }
-        .premium-old-price { font-size: 0.8rem; text-decoration: line-through; opacity: 0.7; display: block; margin-bottom: 2px;}
-        .premium-desc { font-size: 0.9rem; opacity: 0.9; line-height: 1.4; }
+        .premium-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        
+        /* 字体改小，防止挤压 */
+        .premium-title { font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; flex: 1;}
+        
+        .premium-price-block { text-align: right; margin-left: 10px; }
+        .premium-price { font-size: 1.25rem; font-weight: 700; line-height: 1; } /* 字体改小 */
+        .premium-old-price { font-size: 0.75rem; text-decoration: line-through; opacity: 0.7; display: block; margin-bottom: 2px;}
+        .premium-desc { font-size: 0.8rem; opacity: 0.9; line-height: 1.4; margin-top: 4px; }
         .premium-card.selected { ring: 4px solid rgba(0,102,255,0.3); transform: scale(0.99); }
 
-        /* 基础包 Grid (用于Total模式的小流量包) */
+        /* 基础包 Grid (轻量尝鲜) 样式调整 */
         .basic-list-title { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 10px; font-weight: 600; }
-        .basic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .basic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; /* 减小间距 */ }
         .basic-card {
             background: var(--card-bg);
             border-radius: 14px;
-            padding: 15px 10px;
+            padding: 12px 4px; /* 减小左右内边距 */
             text-align: center;
             border: 1px solid transparent;
             cursor: pointer;
             position: relative;
         }
         .basic-card.selected { border-color: var(--primary); background: #F0F7FF; color: var(--primary); }
-        .basic-gb { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
-        .basic-price { font-size: 0.9rem; color: var(--text-sub); }
+        .basic-gb { font-size: 1.0rem; font-weight: 700; margin-bottom: 4px; } /* 字体改小 */
+        .basic-price { font-size: 0.85rem; color: var(--text-sub); } /* 字体改小 */
         .basic-card.selected .basic-price { color: var(--primary); font-weight: 600; }
-        .basic-net-tag { position: absolute; top: 6px; right: 6px; font-size: 0.5rem; color: #C7C7CC; font-weight: 700; }
+        .basic-net-tag { 
+            position: absolute; top: 4px; right: 4px; 
+            font-size: 0.45rem; /* 字体改小 */
+            color: #C7C7CC; font-weight: 700; 
+        }
 
         /* 底部结算栏 */
         .bottom-bar {
@@ -408,12 +416,12 @@
         .selected .compare-trigger { background: white; border-color: var(--primary); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         
         .premium-card .compare-trigger {
-            color: white; border-color: rgba(255,255,255,0.4); background: rgba(0,0,0,0.1); margin-top: 0; margin-left: 8px; font-size: 0.75rem;
+            color: white; border-color: rgba(255,255,255,0.4); background: rgba(0,0,0,0.1); margin-top: 0; margin-left: 0; font-size: 0.65rem; padding: 1px 6px;
         }
-        .daily-card .compare-trigger, .basic-card .compare-trigger {
-            position: absolute; bottom: 6px; left: 6px; margin: 0; font-size: 0.6rem; padding: 1px 4px; border: none; background: transparent; color: var(--text-sub); text-decoration: underline;
+        .basic-card .compare-trigger {
+            position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); margin: 0; font-size: 0.55rem; padding: 1px 4px; border: none; background: transparent; color: var(--text-sub); text-decoration: underline; width: 100%;
         }
-        .daily-card.selected .compare-trigger, .basic-card.selected .compare-trigger { color: var(--primary); }
+        .basic-card.selected .compare-trigger { color: var(--primary); }
 
         /* 弹窗 */
         .modal-overlay {
@@ -491,7 +499,7 @@
             </div>
         </div>
 
-        <!-- Tab 3: 通话套餐内容 (保持静态，因为没有提供新数据) -->
+        <!-- Tab 3: 通话套餐内容 -->
         <div id="callModeContent" class="hidden">
             <div class="hero-section">
                 <div class="hero-title">
@@ -638,7 +646,7 @@
 
     <script>
         // ==========================================
-        // 1. 数据库定义 (根据您的要求)
+        // 1. 数据库定义
         // ==========================================
         const pricingData = {
             // 总流量模式
@@ -717,7 +725,6 @@
                 // 切换天数后，重新渲染当前模式的内容
                 if (currentMode === 0) renderTotalPlans();
                 if (currentMode === 1) renderDailyPlans();
-                // Call mode 不受天数滑块直接控制内容渲染，因为它有自己的逻辑
             };
             slider.appendChild(el);
         });
@@ -780,11 +787,11 @@
                     <div class="premium-header">
                         <div class="premium-title">
                             ♾️ 无限流量
-                            <span class="premium-net-badge">5G/4G Ultra</span>
+                            <span class="premium-net-badge">5G/4G</span>
                         </div>
                         <div class="premium-price-block">
                             <span class="premium-old-price">$${oldPrice}</span>
-                            <div style="display:flex; align-items:center; justify-content:flex-end;">
+                            <div style="display:flex; align-items:center; justify-content:flex-end; gap:4px;">
                                 <div class="premium-price">$${unlimitedPlan.price}</div>
                                 <div class="compare-trigger" onclick="showComparison(event, ${unlimitedPlan.price})">🆚 比价</div>
                             </div>
@@ -792,7 +799,7 @@
                     </div>
                     <div class="premium-desc">
                         彻底告别流量焦虑。<br>
-                        <span style="font-size:0.8rem; opacity:0.8">≈ $${(unlimitedPlan.price/selectedDuration).toFixed(2)}/天 · 含热点 · 极速网络</span>
+                        <span style="font-size:0.75rem; opacity:0.8">≈ $${(unlimitedPlan.price/selectedDuration).toFixed(2)}/天 · 含热点</span>
                     </div>
                 </div>`;
                 container.innerHTML += html;
@@ -870,6 +877,7 @@
                 const avg = (p.price / selectedDuration).toFixed(2);
                 const gbNum = parseInt(p.gb);
                 
+                // 注意：这里删除了 compare-trigger 按钮
                 const html = `
                 <div class="daily-card" onclick="selectPlan(this, ${p.price}, ${oldPrice}, '${p.gb}', ${selectedDuration})">
                     ${gbNum >= 2 ? '<div class="daily-tag">推荐</div>' : ''}
@@ -877,7 +885,6 @@
                     <div class="daily-gb">${gbNum}<span>GB</span></div>
                     <div class="daily-price">$${p.price}</div>
                     <div class="daily-avg">$${avg}/天</div>
-                    <div class="compare-trigger" onclick="showComparison(event, ${p.price})">🆚 比价</div>
                 </div>`;
                 container.innerHTML += html;
             });
