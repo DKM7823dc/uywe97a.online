@@ -26,6 +26,13 @@
             --net-4g-text: #8E8E93;
         }
 
+        .dark {
+            --bg: #1C1C1E;
+            --card-bg: #2C2C2E;
+            --text-main: #FFFFFF;
+            --text-sub: #98989F;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
             background-color: var(--bg);
@@ -47,6 +54,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+        .dark .header {
+            background: rgba(28,28,30,0.9);
+            border-bottom-color: rgba(255,255,255,0.1);
         }
         .dest-info { font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
         .dest-flag { font-size: 1.4rem; }
@@ -95,6 +106,10 @@
             transform: translateY(-1px);
             border-color: var(--text-main);
         }
+        .dark .d-chip.active {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
         .d-chip .val { font-size: 1.1rem; font-weight: 700; display: block; }
         .d-chip .unit { font-size: 0.7rem; opacity: 0.8; }
 
@@ -106,6 +121,9 @@
             display: flex;
             margin-bottom: 28px;
             position: relative;
+        }
+        .dark .mode-switch {
+            background: #3A3A3C;
         }
         .mode-btn {
             flex: 1;
@@ -129,6 +147,9 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
             z-index: 1;
+        }
+        .dark .mode-bg {
+            background: #5A5A5C;
         }
 
         /* 通用卡片样式 */
@@ -190,9 +211,15 @@
             background: #F0F7FF;
             box-shadow: var(--shadow-md);
         }
+        .dark .list-card.selected {
+            background: rgba(0, 102, 255, 0.15);
+        }
         .list-card.call-plan.selected {
             border-color: var(--call-color);
             background: #F2FBF4;
+        }
+        .dark .list-card.call-plan.selected {
+            background: rgba(52, 199, 89, 0.15);
         }
         .list-card.has-tag {
             padding-top: 28px;
@@ -419,6 +446,9 @@
             background: #F0F7FF;
             box-shadow: var(--shadow-md);
         }
+        .dark .daily-card.selected {
+            background: rgba(0, 102, 255, 0.15);
+        }
         .daily-left {
             display: flex;
             flex-direction: column;
@@ -454,6 +484,9 @@
             background: #f5f5f7;
             padding: 2px 8px;
             border-radius: 10px;
+        }
+        .dark .daily-avg {
+            background: rgba(255,255,255,0.1);
         }
         .daily-card.selected .daily-avg {
             background: rgba(0, 102, 255, 0.1);
@@ -549,6 +582,7 @@
             box-shadow: var(--shadow-sm);
         }
         .basic-card.selected { border-color: var(--primary); background: #F0F7FF; }
+        .dark .basic-card.selected { background: rgba(0, 102, 255, 0.15); }
         .basic-left {
             display: flex;
             align-items: center;
@@ -599,6 +633,9 @@
             cursor: pointer;
             transition: transform 0.1s;
         }
+        .dark .checkout-btn {
+            background: var(--primary);
+        }
         .checkout-btn:active { transform: scale(0.95); }
 
         .hidden { display: none; }
@@ -624,8 +661,12 @@
             background: rgba(255,255,255,0.5);
             -webkit-tap-highlight-color: transparent;
         }
+        .dark .btn-compare {
+            background: rgba(0,0,0,0.3);
+        }
         .btn-compare:hover { background: rgba(0, 102, 255, 0.05); border-color: var(--primary); }
         .selected .btn-compare { background: white; border-color: var(--primary); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .dark .selected .btn-compare { background: rgba(0,0,0,0.5); }
 
         /* 详情链接 - 卡片右上角 */
         .detail-link {
@@ -677,29 +718,155 @@
             margin-top: 6px;
         }
 
-        /* 弹窗 */
+        /* ============================================ */
+        /* 新版比价弹窗样式 */
+        /* ============================================ */
         .modal-overlay {
             position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: flex-end; opacity: 0; pointer-events: none; transition: opacity 0.3s;
         }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
         .modal-content {
-            background: white; width: 100%; max-width: 600px; margin: 0 auto; border-radius: 24px 24px 0 0; padding: 24px; box-sizing: border-box; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); padding-bottom: 40px;
+            background: var(--card-bg); width: 100%; max-width: 600px; margin: 0 auto; border-radius: 24px 24px 0 0; padding: 24px; box-sizing: border-box; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); padding-bottom: 40px;
         }
         .modal-overlay.active .modal-content { transform: translateY(0); }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
         .modal-title { font-size: 1.2rem; font-weight: 800; }
         .modal-close { background: #f0f0f0; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; color: #666; }
+        .dark .modal-close { background: #3A3A3C; color: #ccc; }
 
-        .comp-row { display: flex; align-items: center; margin-bottom: 16px; }
-        .comp-name { width: 70px; font-size: 0.9rem; font-weight: 600; color: var(--text-sub); }
-        .comp-bar-container { flex: 1; height: 28px; background: #f0f0f0; border-radius: 6px; position: relative; overflow: hidden; display: flex; align-items: center; }
-        .comp-bar { height: 100%; border-radius: 6px; transition: width 1s ease-out; width: 0; }
-        .comp-price-label { position: absolute; right: 8px; font-size: 0.8rem; font-weight: 700; color: var(--text-main); }
-        .bar-saily { background: #E5E5EA; } .bar-airalo { background: #D1D1D6; } .bar-nomad { background: #C7C7CC; }
-        .row-us .comp-name { color: var(--primary); font-weight: 800; }
-        .row-us .comp-bar { background: var(--primary); }
-        .row-us .comp-price-label { color: white; }
-        .save-badge { margin-left: 10px; font-size: 0.75rem; color: #34C759; font-weight: 700; background: rgba(52, 199, 89, 0.1); padding: 2px 6px; border-radius: 4px; min-width: 60px; text-align: center; }
+        /* 我们的价格突出显示 */
+        .our-price-hero {
+            background: linear-gradient(135deg, #0066FF 0%, #00C6FF 100%);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .our-price-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        .our-price-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 4px;
+        }
+        .our-price-amount {
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .our-price-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        /* 竞品价格对比列表 */
+        .competitor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .competitor-item {
+            background: #f8f9fb;
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .dark .competitor-item {
+            background: #3A3A3C;
+        }
+        .competitor-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .competitor-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+        .competitor-price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-sub);
+        }
+        .competitor-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
+        }
+        .save-amount {
+            background: linear-gradient(135deg, #34C759 0%, #30D158 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .save-percent {
+            font-size: 0.75rem;
+            color: var(--call-color);
+            font-weight: 600;
+        }
+
+        /* 总结文案 */
+        .compare-summary {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFF3CC 100%);
+            border-radius: 14px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 149, 0, 0.2);
+        }
+        .dark .compare-summary {
+            background: linear-gradient(135deg, rgba(255,149,0,0.15) 0%, rgba(255,149,0,0.1) 100%);
+        }
+        .compare-summary-icon {
+            font-size: 1.8rem;
+        }
+        .compare-summary-text {
+            flex: 1;
+        }
+        .compare-summary-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #B8860B;
+            margin-bottom: 2px;
+        }
+        .dark .compare-summary-title {
+            color: #FFD60A;
+        }
+        .compare-summary-desc {
+            font-size: 0.8rem;
+            color: #8B7355;
+        }
+        .dark .compare-summary-desc {
+            color: #C4A777;
+        }
 
         /* ============================================ */
         /* 详情弹窗样式 */
@@ -778,6 +945,10 @@
             font-size: 1.1rem;
             color: #666;
             transition: all 0.2s;
+        }
+        .dark .detail-close {
+            background: #3A3A3C;
+            color: #ccc;
         }
         .detail-close:hover { background: #e5e5ea; }
         .detail-close:active { transform: scale(0.9); }
@@ -940,6 +1111,9 @@
             background: #f8f9fb;
             border-radius: 12px;
         }
+        .dark .detail-grid-item {
+            background: #3A3A3C;
+        }
         .detail-grid-icon {
             font-size: 1.4rem;
             margin-bottom: 6px;
@@ -974,6 +1148,9 @@
             padding: 14px 0;
             border-bottom: 1px solid rgba(0,0,0,0.04);
         }
+        .dark .detail-list-item {
+            border-bottom-color: rgba(255,255,255,0.08);
+        }
         .detail-list-item:last-child {
             border-bottom: none;
         }
@@ -992,6 +1169,9 @@
             justify-content: center;
             font-size: 1rem;
             flex-shrink: 0;
+        }
+        .dark .detail-list-icon {
+            background: #3A3A3C;
         }
         .detail-list-label {
             font-size: 0.9rem;
@@ -1020,6 +1200,9 @@
             border-left: 4px solid var(--primary);
             margin-bottom: 24px;
         }
+        .dark .tips-card {
+            background: linear-gradient(135deg, rgba(0,102,255,0.15) 0%, rgba(0,102,255,0.1) 100%);
+        }
         .tips-title {
             font-size: 0.85rem;
             font-weight: 700;
@@ -1033,6 +1216,9 @@
             font-size: 0.8rem;
             color: #555;
             line-height: 1.6;
+        }
+        .dark .tips-content {
+            color: #aaa;
         }
 
         /* 详情弹窗底部栏 */
@@ -1174,40 +1360,65 @@
         <button class="checkout-btn">立即购买</button>
     </div>
 
-    <!-- 比价弹窗 -->
+    <!-- 新版比价弹窗 -->
     <div class="modal-overlay" id="compareModal" onclick="closeComparison()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <div class="modal-title">全网价格对比</div>
+                <div class="modal-title">🆚 全网价格对比</div>
                 <div class="modal-close" onclick="closeComparison()">×</div>
             </div>
 
-            <div style="margin-bottom: 20px; font-size: 0.85rem; color: var(--text-sub);">
-                基于当前市场同类套餐价格估算，实时为您节省开支。
+            <!-- 我们的价格突出显示 -->
+            <div class="our-price-hero">
+                <div class="our-price-label">我们的价格</div>
+                <div class="our-price-amount">$10.99</div>
+                <div class="our-price-badge">🏆 全网最低价</div>
             </div>
 
-            <div class="comp-row">
-                <div class="comp-name">Saily</div>
-                <div class="comp-bar-container"><div class="comp-bar bar-saily" id="bar-saily"></div><div class="comp-price-label" id="price-saily">$0.00</div></div>
-                <div class="save-badge">省 52%</div>
-            </div>
-            <div class="comp-row">
-                <div class="comp-name">Airalo</div>
-                <div class="comp-bar-container"><div class="comp-bar bar-airalo" id="bar-airalo"></div><div class="comp-price-label" id="price-airalo">$0.00</div></div>
-                <div class="save-badge">省 12%</div>
-            </div>
-            <div class="comp-row">
-                <div class="comp-name">Nomad</div>
-                <div class="comp-bar-container"><div class="comp-bar bar-nomad" id="bar-nomad"></div><div class="comp-price-label" id="price-nomad">$0.00</div></div>
-                <div class="save-badge">省 7%</div>
-            </div>
-            <div class="comp-row row-us">
-                <div class="comp-name">我们</div>
-                <div class="comp-bar-container"><div class="comp-bar" id="bar-us"></div><div class="comp-price-label" id="price-us" style="right: 12px;">$0.00</div></div>
-                <div class="save-badge" style="background:var(--best-value); color:white;">最佳</div>
+            <!-- 竞品价格对比列表 -->
+            <div class="competitor-list">
+                <div class="competitor-item">
+                    <div class="competitor-left">
+                        <div class="competitor-name">Airalo</div>
+                        <div class="competitor-price">$30.99</div>
+                    </div>
+                    <div class="competitor-right">
+                        <div class="save-amount">省 $20.00</div>
+                        <div class="save-percent">便宜 64.55%</div>
+                    </div>
+                </div>
+                <div class="competitor-item">
+                    <div class="competitor-left">
+                        <div class="competitor-name">Saily</div>
+                        <div class="competitor-price">$20.99</div>
+                    </div>
+                    <div class="competitor-right">
+                        <div class="save-amount">省 $10.00</div>
+                        <div class="save-percent">便宜 47.64%</div>
+                    </div>
+                </div>
+                <div class="competitor-item">
+                    <div class="competitor-left">
+                        <div class="competitor-name">Nomad</div>
+                        <div class="competitor-price">$18.99</div>
+                    </div>
+                    <div class="competitor-right">
+                        <div class="save-amount">省 $8.00</div>
+                        <div class="save-percent">便宜 42.12%</div>
+                    </div>
+                </div>
             </div>
 
-            <button class="checkout-btn" style="width:100%; margin-top:10px;" onclick="closeComparison()">太棒了，我要购买</button>
+            <!-- 总结文案 -->
+            <div class="compare-summary">
+                <div class="compare-summary-icon">💰</div>
+                <div class="compare-summary-text">
+                    <div class="compare-summary-title">最高可为您节省 $20.00</div>
+                    <div class="compare-summary-desc">相同套餐，我们价格更低、服务更优</div>
+                </div>
+            </div>
+
+            <button class="checkout-btn" style="width:100%;" onclick="closeComparison()">太棒了，我要购买</button>
         </div>
     </div>
 
@@ -1242,6 +1453,18 @@
     </div>
 
     <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(event) {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
         // ==========================================
         // 1. 数据库定义
         // ==========================================
@@ -1616,35 +1839,43 @@
             document.getElementById('summaryText').innerText = currentPlanDays + '天 · ' + currentPlanName;
         }
 
+        // 固定竞品价格数据
+        var competitorPrices = {
+            saily: 20.99,
+            airalo: 30.99,
+            nomad: 18.99,
+            us: 10.99
+        };
+
         function showComparison(event, ourPrice) {
             event.stopPropagation();
             var modal = document.getElementById('compareModal');
 
-            var sailyPrice = ourPrice / (1 - 0.52);
-            var airaloPrice = ourPrice / (1 - 0.12);
-            var nomadPrice = ourPrice / (1 - 0.07);
+            // 使用固定价格
+            var sailyPrice = competitorPrices.saily;
+            var airaloPrice = competitorPrices.airalo;
+            var nomadPrice = competitorPrices.nomad;
+            var usPrice = competitorPrices.us;
 
-            document.getElementById('price-saily').innerText = '$' + sailyPrice.toFixed(2);
-            document.getElementById('price-airalo').innerText = '$' + airaloPrice.toFixed(2);
-            document.getElementById('price-nomad').innerText = '$' + nomadPrice.toFixed(2);
-            document.getElementById('price-us').innerText = '$' + parseFloat(ourPrice).toFixed(2);
+            // 计算节省金额和百分比
+            var sailySave = (sailyPrice - usPrice).toFixed(2);
+            var sailyPercent = ((sailyPrice - usPrice) / sailyPrice * 100).toFixed(2);
+
+            var airaloSave = (airaloPrice - usPrice).toFixed(2);
+            var airaloPercent = ((airaloPrice - usPrice) / airaloPrice * 100).toFixed(2);
+
+            var nomadSave = (nomadPrice - usPrice).toFixed(2);
+            var nomadPercent = ((nomadPrice - usPrice) / nomadPrice * 100).toFixed(2);
+
+            // 最大节省金额
+            var maxSave = Math.max(parseFloat(sailySave), parseFloat(airaloSave), parseFloat(nomadSave)).toFixed(2);
 
             modal.classList.add('active');
-
-            setTimeout(function() {
-                document.getElementById('bar-saily').style.width = '100%';
-                document.getElementById('bar-airalo').style.width = (airaloPrice / sailyPrice * 100) + '%';
-                document.getElementById('bar-nomad').style.width = (nomadPrice / sailyPrice * 100) + '%';
-                document.getElementById('bar-us').style.width = (ourPrice / sailyPrice * 100) + '%';
-            }, 100);
         }
 
         function closeComparison() {
             var modal = document.getElementById('compareModal');
             modal.classList.remove('active');
-            setTimeout(function() {
-                document.querySelectorAll('.comp-bar').forEach(function(bar) { bar.style.width = '0'; });
-            }, 300);
         }
 
         // ==========================================
