@@ -15,11 +15,10 @@
         body {
             font-family: 'Noto Sans JP', sans-serif;
             scroll-behavior: smooth;
-            /* 防止底部悬浮按钮遮挡内容 */
-            padding-bottom: 80px; 
+            padding-bottom: 80px; /* 防止移动端底部悬浮按钮遮挡内容 */
         }
         
-        /* Custom Animation Classes */
+        /* 简单的淡入动画 */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -35,14 +34,7 @@
         .delay-200 { transition-delay: 0.2s; }
         .delay-300 { transition-delay: 0.3s; }
 
-        /* Hero Overlay */
-        .hero-bg {
-            background-image: url('');
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* LINE Icon Pulse Animation */
+        /* 绿色脉冲动画 (用于LINE按钮) */
         @keyframes pulse-green {
             0% { box-shadow: 0 0 0 0 rgba(6, 199, 85, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(6, 199, 85, 0); }
@@ -62,7 +54,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
 
-    <!-- Navigation -->
+    <!-- Navigation (PC兼容：在大屏幕上显示完整菜单) -->
     <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md z-40 border-b border-slate-200 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
@@ -72,7 +64,7 @@
                     <span class="text-xs text-slate-500 font-medium">インターネット詐欺・返金請求の専門家</span>
                 </div>
                 
-                <!-- Desktop Menu -->
+                <!-- Desktop Menu (PC端显示) -->
                 <div class="hidden md:flex items-center space-x-6">
                     <div class="flex flex-col items-end">
                         <span class="text-xs font-bold text-green-600 flex items-center gap-1">
@@ -81,13 +73,12 @@
                         </span>
                         <span class="text-sm text-slate-500">相談は何度でも無料</span>
                     </div>
-                    <!-- Button calling k2 (Icon removed) -->
                     <button onclick="k2()" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-bold shadow-lg transition-all transform hover:scale-105 cursor-pointer">
                         無料相談する
                     </button>
                 </div>
 
-                <!-- Mobile Menu Button -->
+                <!-- Mobile Menu Button (移动端显示) -->
                 <div class="md:hidden">
                     <button id="menu-btn" class="text-slate-700 p-2">
                         <i data-lucide="menu" class="w-7 h-7"></i>
@@ -103,7 +94,6 @@
                     <p class="text-green-600 font-bold text-sm mb-1">24時間365日対応</p>
                     <p class="text-slate-500 text-xs">着手金ゼロ・完全成果報酬</p>
                 </div>
-                <!-- Button calling k2 (Icon removed) -->
                 <button onclick="k2()" class="bg-red-600 text-white w-full py-3 rounded-lg font-bold text-center shadow-md cursor-pointer">
                     今すぐ無料相談する
                 </button>
@@ -111,11 +101,12 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (无背景图，纯色渐变，PC布局优化) -->
     <header class="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden bg-slate-900">
-        <!-- Background Image with Overlay -->
-        <div class="absolute inset-0 z-0 hero-bg opacity-40"></div>
-        <div class="absolute inset-0 z-0 bg-gradient-to-b from-slate-900/90 via-slate-900/70 to-slate-900"></div>
+        <!-- 背景装饰：使用CSS渐变代替图片 -->
+        <div class="absolute inset-0 z-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+        <!-- 装饰性光晕 -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-900/20 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal active">
             <div class="inline-block bg-yellow-400 text-slate-900 px-4 py-1 rounded-full font-bold text-sm mb-6 shadow-lg">
@@ -131,7 +122,6 @@
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <!-- Button calling k2 (Icon removed) -->
                 <button onclick="k2()" class="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white text-lg font-bold px-10 py-4 rounded-full shadow-xl transition-all transform hover:scale-105 ring-4 ring-red-500/30 cursor-pointer">
                     今すぐ無料で相談する
                 </button>
@@ -143,7 +133,7 @@
         </div>
     </header>
 
-    <!-- Checklist Section -->
+    <!-- Checklist Section (PC布局：居中，最大宽度限制) -->
     <section class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
@@ -158,23 +148,23 @@
 
             <div class="grid gap-4">
                 <!-- List Items -->
-                <div class="bg-slate-50 p-5 rounded-xl shadow-sm border-l-4 border-red-500 flex items-start gap-4 reveal delay-100">
+                <div class="bg-slate-50 p-5 rounded-xl shadow-sm border-l-4 border-red-500 flex items-start gap-4 reveal delay-100 hover:bg-slate-100 transition-colors">
                     <i data-lucide="check-circle-2" class="text-red-500 w-6 h-6 flex-shrink-0 mt-1"></i>
                     <p class="text-lg font-medium text-slate-800">ネット起業や副業で「誰でも稼げる」という言葉を信じてしまった</p>
                 </div>
-                <div class="bg-slate-50 p-5 rounded-xl shadow-sm border-l-4 border-red-500 flex items-start gap-4 reveal delay-100">
+                <div class="bg-slate-50 p-5 rounded-xl shadow-sm border-l-4 border-red-500 flex items-start gap-4 reveal delay-100 hover:bg-slate-100 transition-colors">
                     <i data-lucide="check-circle-2" class="text-red-500 w-6 h-6 flex-shrink-0 mt-1"></i>
                     <p class="text-lg font-medium text-slate-800">「月収数百万円稼げる」と言われたが、実際は稼げなかった</p>
                 </div>
-                <div class="bg-slate-50 p-5 rounded-xl shadow-sm border-l-4 border-red-500 flex items-start gap-4 reveal delay-100">
+                <div class="bg-slate-50 p-5 rounded-xl shadow-sm border-l-4 border-red-500 flex items-start gap-4 reveal delay-100 hover:bg-slate-100 transition-colors">
                     <i data-lucide="check-circle-2" class="text-red-500 w-6 h-6 flex-shrink-0 mt-1"></i>
                     <p class="text-lg font-medium text-slate-800">情報商材はデジタルコンテンツのため返金できないと思い込んでいる</p>
                 </div>
-                <div class="bg-slate-50 p-5 rounded-xl shadow-sm border-l-4 border-red-500 flex items-start gap-4 reveal delay-100">
+                <div class="bg-slate-50 p-5 rounded-xl shadow-sm border-l-4 border-red-500 flex items-start gap-4 reveal delay-100 hover:bg-slate-100 transition-colors">
                     <i data-lucide="check-circle-2" class="text-red-500 w-6 h-6 flex-shrink-0 mt-1"></i>
                     <p class="text-lg font-medium text-slate-800">返金を申し出たいが、販売者と連絡が取れなくなってしまった</p>
                 </div>
-                <div class="bg-slate-50 p-5 rounded-xl shadow-sm border-l-4 border-red-500 flex items-start gap-4 reveal delay-100">
+                <div class="bg-slate-50 p-5 rounded-xl shadow-sm border-l-4 border-red-500 flex items-start gap-4 reveal delay-100 hover:bg-slate-100 transition-colors">
                     <i data-lucide="check-circle-2" class="text-red-500 w-6 h-6 flex-shrink-0 mt-1"></i>
                     <p class="text-lg font-medium text-slate-800">家族が高額なアフィリエイトや投資の塾に入会してしまった</p>
                 </div>
@@ -182,9 +172,9 @@
         </div>
     </section>
 
-    <!-- Urgency Section -->
-    <section class="py-16 bg-gradient-to-br from-slate-900 to-slate-800 text-white relative overflow-hidden">
-        <!-- Decorative bg element -->
+    <!-- Urgency Section (PC布局：内容居中) -->
+    <section class="py-16 bg-slate-800 text-white relative overflow-hidden">
+        <!-- 简单的CSS装饰，非图片 -->
         <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl"></div>
         
         <div class="max-w-5xl mx-auto px-4 text-center relative z-10 reveal">
@@ -198,7 +188,6 @@
                 詐欺業者は逃亡や資金隠しを行う可能性があります。時間が経てば経つほど、返金の難易度は上がります。<br class="hidden md:block"/>
                 被害回復のプロフェッショナルである私たちに、一刻も早くお任せください。
             </p>
-            <!-- Button calling k2 -->
             <button onclick="k2()" class="inline-flex items-center bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-bold text-xl px-10 py-4 rounded-lg shadow-lg transition-colors transform hover:scale-105 cursor-pointer">
                 手遅れになる前に相談する
                 <i data-lucide="arrow-right" class="ml-2 w-6 h-6"></i>
@@ -206,7 +195,7 @@
         </div>
     </section>
 
-    <!-- USP Section -->
+    <!-- USP Section (PC布局：三列网格) -->
     <section class="py-20 bg-slate-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
@@ -216,6 +205,7 @@
                 <div class="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
             </div>
 
+            <!-- md:grid-cols-3 确保电脑端显示3列 -->
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- USP 1 -->
                 <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-lg text-center reveal delay-100 hover:-translate-y-2 transition-transform duration-300">
@@ -253,7 +243,7 @@
         </div>
     </section>
 
-    <!-- Testimonials Section (Updated: Compact Design) -->
+    <!-- Testimonials Section (PC布局：三列网格，紧凑型卡片，使用真实图片) -->
     <section class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
@@ -263,11 +253,14 @@
                 <p class="text-slate-600">多くの方が被害金を取り戻し、平穏な生活を取り戻しています。</p>
             </div>
 
+            <!-- md:grid-cols-3 确保电脑端横向排列3个案例 -->
             <div class="grid md:grid-cols-3 gap-6">
-                <!-- Case 1: Compact Layout -->
-                <div class="bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-200 reveal delay-100 flex flex-col">
+                <!-- Case 1: img/1.png -->
+                <div class="bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-200 reveal delay-100 flex flex-col hover:shadow-md transition-shadow">
                     <div class="flex items-center gap-4 mb-4 border-b border-slate-200 pb-4">
-                        <img src="img/1.png" alt="User" class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm">
+                        <div class="w-14 h-14 rounded-full bg-slate-200 flex items-center justify-center overflow-hidden flex-shrink-0">
+                             <img src="img/1.png" alt="30代 男性" class="w-full h-full object-cover">
+                        </div>
                         <div>
                             <p class="font-bold text-slate-900">30代 男性</p>
                             <p class="text-xs text-slate-500">会社員</p>
@@ -285,10 +278,12 @@
                     </p>
                 </div>
 
-                <!-- Case 2: Compact Layout -->
-                <div class="bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-200 reveal delay-200 flex flex-col">
+                <!-- Case 2: img/2.png -->
+                <div class="bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-200 reveal delay-200 flex flex-col hover:shadow-md transition-shadow">
                     <div class="flex items-center gap-4 mb-4 border-b border-slate-200 pb-4">
-                        <img src="img/2.png" alt="User" class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm">
+                        <div class="w-14 h-14 rounded-full bg-slate-200 flex items-center justify-center overflow-hidden flex-shrink-0">
+                             <img src="img/2.png" alt="40代 女性" class="w-full h-full object-cover">
+                        </div>
                         <div>
                             <p class="font-bold text-slate-900">40代 女性</p>
                             <p class="text-xs text-slate-500">主婦</p>
@@ -306,10 +301,12 @@
                     </p>
                 </div>
 
-                <!-- Case 3: Compact Layout -->
-                <div class="bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-200 reveal delay-300 flex flex-col">
+                <!-- Case 3: img/3.png -->
+                <div class="bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-200 reveal delay-300 flex flex-col hover:shadow-md transition-shadow">
                     <div class="flex items-center gap-4 mb-4 border-b border-slate-200 pb-4">
-                        <img src="img/3.png" alt="User" class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm">
+                        <div class="w-14 h-14 rounded-full bg-slate-200 flex items-center justify-center overflow-hidden flex-shrink-0">
+                             <img src="img/3.png" alt="60代 男性" class="w-full h-full object-cover">
+                        </div>
                         <div>
                             <p class="font-bold text-slate-900">村山様 (60代)</p>
                             <p class="text-xs text-slate-500">無職（定年退職）</p>
@@ -330,7 +327,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section (PC布局：卡片居中，宽度适中) -->
     <section id="contact" class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4">
             <div class="bg-gradient-to-br from-slate-900 to-blue-900 rounded-3xl shadow-2xl overflow-hidden reveal">
@@ -345,7 +342,6 @@
                     </p>
                     
                     <div class="max-w-md mx-auto">
-                        <!-- Consolidated Button calling k2 (Icon removed) -->
                         <button onclick="k2()" class="w-full bg-red-600 hover:bg-red-700 text-white text-xl font-bold py-5 px-8 rounded-xl shadow-lg transition-all transform hover:scale-105 cursor-pointer">
                             無料相談はこちら
                         </button>
@@ -380,9 +376,8 @@
         </button>
     </div>
 
-    <!-- Mobile Floating Action Button (Sticky Footer) -->
+    <!-- Mobile Floating Action Button (Sticky Footer - 仅手机端显示) -->
     <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-slate-200 p-3 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
-        <!-- Button calling k2 (Icon removed) -->
         <button onclick="k2()" class="w-full bg-gradient-to-r from-red-600 to-red-500 text-white font-bold py-3 rounded-lg shadow-md flex items-center justify-center gap-2 animate-pulse cursor-pointer">
             今すぐ無料相談 (24時間受付)
         </button>
