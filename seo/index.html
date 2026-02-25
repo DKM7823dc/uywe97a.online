@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO eSIM 内容标题生成系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f3f4f6; }
+        .gradient-text { background-clip: text; -webkit-background-clip: text; color: transparent; background-image: linear-gradient(to right, #2563eb, #9333ea); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-10 px-4">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+        <h1 class="text-4xl font-bold mb-2 text-gray-800">🌍 eSIM SEO 标题生成中台</h1>
+        <p class="text-gray-600">针对30+国家，无限生成不重复的 H1 + 10个 H2 结构</p>
+    </div>
+
+    <!-- Control Panel -->
+    <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-4xl mb-8">
+        <div class="flex flex-col md:flex-row gap-4 items-end">
+            <div class="w-full md:w-1/3">
+                <label class="block text-sm font-medium text-gray-700 mb-1">选择目标国家</label>
+                <select id="countrySelect" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                    <!-- Countries will be populated by JS -->
+                </select>
+            </div>
+            <div class="w-full md:w-1/3">
+                <button onclick="generateContent()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center gap-2">
+                    <i class="fas fa-magic"></i> 生成 SEO 结构
+                </button>
+            </div>
+            <div class="w-full md:w-1/3">
+                <button onclick="resetHistory()" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center gap-2">
+                    <i class="fas fa-trash-alt"></i> 重置去重记录
+                </button>
+            </div>
+        </div>
+        <div class="mt-4 text-xs text-gray-500 flex justify-between">
+            <span id="statusMsg">准备就绪...</span>
+            <span id="historyCount">当前国家已生成记录: 0</span>
+        </div>
+    </div>
+
+    <!-- Output Area -->
+    <div id="resultArea" class="w-full max-w-4xl hidden">
+        
+        <!-- H1 Section -->
+        <div class="bg-white p-6 rounded-xl shadow-md mb-6 border-l-8 border-blue-500 relative group">
+            <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button onclick="copyText('h1Output')" class="text-gray-400 hover:text-blue-600"><i class="far fa-copy fa-lg"></i></button>
+            </div>
+            <span class="text-xs font-bold text-blue-500 uppercase tracking-wider">H1 - 主标题</span>
+            <h1 id="h1Output" class="text-2xl md:text-3xl font-bold text-gray-800 mt-2"></h1>
+        </div>
+
+        <!-- H2 Section -->
+        <div class="bg-white p-6 rounded-xl shadow-md border-l-8 border-purple-500 relative group">
+            <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button onclick="copyText('h2List')" class="text-gray-400 hover:text-purple-600"><i class="far fa-copy fa-lg"></i></button>
+            </div>
+            <span class="text-xs font-bold text-purple-500 uppercase tracking-wider">H2 - 子标题结构 (10个)</span>
+            <ul id="h2List" class="mt-4 space-y-3 text-gray-700 font-medium text-lg list-decimal list-inside">
+                <!-- H2s will be injected here -->
+            </ul>
+        </div>
+
+        <!-- Copy All Button -->
+        <div class="mt-6 text-center">
+            <button onclick="copyAll()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+                <i class="fas fa-clipboard-check"></i> 一键复制全部内容
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. 数据配置 ---
+        const countries = [
+            "美国", "英国", "加拿大", "澳大利亚", "日本", "韩国", "泰国", "新加坡", "马来西亚", 
+            "法国", "德国", "意大利", "西班牙", "瑞士", "土耳其", "阿联酋", "沙特", 
+            "越南", "印尼", "菲律宾", "新西兰", "墨西哥", "巴西", "阿根廷", 
+            "埃及", "南非", "印度", "葡萄牙", "荷兰", "希腊"
+        ];
+
+        // 核心关键词占位符: {KW} = "美国 eSIM" (例如)
+        
+        // H1 模版库 (确保多样性)
+        const h1Templates = [
+            "2024年{KW}终极指南：价格、激活与网速实测",
+            "{KW}哪家强？5大运营商流量套餐深度对比评测",
+            "去旅游必看：如何购买高性价比{KW}并实现落地即上网？",
+            "告别漫游费：{KW}购买全攻略（附详细激活教程）",
+            "{KW}避坑指南：购买前必须知道的5件事",
+            "留学生与商务人士首选：{KW}长期与短期套餐推荐",
+            "手把手教你设置{KW}：iPhone与安卓手机图文教程",
+            "{KW}无限流量套餐是真的吗？网速与覆盖范围大揭秘",
+            "无需换卡！{KW}让你的手机秒变当地号（双卡双待教程）",
+            "最便宜的{KW}推荐：$5起步畅享高速4G/5G网络",
+            "{KW}完全手册：从购买到激活，解决你所有上网难题",
+            "为什么选择{KW}？比随身WiFi和漫游更划算的理由",
+            "2024最新{KW}测评：网速最快与信号最好的选择",
+            "紧急攻略：落地后没有网？3分钟搞定{KW}的方法",
+            "{KW}使用体验报告：在大城市与偏远地区的信号实测"
+        ];
+
+        // H2 模版库 - 按意图分类 (确保覆盖你要求的点)
+        const h2Categories = {
+            // 1. 购买 (Buying)
+            buying: [
+                "{KW}如何购买？线上支付与发货流程详解",
+                "在哪里买{KW}最靠谱？官网、App与第三方平台对比",
+                "购买{KW}前的准备工作：检查手机兼容性",
+                "新手必读：{KW}购买渠道与支付方式汇总",
+                "无需跑营业厅，在线3分钟完成{KW}购买"
+            ],
+            // 2. 激活 (Activation) - 必选
+            activation: [
+                "{KW}如何激活？iPhone手机详细设置步骤",
+                "安卓手机配置{KW}全流程（三星/Pixel/国产机）",
+                "收到二维码后怎么做？{KW}安装与启用教程",
+                "落地即用：如何在出发前预先设置好{KW}",
+                "激活失败怎么办？{KW}常见安装错误与解决方法"
+            ],
+            // 3. 供应商/品牌 (Suppliers) - 必选
+            suppliers: [
+                "{KW}的供应商有哪些？主流品牌优缺点分析",
+                "本地运营商 vs 国际漫游eSIM：谁是{KW}的最佳供应商？",
+                "三大主流{KW}供应商横向评测：Airalo, Holafly等",
+                "如何选择靠谱的{KW}供应商？看这3个指标",
+                "不仅是流量：提供本地号码的{KW}供应商推荐"
+            ],
+            // 4. 性价比/价格 (Value/Price) - 必选
+            value: [
+                "在美国哪个供应商的{KW}性价比最高？", // 你的特定要求
+                "{KW}价格大比拼：谁提供了最便宜的无限流量？",
+                "如何找到最划算的{KW}套餐？省钱秘籍公开",
+                "拒绝隐形消费：{KW}资费透明度对比",
+                "短期旅游 vs 长期旅居：不同需求的{KW}性价比之选"
+            ],
+            // 5. 网速与覆盖 (Network)
+            network: [
+                "{KW}信号覆盖实测：城市、高速与景区的网络表现",
+                "{KW}网速有多快？4G vs 5G 速度实地测试",
+                "偏远地区有信号吗？{KW}的网络覆盖范围解析",
+                "玩游戏卡不卡？{KW}延迟与稳定性测试",
+                "支持热点吗？{KW}网络共享功能详解"
+            ],
+            // 6. 常见问题/技术 (FAQ/Tech)
+            faq: [
+                "{KW}能打电话和发短信吗？语音套餐详解",
+                "如何保留国内号码同时使用{KW}？双卡双待设置",
+                "{KW}支持哪些手机型号？2024最新兼容列表",
+                "如果{KW}无法上网怎么办？5步排查法",
+                "更换手机后{KW}还能用吗？关于转移与删除的规则"
+            ],
+            // 7. 对比竞品 (Comparison)
+            comparison: [
+                "{KW} vs 国际漫游：为什么eSIM是更好的选择？",
+                "{KW} vs 随身WiFi：携带便利性与续航对比",
+                "{KW} vs 实体SIM卡：通过海关换卡太麻烦？",
+                "商务出行首选：{KW}在便利性上的绝对优势",
+                "多国联游：{KW}是否支持跨国漫游？"
+            ]
+        };
+
+        // --- 2. 状态管理 (去重逻辑) ---
+        // 结构: { "美国": { h1: Set(), h2: Set() }, "英国": ... }
+        const history = {}; 
+
+        // --- 3. 初始化 ---
+        window.onload = function() {
+            const select = document.getElementById('countrySelect');
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country;
+                option.text = country;
+                select.appendChild(option);
+                // 初始化历史记录
+                history[country] = { h1: new Set(), h2: new Set() };
+            });
+        };
+
+        // --- 4. 核心生成逻辑 ---
+        function generateContent() {
+            const country = document.getElementById('countrySelect').value;
+            const keyword = `${country} eSIM`; // 核心关键词
+            
+            // 1. 生成 H1
+            let h1 = getUniqueItem(h1Templates, history[country].h1, keyword);
+            if (!h1) {
+                alert(`警告：${country} 的 H1 模版已用尽！请点击“重置去重记录”或增加模版。`);
+                return;
+            }
+            history[country].h1.add(h1); // 记录已使用
+
+            // 2. 生成 10个 H2
+            // 策略：强制包含 Buying, Activation, Suppliers, Value 各1个，剩下6个从所有类别混选
+            let h2List = [];
+            
+            // 必选类别
+            const mandatoryCats = ['buying', 'activation', 'suppliers', 'value'];
+            mandatoryCats.forEach(cat => {
+                let item = getUniqueItem(h2Categories[cat], history[country].h2, keyword);
+                if (item) {
+                    h2List.push(item);
+                    history[country].h2.add(item);
+                }
+            });
+
+            // 剩余名额 (10 - 当前数量)
+            let remainingSlots = 10 - h2List.length;
+            
+            // 构建一个包含所有类别模版的大池子 (排除已选的太难，直接随机抽取尝试)
+            let allTemplates = [];
+            Object.values(h2Categories).forEach(arr => allTemplates = allTemplates.concat(arr));
+            
+            // 随机填充剩余名额
+            let attempts = 0;
+            while (remainingSlots > 0 && attempts < 100) {
+                let randomTemplate = allTemplates[Math.floor(Math.random() * allTemplates.length)];
+                let finalString = randomTemplate.replace(/{KW}/g, keyword);
+                
+                // 检查是否在当前生成的列表中重复，或者在历史记录中重复
+                if (!h2List.includes(finalString) && !history[country].h2.has(finalString)) {
+                    h2List.push(finalString);
+                    history[country].h2.add(finalString);
+                    remainingSlots--;
+                }
+                attempts++;
+            }
+
+            // 如果模版不够导致没填满10个，允许从历史中复用（极端情况），或者提示
+            if (h2List.length < 10) {
+                console.warn("模版库对于不重复的要求压力过大，部分H2可能需要重置历史。");
+            }
+
+            // 3. 渲染结果
+            render(h1, h2List);
+            updateStatus(country);
+        }
+
+        // 辅助函数：从数组中获取一个在 Set 中不存在的唯一项
+        function getUniqueItem(templateArray, usedSet, keyword) {
+            // 1. 找出所有未使用的模版
+            const available = templateArray.filter(t => {
+                const str = t.replace(/{KW}/g, keyword);
+                return !usedSet.has(str);
+            });
+
+            if (available.length === 0) return null;
+
+            // 2. 随机选一个
+            const selectedTemplate = available[Math.floor(Math.random() * available.length)];
+            return selectedTemplate.replace(/{KW}/g, keyword);
+        }
+
+        function render(h1, h2s) {
+            document.getElementById('resultArea').classList.remove('hidden');
+            document.getElementById('h1Output').innerText = h1;
+            
+            const listEl = document.getElementById('h2List');
+            listEl.innerHTML = '';
+            h2s.forEach(h2 => {
+                const li = document.createElement('li');
+                li.innerText = h2;
+                listEl.appendChild(li);
+            });
+        }
+
+        function updateStatus(country) {
+            const count = history[country].h1.size;
+            document.getElementById('statusMsg').innerText = `生成成功！`;
+            document.getElementById('historyCount').innerText = `${country} 已生成不同版本数: ${count}`;
+        }
+
+        function resetHistory() {
+            const country = document.getElementById('countrySelect').value;
+            history[country] = { h1: new Set(), h2: new Set() };
+            updateStatus(country);
+            alert(`${country} 的去重记录已清空，可以重新开始生成。`);
+        }
+
+        // --- 5. 复制功能 ---
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("复制成功！");
+            });
+        }
+
+        function copyAll() {
+            const h1 = document.getElementById('h1Output').innerText;
+            const h2s = document.getElementById('h2List').innerText;
+            const fullText = `H1: ${h1}\n\n${h2s}`;
+            navigator.clipboard.writeText(fullText).then(() => {
+                showToast("全部内容已复制！");
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded shadow-lg transition-opacity duration-500';
+            toast.innerText = message;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => document.body.removeChild(toast), 500);
+            }, 2000);
+        }
+
+    </script>
+</body>
+</html>
