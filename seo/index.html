@@ -1,316 +1,754 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO eSIM 内容标题生成系统</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f3f4f6; }
-        .gradient-text { background-clip: text; -webkit-background-clip: text; color: transparent; background-image: linear-gradient(to right, #2563eb, #9333ea); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eSIM SEO 标题生成器</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pri:#2563eb;--pri-dark:#1d4ed8;--pri-light:#eff6ff;
+  --success:#10b981;--warn:#f59e0b;
+  --bg:#f0f4f8;--card:#fff;--border:#e2e8f0;
+  --text:#1e293b;--muted:#64748b;--light:#f8fafc;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px}
+
+/* HEADER */
+.header{background:linear-gradient(135deg,#0f2460 0%,#1e3a8a 40%,#2563eb 80%,#3b82f6 100%);color:#fff;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 2px 16px rgba(37,99,235,.35)}
+.hd-left h1{font-size:19px;font-weight:800;letter-spacing:-.5px;display:flex;align-items:center;gap:8px}
+.hd-left p{font-size:11.5px;opacity:.78;margin-top:4px}
+.hd-stats{display:flex;gap:8px;flex-wrap:wrap}
+.stat-pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);padding:5px 13px;border-radius:20px;font-size:12px;font-weight:600}
+.stat-pill b{color:#fcd34d}
+
+/* MAIN */
+.main{max-width:1060px;margin:0 auto;padding:18px 14px}
+
+/* CONTROL */
+.ctrl-panel{background:var(--card);border-radius:14px;padding:18px 22px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:16px;display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.cg{display:flex;flex-direction:column;gap:5px}
+.cg label{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.7px}
+select{padding:9px 11px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;color:var(--text);outline:none;cursor:pointer;background:#fff;transition:border-color .2s;min-width:128px}
+select:focus{border-color:var(--pri)}
+.btn-row{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 17px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .2s;white-space:nowrap}
+.btn-pri{background:linear-gradient(135deg,var(--pri),var(--pri-dark));color:#fff;padding:11px 24px;font-size:14px;box-shadow:0 3px 10px rgba(37,99,235,.32)}
+.btn-pri:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(37,99,235,.42)}
+.btn-pri:active{transform:translateY(0)}
+.btn-out{background:#fff;color:var(--muted);border:1.5px solid var(--border)}
+.btn-out:hover{border-color:var(--pri);color:var(--pri);background:var(--pri-light)}
+.btn-green{background:var(--success);color:#fff}
+.btn-green:hover{background:#059669;transform:translateY(-1px)}
+
+/* OUTPUT CARD */
+.ocard{background:var(--card);border-radius:14px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:16px;overflow:hidden}
+.card-hd{padding:13px 20px;background:var(--light);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.card-hd-l{display:flex;align-items:center;gap:9px}
+.gen-badge{background:var(--pri);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px}
+.card-title{font-size:14px;font-weight:700;color:#374151}
+.card-body{padding:20px 22px}
+.card-ft{padding:12px 20px;background:var(--light);border-top:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap}
+
+/* EMPTY STATE */
+.empty{text-align:center;padding:52px 20px;color:var(--muted)}
+.empty-ico{font-size:50px;margin-bottom:14px}
+.empty h3{font-size:16px;color:#374151;margin-bottom:6px}
+.empty p{font-size:13px}
+
+/* H1 BLOCK */
+.h1-block{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:2px solid #93c5fd;border-radius:12px;padding:15px 16px;margin-bottom:18px;display:flex;align-items:flex-start;gap:11px;position:relative}
+.h1-lbl{flex-shrink:0;background:var(--pri);color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:5px;margin-top:4px;letter-spacing:.5px}
+.h1-txt{flex:1;font-size:16.5px;font-weight:700;color:#1e3a8a;line-height:1.45}
+.h1-len{font-size:10px;color:#3b82f6;font-weight:600;margin-top:4px}
+.h1-copy{flex-shrink:0;background:#fff;color:var(--pri);border:1.5px solid var(--pri);border-radius:7px;padding:5px 10px;font-size:11.5px;cursor:pointer;transition:all .2s;margin-top:2px}
+.h1-copy:hover{background:var(--pri);color:#fff}
+
+/* H2 */
+.h2-hd{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px}
+.h2-list{display:flex;flex-direction:column;gap:8px}
+.h2-item{display:flex;align-items:flex-start;gap:10px;padding:11px 13px;border:1.5px solid var(--border);border-radius:10px;transition:all .18s}
+.h2-item:hover{border-color:#93c5fd;background:#f0f9ff;box-shadow:0 2px 8px rgba(37,99,235,.07)}
+.h2-num{width:25px;height:25px;background:var(--pri);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:3px}
+.h2-body{flex:1;min-width:0}
+.cat-tag{font-size:10px;font-weight:700;color:#fff;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:4px;letter-spacing:.3px}
+.h2-txt{font-size:13.5px;color:var(--text);line-height:1.45}
+.h2-len{font-size:10px;color:var(--muted);margin-top:3px}
+.h2-copy{flex-shrink:0;background:none;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:11px;color:var(--muted);cursor:pointer;transition:all .2s;margin-top:2px}
+.h2-copy:hover{border-color:var(--pri);color:var(--pri);background:var(--pri-light)}
+
+/* CATEGORY COLORS */
+.c-pur{background:#f97316}.c-act{background:#8b5cf6}.c-pri{background:#ef4444}
+.c-cov{background:#10b981}.c-faq{background:#3b82f6}.c-cmp{background:#6366f1}
+.c-pvd{background:#ec4899}.c-scn{background:#14b8a6}.c-tip{background:#f59e0b}
+
+/* SEO SCORE BAR */
+.seo-bar{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.seo-tag{display:flex;align-items:center;gap:4px;background:#f0fdf4;border:1px solid #bbf7d0;color:#15803d;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:600}
+.seo-tag.warn{background:#fffbeb;border-color:#fde68a;color:#92400e}
+
+/* HISTORY */
+.hist-outer{background:var(--card);border-radius:14px;box-shadow:0 1px 8px rgba(0,0,0,.07);overflow:hidden}
+.hist-toggle{padding:13px 20px;background:var(--light);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none}
+.hist-toggle:hover{background:#f1f5f9}
+.hist-toggle h3{font-size:14px;font-weight:700;color:#374151}
+.hist-content{padding:14px;display:none}
+.hist-content.open{display:block}
+.hist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:9px}
+.hist-item{border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;cursor:pointer;transition:all .18s}
+.hist-item:hover{border-color:var(--pri);background:var(--pri-light);transform:translateY(-2px);box-shadow:0 4px 12px rgba(37,99,235,.1)}
+.hist-num{font-size:10.5px;font-weight:700;color:var(--pri);margin-bottom:5px}
+.hist-h1{font-size:12.5px;font-weight:600;color:var(--text);line-height:1.35;margin-bottom:6px}
+.hist-prev{font-size:11px;color:var(--muted);line-height:1.65}
+
+/* TOAST */
+.toast{position:fixed;bottom:22px;right:22px;background:#1e293b;color:#fff;padding:10px 17px;border-radius:10px;font-size:13px;font-weight:500;z-index:9999;transform:translateY(70px);opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.toast.show{transform:translateY(0);opacity:1}
+
+@media(max-width:640px){
+  .header{padding:13px 14px}.hd-left h1{font-size:16px}
+  .main{padding:10px 9px}.ctrl-panel{padding:13px 14px}.card-body{padding:14px 15px}
+  .h1-txt{font-size:14.5px}.h2-txt{font-size:13px}.hist-grid{grid-template-columns:1fr}
+  .btn-pri{padding:9px 18px;font-size:13px}
+}
+</style>
 </head>
-<body class="min-h-screen flex flex-col items-center py-10 px-4">
+<body>
 
-    <!-- Header -->
-    <div class="text-center mb-10">
-        <h1 class="text-4xl font-bold mb-2 text-gray-800">🌍 eSIM SEO 标题生成中台</h1>
-        <p class="text-gray-600">针对30+国家，无限生成不重复的 H1 + 10个 H2 结构</p>
+<div class="header">
+  <div class="hd-left">
+    <h1>🌐 eSIM SEO 标题生成器</h1>
+    <p>基于 Google 关键词规划大师数据 · 9大分类 · 35套H1模板 · 108条H2模板 · 无限不重复生成</p>
+  </div>
+  <div class="hd-stats">
+    <div class="stat-pill">已生成 <b id="sGenCount">0</b> 组</div>
+    <div class="stat-pill">H1模板 <b>35</b> 套</div>
+    <div class="stat-pill">H2模板 <b>108</b> 条</div>
+    <div class="stat-pill">理论组合 <b>5000+</b></div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- 控制面板 -->
+  <div class="ctrl-panel">
+    <div class="cg">
+      <label>目标地区</label>
+      <select id="selDest">
+        <option value="usa">🇺🇸 美国</option>
+        <option value="uk">🇬🇧 英国</option>
+        <option value="japan">🇯🇵 日本</option>
+        <option value="europe">🇪🇺 欧洲</option>
+        <option value="thailand">🇹🇭 泰国</option>
+        <option value="korea">🇰🇷 韩国</option>
+      </select>
     </div>
-
-    <!-- Control Panel -->
-    <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-4xl mb-8">
-        <div class="flex flex-col md:flex-row gap-4 items-end">
-            <div class="w-full md:w-1/3">
-                <label class="block text-sm font-medium text-gray-700 mb-1">选择目标国家</label>
-                <select id="countrySelect" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
-                    <!-- Countries will be populated by JS -->
-                </select>
-            </div>
-            <div class="w-full md:w-1/3">
-                <button onclick="generateContent()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center gap-2">
-                    <i class="fas fa-magic"></i> 生成 SEO 结构
-                </button>
-            </div>
-            <div class="w-full md:w-1/3">
-                <button onclick="resetHistory()" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center gap-2">
-                    <i class="fas fa-trash-alt"></i> 重置去重记录
-                </button>
-            </div>
-        </div>
-        <div class="mt-4 text-xs text-gray-500 flex justify-between">
-            <span id="statusMsg">准备就绪...</span>
-            <span id="historyCount">当前国家已生成记录: 0</span>
-        </div>
+    <div class="cg">
+      <label>年份</label>
+      <select id="selYear">
+        <option value="2026">2026</option>
+        <option value="2025">2025</option>
+      </select>
     </div>
-
-    <!-- Output Area -->
-    <div id="resultArea" class="w-full max-w-4xl hidden">
-        
-        <!-- H1 Section -->
-        <div class="bg-white p-6 rounded-xl shadow-md mb-6 border-l-8 border-blue-500 relative group">
-            <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button onclick="copyText('h1Output')" class="text-gray-400 hover:text-blue-600"><i class="far fa-copy fa-lg"></i></button>
-            </div>
-            <span class="text-xs font-bold text-blue-500 uppercase tracking-wider">H1 - 主标题</span>
-            <h1 id="h1Output" class="text-2xl md:text-3xl font-bold text-gray-800 mt-2"></h1>
-        </div>
-
-        <!-- H2 Section -->
-        <div class="bg-white p-6 rounded-xl shadow-md border-l-8 border-purple-500 relative group">
-            <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button onclick="copyText('h2List')" class="text-gray-400 hover:text-purple-600"><i class="far fa-copy fa-lg"></i></button>
-            </div>
-            <span class="text-xs font-bold text-purple-500 uppercase tracking-wider">H2 - 子标题结构 (10个)</span>
-            <ul id="h2List" class="mt-4 space-y-3 text-gray-700 font-medium text-lg list-decimal list-inside">
-                <!-- H2s will be injected here -->
-            </ul>
-        </div>
-
-        <!-- Copy All Button -->
-        <div class="mt-6 text-center">
-            <button onclick="copyAll()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
-                <i class="fas fa-clipboard-check"></i> 一键复制全部内容
-            </button>
-        </div>
+    <div class="cg">
+      <label>H2 数量</label>
+      <select id="selH2n">
+        <option value="10">10 个</option>
+        <option value="8">8 个</option>
+        <option value="12">12 个</option>
+      </select>
     </div>
+    <div class="cg">
+      <label>生成批次</label>
+      <select id="selBatch">
+        <option value="1">单次生成</option>
+        <option value="3">连续 3 次</option>
+        <option value="5">连续 5 次</option>
+      </select>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-pri" onclick="generate()">⚡ 生成标题</button>
+      <button class="btn btn-out" onclick="doReset()">🔄 重置</button>
+      <button class="btn btn-green" id="btnExportAll" onclick="exportAll()" style="display:none">📥 导出全部</button>
+    </div>
+  </div>
 
-    <script>
-        // --- 1. 数据配置 ---
-        const countries = [
-            "美国", "英国", "加拿大", "澳大利亚", "日本", "韩国", "泰国", "新加坡", "马来西亚", 
-            "法国", "德国", "意大利", "西班牙", "瑞士", "土耳其", "阿联酋", "沙特", 
-            "越南", "印尼", "菲律宾", "新西兰", "墨西哥", "巴西", "阿根廷", 
-            "埃及", "南非", "印度", "葡萄牙", "荷兰", "希腊"
-        ];
+  <!-- 输出区 -->
+  <div class="ocard">
+    <div class="card-hd">
+      <div class="card-hd-l">
+        <span class="gen-badge" id="genBadge" style="display:none">第 1 组</span>
+        <span class="card-title">SEO 标题输出区</span>
+      </div>
+      <button class="btn btn-out" id="btnCopySet" onclick="copySet()" style="display:none;padding:6px 13px">📋 复制本组</button>
+    </div>
+    <div class="card-body" id="outputBody">
+      <div class="empty">
+        <div class="empty-ico">✨</div>
+        <h3>点击「生成标题」开始</h3>
+        <p>选择目标地区 → 点击生成 → 每次智能不重复，无限生成</p>
+      </div>
+    </div>
+    <div class="card-ft" id="cardFt" style="display:none">
+      <button class="btn btn-pri" onclick="generate()" style="font-size:13px;padding:9px 18px">⚡ 继续生成（不重复）</button>
+      <button class="btn btn-out" onclick="copySet()">📋 复制本组</button>
+      <button class="btn btn-out" onclick="exportCurrent()">📤 导出本组</button>
+    </div>
+  </div>
 
-        // 核心关键词占位符: {KW} = "美国 eSIM" (例如)
-        
-        // H1 模版库 (确保多样性)
-        const h1Templates = [
-            "2024年{KW}终极指南：价格、激活与网速实测",
-            "{KW}哪家强？5大运营商流量套餐深度对比评测",
-            "去旅游必看：如何购买高性价比{KW}并实现落地即上网？",
-            "告别漫游费：{KW}购买全攻略（附详细激活教程）",
-            "{KW}避坑指南：购买前必须知道的5件事",
-            "留学生与商务人士首选：{KW}长期与短期套餐推荐",
-            "手把手教你设置{KW}：iPhone与安卓手机图文教程",
-            "{KW}无限流量套餐是真的吗？网速与覆盖范围大揭秘",
-            "无需换卡！{KW}让你的手机秒变当地号（双卡双待教程）",
-            "最便宜的{KW}推荐：$5起步畅享高速4G/5G网络",
-            "{KW}完全手册：从购买到激活，解决你所有上网难题",
-            "为什么选择{KW}？比随身WiFi和漫游更划算的理由",
-            "2024最新{KW}测评：网速最快与信号最好的选择",
-            "紧急攻略：落地后没有网？3分钟搞定{KW}的方法",
-            "{KW}使用体验报告：在大城市与偏远地区的信号实测"
-        ];
+  <!-- 历史记录 -->
+  <div class="hist-outer" id="histSection" style="display:none">
+    <div class="hist-toggle" onclick="toggleHist()">
+      <h3>📚 历史记录 &nbsp;<span id="histCount" style="color:var(--pri);font-weight:700">0</span> 组</h3>
+      <span id="histArrow" style="font-size:12px;color:var(--muted)">▼ 展开</span>
+    </div>
+    <div class="hist-content" id="histContent">
+      <div class="hist-grid" id="histGrid"></div>
+    </div>
+  </div>
 
-        // H2 模版库 - 按意图分类 (确保覆盖你要求的点)
-        const h2Categories = {
-            // 1. 购买 (Buying)
-            buying: [
-                "{KW}如何购买？线上支付与发货流程详解",
-                "在哪里买{KW}最靠谱？官网、App与第三方平台对比",
-                "购买{KW}前的准备工作：检查手机兼容性",
-                "新手必读：{KW}购买渠道与支付方式汇总",
-                "无需跑营业厅，在线3分钟完成{KW}购买"
-            ],
-            // 2. 激活 (Activation) - 必选
-            activation: [
-                "{KW}如何激活？iPhone手机详细设置步骤",
-                "安卓手机配置{KW}全流程（三星/Pixel/国产机）",
-                "收到二维码后怎么做？{KW}安装与启用教程",
-                "落地即用：如何在出发前预先设置好{KW}",
-                "激活失败怎么办？{KW}常见安装错误与解决方法"
-            ],
-            // 3. 供应商/品牌 (Suppliers) - 必选
-            suppliers: [
-                "{KW}的供应商有哪些？主流品牌优缺点分析",
-                "本地运营商 vs 国际漫游eSIM：谁是{KW}的最佳供应商？",
-                "三大主流{KW}供应商横向评测：Airalo, Holafly等",
-                "如何选择靠谱的{KW}供应商？看这3个指标",
-                "不仅是流量：提供本地号码的{KW}供应商推荐"
-            ],
-            // 4. 性价比/价格 (Value/Price) - 必选
-            value: [
-                "在美国哪个供应商的{KW}性价比最高？", // 你的特定要求
-                "{KW}价格大比拼：谁提供了最便宜的无限流量？",
-                "如何找到最划算的{KW}套餐？省钱秘籍公开",
-                "拒绝隐形消费：{KW}资费透明度对比",
-                "短期旅游 vs 长期旅居：不同需求的{KW}性价比之选"
-            ],
-            // 5. 网速与覆盖 (Network)
-            network: [
-                "{KW}信号覆盖实测：城市、高速与景区的网络表现",
-                "{KW}网速有多快？4G vs 5G 速度实地测试",
-                "偏远地区有信号吗？{KW}的网络覆盖范围解析",
-                "玩游戏卡不卡？{KW}延迟与稳定性测试",
-                "支持热点吗？{KW}网络共享功能详解"
-            ],
-            // 6. 常见问题/技术 (FAQ/Tech)
-            faq: [
-                "{KW}能打电话和发短信吗？语音套餐详解",
-                "如何保留国内号码同时使用{KW}？双卡双待设置",
-                "{KW}支持哪些手机型号？2024最新兼容列表",
-                "如果{KW}无法上网怎么办？5步排查法",
-                "更换手机后{KW}还能用吗？关于转移与删除的规则"
-            ],
-            // 7. 对比竞品 (Comparison)
-            comparison: [
-                "{KW} vs 国际漫游：为什么eSIM是更好的选择？",
-                "{KW} vs 随身WiFi：携带便利性与续航对比",
-                "{KW} vs 实体SIM卡：通过海关换卡太麻烦？",
-                "商务出行首选：{KW}在便利性上的绝对优势",
-                "多国联游：{KW}是否支持跨国漫游？"
-            ]
-        };
+</div>
 
-        // --- 2. 状态管理 (去重逻辑) ---
-        // 结构: { "美国": { h1: Set(), h2: Set() }, "英国": ... }
-        const history = {}; 
+<div class="toast" id="toast"></div>
 
-        // --- 3. 初始化 ---
-        window.onload = function() {
-            const select = document.getElementById('countrySelect');
-            countries.forEach(country => {
-                const option = document.createElement('option');
-                option.value = country;
-                option.text = country;
-                select.appendChild(option);
-                // 初始化历史记录
-                history[country] = { h1: new Set(), h2: new Set() };
-            });
-        };
+<script>
+// ═══════════════════════════════════════
+// 数据库
+// ═══════════════════════════════════════
+const DB = {
+  usa:{
+    kw:"美国eSIM",name:"美国",
+    cities:["纽约","洛杉矶","拉斯维加斯","旧金山","芝加哥","迈阿密","波士顿","西雅图","奥兰多","华盛顿DC"],
+    carriers:["T-Mobile","AT&T","Verizon","Mint Mobile","Visible","Google Fi","US Mobile","Boost Mobile"],
+    providers:["Airalo","Holafly","Nomad","Saily","Maya Mobile","GigSky","Ubigi","OneSimCard"],
+    parks:["黄石公园","大峡谷","优胜美地","大烟山","科罗拉多高原"],
+    userTypes:["旅行者","商务人士","留学生","自由行旅客","背包客","华人游客","数字游民","蜜月旅行者"],
+    scenes:["短途旅游","商务出差","长期留学","自驾游","背包旅行","家庭出游","蜜月旅行","跨州旅行"],
+    durations:["3天","5天","7天","10天","14天","30天","90天","半年"],
+    issues:["信号不稳定","激活失败","超额收费","网速过慢","套餐到期","设备不兼容"]
+  },
+  uk:{
+    kw:"英国eSIM",name:"英国",
+    cities:["伦敦","曼彻斯特","爱丁堡","利物浦","牛津","剑桥","伯明翰","格拉斯哥"],
+    carriers:["EE","O2","Vodafone","Three UK","Sky Mobile","BT Mobile"],
+    providers:["Airalo","Holafly","Nomad","Saily","Three UK","GigSky","Ubigi"],
+    parks:["湖区","约克郡","峰区","斯诺登尼亚","苏格兰高地"],
+    userTypes:["旅行者","商务人士","留学生","自由行旅客","背包客","华人游客"],
+    scenes:["短途旅游","商务出差","留学","自驾游","背包旅行","家庭出游"],
+    durations:["3天","5天","7天","10天","14天","30天"],
+    issues:["信号不稳定","激活失败","超额收费","网速过慢"]
+  },
+  japan:{
+    kw:"日本eSIM",name:"日本",
+    cities:["东京","大阪","京都","北海道","冲绳","名古屋","横滨","福冈"],
+    carriers:["NTT Docomo","SoftBank","au (KDDI)","Rakuten Mobile","IIJmio"],
+    providers:["Airalo","Holafly","IIJmio","GTN Mobile","Nomad","Saily"],
+    parks:["富士山","日光国立公园","知床半岛","屋久岛","西表岛"],
+    userTypes:["旅行者","动漫爱好者","美食旅行者","摄影爱好者","商务人士","留学生"],
+    scenes:["观光旅游","美食之旅","动漫圣地巡礼","商务出差","自由行","蜜月旅行"],
+    durations:["5天","7天","10天","14天","30天"],
+    issues:["激活失败","限速问题","流量不足","设备不兼容"]
+  },
+  europe:{
+    kw:"欧洲eSIM",name:"欧洲",
+    cities:["巴黎","罗马","巴塞罗那","阿姆斯特丹","柏林","维也纳","布拉格","苏黎世"],
+    carriers:["Vodafone","Orange","Deutsche Telekom","Three","O2","Tele2"],
+    providers:["Airalo","Holafly","Nomad","Saily","Global Yo","OneSimCard","Ubigi"],
+    parks:["阿尔卑斯山区","多瑙河流域","地中海沿岸","北欧峡湾","波西米亚"],
+    userTypes:["旅行者","背包客","商务人士","蜜月旅行者","摄影爱好者","留学生"],
+    scenes:["多国旅行","跨境商务","自驾游","铁路旅行","邮轮旅行","留学"],
+    durations:["7天","14天","21天","30天","60天"],
+    issues:["多国切换问题","信号不稳定","激活失败","覆盖不全"]
+  },
+  thailand:{
+    kw:"泰国eSIM",name:"泰国",
+    cities:["曼谷","普吉岛","清迈","芭提雅","苏梅岛","华欣","喀比","象岛"],
+    carriers:["AIS","DTAC","TrueMove H","NT Mobile"],
+    providers:["Airalo","Holafly","AIS SIM2Fly","Nomad","Saily","GigSky"],
+    parks:["考艾国家公园","象岛海滩","安达曼海","苏梅岛","斯米兰群岛"],
+    userTypes:["旅行者","度假旅客","背包客","潜水爱好者","商务人士","蜜月旅行者"],
+    scenes:["海岛度假","城市观光","美食之旅","水上运动","寺庙文化游","商务出差"],
+    durations:["3天","5天","7天","10天","14天","30天"],
+    issues:["信号不稳定","激活失败","流量限速","海岛覆盖差"]
+  },
+  korea:{
+    kw:"韩国eSIM",name:"韩国",
+    cities:["首尔","釜山","济州岛","仁川","大邱","光州","水原","庆州"],
+    carriers:["SK Telecom","KT","LG U+","SK7Mobile","KT MVNO"],
+    providers:["Airalo","Holafly","SKT eSIM","KT eSIM","Nomad","Saily"],
+    parks:["汉拿山","雪岳山","智异山","北汉山","济州岛"],
+    userTypes:["追星族","旅行者","美食爱好者","留学生","商务人士","K-Drama粉丝"],
+    scenes:["追星旅行","美食之旅","购物旅游","文化体验","自然观光","留学"],
+    durations:["3天","5天","7天","10天","14天"],
+    issues:["限速问题","激活失败","流量不足","手机锁网"]
+  }
+};
 
-        // --- 4. 核心生成逻辑 ---
-        function generateContent() {
-            const country = document.getElementById('countrySelect').value;
-            const keyword = `${country} eSIM`; // 核心关键词
-            
-            // 1. 生成 H1
-            let h1 = getUniqueItem(h1Templates, history[country].h1, keyword);
-            if (!h1) {
-                alert(`警告：${country} 的 H1 模版已用尽！请点击“重置去重记录”或增加模版。`);
-                return;
-            }
-            history[country].h1.add(h1); // 记录已使用
+const DEVICES = ["iPhone","安卓手机","三星Galaxy","iPhone 16 Pro","谷歌Pixel","苹果手机","华为手机","小米手机"];
+const COUNTS  = ["3","5","6","7","8","10"];
+const TOPICS  = ["价格与覆盖全析","购买激活攻略","套餐深度推荐","实地测评报告","省钱完全指南","真实使用评测","权威购买指南","全面深度解析"];
 
-            // 2. 生成 10个 H2
-            // 策略：强制包含 Buying, Activation, Suppliers, Value 各1个，剩下6个从所有类别混选
-            let h2List = [];
-            
-            // 必选类别
-            const mandatoryCats = ['buying', 'activation', 'suppliers', 'value'];
-            mandatoryCats.forEach(cat => {
-                let item = getUniqueItem(h2Categories[cat], history[country].h2, keyword);
-                if (item) {
-                    h2List.push(item);
-                    history[country].h2.add(item);
-                }
-            });
+// ═══════════════════════════════════════
+// H1 模板库（35条）
+// ═══════════════════════════════════════
+const H1T = [
+  "{year}年{kw}终极指南：{topic}",
+  "{kw}完整攻略：{userType}必读手册",
+  "{kw}选购圣经：购买、激活到使用全流程详解",
+  "{year}最新{kw}深度评测：哪家最值得买？",
+  "{kw}完全解析：{scene}专属推荐指南",
+  "从零开始用{kw}：{userType}专属完全教程",
+  "{kw}终极对比：{c1} vs {c2}谁更胜一筹",
+  "{year}出行必备{kw}：价格、覆盖、激活全解析",
+  "{kw}省钱指南：{userType}如何选对套餐",
+  "{kw}深度测评：{city}及周边地区实测报告",
+  "告别漫游费！{kw}完整购买与使用指南",
+  "{kw}权威推荐：{year}性价比最高套餐大盘点",
+  "{kw}新手入门：从购买到激活的保姆级教程",
+  "{device}使用{kw}设置指南：{year}最新完整教程",
+  "{kw}全攻略：让{userType}在{dest}畅行无忧",
+  "选对{kw}，{scene}不再烦恼：{year}权威推荐",
+  "{kw}深度横评：{p1} vs {p2}全面对比",
+  "{year}旅行必备：{kw}选购、激活、使用完全指南",
+  "{kw}终极省钱手册：{userType}必看套餐分析",
+  "{kw}实测报告：速度、覆盖、价格全方位评分",
+  "不踩坑！{kw}购买避坑指南：{year}最新版",
+  "{kw}完全指南：{dur}出行最优方案推荐",
+  "{kw}一站式解决方案：{scene}专属选购攻略",
+  "{year}{kw}市场全景：哪款eSIM真正值得买",
+  "{kw}实用手册：{userType}从选购到使用全程无忧",
+  "探索{dest}前必读：{kw}选购核心要点与避坑指南",
+  "{year}{kw}大评测：价格、速度、覆盖综合排名",
+  "用{kw}畅游{dest}：{scene}最佳网络解决方案",
+  "{kw}保姆级攻略：{device}用户专属完整教程",
+  "去{dest}不用愁网络：{kw}选购使用完全解答",
+  "{kw}完全指南{year}：{userType}的最优方案推荐",
+  "{year}年度最佳{kw}：综合评测与选购建议大全",
+  "{kw}深度比较：{c1}还是{c2}更适合你？",
+  "{city}实测{kw}：真实网速与覆盖情况全记录",
+  "{userType}首选{kw}：{year}专业推荐与实战心得"
+];
 
-            // 剩余名额 (10 - 当前数量)
-            let remainingSlots = 10 - h2List.length;
-            
-            // 构建一个包含所有类别模版的大池子 (排除已选的太难，直接随机抽取尝试)
-            let allTemplates = [];
-            Object.values(h2Categories).forEach(arr => allTemplates = allTemplates.concat(arr));
-            
-            // 随机填充剩余名额
-            let attempts = 0;
-            while (remainingSlots > 0 && attempts < 100) {
-                let randomTemplate = allTemplates[Math.floor(Math.random() * allTemplates.length)];
-                let finalString = randomTemplate.replace(/{KW}/g, keyword);
-                
-                // 检查是否在当前生成的列表中重复，或者在历史记录中重复
-                if (!h2List.includes(finalString) && !history[country].h2.has(finalString)) {
-                    h2List.push(finalString);
-                    history[country].h2.add(finalString);
-                    remainingSlots--;
-                }
-                attempts++;
-            }
+// ═══════════════════════════════════════
+// H2 分类模板库（9类 × 12条 = 108条）
+// ═══════════════════════════════════════
+const CATS = {
+  purchase:{
+    name:"购买指南",cls:"c-pur",
+    t:[
+      "{kw}如何购买？{year}在线购买完整步骤详解",
+      "购买{kw}前必知的{cnt}大关键事项",
+      "{kw}哪里买最划算？官网vs第三方平台全对比",
+      "{p1}购买教程：从注册到下单图文步骤全解析",
+      "{kw}购买指南：避开{issue}的实用建议",
+      "出发前在国内提前购买{kw}？详细操作流程",
+      "{kw}购买常见误区：新手必看避坑清单",
+      "{kw}购买攻略：{dur}套餐哪款最值？",
+      "支付宝/微信也能买{kw}？多种购买方式全盘点",
+      "{kw}购买后多久到账？从下单到激活全流程",
+      "海外购买vs国内提前购买{kw}：哪种更划算？",
+      "{kw}实体店vs网上购买：优缺点与适用场景对比"
+    ]
+  },
+  activation:{
+    name:"激活教程",cls:"c-act",
+    t:[
+      "{kw}激活全攻略：{device}逐步操作完整教程",
+      "{kw}激活失败怎么办？常见原因与解决方案",
+      "到{dest}之前还是之后激活{kw}？时机选择详解",
+      "无需Wi-Fi也能激活？{kw}离线激活方法详解",
+      "{device}使用{kw}设置教程：从下载到激活全程图解",
+      "{kw}二维码扫描激活详细步骤与注意事项",
+      "{kw}自动激活与手动激活的区别与选择建议",
+      "激活{kw}需要多长时间？影响速度的关键因素",
+      "双卡手机如何同时使用国内卡和{kw}？",
+      "{kw}激活后如何切换主副卡？设置教程",
+      "{device}激活{kw}图文教程：全程截图指引",
+      "激活{kw}提示错误？{cnt}种常见错误代码解析"
+    ]
+  },
+  price:{
+    name:"价格对比",cls:"c-pri",
+    t:[
+      "{year}{kw}价格全对比：{c1} vs {c2}",
+      "{kw}{dur}套餐费用分析：哪家最划算？",
+      "{kw}按天还是按流量计费更省钱？深度分析",
+      "{kw}隐藏费用揭秘：实际使用成本全解析",
+      "省钱必看！{kw}折扣码与优惠活动大汇总",
+      "{kw}价格横评：{dur}出行性价比完整排行",
+      "学生党如何买到最便宜的{kw}？省钱折扣攻略",
+      "{kw}家庭套餐值得买吗？多人共享费用分析",
+      "{kw} vs 国际漫游：哪个更省钱？费用全对比",
+      "免费试用{kw}？优惠活动与退款政策全解析",
+      "{year}{kw}最新定价：各大平台价格横向对比",
+      "{kw}流量包加购指南：超出套餐后如何最省钱"
+    ]
+  },
+  coverage:{
+    name:"网速覆盖",cls:"c-cov",
+    t:[
+      "{kw}网速实测：{city} 5G/4G LTE 覆盖测试报告",
+      "{dest}各地区{kw}信号覆盖地图与实测分析",
+      "自驾游必看：{dest}公路沿线{kw}覆盖实测数据",
+      "{kw}在{park}信号实测：偏远地区覆盖情况",
+      "{c1}与{c2} {kw}真实网速横向对比测试",
+      "{dest}不同地区{kw}覆盖差异实测完整对比",
+      "{kw}在偏远地区的表现如何？覆盖盲区全面分析",
+      "{kw}下载/上传速度实测：{c1} vs {c2}",
+      "城市vs郊区：{kw}实际使用网速差异对比分析",
+      "{kw} 5G vs 4G LTE：普通用户该如何选择？",
+      "{city}地铁/室内{kw}信号表现实测报告",
+      "{kw}流媒体使用体验：4K视频与游戏延迟测试"
+    ]
+  },
+  faq:{
+    name:"常见问题",cls:"c-faq",
+    t:[
+      "{kw}常见问题解答：新手最想知道的{cnt}个疑问",
+      "{kw}信号不稳定？这几个方法帮你快速解决",
+      "什么手机支持{kw}？{year}兼容设备完整清单",
+      "{kw}流量用完了怎么办？续费与追加流量方法",
+      "{kw}能打电话发短信吗？功能详解与注意事项",
+      "eSIM和实体SIM有什么区别？{year}深度技术解析",
+      "{kw}安全吗？数据隐私与使用安全全解析",
+      "离开{dest}后{kw}还能用吗？跨境漫游完整说明",
+      "{kw}数据用量追踪：如何避免超额收费？",
+      "{kw}能否共享热点给其他设备？热点使用完全指南",
+      "{kw}有效期过了还能续费吗？套餐管理完全指南",
+      "手机丢失后{kw}怎么处理？数据安全保障指南"
+    ]
+  },
+  comparison:{
+    name:"产品对比",cls:"c-cmp",
+    t:[
+      "{p1} vs {p2}：{kw}深度横向评测",
+      "{c1} vs {c2}：{dest}eSIM全面对比分析",
+      "{kw} vs 实体SIM：{year}实际使用体验全面对比",
+      "{kw} vs 租用随身WiFi：哪个更适合{userType}？",
+      "{dur}短途 vs 长期使用：{kw}套餐如何选？",
+      "顶级{kw}提供商大对比：覆盖、价格、服务综合评分",
+      "{dest}本土运营商eSIM vs 国际eSIM平台深度对比",
+      "{c1}实体套餐 vs {kw}：功能与价格详细对比",
+      "新手vs资深用户：不同需求下的{kw}选择差异",
+      "{kw}三大主流方案横评：最适合{userType}的选择",
+      "{year}{kw}五大平台横评：谁是真正的性价比之王",
+      "预付费vs后付费：{kw}套餐类型与适用场景指南"
+    ]
+  },
+  provider:{
+    name:"提供商评测",cls:"c-pvd",
+    t:[
+      "{p1} {kw}深度评测：{year}综合使用体验报告",
+      "{year}最值得推荐的{kw}提供商TOP5权威排名",
+      "{p1} {kw}套餐详解：覆盖、速度、价格全析",
+      "{kw}哪家最靠谱？用户口碑与专业评测综合榜",
+      "{p1} {kw}客服体验：售前售后全程测评报告",
+      "运营商直营eSIM vs 第三方平台：{dest}市场分析",
+      "{p1} {kw}退款政策详解：消费保障机制全解读",
+      "专为{userType}设计：{kw}提供商服务全面对比",
+      "{c1}官方{kw}怎么买？注册与购买完整流程",
+      "{year}{dest}eSIM市场动态：主要提供商最新变化",
+      "{p1}新用户福利：{kw}首次购买优惠活动全解析",
+      "小众但好用的{kw}提供商：被忽视的优质选择"
+    ]
+  },
+  scenario:{
+    name:"使用场景",cls:"c-scn",
+    t:[
+      "{dur}{dest}{scene}：{kw}套餐最优选择方案",
+      "{dest}自驾游{kw}攻略：全程不断网套餐推荐",
+      "留学生必看：{dest}长期{kw}解决方案与费用规划",
+      "商务出差{dest}：{kw}国际通话+高速数据套餐推荐",
+      "{dest}蜜月旅行{kw}指南：浪漫之旅网络无忧",
+      "带孩子去{dest}旅游：家庭{kw}套餐最优方案",
+      "{dest}自由行{kw}：跨区旅行全程网络保障",
+      "打工度假{dest}：长期{kw}套餐选购完全攻略",
+      "{dest}旅行{kw}急救包：临时购买与紧急激活指南",
+      "第一次去{dest}：{kw}还是实体卡？新手全面指导",
+      "{dest}{scene}专属{kw}推荐：实用路线套餐搭配",
+      "数字游民在{dest}：长期稳定{kw}解决方案"
+    ]
+  },
+  tips:{
+    name:"使用技巧",cls:"c-tip",
+    t:[
+      "{kw}省钱大法：{cnt}个实用技巧减少通讯费",
+      "旅行达人分享：买{kw}的{cnt}个省钱秘诀",
+      "{kw}流量管理技巧：用得更少但网速不降级",
+      "出发前设置{kw}：{cnt}个必做准备工作",
+      "{kw}使用技巧：让套餐价值最大化的实用方法",
+      "{kw}续费攻略：如何无缝续期不断线",
+      "{kw}+免费Wi-Fi：最省钱的{dest}网络方案",
+      "{kw}返程后如何处理？套餐余量与注销指南",
+      "{kw}多设备共享：一张eSIM连接多个设备方案",
+      "{kw}节假日购买攻略：特价时机与优惠渠道汇总",
+      "{kw}高效使用指南：{cnt}个你可能不知道的功能",
+      "延长{kw}有效期的技巧：套餐到期前必看攻略"
+    ]
+  }
+};
 
-            // 如果模版不够导致没填满10个，允许从历史中复用（极端情况），或者提示
-            if (h2List.length < 10) {
-                console.warn("模版库对于不重复的要求压力过大，部分H2可能需要重置历史。");
-            }
+const CKEYS = Object.keys(CATS);
 
-            // 3. 渲染结果
-            render(h1, h2List);
-            updateStatus(country);
-        }
+// H2 10轮分类轮换（10种组合模式，保证类别多样性）
+const ROTS = [
+  ["purchase","activation","price","coverage","faq","comparison","provider","scenario","tips","purchase"],
+  ["purchase","activation","price","faq","comparison","provider","scenario","tips","coverage","activation"],
+  ["purchase","price","coverage","faq","comparison","provider","scenario","tips","activation","comparison"],
+  ["purchase","activation","price","coverage","faq","provider","scenario","tips","comparison","tips"],
+  ["activation","price","coverage","faq","comparison","provider","scenario","tips","purchase","scenario"],
+  ["purchase","activation","price","coverage","comparison","provider","scenario","tips","faq","provider"],
+  ["purchase","activation","coverage","faq","comparison","provider","scenario","tips","price","faq"],
+  ["purchase","activation","price","coverage","faq","comparison","scenario","tips","provider","purchase"],
+  ["activation","price","coverage","faq","comparison","provider","tips","purchase","scenario","coverage"],
+  ["purchase","price","activation","faq","comparison","scenario","tips","provider","coverage","activation"]
+];
 
-        // 辅助函数：从数组中获取一个在 Set 中不存在的唯一项
-        function getUniqueItem(templateArray, usedSet, keyword) {
-            // 1. 找出所有未使用的模版
-            const available = templateArray.filter(t => {
-                const str = t.replace(/{KW}/g, keyword);
-                return !usedSet.has(str);
-            });
+// ═══════════════════════════════════════
+// 状态管理
+// ═══════════════════════════════════════
+let genCount = 0, curSet = null, hist = [];
 
-            if (available.length === 0) return null;
+// ═══════════════════════════════════════
+// 工具函数
+// ═══════════════════════════════════════
+function pick(arr, n){ return arr[((n%arr.length)+arr.length)%arr.length]; }
 
-            // 2. 随机选一个
-            const selectedTemplate = available[Math.floor(Math.random() * available.length)];
-            return selectedTemplate.replace(/{KW}/g, keyword);
-        }
+function buildCtx(destKey, year, seed){
+  const d = DB[destKey], s = Math.abs(seed)|0;
+  const hl = d.carriers.length, pl = d.providers.length;
+  const ci1 = s%hl, ci2 = (s + Math.ceil(hl/2) + 1) % hl;
+  const c1 = d.carriers[ci1];
+  const c2 = d.carriers[ci2 !== ci1 ? ci2 : (ci2+1)%hl];
+  const pi1 = s%pl, pi2 = (s + Math.ceil(pl/2) + 1) % pl;
+  const p1 = d.providers[pi1];
+  const p2 = d.providers[pi2 !== pi1 ? pi2 : (pi2+1)%pl];
+  return {
+    kw:d.kw, dest:d.name, year,
+    city:pick(d.cities,s), c1, c2, p1, p2,
+    device:pick(DEVICES,s),
+    dur:pick(d.durations,s),
+    userType:pick(d.userTypes,s),
+    scene:pick(d.scenes,s+2),
+    topic:pick(TOPICS,s),
+    cnt:pick(COUNTS,s),
+    issue:pick(d.issues,s),
+    park:pick(d.parks,s)
+  };
+}
 
-        function render(h1, h2s) {
-            document.getElementById('resultArea').classList.remove('hidden');
-            document.getElementById('h1Output').innerText = h1;
-            
-            const listEl = document.getElementById('h2List');
-            listEl.innerHTML = '';
-            h2s.forEach(h2 => {
-                const li = document.createElement('li');
-                li.innerText = h2;
-                listEl.appendChild(li);
-            });
-        }
+function fill(tpl, c){
+  return tpl
+    .replace(/{kw}/g,c.kw).replace(/{dest}/g,c.dest).replace(/{year}/g,c.year)
+    .replace(/{city}/g,c.city).replace(/{c1}/g,c.c1).replace(/{c2}/g,c.c2)
+    .replace(/{p1}/g,c.p1).replace(/{p2}/g,c.p2).replace(/{device}/g,c.device)
+    .replace(/{dur}/g,c.dur).replace(/{userType}/g,c.userType)
+    .replace(/{scene}/g,c.scene).replace(/{topic}/g,c.topic)
+    .replace(/{cnt}/g,c.cnt).replace(/{issue}/g,c.issue).replace(/{park}/g,c.park);
+}
 
-        function updateStatus(country) {
-            const count = history[country].h1.size;
-            document.getElementById('statusMsg').innerText = `生成成功！`;
-            document.getElementById('historyCount').innerText = `${country} 已生成不同版本数: ${count}`;
-        }
+function escH(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-        function resetHistory() {
-            const country = document.getElementById('countrySelect').value;
-            history[country] = { h1: new Set(), h2: new Set() };
-            updateStatus(country);
-            alert(`${country} 的去重记录已清空，可以重新开始生成。`);
-        }
+// ═══════════════════════════════════════
+// 核心生成逻辑
+// ═══════════════════════════════════════
+function generate(){
+  const destKey = document.getElementById('selDest').value;
+  const year    = document.getElementById('selYear').value;
+  const h2n     = parseInt(document.getElementById('selH2n').value);
+  const batch   = parseInt(document.getElementById('selBatch').value);
 
-        // --- 5. 复制功能 ---
-        function copyText(elementId) {
-            const text = document.getElementById(elementId).innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                showToast("复制成功！");
-            });
-        }
+  for(let b=0; b<batch; b++){
+    const g = genCount;
 
-        function copyAll() {
-            const h1 = document.getElementById('h1Output').innerText;
-            const h2s = document.getElementById('h2List').innerText;
-            const fullText = `H1: ${h1}\n\n${h2s}`;
-            navigator.clipboard.writeText(fullText).then(() => {
-                showToast("全部内容已复制！");
-            });
-        }
+    // —— H1 生成 ——
+    const h1tpl = pick(H1T, g);
+    const h1ctx = buildCtx(destKey, year, g*17+5);
+    const h1    = fill(h1tpl, h1ctx);
 
-        function showToast(message) {
-            const toast = document.createElement('div');
-            toast.className = 'fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded shadow-lg transition-opacity duration-500';
-            toast.innerText = message;
-            document.body.appendChild(toast);
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                setTimeout(() => document.body.removeChild(toast), 500);
-            }, 2000);
-        }
+    // —— H2 生成 ——
+    const rot = ROTS[g % ROTS.length];
+    const selCats = [];
+    for(let i=0; i<h2n; i++){
+      if(i < rot.length) selCats.push(rot[i]);
+      else selCats.push(ROTS[(g+1)%ROTS.length][i-rot.length] || CKEYS[i%CKEYS.length]);
+    }
 
-    </script>
+    const h2s = selCats.map((ck, i) => {
+      const cat    = CATS[ck];
+      const cIdx   = CKEYS.indexOf(ck);
+      const tIdx   = (g*3 + i*7 + cIdx) % cat.t.length;
+      const lCtx   = buildCtx(destKey, year, g*11 + i*13 + cIdx*5);
+      return { ck, catName:cat.name, cls:cat.cls, text:fill(cat.t[tIdx], lCtx) };
+    });
+
+    genCount++;
+    const setItem = { id:genCount, destKey, destName:DB[destKey].name, year, h1, h2s };
+    curSet = setItem;
+    hist.unshift({...setItem});
+  }
+
+  renderOutput();
+  renderHist();
+  updateStats();
+}
+
+// ═══════════════════════════════════════
+// 渲染输出
+// ═══════════════════════════════════════
+function renderOutput(){
+  const {id, h1, h2s} = curSet;
+
+  document.getElementById('genBadge').style.display='inline';
+  document.getElementById('genBadge').textContent=`第 ${id} 组`;
+  document.getElementById('btnCopySet').style.display='inline-flex';
+  document.getElementById('cardFt').style.display='flex';
+
+  // SEO 质量指标
+  const h1Len = h1.length;
+  let seoTags = `<div class="seo-bar">`;
+  seoTags += `<span class="seo-tag">✓ 含核心关键词</span>`;
+  seoTags += h1Len>=30&&h1Len<=70
+    ? `<span class="seo-tag">✓ H1字符数 ${h1Len}（优质范围）</span>`
+    : `<span class="seo-tag warn">⚠ H1字符数 ${h1Len}（建议30-70字）</span>`;
+  seoTags += `<span class="seo-tag">✓ 覆盖 ${[...new Set(h2s.map(h=>h.ck))].length} 大主题类别</span>`;
+  seoTags += `<span class="seo-tag">✓ 信息/商业/交易意图兼顾</span>`;
+  seoTags += `</div>`;
+
+  // H1
+  const h1Block = `
+    <div class="h1-block">
+      <span class="h1-lbl">H1</span>
+      <div>
+        <div class="h1-txt">${escH(h1)}</div>
+        <div class="h1-len">字符数：${h1.length}</div>
+      </div>
+      <button class="h1-copy" onclick="cpH1()">📋 复制</button>
+    </div>`;
+
+  // H2s
+  const h2Html = h2s.map((h,i) => `
+    <div class="h2-item">
+      <div class="h2-num">${i+1}</div>
+      <div class="h2-body">
+        <span class="cat-tag ${h.cls}">${h.catName}</span>
+        <div class="h2-txt">${escH(h.text)}</div>
+        <div class="h2-len">字符数：${h.text.length}</div>
+      </div>
+      <button class="h2-copy" onclick="cpH2(${i})">📋 复制</button>
+    </div>`).join('');
+
+  document.getElementById('outputBody').innerHTML =
+    seoTags +
+    h1Block +
+    `<div class="h2-hd">H2 子标题 · 共 ${h2s.length} 个</div>` +
+    `<div class="h2-list">${h2Html}</div>`;
+}
+
+// ═══════════════════════════════════════
+// 历史记录渲染
+// ═══════════════════════════════════════
+function renderHist(){
+  if(hist.length>1) document.getElementById('histSection').style.display='block';
+  document.getElementById('histCount').textContent = hist.length;
+  document.getElementById('btnExportAll').style.display = genCount>0?'inline-flex':'none';
+
+  document.getElementById('histGrid').innerHTML = hist.slice(0,30).map(item=>`
+    <div class="hist-item" onclick="viewHist(${item.id})">
+      <div class="hist-num">第 ${item.id} 组 · ${item.destName} ${item.year}</div>
+      <div class="hist-h1">${escH(item.h1)}</div>
+      <div class="hist-prev">${item.h2s.slice(0,3).map(h=>'· '+escH(h.text.length>30?h.text.slice(0,30)+'…':h.text)).join('<br>')}</div>
+    </div>`).join('');
+}
+
+function viewHist(id){
+  const item = hist.find(h=>h.id===id);
+  if(item){ curSet=item; renderOutput(); document.getElementById('genBadge').textContent=`第 ${id} 组`; window.scrollTo({top:0,behavior:'smooth'}); toast(`📖 查看第 ${id} 组历史记录`); }
+}
+
+function toggleHist(){
+  const c=document.getElementById('histContent'), a=document.getElementById('histArrow');
+  const o=c.classList.toggle('open');
+  a.textContent=o?'▲ 收起':'▼ 展开';
+}
+
+function updateStats(){ document.getElementById('sGenCount').textContent=genCount; }
+
+// ═══════════════════════════════════════
+// 复制 & 导出
+// ═══════════════════════════════════════
+function cpH1(){ if(curSet) cpTxt(curSet.h1); }
+function cpH2(i){ if(curSet&&curSet.h2s[i]) cpTxt(curSet.h2s[i].text); }
+
+function copySet(){
+  if(!curSet) return;
+  const {id,h1,h2s,destName,year}=curSet;
+  let t=`【第 ${id} 组 SEO标题 | ${destName} ${year}】\n\nH1 主标题：\n${h1}\n\nH2 子标题：\n`;
+  h2s.forEach((h,i)=>{ t+=`${i+1}. [${h.catName}] ${h.text}\n`; });
+  cpTxt(t);
+}
+
+function exportCurrent(){
+  if(!curSet) return;
+  const {id,h1,h2s,destName,year}=curSet;
+  let t=`=== 第 ${id} 组 SEO标题 | ${destName} ${year} ===\n\nH1: ${h1}\n\n`;
+  h2s.forEach((h,i)=>{ t+=`H2-${i+1} [${h.catName}]: ${h.text}\n`; });
+  dlFile(t,`seo-group-${id}.txt`); toast('📤 本组标题导出成功');
+}
+
+function exportAll(){
+  if(!hist.length) return;
+  let t=`eSIM SEO 标题生成记录\n时间：${new Date().toLocaleString('zh-CN')}\n共 ${hist.length} 组\n\n`;
+  hist.forEach(item=>{
+    t+=`${'─'.repeat(52)}\n第 ${item.id} 组 | ${item.destName} ${item.year}\n${'─'.repeat(52)}\nH1: ${item.h1}\n\n`;
+    item.h2s.forEach((h,i)=>{ t+=`H2-${i+1} [${h.catName}]: ${h.text}\n`; });
+    t+='\n';
+  });
+  dlFile(t,`seo-all-${hist.length}groups.txt`); toast(`✅ 已导出 ${hist.length} 组标题`);
+}
+
+function cpTxt(text){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>toast('✅ 已复制到剪贴板')).catch(()=>cpFallback(text));
+  } else cpFallback(text);
+}
+function cpFallback(text){
+  const ta=document.createElement('textarea');
+  ta.value=text; ta.style.cssText='position:fixed;opacity:0;pointer-events:none;top:0;left:0';
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  try{ document.execCommand('copy'); toast('✅ 已复制到剪贴板'); }
+  catch(){ toast('❌ 复制失败，请手动选择文字'); }
+  document.body.removeChild(ta);
+}
+function dlFile(text, name){
+  const a=document.createElement('a');
+  a.href='data:text/plain;charset=utf-8,'+encodeURIComponent(text);
+  a.download=name; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+
+function doReset(){
+  genCount=0; curSet=null; hist=[];
+  ['sGenCount'].forEach(id=>document.getElementById(id).textContent='0');
+  document.getElementById('genBadge').style.display='none';
+  document.getElementById('btnCopySet').style.display='none';
+  document.getElementById('cardFt').style.display='none';
+  document.getElementById('histSection').style.display='none';
+  document.getElementById('btnExportAll').style.display='none';
+  document.getElementById('outputBody').innerHTML=`
+    <div class="empty">
+      <div class="empty-ico">✨</div>
+      <h3>点击「生成标题」开始</h3>
+      <p>选择目标地区 → 点击生成 → 每次智能不重复，无限生成</p>
+    </div>`;
+  toast('🔄 已重置所有记录');
+}
+
+let toastTid;
+function toast(msg){
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.classList.add('show');
+  clearTimeout(toastTid); toastTid=setTimeout(()=>el.classList.remove('show'),2600);
+}
+</script>
 </body>
 </html>
