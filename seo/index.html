@@ -11,6 +11,7 @@
   --success:#10b981;--warn:#f59e0b;
   --bg:#f0f4f8;--card:#fff;--border:#e2e8f0;
   --text:#1e293b;--muted:#64748b;--light:#f8fafc;
+  --pur:#7c3aed;--pur-dark:#5b21b6;--pur-light:#f5f3ff;
 }
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px}
 .header{background:linear-gradient(135deg,#0f2460 0%,#1e3a8a 40%,#2563eb 80%,#3b82f6 100%);color:#fff;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 2px 16px rgba(37,99,235,.35)}
@@ -34,9 +35,13 @@ select:focus{border-color:var(--pri)}
 .btn-out:hover{border-color:var(--pri);color:var(--pri);background:var(--pri-light)}
 .btn-green{background:var(--success);color:#fff}
 .btn-green:hover{background:#059669;transform:translateY(-1px)}
+.btn-purple{background:linear-gradient(135deg,var(--pur),var(--pur-dark));color:#fff;box-shadow:0 3px 10px rgba(124,58,237,.28)}
+.btn-purple:hover{background:linear-gradient(135deg,#6d28d9,#4c1d95);transform:translateY(-1px);box-shadow:0 5px 16px rgba(124,58,237,.42)}
+.btn-purple:active{transform:translateY(0)}
 .ocard{background:var(--card);border-radius:14px;box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:16px;overflow:hidden}
 .card-hd{padding:13px 20px;background:var(--light);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .card-hd-l{display:flex;align-items:center;gap:9px}
+.card-hd-r{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .gen-badge{background:var(--pri);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px}
 .card-title{font-size:14px;font-weight:700;color:#374151}
 .card-body{padding:20px 22px}
@@ -82,11 +87,40 @@ select:focus{border-color:var(--pri)}
 .hist-prev{font-size:11px;color:var(--muted);line-height:1.65}
 .toast{position:fixed;bottom:22px;right:22px;background:#1e293b;color:#fff;padding:10px 17px;border-radius:10px;font-size:13px;font-weight:500;z-index:9999;transform:translateY(70px);opacity:0;transition:all .3s ease;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.2)}
 .toast.show{transform:translateY(0);opacity:1}
+
+/* ===== Prompt Modal ===== */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.68);backdrop-filter:blur(5px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{background:#fff;border-radius:18px;width:100%;max-width:820px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.3),0 0 0 1px rgba(124,58,237,.12);transform:translateY(22px) scale(.98);transition:transform .28s cubic-bezier(.34,1.56,.64,1)}
+.modal-overlay.open .modal-box{transform:translateY(0) scale(1)}
+.modal-hd{padding:16px 20px 14px;border-bottom:1px solid #e9d5ff;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-radius:18px 18px 0 0;flex-shrink:0;gap:10px;flex-wrap:wrap}
+.modal-hd-l{display:flex;align-items:center;gap:10px}
+.modal-hd-l h3{font-size:16px;font-weight:800;color:#4c1d95}
+.modal-hd-l p{font-size:11.5px;color:#7c3aed;opacity:.82;margin-top:2px}
+.modal-hd-r{display:flex;gap:8px;align-items:center}
+.modal-close-btn{background:none;border:none;width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:16px;color:#6b7280;display:flex;align-items:center;justify-content:center;transition:all .18s}
+.modal-close-btn:hover{background:#e9d5ff;color:#5b21b6}
+.modal-info-bar{padding:10px 20px;background:#faf9ff;border-bottom:1px solid #e9d5ff;display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0}
+.p-stat{background:var(--pur-light);border:1px solid #c4b5fd;color:#5b21b6;padding:4px 11px;border-radius:8px;font-size:11px;font-weight:700}
+.modal-tips{padding:8px 20px;background:#fffbeb;border-bottom:1px solid #fde68a;display:flex;align-items:center;gap:7px;flex-shrink:0}
+.modal-tips span{font-size:11.5px;color:#92400e;font-weight:500}
+.modal-body{flex:1;overflow-y:auto;padding:16px 20px}
+.prompt-ta{width:100%;padding:14px 16px;border:2px solid #c4b5fd;border-radius:12px;font-size:12.5px;line-height:1.75;color:#1e293b;font-family:'Consolas','Monaco','Courier New',monospace;resize:vertical;background:#faf9ff;outline:none;min-height:400px;transition:border-color .2s,box-shadow .2s}
+.prompt-ta:focus{border-color:var(--pur);box-shadow:0 0 0 3px rgba(124,58,237,.14)}
+.modal-ft{padding:13px 20px;border-top:1px solid #e9d5ff;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#faf9ff;border-radius:0 0 18px 18px;flex-shrink:0}
+.modal-ft-hint{margin-left:auto;font-size:11px;color:#9ca3af;font-style:italic}
+
+/* Prompt banner in output */
+.prompt-banner{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:2px solid #c4b5fd;border-radius:12px;padding:13px 16px;margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.pb-txt{font-size:13px;color:#5b21b6;font-weight:600;display:flex;align-items:center;gap:7px}
+.pb-sub{font-size:11px;color:#7c3aed;font-weight:400;margin-top:2px;opacity:.85}
+
 @media(max-width:640px){
   .header{padding:13px 14px}.hd-left h1{font-size:16px}
   .main{padding:10px 9px}.ctrl-panel{padding:13px 14px}.card-body{padding:14px 15px}
   .h1-txt{font-size:14.5px}.h2-txt{font-size:13px}.hist-grid{grid-template-columns:1fr}
-  .btn-pri{padding:9px 18px;font-size:13px}
+  .btn-pri{padding:9px 18px;font-size:13px}.modal-box{max-height:95vh;border-radius:14px}
+  .modal-hd{border-radius:14px 14px 0 0}.modal-ft{border-radius:0 0 14px 14px}
 }
 </style>
 </head>
@@ -95,7 +129,7 @@ select:focus{border-color:var(--pri)}
 <div class="header">
   <div class="hd-left">
     <h1>🌐 eSIM SEO 标题生成器</h1>
-    <p>基于搜索意图优化 · 9大分类 · 35套H1模板 · 108条H2模板 · 无限不重复生成</p>
+    <p>基于搜索意图优化 · 9大分类 · 35套H1模板 · 108条H2模板 · 一键生成SEO写作Prompt</p>
   </div>
   <div class="hd-stats">
     <div class="stat-pill">已生成 <b id="sGenCount">0</b> 组</div>
@@ -154,7 +188,10 @@ select:focus{border-color:var(--pri)}
         <span class="gen-badge" id="genBadge" style="display:none">第 1 组</span>
         <span class="card-title">SEO 标题输出区</span>
       </div>
-      <button class="btn btn-out" id="btnCopySet" onclick="copySet()" style="display:none;padding:6px 13px">📋 复制本组</button>
+      <div class="card-hd-r">
+        <button class="btn btn-purple" id="btnGenPrompt" onclick="generatePrompt()" style="display:none;padding:6px 13px;font-size:12px">📝 生成写作Prompt</button>
+        <button class="btn btn-out" id="btnCopySet" onclick="copySet()" style="display:none;padding:6px 13px">📋 复制本组</button>
+      </div>
     </div>
     <div class="card-body" id="outputBody">
       <div class="empty">
@@ -167,6 +204,7 @@ select:focus{border-color:var(--pri)}
       <button class="btn btn-pri" onclick="generate()" style="font-size:13px;padding:9px 18px">⚡ 继续生成（不重复）</button>
       <button class="btn btn-out" onclick="copySet()">📋 复制本组</button>
       <button class="btn btn-out" onclick="exportCurrent()">📤 导出本组</button>
+      <button class="btn btn-purple" onclick="generatePrompt()">📝 生成写作Prompt</button>
     </div>
   </div>
 
@@ -177,6 +215,38 @@ select:focus{border-color:var(--pri)}
     </div>
     <div class="hist-content" id="histContent">
       <div class="hist-grid" id="histGrid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Prompt Modal ===== -->
+<div class="modal-overlay" id="promptModal" onclick="closePromptModal(event)">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <div>
+        <div class="modal-hd-l"><h3>📝 SEO 写作 Prompt 生成器</h3></div>
+        <p style="font-size:11.5px;color:#7c3aed;margin-top:4px;padding-left:2px">将下方 Prompt 复制到 ChatGPT / Claude / Gemini，即可生成完整 SEO 软文</p>
+      </div>
+      <div class="modal-hd-r">
+        <button class="btn btn-purple" onclick="copyPrompt()" style="padding:7px 14px;font-size:12px">📋 一键复制</button>
+        <button class="modal-close-btn" onclick="closePromptModal()">✕</button>
+      </div>
+    </div>
+    <div class="modal-info-bar" id="promptInfoBar">
+      <span class="p-stat">📊 加载中...</span>
+    </div>
+    <div class="modal-tips">
+      <span>💡</span>
+      <span>建议将此 Prompt 完整复制，粘贴到 AI 对话框后直接发送，AI 将按结构生成 2500-3500 字 SEO 优化软文，并附 Meta 信息与内链建议</span>
+    </div>
+    <div class="modal-body">
+      <textarea class="prompt-ta" id="promptText" readonly onclick="this.select()"></textarea>
+    </div>
+    <div class="modal-ft">
+      <button class="btn btn-purple" onclick="copyPrompt()">📋 复制完整 Prompt</button>
+      <button class="btn btn-out" onclick="exportPrompt()">📤 导出为 TXT</button>
+      <button class="btn btn-out" onclick="closePromptModal()">✕ 关闭</button>
+      <span class="modal-ft-hint">点击文本框后 Ctrl+A 可全选</span>
     </div>
   </div>
 </div>
@@ -462,7 +532,6 @@ var CATS = {
 
 var CKEYS = Object.keys(CATS);
 
-// H2 分类轮换表（10种组合，保证类别多样性）
 var ROTS = [
   ['purchase','activation','price','coverage','faq','comparison','provider','scenario','tips','purchase'],
   ['purchase','activation','price','faq','comparison','provider','scenario','tips','coverage','activation'],
@@ -497,15 +566,12 @@ function buildCtx(destKey, year, seed) {
   var s  = Math.abs(seed) | 0;
   var hl = d.carriers.length;
   var pl = d.providers.length;
-
   var ci1 = s % hl;
   var ci2 = (s + Math.ceil(hl / 2) + 1) % hl;
   if (ci2 === ci1) { ci2 = (ci2 + 1) % hl; }
-
   var pi1 = s % pl;
   var pi2 = (s + Math.ceil(pl / 2) + 1) % pl;
   if (pi2 === pi1) { pi2 = (pi2 + 1) % pl; }
-
   return {
     kw:       d.kw,
     dest:     d.name,
@@ -526,7 +592,6 @@ function buildCtx(destKey, year, seed) {
   };
 }
 
-// 用 split/join 代替正则，避免 {x} 量词歧义
 function fill(tpl, ctx) {
   var r = tpl;
   r = r.split('{kw}').join(ctx.kw);
@@ -548,7 +613,6 @@ function fill(tpl, ctx) {
   return r;
 }
 
-// 用 split/join 代替正则，避免 < > 字符触发 HTML 解析器
 function escHtml(s) {
   return s.split('&').join('&amp;')
            .split('<').join('&lt;')
@@ -556,7 +620,6 @@ function escHtml(s) {
            .split('"').join('&quot;');
 }
 
-// 深拷贝（避免 spread 运算符在某些环境下的问题）
 function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
@@ -569,17 +632,12 @@ function generate() {
   var year    = document.getElementById('selYear').value;
   var h2n     = parseInt(document.getElementById('selH2n').value, 10);
   var batch   = parseInt(document.getElementById('selBatch').value, 10);
-
   var b;
   for (b = 0; b < batch; b++) {
-    var g = genCount;
-
-    // H1 生成
+    var g    = genCount;
     var h1tpl = pickItem(H1T, g);
     var h1ctx = buildCtx(destKey, year, g * 17 + 5);
     var h1    = fill(h1tpl, h1ctx);
-
-    // H2 类别选择
     var rot     = ROTS[g % ROTS.length];
     var selCats = [];
     var i;
@@ -592,8 +650,6 @@ function generate() {
         selCats.push(altRot[altIdx] || CKEYS[i % CKEYS.length]);
       }
     }
-
-    // H2 生成
     var h2s = [];
     var j;
     for (j = 0; j < selCats.length; j++) {
@@ -609,7 +665,6 @@ function generate() {
         text:    fill(cat.t[tIdx], lCtx)
       });
     }
-
     genCount++;
     var setItem = {
       id:       genCount,
@@ -622,7 +677,6 @@ function generate() {
     curSet = setItem;
     hist.unshift(deepCopy(setItem));
   }
-
   renderOutput();
   renderHist();
   updateStats();
@@ -635,13 +689,11 @@ function renderOutput() {
   var id  = curSet.id;
   var h1  = curSet.h1;
   var h2s = curSet.h2s;
-
-  document.getElementById('genBadge').style.display    = 'inline';
-  document.getElementById('genBadge').textContent      = '第 ' + id + ' 组';
-  document.getElementById('btnCopySet').style.display  = 'inline-flex';
-  document.getElementById('cardFt').style.display      = 'flex';
-
-  // SEO 质量标签
+  document.getElementById('genBadge').style.display   = 'inline';
+  document.getElementById('genBadge').textContent     = '第 ' + id + ' 组';
+  document.getElementById('btnCopySet').style.display = 'inline-flex';
+  document.getElementById('btnGenPrompt').style.display = 'inline-flex';
+  document.getElementById('cardFt').style.display     = 'flex';
   var h1Len = h1.length;
   var uniqueCats = [];
   var k;
@@ -650,21 +702,17 @@ function renderOutput() {
       uniqueCats.push(h2s[k].ck);
     }
   }
-
   var lenOk    = (h1Len >= 30 && h1Len <= 70);
   var lenClass = lenOk ? 'seo-tag' : 'seo-tag warn';
   var lenNote  = lenOk
     ? '✓ H1字符数 ' + h1Len + '（优质范围）'
     : '⚠ H1字符数 ' + h1Len + '（建议30-70字）';
-
   var seoHtml = '<div class="seo-bar">'
     + '<span class="seo-tag">✓ 含核心关键词</span>'
     + '<span class="' + lenClass + '">' + lenNote + '</span>'
     + '<span class="seo-tag">✓ 覆盖 ' + uniqueCats.length + ' 大主题类别</span>'
     + '<span class="seo-tag">✓ 信息/商业/交易意图兼顾</span>'
     + '</div>';
-
-  // H1 区块
   var h1Html = '<div class="h1-block">'
     + '<span class="h1-lbl">H1</span>'
     + '<div>'
@@ -673,8 +721,6 @@ function renderOutput() {
     + '</div>'
     + '<button class="h1-copy" onclick="cpH1()">📋 复制</button>'
     + '</div>';
-
-  // H2 列表
   var h2Html = '';
   var m;
   for (m = 0; m < h2s.length; m++) {
@@ -689,12 +735,17 @@ function renderOutput() {
       + '<button class="h2-copy" onclick="cpH2(' + m + ')">📋 复制</button>'
       + '</div>';
   }
-
+  var bannerHtml = '<div class="prompt-banner">'
+    + '<div><div class="pb-txt">📝 一键生成 SEO 写作 Prompt</div>'
+    + '<div class="pb-sub">基于以上标题自动生成完整写作指令，适配 ChatGPT / Claude / Gemini</div></div>'
+    + '<button class="btn btn-purple" onclick="generatePrompt()" style="font-size:13px;padding:9px 18px">📝 生成写作 Prompt</button>'
+    + '</div>';
   document.getElementById('outputBody').innerHTML =
     seoHtml
     + h1Html
     + '<div class="h2-hd">H2 子标题 · 共 ' + h2s.length + ' 个</div>'
-    + '<div class="h2-list">' + h2Html + '</div>';
+    + '<div class="h2-list">' + h2Html + '</div>'
+    + bannerHtml;
 }
 
 // =============================================
@@ -706,7 +757,6 @@ function renderHist() {
   }
   document.getElementById('histCount').textContent = hist.length;
   document.getElementById('btnExportAll').style.display = genCount > 0 ? 'inline-flex' : 'none';
-
   var limit = hist.length > 30 ? 30 : hist.length;
   var html  = '';
   var p;
@@ -756,44 +806,27 @@ function updateStats() {
 // =============================================
 // 复制 & 导出
 // =============================================
-function cpH1() {
-  if (curSet) { copyText(curSet.h1); }
-}
-
-function cpH2(i) {
-  if (curSet && curSet.h2s[i]) { copyText(curSet.h2s[i].text); }
-}
+function cpH1() { if (curSet) { copyText(curSet.h1); } }
+function cpH2(i) { if (curSet && curSet.h2s[i]) { copyText(curSet.h2s[i].text); } }
 
 function copySet() {
   if (!curSet) { return; }
-  var id  = curSet.id;
-  var h1  = curSet.h1;
-  var h2s = curSet.h2s;
-  var dn  = curSet.destName;
-  var yr  = curSet.year;
-
-  var t = '【第 ' + id + ' 组 SEO标题 | ' + dn + ' ' + yr + '】\n\nH1 主标题：\n' + h1 + '\n\nH2 子标题：\n';
+  var t = '【第 ' + curSet.id + ' 组 SEO标题 | ' + curSet.destName + ' ' + curSet.year + '】\n\nH1 主标题：\n' + curSet.h1 + '\n\nH2 子标题：\n';
   var n;
-  for (n = 0; n < h2s.length; n++) {
-    t += (n + 1) + '. [' + h2s[n].catName + '] ' + h2s[n].text + '\n';
+  for (n = 0; n < curSet.h2s.length; n++) {
+    t += (n + 1) + '. [' + curSet.h2s[n].catName + '] ' + curSet.h2s[n].text + '\n';
   }
   copyText(t);
 }
 
 function exportCurrent() {
   if (!curSet) { return; }
-  var id  = curSet.id;
-  var h1  = curSet.h1;
-  var h2s = curSet.h2s;
-  var dn  = curSet.destName;
-  var yr  = curSet.year;
-
-  var t = '=== 第 ' + id + ' 组 SEO标题 | ' + dn + ' ' + yr + ' ===\n\nH1: ' + h1 + '\n\n';
+  var t = '=== 第 ' + curSet.id + ' 组 SEO标题 | ' + curSet.destName + ' ' + curSet.year + ' ===\n\nH1: ' + curSet.h1 + '\n\n';
   var n;
-  for (n = 0; n < h2s.length; n++) {
-    t += 'H2-' + (n + 1) + ' [' + h2s[n].catName + ']: ' + h2s[n].text + '\n';
+  for (n = 0; n < curSet.h2s.length; n++) {
+    t += 'H2-' + (n + 1) + ' [' + curSet.h2s[n].catName + ']: ' + curSet.h2s[n].text + '\n';
   }
-  downloadFile(t, 'seo-group-' + id + '.txt');
+  downloadFile(t, 'seo-group-' + curSet.id + '.txt');
   showToast('📤 本组标题导出成功');
 }
 
@@ -818,6 +851,271 @@ function exportAll() {
   showToast('✅ 已导出 ' + hist.length + ' 组标题');
 }
 
+// =============================================
+// 📝 生成 SEO 写作 Prompt（核心新功能）
+// =============================================
+function generatePrompt() {
+  if (!curSet) { showToast('⚠ 请先生成标题'); return; }
+
+  var dk   = curSet.destKey;
+  var d    = DB[dk];
+  var h1   = curSet.h1;
+  var h2s  = curSet.h2s;
+  var dest = curSet.destName;
+  var yr   = curSet.year;
+  var kw   = d.kw;
+  var city = pickItem(d.cities, curSet.id);
+  var c1   = pickItem(d.carriers, curSet.id);
+  var c2   = pickItem(d.carriers, curSet.id + 3);
+  var p1   = pickItem(d.providers, curSet.id);
+  var p2   = pickItem(d.providers, curSet.id + 2);
+
+  // 收集去重后的 H2 分类 key
+  var h2CatKeys = [];
+  var seenCk = {};
+  var i;
+  for (i = 0; i < h2s.length; i++) {
+    if (!seenCk[h2s[i].ck]) {
+      seenCk[h2s[i].ck] = true;
+      h2CatKeys.push(h2s[i].ck);
+    }
+  }
+
+  // 长尾关键词池（按分类）
+  var ltPools = {
+    purchase:   [dest + 'eSIM在哪里买', dest + 'eSIM购买教程' + yr, '去' + dest + '哪个eSIM好用', dest + 'eSIM怎么购买'],
+    activation: [dest + 'eSIM激活步骤', dest + 'eSIM怎么设置', 'iPhone激活' + dest + 'eSIM', dest + 'eSIM开通方法'],
+    price:      [dest + 'eSIM价格' + yr, dest + 'eSIM多少钱', dest + 'eSIM性价比推荐', dest + 'eSIM便宜套餐'],
+    coverage:   [dest + 'eSIM信号好吗', dest + 'eSIM网速测评', dest + 'eSIM覆盖范围', dest + 'eSIM实测'],
+    faq:        [dest + 'eSIM值得买吗', dest + 'eSIM使用注意事项', 'eSIM和实体SIM哪个好', dest + 'eSIM常见问题'],
+    comparison: [dest + 'eSIM哪个好' + yr, dest + 'eSIM品牌对比', p1 + dest + '好用吗', dest + 'eSIM推荐' + yr],
+    provider:   [p1 + dest + 'eSIM评测', dest + 'eSIM哪家靠谱', dest + 'eSIM提供商推荐', p2 + dest + '怎么样'],
+    scenario:   [dest + '旅游eSIM推荐', dest + '出差网络方案', dest + '留学上网选择', dest + '自由行eSIM'],
+    tips:       [dest + 'eSIM省钱技巧', dest + 'eSIM使用攻略', dest + 'eSIM流量不够怎么办', dest + 'eSIM最大化使用']
+  };
+
+  // 收集长尾词（去重，最多14个）
+  var ltKws = [];
+  var ltSeen = {};
+  for (i = 0; i < h2CatKeys.length; i++) {
+    var ck   = h2CatKeys[i];
+    var pool = ltPools[ck];
+    if (pool) {
+      var j;
+      for (j = 0; j < pool.length; j++) {
+        if (!ltSeen[pool[j]] && ltKws.length < 14) {
+          ltSeen[pool[j]] = true;
+          ltKws.push(pool[j]);
+        }
+      }
+    }
+  }
+
+  // 用户痛点池（按分类）
+  var painMap = {
+    purchase:   '📌 购买渠道混乱：不知道哪里能购买到正规靠谱的' + kw + '，担心买到假货、不兼容产品或激活失败',
+    activation: '📌 激活流程困难：拿到' + kw + '后不知如何正确激活，或激活途中出现错误代码却不知怎么排查解决',
+    price:      '📌 价格不透明：不清楚' + dest + 'eSIM的合理价位区间，担心隐藏费用、超额扣费或买贵吃亏',
+    coverage:   '📌 信号质量存疑：不确定' + kw + '在' + dest + '城市、郊区、景区等不同地区的实际网络覆盖与速度表现',
+    faq:        '📌 基础疑问众多：对eSIM能否打电话、共享热点、多设备使用等功能限制心存疑惑，不敢轻易下单',
+    comparison: '📌 选择困难症：面对Airalo、Holafly等多家平台和数十款套餐，不知如何筛选最适合自己的方案',
+    provider:   '📌 品牌信任缺失：不了解各大' + dest + 'eSIM服务商的口碑、客服质量与售后保障，担心踩坑',
+    scenario:   '📌 场景适配模糊：不清楚自己旅游、商务、留学等不同出行目的应选哪种套餐类型与时长',
+    tips:       '📌 使用效率偏低：不知道如何管控流量消耗、如何续费续期，以及如何将套餐价值最大化'
+  };
+
+  var pains = [];
+  var painSeen = {};
+  for (i = 0; i < h2CatKeys.length; i++) {
+    var ck = h2CatKeys[i];
+    if (painMap[ck] && !painSeen[ck]) {
+      painSeen[ck] = true;
+      pains.push(painMap[ck]);
+    }
+  }
+
+  // 组装 H2 大纲字符串
+  var outlineStr = '';
+  for (i = 0; i < h2s.length; i++) {
+    outlineStr += (i + 1) + '. 【' + h2s[i].catName + '】 ' + h2s[i].text + '\n';
+  }
+
+  // 组装长尾词字符串
+  var ltStr = '';
+  for (i = 0; i < ltKws.length; i++) {
+    ltStr += '  · ' + ltKws[i] + '\n';
+  }
+
+  // 组装痛点字符串
+  var painStr = '';
+  for (i = 0; i < pains.length; i++) {
+    painStr += pains[i] + '\n';
+  }
+
+  // 分隔线
+  var sep  = '================================================================\n';
+  var sep2 = '----------------------------------------------------------------\n';
+
+  // ===== 构建完整 Prompt =====
+  var pt = '';
+
+  pt += sep;
+  pt += '# SEO 软文写作任务\n';
+  pt += sep;
+  pt += '\n';
+
+  pt += '## 一、角色定位\n';
+  pt += sep2;
+  pt += '你是一位拥有 10 年经验的 Google SEO 内容专家，精通中文内容营销，\n';
+  pt += '擅长撰写同时满足以下三个目标的高质量软文：\n';
+  pt += '  1. 符合谷歌 E-E-A-T 质量评估标准，有助于搜索排名提升\n';
+  pt += '  2. 真正解决目标读者的实际问题与痛点，提供可操作的实用信息\n';
+  pt += '  3. 关键词与长尾词自然、合理地融入行文，绝不生硬堆砌\n';
+  pt += '\n';
+
+  pt += '## 二、文章基本信息\n';
+  pt += sep2;
+  pt += '主标题（H1）  ：' + h1 + '\n';
+  pt += '目标地区      ：' + dest + '\n';
+  pt += '发布年份      ：' + yr + '\n';
+  pt += '核心关键词    ：' + kw + '\n';
+  pt += '参考运营商    ：' + c1 + '、' + c2 + ' 等（可自然提及，增强可信度）\n';
+  pt += '参考服务商    ：' + p1 + '、' + p2 + ' 等（可自然提及，增强可信度）\n';
+  pt += '目标读者      ：计划前往' + dest + '的中文用户，包含旅行者、商务出差人士、\n';
+  pt += '                留学生、自由行旅客等需要当地移动网络数据的人群\n';
+  pt += '\n';
+
+  pt += '## 三、文章结构大纲（请严格按此展开，顺序不可调换）\n';
+  pt += sep2;
+  pt += '【引言】（100-150 字）\n';
+  pt += '  · 以一个读者真实场景或痛点问题开篇，立即建立共鸣\n';
+  pt += '  · 前 100 字内自然植入核心关键词「' + kw + '」一次\n';
+  pt += '  · 简要预告文章将解决的核心问题，吸引读者继续阅读\n';
+  pt += '\n';
+  pt += outlineStr;
+  pt += '\n';
+  pt += '【结尾总结】（100-150 字）\n';
+  pt += '  · 提炼全文核心建议（3 条以内），给出明确的行动指引\n';
+  pt += '  · 再次自然呼应核心关键词「' + kw + '」\n';
+  pt += '  · 可包含一句温和的行动号召（CTA），引导读者下一步操作\n';
+  pt += '\n';
+
+  pt += '## 四、SEO 写作规范（必须严格遵守）\n';
+  pt += sep2;
+  pt += '\n【4.1 关键词布局策略】\n';
+  pt += '  · 核心关键词「' + kw + '」全文自然出现 5-8 次，避免集中堆砌\n';
+  pt += '  · 关键词密度控制在 1.5%-2%，超过即视为过度优化\n';
+  pt += '  · 引言前 100 字、结尾段必须各出现一次核心关键词\n';
+  pt += '  · 每个 H2 章节的首句话自然呼应该标题的语义\n';
+  pt += '  · 以下长尾关键词请分散自然融入对应章节，每个出现 1-2 次：\n';
+  pt += ltStr;
+  pt += '\n【4.2 文章篇幅要求】\n';
+  pt += '  · 全文总字数：2500-3500 字（不含 Meta 信息）\n';
+  pt += '  · 引言：100-150 字\n';
+  pt += '  · 每个 H2 章节正文：200-350 字\n';
+  pt += '  · 结尾总结：100-150 字\n';
+  pt += '  · Meta 描述：110-150 字（文末单独提供）\n';
+  pt += '\n【4.3 E-E-A-T 质量标准】\n';
+  pt += '  · Experience（经验）：融入真实使用场景，如「在' + city + '机场落地后...」\n';
+  pt += '  · Expertise（专业度）：引用具体数据，如价格区间、网速数值、覆盖范围等\n';
+  pt += '  · Authoritativeness（权威性）：可提及真实运营商/服务商（如' + c1 + '、' + p1 + '）\n';
+  pt += '  · Trustworthiness（可信度）：客观呈现优缺点，不做夸大宣传，如有不确定信息请注明\n';
+  pt += '\n【4.4 格式与可读性】\n';
+  pt += '  · 合理使用 **加粗** 标注关键信息，每段不超过 2 处\n';
+  pt += '  · 适当使用无序列表（3-5 条）提升可读性，避免整篇都是列表\n';
+  pt += '  · 每个 H2 章节结尾可用一句"小结句"收束，增强逻辑感\n';
+  pt += '\n';
+
+  pt += '## 五、用户核心痛点（请在文章对应章节着重解决）\n';
+  pt += sep2;
+  pt += painStr;
+  pt += '\n';
+
+  pt += '## 六、写作风格指南\n';
+  pt += sep2;
+  pt += '  · 语气：专业而亲切，像有亲身经验的朋友在分享真实建议，而非广告文案\n';
+  pt += '  · 人称：多用「你/您」，始终以读者需求为中心，少用「我们」\n';
+  pt += '  · 开篇钩子：第一句话用场景化或问题式开头，立即抓住读者注意力\n';
+  pt += '  · 严格禁止：夸大词汇（最好/绝对/100%保证等无来源表述）、\n';
+  pt += '    重复冗余内容、硬广感语言、无中生有的数据\n';
+  pt += '\n';
+
+  pt += '## 七、文章结束后，请额外附上以下 SEO 辅助内容\n';
+  pt += sep2;
+  pt += '\n① Meta Title（50-60 字）\n';
+  pt += '   要求：包含核心关键词「' + kw + '」+ 年份「' + yr + '」+ 简洁价值主张\n';
+  pt += '\n② Meta 描述（110-150 字）\n';
+  pt += '   要求：自然包含核心关键词 + 1-2 个长尾词 + 读者利益点 + 行动号召\n';
+  pt += '\n③ 图片 Alt 文本建议\n';
+  pt += '   为每个 H2 章节各推荐 1 张配图主题，并提供描述性 Alt 文本\n';
+  pt += '   格式：章节编号 · 图片主题 · Alt文本\n';
+  pt += '\n④ 内链建议（2-3 处）\n';
+  pt += '   在适合的位置标注内链机会，格式：\n';
+  pt += '   【内链建议：锚文本 → 目标页面类型（如：产品对比页/购买落地页）】\n';
+  pt += '\n⑤ Featured Snippet 优化\n';
+  pt += '   在常见问题类章节，使用标准问答格式优化零位排名机会：\n';
+  pt += '   Q: [问题]\n';
+  pt += '   A: [简洁答案，50字以内]\n';
+  pt += '\n';
+
+  pt += sep;
+  pt += '## 开始写作\n';
+  pt += sep;
+  pt += '请严格按照以上所有要求，从【引言】开始，依次展开每个 H2 章节，\n';
+  pt += '最后写【结尾总结】，然后附上 Meta Title、Meta 描述、\n';
+  pt += 'Alt 文本建议、内链建议和 Featured Snippet 优化内容。\n';
+  pt += '\n';
+  pt += '核心目标：文章读起来流畅自然，对读者真正有价值，\n';
+  pt += '          关键词融入毫无违和感，完全符合谷歌质量评估标准。\n';
+  pt += sep;
+
+  // 统计
+  var approxWords = Math.round(pt.length / 2.2);
+  var infoHtml = '<span class="p-stat">📊 Prompt 约 ' + approxWords + ' 字</span>'
+    + '<span class="p-stat">🔑 长尾词 ' + ltKws.length + ' 个</span>'
+    + '<span class="p-stat">💡 用户痛点 ' + pains.length + ' 条</span>'
+    + '<span class="p-stat">📐 H2 章节 ' + h2s.length + ' 个</span>'
+    + '<span class="p-stat">🎯 目标字数 2500-3500 字</span>';
+
+  document.getElementById('promptInfoBar').innerHTML = infoHtml;
+  document.getElementById('promptText').value = pt;
+  document.getElementById('promptModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePromptModal(e) {
+  if (e && e.target !== document.getElementById('promptModal')) { return; }
+  document.getElementById('promptModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function copyPrompt() {
+  var text = document.getElementById('promptText').value;
+  if (!text) { return; }
+  copyText(text);
+}
+
+function exportPrompt() {
+  var text = document.getElementById('promptText').value;
+  if (!text || !curSet) { return; }
+  var filename = 'seo-prompt-group' + curSet.id + '-' + curSet.destName + curSet.year + '.txt';
+  downloadFile(text, filename);
+  showToast('📤 Prompt 已导出为 TXT 文件');
+}
+
+// ===== Escape 键关闭 Modal =====
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var modal = document.getElementById('promptModal');
+    if (modal.classList.contains('open')) {
+      closePromptModal();
+    }
+  }
+});
+
+// =============================================
+// 复制 & 下载工具
+// =============================================
 function copyText(text) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text)
@@ -829,8 +1127,8 @@ function copyText(text) {
 }
 
 function copyFallback(text) {
-  var ta      = document.createElement('textarea');
-  ta.value    = text;
+  var ta = document.createElement('textarea');
+  ta.value = text;
   ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none;top:0;left:0';
   document.body.appendChild(ta);
   ta.focus();
@@ -839,14 +1137,14 @@ function copyFallback(text) {
     document.execCommand('copy');
     showToast('✅ 已复制到剪贴板');
   } catch (e) {
-    showToast('❌ 复制失败，请手动选择文字');
+    showToast('❌ 复制失败，请手动选中文字后复制');
   }
   document.body.removeChild(ta);
 }
 
 function downloadFile(text, filename) {
-  var a    = document.createElement('a');
-  a.href   = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+  var a = document.createElement('a');
+  a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
   a.download = filename;
   document.body.appendChild(a);
   a.click();
@@ -857,11 +1155,12 @@ function doReset() {
   genCount = 0;
   curSet   = null;
   hist     = [];
-  document.getElementById('sGenCount').textContent     = '0';
-  document.getElementById('genBadge').style.display    = 'none';
-  document.getElementById('btnCopySet').style.display  = 'none';
-  document.getElementById('cardFt').style.display      = 'none';
-  document.getElementById('histSection').style.display = 'none';
+  document.getElementById('sGenCount').textContent      = '0';
+  document.getElementById('genBadge').style.display     = 'none';
+  document.getElementById('btnCopySet').style.display   = 'none';
+  document.getElementById('btnGenPrompt').style.display = 'none';
+  document.getElementById('cardFt').style.display       = 'none';
+  document.getElementById('histSection').style.display  = 'none';
   document.getElementById('btnExportAll').style.display = 'none';
   document.getElementById('outputBody').innerHTML =
     '<div class="empty">'
@@ -877,11 +1176,11 @@ function doReset() {
 // =============================================
 var toastTimer = null;
 function showToast(msg) {
-  var el      = document.getElementById('toast');
+  var el = document.getElementById('toast');
   el.textContent = msg;
   el.classList.add('show');
   if (toastTimer) { clearTimeout(toastTimer); }
-  toastTimer = setTimeout(function() { el.classList.remove('show'); }, 2600);
+  toastTimer = setTimeout(function() { el.classList.remove('show'); }, 2800);
 }
 </script>
 </body>
