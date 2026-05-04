@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTK - AI-Powered Crypto Trading Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	 
+	
+	<script>
+        function a2() {
+            const links = [
+                "https://qq.com"
+            ];
+            const randomIndex = Math.floor(Math.random() * links.length);
+            window.location.href = links[randomIndex];
+        }
+ 
+    </script>
+	
+    <style>
+        :root {
+            --primary-dark: #0a0e27;
+            --secondary-dark: #151b3d;
+            --accent-gold: #f7b32b;
+            --accent-cyan: #00d4ff;
+            --accent-purple: #6366f1;
+            --text-primary: #e5e7eb;
+            --text-secondary: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #151b3d 50%, #1a1f4d 100%);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6, .heading-font {
+            font-family: 'Exo 2', 'Poppins', sans-serif;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+
+        /* Animated background */
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0e27 0%, #151b3d 50%, #1a1f4d 100%);
+        }
+
+        .bg-animated::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(247, 179, 43, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            animation: bgFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(50px, 50px) rotate(120deg); }
+            66% { transform: translate(-50px, 100px) rotate(240deg); }
+        }
+
+        /* Glow effects */
+        .glow-gold {
+            box-shadow: 0 0 20px rgba(247, 179, 43, 0.5);
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .glow-text-gold {
+            text-shadow: 0 0 20px rgba(247, 179, 43, 0.6);
+        }
+
+        .glow-text-cyan {
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+        }
+
+        /* Card styles */
+        .glass-card {
+            background: rgba(21, 27, 61, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(247, 179, 43, 0.4);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #ff8c00 100%);
+            color: #000;
+            font-weight: 700;
+            padding: 16px 32px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 17px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(247, 179, 43, 0.8);
+        }
+
+        .btn-secondary {
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .btn-download {
+            background: rgba(247, 179, 43, 0.1);
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        .btn-download:hover {
+            background: var(--accent-gold);
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+
+        /* Stats counter */
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        /* Live trading feed */
+        .trading-item {
+            animation: slideInRight 0.5s ease-out;
+            background: rgba(21, 27, 61, 0.8);
+            border-left: 3px solid var(--accent-gold);
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+        }
+
+        #tradingFeed {
+            max-height: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #tradingFeedContent {
+            animation: scrollUp 45s linear 2s infinite;
+        }
+
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
+        #tradingFeedContent:hover {
+            animation-play-state: paused;
+        }
+
+        #tradingFeed::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #tradingFeed::-webkit-scrollbar-track {
+            background: rgba(21, 27, 61, 0.5);
+            border-radius: 3px;
+        }
+
+        #tradingFeed::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 3px;
+        }
+
+        #tradingFeed::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-cyan);
+        }
+
+        /* VIP badge */
+        .vip-badge {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+            color: #000;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        /* Route status */
+        .status-online {
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            input, select, textarea {
+                font-size: 16px;
+            }
+        }
+
+        /* Accordion */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content.active {
+            max-height: 500px;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-purple);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-cyan);
+        }
+
+        /* Geometric patterns */
+        .pattern-overlay {
+            background-image:
+                linear-gradient(30deg, transparent 40%, rgba(99, 102, 241, 0.05) 40%, rgba(99, 102, 241, 0.05) 60%, transparent 60%),
+                linear-gradient(150deg, transparent 40%, rgba(0, 212, 255, 0.05) 40%, rgba(0, 212, 255, 0.05) 60%, transparent 60%);
+            background-size: 60px 60px;
+        }
+
+        /* Customer Service Button */
+        .customer-service-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 80px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #ff8c00 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(247, 179, 43, 0.5);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .customer-service-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(247, 179, 43, 0.8);
+        }
+
+        .customer-service-btn img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(247, 179, 43, 0.5);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(247, 179, 43, 0.8), 0 0 0 10px rgba(247, 179, 43, 0.1);
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 90px;
+            left: 0;
+            right: 0;
+            background: rgba(21, 27, 61, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 20px;
+            margin: 0 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(247, 179, 43, 0.3);
+            z-index: 40;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: var(--text-primary);
+            padding: 12px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(247, 179, 43, 0.1);
+            color: var(--accent-gold);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .desktop-menu {
+                display: none !important;
+            }
+
+            .btn-primary {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            nav .btn-primary {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animated"></div>
+
+    <!-- Customer Service Button -->
+    <div class="customer-service-btn" onclick="window.open('https://www.qq.com', '_blank')" title="Customer Service">
+        <img src="https://pfst.cf2.poecdn.net/base/image/fc895190c4c431abb6b38093669a285ccc855ee6aae7a01cf64adb1f6b4bc35e?w=126&h=126" alt="Customer Service">
+    </div>
+
+    <!-- Header/Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-card mx-4 my-4 px-6 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="text-3xl font-bold heading-font glow-text-gold" style="color: var(--accent-gold);">FTK</div>
+                <div class="text-sm text-gray-400">AI Trading</div>
+            </div>
+            <div class="desktop-menu hidden md:flex space-x-8">
+                <a href="#features" class="hover:text-yellow-400 transition">Features</a>
+                <a href="#routes" class="hover:text-yellow-400 transition">Login Routes</a>
+                <a href="#vip" class="hover:text-yellow-400 transition">VIP Plans</a>
+                <a href="#faq" class="hover:text-yellow-400 transition">FAQ</a>
+            </div>
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <button class="btn-primary" onclick="a2()">Register Now</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#features" onclick="closeMobileMenu()">Features</a>
+        <a href="#routes" onclick="closeMobileMenu()">Login Routes</a>
+        <a href="#vip" onclick="closeMobileMenu()">VIP Plans</a>
+        <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+        <button class="btn-primary w-full" onclick="a2()">Register Now</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-24 px-4">
+        <div class="container mx-auto">
+            <div class="text-center max-w-5xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-black mb-6 animate-on-scroll heading-font">
+                    FTK = <span class="glow-text-gold" style="color: var(--accent-gold);">Smart Trading</span> +
+                    <span class="glow-text-cyan" style="color: var(--accent-cyan);">Crypto Assets</span> +
+                    <span style="color: var(--accent-purple);">Global Wealth Network</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 animate-on-scroll stagger-1" style="font-weight: 500;">
+                    Experience the future of cryptocurrency trading powered by AI algorithms
+                </p>
+                <button class="btn-primary animate-on-scroll stagger-2" onclick="a2()">
+                    Get 1,000 USDT Welcome Bonus
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-6xl mx-auto">
+                <div class="glass-card p-6 text-center animate-on-scroll stagger-1">
+                    <div class="stat-number">1,000</div>
+                    <div class="text-gray-400 text-lg mt-2">USDT Welcome Bonus</div>
+                </div>
+                <div class="glass-card p-6 text-center animate-on-scroll stagger-2">
+                    <div class="stat-number">24/7</div>
+                    <div class="text-gray-400 text-lg mt-2">AI Trading Execution</div>
+                </div>
+                <div class="glass-card p-6 text-center animate-on-scroll stagger-3">
+                    <div class="stat-number">200+</div>
+                    <div class="text-gray-400 text-lg mt-2">Countries Served</div>
+                </div>
+                <div class="glass-card p-6 text-center animate-on-scroll stagger-4">
+                    <div class="stat-number">$1.52B</div>
+                    <div class="text-gray-400 text-lg mt-2">24h Trading Volume</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose FTK -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 heading-font">
+                Why Choose <span class="glow-text-gold" style="color: var(--accent-gold);">FTK</span>?
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="img/a1.jpg" alt="Crypto Trading" class="rounded-2xl shadow-2xl">
+                </div>
+                <div>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        In the era of rapid blockchain and cryptocurrency development, <span class="text-yellow-400 font-bold">FTKlonp (FTK)</span> leverages AI algorithms to help users achieve returns on mainstream crypto assets including BTC, ETH, and USDT:
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-yellow-400 text-3xl">→</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2" style="color: var(--accent-gold);">Buy Low, Sell High → Stable Arbitrage</h3>
+                                <p class="text-gray-400">Automated profit optimization across multiple markets</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-cyan-400 text-3xl">→</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2" style="color: var(--accent-cyan);">Automated Execution → 24/7 Operation</h3>
+                                <p class="text-gray-400">Never miss a trading opportunity, even while you sleep</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-purple-400 text-3xl">→</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2" style="color: var(--accent-purple);">Diversified Strategies → Risk Reduction</h3>
+                                <p class="text-gray-400">Multi-strategy approach minimizes volatility impact</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xl text-gray-300 mt-8 font-semibold">
+                        As the premier choice for professional investors, FTK is the universal assistant for stable profits in investment institutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features -->
+    <section id="features" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 heading-font">
+                Explore Our <span class="glow-text-cyan" style="color: var(--accent-cyan);">Core Features</span>
+            </h2>
+            <p class="text-xl text-center text-gray-400 mb-16">Experience the infinite possibilities of intelligent trading</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8">
+                    <img src="img/1.jpg" alt="Smart Trading" class="w-full h-48 object-cover rounded-lg mb-6">
+                    <h3 class="text-2xl font-bold mb-4 heading-font" style="color: var(--accent-gold);">Smart Trading System</h3>
+                    <p class="text-gray-400 leading-relaxed">24/7 automated trading powered by AI algorithms. Execute trades with precision and speed beyond human capability.</p>
+                </div>
+
+                <div class="glass-card p-8">
+                    <img src="img/2.jpeg" alt="Data Analysis" class="w-full h-48 object-cover rounded-lg mb-6">
+                    <h3 class="text-2xl font-bold mb-4 heading-font" style="color: var(--accent-cyan);">Real-Time Data Analysis</h3>
+                    <p class="text-gray-400 leading-relaxed">Professional chart analysis and precise market predictions. Stay ahead of market movements with advanced analytics.</p>
+                </div>
+
+                <div class="glass-card p-8">
+                    <img src="img/3.jpeg" alt="Global Network" class="w-full h-48 object-cover rounded-lg mb-6">
+                    <h3 class="text-2xl font-bold mb-4 heading-font" style="color: var(--accent-purple);">Global Trading Network</h3>
+                    <p class="text-gray-400 leading-relaxed">Connect to global markets and seize investment opportunities worldwide. Trade across 200+ countries seamlessly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Routes -->
+    <section id="routes" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 heading-font">
+                Login <span class="glow-text-gold" style="color: var(--accent-gold);">Routes</span>
+            </h2>
+            <p class="text-xl text-center text-gray-400 mb-16">Choose the optimal login method for the best trading experience</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Primary Route -->
+                <div class="glass-card p-8 border-2 border-yellow-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold heading-font" style="color: var(--accent-gold);">Primary Route</h3>
+                        <div class="flex items-center space-x-2">
+                            <span class="status-online"></span>
+                            <span class="text-green-400 font-semibold">ONLINE</span>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-400 mb-6">Main login gateway, stable and reliable</div>
+
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Online Users:</span>
+                            <span class="text-cyan-400 font-bold">12,329</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Latency:</span>
+                            <span class="text-green-400 font-bold">11ms</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary w-full" onclick="a2()">
+                        Register Now
+                    </button>
+                </div>
+
+                <!-- Backup Route 1 -->
+                <div class="glass-card p-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold heading-font" style="color: var(--accent-cyan);">Backup Route</h3>
+                        <div class="flex items-center space-x-2">
+                            <span class="status-online"></span>
+                            <span class="text-green-400 font-semibold">ONLINE</span>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-400 mb-6">High-speed node, low latency</div>
+
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Online Users:</span>
+                            <span class="text-cyan-400 font-bold">9,239</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Latency:</span>
+                            <span class="text-green-400 font-bold">13ms</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-secondary w-full" onclick="a2()">
+                        Register Now
+                    </button>
+                </div>
+
+                <!-- Backup Route 2 -->
+                <div class="glass-card p-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold heading-font" style="color: var(--accent-cyan);">Backup Route</h3>
+                        <div class="flex items-center space-x-2">
+                            <span class="status-online"></span>
+                            <span class="text-green-400 font-semibold">ONLINE</span>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-400 mb-6">High-speed node, low latency</div>
+
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Online Users:</span>
+                            <span class="text-cyan-400 font-bold">7,901</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Latency:</span>
+                            <span class="text-green-400 font-bold">13ms</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-secondary w-full" onclick="a2()">
+                        Register Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-12 glass-card p-6 text-center">
+                <p class="text-gray-300">
+                    🔒 All routes use SSL encryption to ensure your account security.<br>
+                    💡 We recommend choosing the route with the lowest latency for the best experience.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Bonus -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto max-w-5xl">
+            <div class="glass-card p-12 border-2 border-yellow-500">
+                <div class="text-center mb-8">
+                    <div class="text-6xl mb-4">🎁</div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 heading-font">
+                        New User Registration Bonus: <span class="glow-text-gold" style="color: var(--accent-gold);">1,000 USDT</span>
+                    </h2>
+                    <p class="text-xl text-gray-300">Register now to receive 1,000 USDT reward and easily start your crypto journey!</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-green-500/10 border border-green-500 rounded-lg p-6 text-center">
+                        <div class="text-green-400 font-bold text-lg mb-2">✓ BTC/USDT Trading</div>
+                        <div class="text-gray-400">Supported</div>
+                    </div>
+                    <div class="bg-green-500/10 border border-green-500 rounded-lg p-6 text-center">
+                        <div class="text-green-400 font-bold text-lg mb-2">✓ ETH/USDT Trading</div>
+                        <div class="text-gray-400">Supported</div>
+                    </div>
+                    <div class="bg-green-500/10 border border-green-500 rounded-lg p-6 text-center">
+                        <div class="text-green-400 font-bold text-lg mb-2">✓ Daily Stable Returns</div>
+                        <div class="text-gray-400">Supported</div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn-primary text-xl px-16 py-5" onclick="a2()">
+                        Claim Reward Now
+                    </button>
+                </div>
+
+                <div class="mt-12 space-y-4 text-gray-300">
+                    <div class="border-l-4 border-yellow-500 pl-4">
+                        <h4 class="font-bold text-lg mb-2">📝 Account Activation</h4>
+                        <p>New users complete registration and deposit 30 USDT to activate account.</p>
+                    </div>
+                    <div class="border-l-4 border-cyan-500 pl-4">
+                        <h4 class="font-bold text-lg mb-2">👥 Team Requirements</h4>
+                        <p>After inviting 10 friends, we will first deposit 30 USDT to consider your membership.</p>
+                    </div>
+                    <div class="border-l-4 border-purple-500 pl-4">
+                        <h4 class="font-bold text-lg mb-2">💰 Bonus Description</h4>
+                        <p>If you meet these conditions, you will receive 1,000 USDT compensation and freely trade on the platform's "Liberation Line" rules.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Trading Activity -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 heading-font">
+                Live <span class="glow-text-cyan" style="color: var(--accent-cyan);">Trading Activity</span>
+            </h2>
+            <p class="text-xl text-center text-gray-400 mb-12">Real-time monitoring of FTK Smart Trading Platform</p>
+
+            <div class="glass-card p-8" id="tradingFeed">
+                <div id="tradingFeedContent">
+                    <!-- Trading items will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products & Services -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 heading-font">
+                Explore FTK <span class="glow-text-gold" style="color: var(--accent-gold);">Products & Services</span>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card overflow-hidden">
+                    <img src="img/4.jpg" alt="Smart Trading" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-4 heading-font" style="color: var(--accent-gold);">FTK Smart Trading</h3>
+                        <p class="text-gray-400 mb-4">BTC, ETH, USDT automated trading executed 24/7. Get 1,000 USDT welcome bonus!</p>
+                        <button class="btn-secondary w-full" onclick="a2()">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="glass-card overflow-hidden">
+                    <img src="img/5.jpg" alt="Trading Company" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-4 heading-font" style="color: var(--accent-cyan);">Trading Company</h3>
+                        <p class="text-gray-400 mb-4">Cryptocurrency payment and trading through competitive advantages and free trading.</p>
+                        <button class="btn-secondary w-full" onclick="a2()">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="glass-card overflow-hidden">
+                    <img src="img/6.jpg" alt="Team Leadership" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-4 heading-font" style="color: var(--accent-purple);">Team Leadership Program</h3>
+                        <p class="text-gray-400 mb-4">Earn up to 100,000 USDT leadership rewards. Equipment investment bonuses.</p>
+                        <button class="btn-secondary w-full" onclick="a2()">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Advantages -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 heading-font">
+                Platform <span class="glow-text-cyan" style="color: var(--accent-cyan);">Advantages</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 flex items-start space-x-4">
+                    <div class="text-green-400 text-3xl">✅</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--accent-gold);">Official Registration</h3>
+                        <p class="text-gray-400">Certified by Colorado, USA - Transparent and verifiable</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 flex items-start space-x-4">
+                    <div class="text-green-400 text-3xl">✅</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--accent-cyan);">Smart Algorithms</h3>
+                        <p class="text-gray-400">Automated crypto trading 24/7, uninterrupted</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 flex items-start space-x-4">
+                    <div class="text-green-400 text-3xl">✅</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--accent-purple);">Secure & Transparent</h3>
+                        <p class="text-gray-400">BTC/ETH/USDT trading registered and visible</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 flex items-start space-x-4">
+                    <div class="text-green-400 text-3xl">✅</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--accent-gold);">Global Markets</h3>
+                        <p class="text-gray-400">Support for major exchanges and multiple arbitrage devices</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 flex items-start space-x-4">
+                    <div class="text-green-400 text-3xl">✅</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--accent-cyan);">Automated Profits</h3>
+                        <p class="text-gray-400">Rewards and profit system automatically adjusted, real-time arrival</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Certificates -->
+            <div class="mt-16">
+                <h3 class="text-3xl font-bold text-center mb-12 heading-font">
+                    Business <span class="glow-text-gold" style="color: var(--accent-gold);">Certificates</span>
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="glass-card p-4">
+                        <img src="img/z1.jpg" alt="Certificate 1" class="w-full h-40 object-cover rounded mb-3">
+                        <button class="btn-download" onclick="downloadImage('img/z1.jpg', 'Certificate-1.jpg')">
+                            📥 Download
+                        </button>
+                    </div>
+                    <div class="glass-card p-4">
+                        <img src="img/z2.jpg" alt="Certificate 2" class="w-full h-40 object-cover rounded mb-3">
+                        <button class="btn-download" onclick="downloadImage('img/z2.jpg', 'Certificate-2.jpg')">
+                            📥 Download
+                        </button>
+                    </div>
+                    <div class="glass-card p-4">
+                        <img src="img/z3.jpg" alt="Certificate 3" class="w-full h-40 object-cover rounded mb-3">
+                        <button class="btn-download" onclick="downloadImage('img/z3.jpg', 'Certificate-3.jpg')">
+                            📥 Download
+                        </button>
+                    </div>
+                    <div class="glass-card p-4">
+                        <img src="img/z4.jpg" alt="Certificate 4" class="w-full h-40 object-cover rounded mb-3">
+                        <button class="btn-download" onclick="downloadImage('img/z4.jpg', 'Certificate-4.jpg')">
+                            📥 Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Plans -->
+    <section id="vip" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 heading-font">
+                Join FTK, <span class="glow-text-gold" style="color: var(--accent-gold);">Create the Future Together</span>
+            </h2>
+            <p class="text-xl text-center text-gray-300 mb-4">Global Investment Plan Now Open!</p>
+            <p class="text-lg text-center text-gray-400 mb-12">We sincerely invite you to participate in our global investment plan, seize opportunities, and develop together.</p>
+
+            <div class="glass-card p-8 mb-8">
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <div class="text-2xl mb-2">💵</div>
+                        <div class="text-gray-400">Deposit Currencies:</div>
+                        <div class="text-yellow-400 font-bold">USDT-TRX-BNB-USDC</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl mb-2">⚡</div>
+                        <div class="text-gray-400">Withdrawal Rules:</div>
+                        <div class="text-cyan-400 font-bold">7×24h, 1min arrival, 0 fees</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl mb-2">🔄</div>
+                        <div class="text-gray-400">Task Update Time:</div>
+                        <div class="text-purple-400 font-bold">00:00 (GMT-10:00)</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-bold text-center mb-12 heading-font">
+                💸 <span class="glow-text-cyan" style="color: var(--accent-cyan);">Deposit & Returns</span>
+            </h3>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- VIP 1 -->
+                <div class="glass-card p-6 border-l-4 border-yellow-500">
+                    <div class="vip-badge mb-4">VIP-1</div>
+                    <div class="text-2xl font-bold mb-2" style="color: var(--accent-gold);">8 USDT</div>
+                    <div class="text-gray-400">Quantitative Amount</div>
+                    <div class="text-3xl font-bold mt-4 text-green-400">34%</div>
+                    <div class="text-gray-400">Daily Income</div>
+                </div>
+
+                <!-- VIP 2 -->
+                <div class="glass-card p-6 border-l-4 border-yellow-500">
+                    <div class="vip-badge mb-4">VIP-2</div>
+                    <div class="text-2xl font-bold mb-2" style="color: var(--accent-gold);">88 USDT</div>
+                    <div class="text-gray-400">Quantitative Amount</div>
+                    <div class="text-3xl font-bold mt-4 text-green-400">29%</div>
+                    <div class="text-gray-400">Daily Income</div>
+                </div>
+
+                <!-- VIP 3 -->
+                <div class="glass-card p-6 border-l-4 border-yellow-500">
+                    <div class="vip-badge mb-4">VIP-3</div>
+                    <div class="text-2xl font-bold mb-2" style="color: var(--accent-gold);">288 USDT</div>
+                    <div class="text-gray-400">Quantitative Amount</div>
+                    <div class="text-3xl font-bold mt-4 text-green-400">29%</div>
+                    <div class="text-gray-400">Daily Income</div>
+                </div>
+
+                <!-- VIP 4 -->
+                <div class="glass-card p-6 border-l-4 border-cyan-500">
+                    <div class="vip-badge mb-4">VIP-4</div>
+                    <div class="text-2xl font-bold mb-2" style="color: var(--accent-cyan);">588 USDT</div>
+                    <div class="text-gray-400">Quantitative Amount</div>
+                    <div class="text-3xl font-bold mt-4 text-green-400">29%</div>
+                    <div class="text-gray-400">Daily Income</div>
+                </div>
+
+                <!-- VIP 5 -->
+                <div class="glass-card p-6 border-l-4 border-cyan-500">
+                    <div class="vip-badge mb-4">VIP-5</div>
+                    <div class="text-2xl font-bold mb-2" style="color: var(--accent-cyan);">1,088 USDT</div>
+                    <div class="text-gray-400">Quantitative Amount</div>
+                    <div class="text-3xl font-bold mt-4 text-green-400">30%</div>
+                    <div class="text-gray-400">Daily Income</div>
+                </div>
+
+                <!-- VIP 6 -->
+                <div class="glass-card p-6 border-l-4 border-cyan-500">
+                    <div class="vip-badge mb-4">VIP-6</div>
+                    <div class="text-2xl font-bold mb-2" style="color: var(--accent-cyan);">2,088 USDT</div>
+                    <div class="text-gray-400">Quantitative Amount</div>
+                    <div class="text-3xl font-bold mt-4 text-green-400">31%</div>
+                    <div class="text-gray-400">Daily Income</div>
+                </div>
+
+                <!-- VIP 7 -->
+                <div class="glass-card p-6 border-l-4 border-purple-500">
+                    <div class="vip-badge mb-4">VIP-7</div>
+                    <div class="text-2xl font-bold mb-2" style="color: var(--accent-purple);">3,888 USDT</div>
+                    <div class="text-gray-400">Quantitative Amount</div>
+                    <div class="text-3xl font-bold mt-4 text-green-400">32%</div>
+                    <div class="text-gray-400">Daily Income</div>
+                </div>
+
+                <!-- VIP 8 -->
+                <div class="glass-card p-6 border-l-4 border-purple-500">
+                    <div class="vip-badge mb-4">VIP-8</div>
+                    <div class="text-2xl font-bold mb-2" style="color: var(--accent-purple);">6,888 USDT</div>
+                    <div class="text-gray-400">Quantitative Amount</div>
+                    <div class="text-3xl font-bold mt-4 text-green-400">33%</div>
+                    <div class="text-gray-400">Daily Income</div>
+                </div>
+
+                <!-- VIP 9 -->
+                <div class="glass-card p-6 border-l-4 border-yellow-500">
+                    <div class="vip-badge mb-4">VIP-9</div>
+                    <div class="text-2xl font-bold mb-2" style="color: var(--accent-gold);">9,888 USDT</div>
+                    <div class="text-gray-400">Quantitative Amount</div>
+                    <div class="text-3xl font-bold mt-4 text-green-400">34%</div>
+                    <div class="text-gray-400">Daily Income</div>
+                </div>
+
+                <!-- VIP 10 -->
+                <div class="glass-card p-6 border-l-4 border-yellow-500 md:col-span-2 lg:col-span-3">
+                    <div class="text-center">
+                        <div class="vip-badge mb-4 text-xl">VIP-10 ⭐ PREMIUM</div>
+                        <div class="text-4xl font-bold mb-2 glow-text-gold" style="color: var(--accent-gold);">18,888 USDT</div>
+                        <div class="text-gray-400 mb-4">Quantitative Amount</div>
+                        <div class="text-5xl font-bold text-green-400 glow-text-gold">35%</div>
+                        <div class="text-gray-400">Daily Income</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 mt-12 text-center">
+                <p class="text-xl text-gray-300 mb-4">💰 Generous Returns: Enjoy different levels of daily returns based on your investment amount.</p>
+                <button class="btn-primary mt-4" onclick="a2()">Start Earning Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referral Program -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 heading-font">
+                ✨ Three-Level <span class="glow-text-gold" style="color: var(--accent-gold);">Referral Rewards</span>
+            </h2>
+            <p class="text-2xl text-center mb-12" style="color: var(--accent-cyan);">Up to 16% Commission!</p>
+
+            <div class="glass-card p-8">
+                <p class="text-xl text-gray-300 mb-8 text-center">Invite friends or share to earn 16% rewards as follows:</p>
+
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-yellow-500/20 to-transparent border-l-4 border-yellow-500 p-6 rounded">
+                        <h3 class="text-2xl font-bold mb-2" style="color: var(--accent-gold);">Level 1: Direct Referral (10%)</h3>
+                        <p class="text-gray-300">Invite Member VIP → "VIP" deposits 1,000 USDT → Get <span class="text-yellow-400 font-bold">100 USDT</span> commission (10%)</p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-cyan-500/20 to-transparent border-l-4 border-cyan-500 p-6 rounded">
+                        <h3 class="text-2xl font-bold mb-2" style="color: var(--accent-cyan);">Level 2: Secondary Referral (4%)</h3>
+                        <p class="text-gray-300">Invite Member B → "B" deposits 1,000 USDT → Get <span class="text-cyan-400 font-bold">40 USDT</span> commission (4%)</p>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-purple-500/20 to-transparent border-l-4 border-purple-500 p-6 rounded">
+                        <h3 class="text-2xl font-bold mb-2" style="color: var(--accent-purple);">Level 3: Tertiary Referral (2%)</h3>
+                        <p class="text-gray-300">Invite Member C → "C" deposits 1,000 USDT → Get <span class="text-purple-400 font-bold">20 USDT</span> commission (2%)</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-6 bg-green-500/10 border-2 border-green-500 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-center heading-font" style="color: var(--accent-gold);">Total Commission Calculation</h3>
+                    <p class="text-3xl text-center font-bold text-green-400">VIP + B + C = 16% / 160 USDT Total Commission</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 heading-font">
+                Frequently Asked <span class="glow-text-cyan" style="color: var(--accent-cyan);">Questions</span>
+            </h2>
+
+            <div class="space-y-4">
+                <div class="glass-card">
+                    <button class="accordion-btn w-full text-left p-6 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <h3 class="text-xl font-bold">What is FTK Smart Trading and how does it work?</h3>
+                        <span class="text-2xl transition-transform">+</span>
+                    </button>
+                    <div class="accordion-content px-6 pb-6">
+                        <p class="text-gray-400 leading-relaxed">FTK is our AI-based trading system that automatically executes buy-low-sell-high strategies for BTC, ETH, and USDT. It operates 24/7, utilizing advanced algorithms to maximize your profits through diversified strategies while minimizing risk.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <button class="accordion-btn w-full text-left p-6 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <h3 class="text-xl font-bold">Is FTK Smart Trading officially registered and legal?</h3>
+                        <span class="text-2xl transition-transform">+</span>
+                    </button>
+                    <div class="accordion-content px-6 pb-6">
+                        <p class="text-gray-400 leading-relaxed">Yes, FTK is officially registered in Colorado, USA, with registration number 20251612833. You can verify our company's registration information through official US business registration agencies. We operate transparently and comply with all regulatory requirements.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <button class="accordion-btn w-full text-left p-6 flex justify-between items-center" onclick="toggleAccordion(this)">
+                        <h3 class="text-xl font-bold">Can I withdraw profits from FTK trading at any time?</h3>
+                        <span class="text-2xl transition-transform">+</span>
+                    </button>
+                    <div class="accordion-content px-6 pb-6">
+                        <p class="text-gray-400 leading-relaxed">Yes, all profits generated by FTK Smart Trading are real and withdrawable. The system automatically calculates daily earnings, and you can withdraw your earnings according to our standard withdrawal policy - 24/7 availability with 1-minute arrival time and 0 fees.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto max-w-5xl">
+            <div class="glass-card p-12 text-center border-2 border-yellow-500">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 heading-font">
+                    Ready to Start Your <span class="glow-text-gold" style="color: var(--accent-gold);">Crypto Journey</span>?
+                </h2>
+                <p class="text-2xl text-gray-300 mb-8">Join thousands of successful traders on the FTK platform</p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                    <button class="btn-primary text-xl px-12 py-5" onclick="a2()">
+                        Register & Get 1,000 USDT
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 border-t border-gray-800">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 heading-font glow-text-gold" style="color: var(--accent-gold);">FTK</h3>
+                    <p class="text-gray-400">AI-Powered Crypto Trading Platform</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="#features" class="block text-gray-400 hover:text-yellow-400 transition">Features</a>
+                        <a href="#routes" class="block text-gray-400 hover:text-yellow-400 transition">Login Routes</a>
+                        <a href="#vip" class="block text-gray-400 hover:text-yellow-400 transition">VIP Plans</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Support</h4>
+                    <div class="space-y-2">
+                        <a href="#faq" class="block text-gray-400 hover:text-yellow-400 transition">FAQ</a>
+                        <a href="#" class="block text-gray-400 hover:text-yellow-400 transition">Contact Us</a>
+                        <a href="#" class="block text-gray-400 hover:text-yellow-400 transition">Help Center</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-gray-400 hover:text-yellow-400 transition">Terms of Service</a>
+                        <a href="#" class="block text-gray-400 hover:text-yellow-400 transition">Privacy Policy</a>
+                        <a href="#" class="block text-gray-400 hover:text-yellow-400 transition">Risk Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 border-t border-gray-800 pt-8">
+                <p>&copy; 2025 FTK Smart Trading Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Download image function
+        function downloadImage(imageUrl, fileName) {
+            // Create a temporary anchor element
+            const link = document.createElement('a');
+            link.href = imageUrl;
+            link.download = fileName;
+            link.target = '_blank';
+
+            // Trigger download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.remove('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+
+            if (menu && menuBtn && !menu.contains(event.target) && !menuBtn.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Accordion functionality
+        function toggleAccordion(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('span');
+
+            // Close all other accordions
+            document.querySelectorAll('.accordion-content').forEach(item => {
+                if (item !== content) {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('span').textContent = '+';
+                    item.previousElementSibling.querySelector('span').style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Toggle current accordion
+            content.classList.toggle('active');
+            if (content.classList.contains('active')) {
+                icon.textContent = '−';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.textContent = '+';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Live trading feed
+        const tradingPairs = [
+            { pair: 'LINK/USDT', user: '****238' },
+            { pair: 'BTC/USDT', user: '****942' },
+            { pair: 'SOL/USDT', user: '****157' },
+            { pair: 'ETH/USDT', user: '****891' },
+            { pair: 'ATOM/USDT', user: '****573' },
+            { pair: 'DOGE/USDT', user: '****426' },
+            { pair: 'ADA/USDT', user: '****318' },
+            { pair: 'XRP/USDT', user: '****612' },
+            { pair: 'DOT/USDT', user: '****845' },
+            { pair: 'MATIC/USDT', user: '****293' },
+            { pair: 'AVAX/USDT', user: '****764' },
+            { pair: 'UNI/USDT', user: '****521' },
+            { pair: 'LTC/USDT', user: '****937' },
+            { pair: 'ALGO/USDT', user: '****468' },
+            { pair: 'FTM/USDT', user: '****195' }
+        ];
+
+        let tradingData = [];
+        let currentIndex = 0;
+
+        // Generate 15 trading items
+        function generateTradingItem(index) {
+            const pair = tradingPairs[index];
+            const amount = Math.floor(Math.random() * 400) + 50;
+            const profit = (Math.random() * 5 + 0.5).toFixed(1);
+            const seconds = Math.floor(Math.random() * 60) + 1;
+
+            return `
+                <div class="trading-item">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-cyan-400 font-bold">User ${pair.user}</span>
+                            <span class="text-gray-500 mx-2">•</span>
+                            <span class="text-yellow-400">${pair.pair}</span>
+                            <span class="text-gray-500 mx-2">•</span>
+                            <span class="text-gray-500 text-sm">${seconds}s ago</span>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-white font-bold">$${amount}</div>
+                            <div class="text-green-400 text-sm">+${profit}%</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize with 15 items
+        for (let i = 0; i < 15; i++) {
+            tradingData.push(generateTradingItem(i));
+        }
+
+        // Display items in the feed with duplication for seamless loop
+        function displayTradingItems() {
+            const feedContent = document.getElementById('tradingFeedContent');
+            // Display items twice for seamless looping
+            const allItems = tradingData.join('') + tradingData.join('');
+            feedContent.innerHTML = allItems;
+        }
+
+        // Initialize display
+        displayTradingItems();
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe all glass cards for animation
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
