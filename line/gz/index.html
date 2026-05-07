@@ -462,7 +462,7 @@
         </div>
     </div>
 
-    <!-- +++ 新增：定制宠物戒 專區 +++++ -->
+    <!-- 定制宠物戒 專區 -->
     <div class="container pet-ring-section">
         <div class="pet-ring-header">
             <h2>🐾 定制寵物戒 · 永恆陪伴</h2>
@@ -508,7 +508,7 @@
         <button class="pet-ring-btn" onclick="k3()">👉 立即訂製寵物戒｜享受專屬優惠</button>
     </div>
 
-    <!-- 精選商品區 + 大量商品 -->
+    <!-- 精選商品區 -->
     <div class="container" id="products">
         <div class="section-title">🔥 人氣推薦 · 匠心限量款</div>
         <div class="product-grid">
@@ -543,7 +543,7 @@
         </div>
     </div>
 
-    <!-- 真實評價滑塊 (Swiper) -->
+    <!-- 真實評價滑塊 -->
     <div class="container review-section">
         <div class="swiper reviewSwiper">
             <div class="swiper-wrapper">
@@ -557,7 +557,7 @@
         </div>
     </div>
 
-    <!-- FAQ 常見問題 區塊 -->
+    <!-- FAQ 常見問題 -->
     <div class="container" style="margin:60px auto;">
         <div class="section-title">❓ 常見問題</div>
         <div style="display:grid; gap:16px; margin-top:24px;">
@@ -610,7 +610,7 @@
     </div>
 </footer>
 
-<!-- 彈窗 Modal 結構（共用） -->
+<!-- 彈窗 Modal 結構 -->
 <div id="commonModal" class="modal-mask" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); z-index:2000; align-items:center; justify-content:center;">
     <div class="modal-container" style="background:#fff; max-width:360px; width:85%; border-radius:32px; padding:28px 24px; text-align:center;">
         <h3 id="modalTitle"></h3>
@@ -644,11 +644,75 @@
     function openImagePreview(url){ previewImg.src = url; imageModal.style.display = 'flex'; }
     function closeImagePreview(){ imageModal.style.display = 'none'; }
     
-    // 頁尾按鈕
-    document.getElementById('aboutLinkFooter')?.addEventListener('click', (e) => { e.preventDefault(); openModal('關於我們', `<p><strong>東海縣歐邦珠寶商行</strong> 2018年創立，專注高精度人像公仔。每一件均純手工捏製，15年以上資歷工藝師。公司登記證齊全，全球客戶一致信賴。</p><p>📧 niceadhd@gmail.com</p>`); });
-    document.getElementById('privacyLinkFooter')?.addEventListener('click', (e) => { e.preventDefault(); openModal('隱私政策', `<p><strong>生效日期：2026.01.01</strong></p><p>我們僅收集製作必需之照片、聯絡資訊，不用於任何其他行銷。<br>訂單完成後90天自動刪除照片，採用加密傳輸。<br>如有疑問請聯繫 niceadhd@gmail.com</p>`); });
-    document.getElementById('refundLinkFooter')?.addEventListener('click', (e) => { e.preventDefault(); openModal('退款政策', `<p><strong>1. 手工訂製特殊商品</strong>，不適用7天無理由退貨。<br><strong>2. 如嚴重不像／破損／延遲15天以上，可全額退款。</strong><br>3. 請於收貨後7日內附照片寄至 niceadhd@gmail.com。<br>4. 雙方協商重製或按比例退款。</p>`); });
-    document.getElementById('viewLicenseBtnFooter')?.addEventListener('click', (e) => { e.preventDefault(); openImagePreview('img/z.png'); });
+    // 關於我們（保持簡單）
+    document.getElementById('aboutLinkFooter')?.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        openModal('關於我們', `
+            <p><strong>東海縣歐邦珠寶商行</strong> 成立於 2018 年，專注於高端人像公仔及客製化珠寶設計。每一件作品均由十五年經驗以上的工藝師純手工捏製，以「把記憶化為觸手可及的溫暖」為品牌使命。</p>
+            <p>🏢 公司登記地址：蔬石灣市東海縣告山街道中華路<br>📧 客服信箱：niceadhd@gmail.com</p>
+            <p>我們堅持一對一溝通、無限次修改，確保成品符合客戶期待。目前全球已服務超過 3000+ 位客戶，滿意度高達 98%。</p>
+        `); 
+    });
+    
+    // 隱私政策（詳細、合法，包含公司資訊）
+    document.getElementById('privacyLinkFooter')?.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        openModal('隱私政策', `
+            <p><strong>生效日期：2026 年 5 月 1 日</strong></p>
+            <p>本隱私政策說明「東海縣歐邦珠寶商行」（以下簡稱「本公司」）如何蒐集、使用及保護您提供的個人資料。本公司地址：蔬石灣市東海縣告山街道中華路。</p>
+            <p><strong>1. 蒐集的資訊</strong><br>
+            為了完成客製化公仔或寵物戒訂單，我們需要您提供：<br>
+            • 照片（用於製作人物 / 寵物形象）<br>
+            • 姓名、聯絡電話、電子郵件、收件地址<br>
+            • 訂製過程中的溝通紀錄（如 LINE 對話、修改需求）。</p>
+            <p><strong>2. 資訊使用方式</strong><br>
+            所有資訊僅用於以下目的：<br>
+            - 製作您訂製的公仔 / 戒指；<br>
+            - 寄送商品及提供售後服務；<br>
+            - 必要的製作進度通知。<br>
+            本公司絕不會將您的照片或個人資訊出售、出租或與任何第三方行銷機構共享。</p>
+            <p><strong>3. 資料儲存與保護</strong><br>
+            您的照片在訂單完成後 90 天內會從伺服器自動刪除。我們採用業界標準的加密措施（SSL）保護您的資料，並限制內部存取權限。</p>
+            <p><strong>4. 您的權利</strong><br>
+            您有權要求查詢、修改、刪除我們持有的個人資料。如有需要，請透過 niceadhd@gmail.com 聯繫，我們將在 24 小時內回應。</p>
+            <p><strong>5. 隱私政策的修改</strong><br>
+            本公司保留隨時修改本政策的權利，修改後將於網站公告。繼續使用本服務即視為同意最新版本。</p>
+            <p>如有任何隱私相關疑問，請聯繫：<strong>niceadhd@gmail.com</strong> 或致函至本公司地址。</p>
+        `); 
+    });
+    
+    // 退款政策（詳細、符合 Google 廣告規範，並包含公司地址）
+    document.getElementById('refundLinkFooter')?.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        openModal('退款政策', `
+            <p><strong>1. 手工訂製商品性質</strong><br>
+            根據消費者保護法，手工客製化商品（人像公仔、寵物戒）不適用「七天無條件退貨」。然而本公司提供明確的售後保障。</p>
+            <p><strong>2. 可申請退換貨的情況</strong><br>
+            ✅ 成品與照片嚴重不符（五官、髮型、服裝或寵物特徵差異過大，經雙方確認無法修正）。<br>
+            ✅ 運送過程中造成公仔不可修復的破損（需提供開箱影片或清晰照片）。<br>
+            ✅ 因本公司原因導致延遲發貨超過 15 個工作天（不含例假日），您可要求取消訂單並全額退款。<br>
+            ✅ 寵物戒若出現明顯材質瑕疵（如斷裂、掉色）可免費重製。</p>
+            <p><strong>3. 退款流程</strong><br>
+            • 請於收到商品後 7 日內透過 <strong>niceadhd@gmail.com</strong> 聯繫客服，提供訂單編號、問題照片及簡短說明。<br>
+            • 客服將於 24 小時內回覆，並協商解決方案（重做、局部修補、部分退款或全額退款）。<br>
+            • 若雙方同意退款，款項將於原路退回（信用卡 / 第三方支付），處理時間約 5-15 個工作日。</p>
+            <p><strong>4. 不適用退款的情況</strong><br>
+            ❌ 客戶未提供足夠清晰的參考照片導致還原度不達預期（製作前客服會主動確認可行性）。<br>
+            ❌ 客戶已確認草圖／半成品後要求大幅改變原始設計。<br>
+            ❌ 因主觀審美差異（例如「覺得不像但他人認為很像」）需以客觀對比為準。</p>
+            <p><strong>5. 退貨地址</strong><br>
+            如需寄回商品，請寄至：蔬石灣市東海縣告山街道中華路（東海縣歐邦珠寶商行）。運費除商品瑕疵外由買方承擔。</p>
+            <p><strong>6. 聯絡方式</strong><br>
+            所有售後申請請統一寄至 <strong>niceadhd@gmail.com</strong>，標題請註明「訂單號 + 退款申請」。我們保證在 48 小時內提供具體解決方案。</p>
+            <p>※ 本公司保留最終解釋權。</p>
+        `); 
+    });
+    
+    // 查看證件
+    document.getElementById('viewLicenseBtnFooter')?.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        openImagePreview('img/z.png'); 
+    });
 </script>
 </body>
 </html>
