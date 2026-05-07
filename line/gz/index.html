@@ -2,592 +2,653 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>專屬人像公仔定制 | 匠心手作 永恆收藏</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>歐邦人像公仔｜匠心手作 永恆收藏｜官方商城</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --line-green: #06C755;
-            --line-dark: #05b34c;
-            --clay-orange: #ff7a3c;
-            --bg-warm: #fdfbf9;
-            --text-black: #1a1a1a;
-            --text-gray: #666;
-            --border-color: #eee;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-            background-color: #f5f5f5;
-            color: var(--text-black);
-            line-height: 1.6;
-        }
-
-        /* 手機端寬度適配 */
-        .app-shell {
-            max-width: 500px;
-            margin: 0 auto;
-            background: var(--bg-warm);
-            min-height: 100vh;
-            position: relative;
-            padding-bottom: 120px;
-            overflow-x: hidden;
-        }
-
-        /* 1. 輪播圖 & 指示器 */
-        .swiper { width: 100%; height: 110vw; max-height: 550px; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
-        .swiper-pagination-bullet-active { background: var(--line-green) !important; width: 20px; border-radius: 4px; }
-
-        /* 2. 一行顯示的強大標題系統 */
-        .hero-info { padding: 30px 15px; text-align: center; }
-        .nowrap-title {
-            white-space: nowrap; 
-            display: block;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-        }
-        .title-primary { font-size: clamp(20px, 6.5vw, 32px); color: var(--text-black); margin-bottom: 6px; }
-        .title-secondary { font-size: clamp(18px, 6vw, 28px); color: var(--clay-orange); margin-bottom: 12px; }
-        .title-tertiary { font-size: 20px; font-weight: 700; opacity: 0.8; margin-bottom: 20px; }
-
-        /* 真人定制｜高还原度｜支持修改 一行化 */
-        .feature-bar {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 15px 0 25px;
-            white-space: nowrap;
-        }
-        .feature-tag {
-            background: #fff;
-            border: 1px solid #ff7a3c33;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: clamp(12px, 3.6vw, 15px);
-            font-weight: 700;
-            color: #4e3627;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-        }
-
-        /* 3. LINE 品牌按鈕（帶呼吸特效） */
-        .btn-line-main {
-            background: var(--line-green);
-            color: white;
-            padding: 16px 20px;
-            border-radius: 100px;
-            font-weight: 800;
-            font-size: 19px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-decoration: none;
-            width: 100%;
-            margin: 10px auto;
-            box-shadow: 0 8px 25px rgba(6, 199, 85, 0.4);
-            animation: lineBreathe 2s infinite ease-in-out;
-            border: none;
-            cursor: pointer;
-        }
-        @keyframes lineBreathe {
-            0% { transform: scale(1); box-shadow: 0 8px 20px rgba(6, 199, 85, 0.4); }
-            50% { transform: scale(1.03); box-shadow: 0 8px 30px rgba(6, 199, 85, 0.7); }
-            100% { transform: scale(1); box-shadow: 0 8px 20px rgba(6, 199, 85, 0.4); }
-        }
-
-        /* 4. 內容強化模塊 */
-        .section-box { padding: 35px 20px; }
-        .section-title { font-size: 24px; font-weight: 800; margin-bottom: 25px; text-align: center; position: relative; }
-        .section-title::after { content: ''; width: 50px; height: 4px; background: var(--clay-orange); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); border-radius: 2px; }
-
-        .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .service-card { background: white; padding: 20px 10px; border-radius: 20px; text-align: center; border: 1px solid var(--border-color); }
-        .service-card .icon { font-size: 32px; display: block; margin-bottom: 10px; }
-        .service-card h4 { font-size: 15px; font-weight: bold; margin-bottom: 5px; }
-        .service-card p { font-size: 12px; color: var(--text-gray); }
-
-        /* 訂製流程模塊 */
-        .process-wrap { background: #fff; border-radius: 30px; padding: 25px 15px; margin: 20px 0; border: 1px solid #eee; }
-        .process-item { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .process-num { background: var(--clay-orange); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
-        .process-text { font-size: 15px; font-weight: 600; color: #444; }
-
-        /* 5. 真實感用戶評論區（社交證明） */
-        .review-card { background: white; border-radius: 24px; padding: 20px; margin-bottom: 15px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
-        .review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-        .review-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .review-user-info { flex: 1; }
-        .review-user-name { font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 4px; }
-        .review-user-name .verify-tag { font-size: 10px; background: #E6F7FF; color: #1890FF; padding: 1px 6px; border-radius: 4px; font-weight: normal; }
-        .review-user-sub { font-size: 11px; color: #999; margin-top: 2px; }
-        .review-stars { color: #FFB800; font-size: 11px; margin-bottom: 8px; }
-        .review-content { font-size: 14px; color: #333; line-height: 1.6; }
-
-        /* 6. 場景標籤 */
-        .scene-wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px 0; }
-        .scene-tag-btn { background: white; border: 1px solid #ff7a3c44; padding: 10px 18px; border-radius: 12px; font-weight: 700; font-size: 15px; color: #bb5a37; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
-
-        /* 7. 稀缺性 & 信任背書 */
-        .trust-banner { background: linear-gradient(135deg, #1a1a1a 0%, #333 100%); color: #fff; padding: 30px 20px; border-radius: 30px; text-align: center; margin: 20px 0; }
-        .trust-banner h4 { font-size: 20px; color: var(--accent-gold); margin-bottom: 10px; }
-        .scarcity-text { background: #FF4D4F; color: white; padding: 4px 15px; border-radius: 50px; font-size: 13px; font-weight: 800; display: inline-block; margin-top: 15px; }
-
-        /* 8. 底部公司資訊 & 彈窗樣式 */
-        .footer-company {
-            background: #fff;
-            border-top: 1px solid var(--border-color);
-            padding: 20px 20px 30px;
-            text-align: center;
-            font-size: 14px;
-            color: #666;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', 'Noto Sans TC', sans-serif;
+            background: #fefaf7;
+            color: #1f1a16;
             line-height: 1.5;
         }
-        .company-name {
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 6px;
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
-        .company-address {
+
+        /* 導航欄 */
+        .site-header {
+            background: #fffefc;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+            border-bottom: 1px solid #f0e4da;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,245,0.96);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 12px 0;
+        }
+        .logo a {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(115deg, #e05a2a, #f57c3c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+        .logo span {
             font-size: 12px;
-            color: #888;
-            margin-bottom: 8px;
+            font-weight: 500;
+            color: #b45a3b;
+            display: inline-block;
+            margin-left: 4px;
         }
-        .license-link {
-            display: inline-flex;
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #3a2c24;
+            font-weight: 500;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #e2572c;
+        }
+        .cart-icon {
+            position: relative;
+            display: flex;
             align-items: center;
             gap: 6px;
-            margin-top: 8px;
-            background: #f9f9f9;
-            padding: 6px 12px;
+            background: #fdf3ec;
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-weight: 600;
+        }
+        .cart-count {
+            background: #e2572c;
+            color: white;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
             border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 主要 banner */
+        .hero-banner {
+            background: linear-gradient(145deg, #fff0e8, #ffe6db);
+            border-radius: 0 0 48px 48px;
+            margin-bottom: 40px;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+            padding: 40px 0;
+        }
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-text .highlight {
+            color: #e2572c;
+        }
+        .hero-text p {
+            font-size: 18px;
+            color: #4b3a2e;
+            margin-bottom: 28px;
+        }
+        .btn-primary {
+            background: #06C755;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 48px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 6px 14px rgba(6,199,85,0.3);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #e2572c;
+            color: #e2572c;
+            padding: 12px 28px;
+        }
+        .hero-img img {
+            width: 100%;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+        }
+
+        /* 分類導航 */
+        .category-section {
+            margin: 60px 0;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 24px;
+            text-align: center;
+        }
+        .category-card {
+            background: white;
+            border-radius: 40px;
+            padding: 20px 12px;
+            transition: 0.2s;
+            border: 1px solid #ffe0d0;
+            cursor: pointer;
+        }
+        .category-card img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 40px;
+            margin-bottom: 12px;
+        }
+        .category-card h4 {
+            font-weight: 700;
+        }
+
+        /* 寵物戒專區 */
+        .pet-ring-section {
+            background: linear-gradient(125deg, #fef3e8, #fff9f2);
+            border-radius: 48px;
+            padding: 48px 32px;
+            margin: 60px 0;
+            border: 1px solid #ffe0cf;
+        }
+        .pet-ring-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .pet-ring-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #3a281d;
+        }
+        .pet-ring-header p {
+            font-size: 18px;
+            color: #b45a3b;
+            margin-top: 12px;
+        }
+        .pet-ring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        .pet-ring-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.25s;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+            border: 1px solid #ffe1d1;
+        }
+        .pet-ring-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+        }
+        .pet-ring-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+        .pet-ring-info {
+            padding: 16px;
+            text-align: center;
+        }
+        .pet-ring-info h4 {
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+        .pet-ring-info p {
+            font-size: 14px;
+            color: #9b6a4e;
+        }
+        .pet-ring-btn {
+            display: block;
+            background: #e2572c;
+            color: white;
+            text-align: center;
+            padding: 14px 24px;
+            border-radius: 60px;
+            font-weight: 700;
+            width: fit-content;
+            margin: 0 auto;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .pet-ring-btn:hover {
+            background: #c2441e;
+            transform: scale(1.02);
+        }
+
+        /* 商品網格 */
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 48px 0 24px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #e2572c;
+            border-radius: 4px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 28px;
+            margin: 32px 0;
+        }
+        .product-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid #f5e4da;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.02);
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+        .product-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 18px 16px 20px;
+        }
+        .product-title {
+            font-weight: 800;
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+        .product-price {
+            color: #e2572c;
+            font-weight: 800;
+            font-size: 20px;
+            margin: 12px 0;
+        }
+        .btn-sm {
+            background: #fdf0e9;
+            border: none;
+            padding: 10px 0;
+            width: 100%;
+            border-radius: 80px;
+            font-weight: 700;
+            color: #d14d24;
             cursor: pointer;
             transition: 0.2s;
         }
-        .license-link img {
-            width: 20px;
-            height: auto;
-            vertical-align: middle;
-        }
-        .license-link span {
-            font-size: 12px;
-            color: var(--line-green);
-            font-weight: 500;
-        }
-        .legal-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin: 15px 0 12px;
-        }
-        .legal-links a {
-            color: #888;
-            font-size: 13px;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .footer-copy {
-            color: #bbb;
-            font-size: 10px;
-            margin-top: 8px;
+        .btn-sm:hover {
+            background: #e05a2a;
+            color: white;
         }
 
-        /* 彈窗遮罩 */
-        .modal-mask {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(4px);
-            z-index: 2000;
+        /* 特色模塊 */
+        .feature-icons {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            visibility: hidden;
-            opacity: 0;
-            transition: all 0.2s;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 32px;
+            background: #fff7f2;
+            border-radius: 56px;
+            padding: 36px 28px;
+            margin: 50px 0;
         }
-        .modal-mask.active {
-            visibility: visible;
-            opacity: 1;
-        }
-        .modal-container {
-            max-width: 340px;
-            width: 85%;
-            background: white;
-            border-radius: 32px;
-            padding: 28px 24px;
-            position: relative;
+        .feature-item {
             text-align: center;
-            box-shadow: 0 25px 40px rgba(0,0,0,0.2);
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-        .modal-container h3 {
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 16px;
-            color: #333;
-        }
-        .modal-container p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 12px;
-            text-align: left;
-        }
-        .modal-close {
-            background: #f0f0f0;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            margin-top: 16px;
-        }
-        .image-preview-modal .modal-container {
-            padding: 16px;
-        }
-        .image-preview-modal img {
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
+            flex: 1;
+            min-width: 120px;
         }
 
-        /* 底部固定一行顯示的懸浮按鈕 */
-        .floating-action {
-            position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 100%; max-width: 500px; padding: 12px 15px calc(15px + env(safe-area-inset-bottom));
-            background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.08); z-index: 999;
+        /* 評價滑塊 */
+        .review-section {
+            background: #fff3ec;
+            border-radius: 56px;
+            padding: 48px 24px;
+            margin: 60px 0;
         }
-        .btn-footer-nowrap {
-            background: var(--line-green); color: white; height: 56px; border-radius: 100px;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 900; font-size: 18px; text-decoration: none;
-            white-space: nowrap; /* 強制文案一行顯示 */
-            border: none; width: 100%; box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
+
+        /* 頁腳 */
+        .footer {
+            background: #1e1915;
+            color: #ddcfc5;
+            padding: 48px 0 24px;
+            margin-top: 70px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 36px;
+        }
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .footer-col a {
+            display: block;
+            color: #bcaca0;
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        .footer-bottom {
+            border-top: 1px solid #3a2e26;
+            margin-top: 40px;
+            padding-top: 24px;
+            text-align: center;
+            font-size: 13px;
+        }
+        .legal-links-footer {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .header-inner {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav-links {
+                justify-content: center;
+            }
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            .pet-ring-grid {
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="app-shell">
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="img/1.jpg" alt="作品圖 1"></div>
-            <div class="swiper-slide"><img src="img/2.jpg" alt="作品圖 2"></div>
-            <div class="swiper-slide"><img src="img/3.jpg" alt="作品圖 3"></div>
-            <div class="swiper-slide"><img src="img/4.jpg" alt="作品圖 4"></div>
-            <div class="swiper-slide"><img src="img/5.jpg" alt="作品圖 5"></div>
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="logo">
+            <a href="#">歐邦公仔<span>｜OUBANG DOLL</span></a>
         </div>
-        <div class="swiper-pagination"></div>
+        <div class="nav-links">
+            <a href="#" class="active">首頁</a>
+            <a href="#">全部商品</a>
+            <a href="#">客製流程</a>
+            <a href="#">真實案例</a>
+            <a href="#">品牌故事</a>
+            <a href="#">部落格</a>
+            <div class="cart-icon">
+                🛒  <span class="cart-count">3</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="hero-banner">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>把重要時刻 <br>變成<span class="highlight">觸手可及的溫暖</span></h1>
+                <p>全球超過 3000+ 客戶信賴 · 純手工人像公仔<br>一張照片還原神韻，送給最特別的 TA</p>
+                <button class="btn-primary" onclick="k2()">立即開始定制 🎁</button>
+                <button class="btn-primary btn-outline" style="margin-left: 12px;" onclick="window.location.href='#products'">瀏覽商品 →</button>
+            </div>
+            <div class="hero-img">
+                <img src="img/1.jpg" alt="人像公仔作品">
+            </div>
+        </div>
     </div>
 
-    <section class="hero-info">
-        <h1 class="nowrap-title title-primary">把重要時刻，變成永恆收藏</h1>
-        <h2 class="nowrap-title title-secondary">把照片變成專屬人像公仔</h2>
-        <p class="title-tertiary">獨一無二 只屬於你</p>
-        
-        <div class="feature-bar">
-            <span class="feature-tag">✨ 真人定制</span>
-            <span class="feature-tag">🎨 高還原度</span>
-            <span class="feature-tag">✏️ 支持修改</span>
+    <!-- 分類/熱門類型 -->
+    <div class="container category-section">
+        <div class="category-grid">
+            <div class="category-card"><img src="img/2.jpg" alt="生日公仔"><h4>🎂 生日驚喜</h4></div>
+            <div class="category-card"><img src="img/3.jpg" alt="情侶公仔"><h4>💑 情侶紀念</h4></div>
+            <div class="category-card"><img src="img/4.jpg" alt="全家福"><h4>👨‍👩‍👧‍👦 全家福</h4></div>
+            <div class="category-card"><img src="img/5.jpg" alt="畢業公仔"><h4>🎓 畢業收藏</h4></div>
+            <div class="category-card"><img src="img/1.jpg" alt="寵物公仔"><h4>🐶 寵物定制</h4></div>
         </div>
-
-        <button onclick="k2()" class="btn-line-main">
-            👉 立即添加 LINE 諮詢定制
-        </button>
-    </section>
-
-    <section class="section-box" style="background: white;">
-        <h3 class="section-title">送普通禮物太沒新意？</h3>
-        <h3 class="section-title" style="color:var(--clay-orange); margin-top:-15px;">送專屬定制 才夠用心</h3>
-        <div class="service-grid">
-            <div class="service-card">
-                <span class="icon">🧑‍🎨</span>
-                <h4>15年工藝大師</h4>
-                <p>純手工揉捏，完美還原照片神韻與表情細節。</p>
-            </div>
-            <div class="service-card">
-                <span class="icon">🧪</span>
-                <h4>進口環保軟陶</h4>
-                <p>環保無味、永不褪色，可永久珍藏的溫暖禮物。</p>
-            </div>
-            <div class="service-card">
-                <span class="icon">💬</span>
-                <h4>全程1對1溝通</h4>
-                <p>製作過程中隨時反饋，成品滿意才發貨。</p>
-            </div>
-            <div class="service-card">
-                <span class="icon">🎁</span>
-                <h4>送禮首選推薦</h4>
-                <p>紀念意義滿分，給TA一份觸手可及的驚喜。</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-box">
-        <h3 class="section-title">讓每個瞬間都值得被紀念</h3>
-        <p style="text-align: center; color: var(--line-green); font-weight: 800; margin-bottom: 15px;">✅ 场景刺激</p>
-        <div class="scene-wrap">
-            <div class="scene-tag-btn">🎂 生日驚喜</div>
-            <div class="scene-tag-btn">💍 求婚告白</div>
-            <div class="scene-tag-btn">💑 情侶紀念</div>
-            <div class="scene-tag-btn">🎓 畢業收藏</div>
-            <div class="scene-tag-btn">🎁 特別的TA</div>
-        </div>
-    </section>
-
-    <section class="section-box" style="background: #fff; border-radius: 30px; margin: 15px; padding: 25px;">
-        <h3 class="section-title">想知道做出來有多像？</h3>
-        <div class="process-wrap">
-            <div class="process-item">
-                <div class="process-num">1</div>
-                <div class="process-text">添加 LINE，聯繫您的專屬訂製師</div>
-            </div>
-            <div class="process-item">
-                <div class="process-num">2</div>
-                <div class="process-text">發送您想要訂製的照片（單人/雙人均可）</div>
-            </div>
-            <div class="process-item">
-                <div class="process-num">3</div>
-                <div class="process-text">工藝師開始手工製作，過程可多次修改</div>
-            </div>
-            <div class="process-item">
-                <div class="process-num">4</div>
-                <div class="process-text">成品核對，精美包裝發貨</div>
-            </div>
-        </div>
-        <button onclick="k2()" style="background: white; color: var(--line-green); border: 2px solid var(--line-green); animation: none; box-shadow: none;" class="btn-line-main">
-            👉 添加 LINE 看真實案例
-        </button>
-    </section>
-
-    <section class="section-box">
-        <h3 class="section-title">已為上千位客戶定制</h3>
-        <p style="text-align: center; font-size: 14px; color: #999; margin-top: -15px; margin-bottom: 25px;">手工製作 先到先排 · 越早定制越早收到驚喜</p>
-
-        <div class="review-card">
-            <div class="review-header">
-                <img src="img/a1.png" class="review-avatar" alt="User">
-                <div class="review-user-info">
-                    <div class="review-user-name">林** <span class="verify-tag">實名認證</span></div>
-                    <div class="review-user-sub">來自 台中市 | 定制款式：雙人場景版</div>
-                </div>
-            </div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-content">拿到的時候真的驚呆了，神態抓得超準！送給老公的生日禮物，他感動得不得了，客服全程一對一跟我溝通細節，真的很用心。</p>
-        </div>
-
-        <div class="review-card">
-            <div class="review-header">
-                <img src="img/a3.png" class="review-avatar" alt="User">
-                <div class="review-user-info">
-                    <div class="review-user-name">Jason Lin <span class="verify-tag">實名認證</span></div>
-                    <div class="review-user-sub">來自 台北市 | 定制款式：單人全身版</div>
-                </div>
-            </div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-content">求婚的時候用的，大家都誇公仔做得像本人。特別是衣服上的小Logo都還原了。手工製作確實有溫度，早定是對的，排隊挺久的。</p>
-        </div>
-
-     
-
-        <div class="review-card">
-            <div class="review-header">
-                <img src="img/a4.png" class="review-avatar" alt="User">
-                <div class="review-user-info">
-                    <div class="review-user-name">張** <span class="verify-tag">實名認證</span></div>
-                    <div class="review-user-sub">來自 桃園市 | 定制款式：Q版禮物款</div>
-                </div>
-            </div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-content">送給老婆的紀念日禮物。拿在手上有份量，手工質感很強，不是那種廉價塑料。這波驚喜給滿分！</p>
-        </div>
-
-        <div class="review-card">
-            <div class="review-header">
-                <img src="img/a5.png" class="review-avatar" alt="User">
-                <div class="review-user-info">
-                    <div class="review-user-name">陳** <span class="verify-tag">實名認證</span></div>
-                    <div class="review-user-sub">來自 新北市 | 定制款式：全家福套組</div>
-                </div>
-            </div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-content">雖然等了快兩週，但收到真的驚豔。一對一溝通過程很舒服，成品非常有神韻，家裡人都很喜歡。</p>
-        </div>
-    </section>
-
-    <div class="trust-banner">
-        <h4>匠心手作 · 品質保證</h4>
-        <p style="font-size: 14px; opacity: 0.8;">每一件作品都凝聚著工藝師數十小時的心血</p>
-        <div class="scarcity-text">🔥 今日僅剩 10 個定制名額</div>
     </div>
 
-    <!-- 底部公司資訊 -->
-    <div class="footer-company">
-        <div class="company-name">東海縣歐邦珠寶商行</div>
-        <div class="company-address">蔬石灣市東海縣告山街道中華路</div>
-        <div class="license-link" id="viewLicenseBtn">
-            <span>🔍 查看證件</span>
-            <span style="font-size:12px;"></span>
+    <!-- +++ 新增：定制宠物戒 專區 +++++ -->
+    <div class="container pet-ring-section">
+        <div class="pet-ring-header">
+            <h2>🐾 定制寵物戒 · 永恆陪伴</h2>
+            <p>把毛小孩的可愛時刻化作隨身戒飾，獨一無二的專屬信物</p>
         </div>
-        
-        <div class="legal-links">
-            <a href="#" id="aboutLink">關於我們</a>
-            <a href="#" id="privacyLink">隱私政策</a>
-            <a href="#" id="refundLink">退款政策</a>
+        <div class="pet-ring-grid">
+            <div class="pet-ring-card" onclick="k3()">
+                <img src="img/c1.jpg" alt="寵物戒金毛款">
+                <div class="pet-ring-info">
+                    <h4>黃金獵犬款</h4>
+                    <p>14K金+爪印刻字</p>
+                </div>
+            </div>
+            <div class="pet-ring-card" onclick="k3()">
+                <img src="img/c2.jpg" alt="寵物戒貓咪款">
+                <div class="pet-ring-info">
+                    <h4>英短藍貓款</h4>
+                    <p>925銀+晶鑽點綴</p>
+                </div>
+            </div>
+            <div class="pet-ring-card" onclick="k3()">
+                <img src="img/c3.jpg" alt="寵物戒柯基款">
+                <div class="pet-ring-info">
+                    <h4>柯基屁股款</h4>
+                    <p>純銀琺瑯彩</p>
+                </div>
+            </div>
+            <div class="pet-ring-card" onclick="k3()">
+                <img src="img/c4.jpg" alt="寵物戒貴賓款">
+                <div class="pet-ring-info">
+                    <h4>玩具貴賓款</h4>
+                    <p>玫瑰金+出生石</p>
+                </div>
+            </div>
+            <div class="pet-ring-card" onclick="k3()">
+                <img src="img/c5.jpg" alt="寵物戒客製款">
+                <div class="pet-ring-info">
+                    <h4>獨家客製款</h4>
+                    <p>照片／爪印 完全訂製</p>
+                </div>
+            </div>
         </div>
-        <div class="footer-copy">© 2026 專屬人像公仔工坊 | 全球匠心定制</div>
+        <button class="pet-ring-btn" onclick="k3()">👉 立即訂製寵物戒｜享受專屬優惠</button>
     </div>
 
-    <div class="floating-action">
-        <button onclick="k2()" class="btn-footer-nowrap">
-            👉 立即添加 LINE | 發送照片 免費諮詢
-        </button>
+    <!-- 精選商品區 + 大量商品 -->
+    <div class="container" id="products">
+        <div class="section-title">🔥 人氣推薦 · 匠心限量款</div>
+        <div class="product-grid">
+            <div class="product-card"><img src="img/1.jpg" class="product-img"><div class="product-info"><div class="product-title">經典單人公仔</div><div class="product-price">NT$2,880</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
+            <div class="product-card"><img src="img/2.jpg" class="product-img"><div class="product-info"><div class="product-title">雙人甜蜜對偶</div><div class="product-price">NT$4,560</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
+            <div class="product-card"><img src="img/3.jpg" class="product-img"><div class="product-info"><div class="product-title">全家福公仔組</div><div class="product-price">NT$7,990</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
+            <div class="product-card"><img src="img/4.jpg" class="product-img"><div class="product-info"><div class="product-title">寵物擬真公仔</div><div class="product-price">NT$3,280</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
+            <div class="product-card"><img src="img/5.jpg" class="product-img"><div class="product-info"><div class="product-title">校服紀念系列</div><div class="product-price">NT$3,120</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
+            <div class="product-card"><img src="img/1.jpg" class="product-img"><div class="product-info"><div class="product-title">Q版大頭公仔</div><div class="product-price">NT$2,560</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
+            <div class="product-card"><img src="img/2.jpg" class="product-img"><div class="product-info"><div class="product-title">求婚告白特別版</div><div class="product-price">NT$5,200</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
+            <div class="product-card"><img src="img/3.jpg" class="product-img"><div class="product-info"><div class="product-title">軍裝紀念公仔</div><div class="product-price">NT$3,920</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
+        </div>
     </div>
-</div>
 
-<!-- 通用彈窗結構 -->
-<div id="commonModal" class="modal-mask">
-    <div class="modal-container">
+    <!-- 特色賣點 -->
+    <div class="container feature-icons">
+        <div class="feature-item">🧑‍🎨 15年經驗工藝師</div>
+        <div class="feature-item">📷 一張照片即可製作</div>
+        <div class="feature-item">✈️ 全球免運(部分地區)</div>
+        <div class="feature-item">♻️ 無限次修改至滿意</div>
+        <div class="feature-item">🎁 終生珍藏級材質</div>
+    </div>
+
+    <!-- 客製流程 簡單步驟 -->
+    <div class="container">
+        <div class="section-title">✍️ 訂製流程 · 簡單四步</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; margin: 40px 0;">
+            <div style="flex:1; text-align:center"><span style="background:#e2572c; color:white; width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;border-radius:60px;">1</span><h4>添加 LINE</h4><p>聯繫專屬設計師</p></div>
+            <div style="flex:1; text-align:center"><span style="background:#e2572c; color:white; width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;border-radius:60px;">2</span><h4>發送照片</h4><p>提供正面/側面照片</p></div>
+            <div style="flex:1; text-align:center"><span style="background:#e2572c; color:white; width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;border-radius:60px;">3</span><h4>手作與溝通</h4><p>製作過程隨時反饋</p></div>
+            <div style="flex:1; text-align:center"><span style="background:#e2572c; color:white; width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;border-radius:60px;">4</span><h4>精美包裝發貨</h4><p>順豐/國際配送</p></div>
+        </div>
+    </div>
+
+    <!-- 真實評價滑塊 (Swiper) -->
+    <div class="container review-section">
+        <div class="swiper reviewSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background:white; border-radius:32px; padding:24px;"><div class="review-stars">★★★★★</div><p style="font-size:16px;">「還原度超乎想像，細節做到淚目！絕對會推薦朋友來做。」</p><div class="review-user-name">林小姐 · 台中</div></div>
+                <div class="swiper-slide" style="background:white; border-radius:32px; padding:24px;"><div class="review-stars">★★★★★</div><p>「送男朋友的生日禮物，他看到直接感動哭了，超級值得！」</p><div class="review-user-name">陳小姐 · 香港</div></div>
+                <div class="swiper-slide" style="background:white; border-radius:32px; padding:24px;"><div class="review-stars">★★★★★</div><p>「客服非常有耐心，修改了三版髮型，最終成品完全是我想要的樣子。」</p><div class="review-user-name">王先生 · 台北</div></div>
+                <div class="swiper-slide" style="background:white; border-radius:32px; padding:24px;"><div class="review-stars">★★★★★</div><p>「全家福公仔質感超棒，爸媽愛不釋手，很值得紀念。」</p><div class="review-user-name">張媽媽 · 高雄</div></div>
+                <div class="swiper-slide" style="background:white; border-radius:32px; padding:24px;"><div class="review-stars">★★★★★</div><p>「跨國訂單也準時送達，包裝非常嚴實，公仔像到嚇一跳。」</p><div class="review-user-name">Jason · 美國</div></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <!-- FAQ 常見問題 區塊 -->
+    <div class="container" style="margin:60px auto;">
+        <div class="section-title">❓ 常見問題</div>
+        <div style="display:grid; gap:16px; margin-top:24px;">
+            <details><summary><strong>製作需要多久時間？</strong></summary><p>一般手工製作約 14-18 個工作天（不含假日），急件可與客服協商。</p></details>
+            <details><summary><strong>可以修改幾次？</strong></summary><p>製作中無限次免費修改，直到您滿意為止，但一旦最終確認後即不可大幅修改。</p></details>
+            <details><summary><strong>海外寄送費用如何計算？</strong></summary><p>滿 NT$4000 享全球免運優惠（部分偏遠地區需加收運費）。</p></details>
+            <details><summary><strong>退換貨政策？</strong></summary><p>手工訂製商品不適用七天鑑賞期，但如嚴重不像可免費重做或退款，詳見「退款政策」。</p></details>
+        </div>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>歐邦人像公仔</h4>
+                <p>匠心手作，把回憶變成溫暖實體。已服務超過 3000+ 位客戶。</p>
+                <p style="margin-top:12px;">📧 niceadhd@gmail.com</p>
+                <p>📍 蔬石灣市東海縣告山街道中華路</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速連結</h4>
+                <a href="#">全部商品</a>
+                <a href="#">客製流程</a>
+                <a href="#">品牌故事</a>
+                <a href="#">部落格</a>
+                <a href="#">真實案例</a>
+            </div>
+            <div class="footer-col">
+                <h4>政策與條款</h4>
+                <a href="#" id="aboutLinkFooter">關於我們</a>
+                <a href="#" id="privacyLinkFooter">隱私政策</a>
+                <a href="#" id="refundLinkFooter">退款政策</a>
+                <a href="#" id="viewLicenseBtnFooter">查看證件</a>
+            </div>
+            <div class="footer-col">
+                <h4>關注我們</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">LINE官方</a>
+            </div>
+        </div>
+        <div class="legal-links-footer">
+            <span>© 2026 東海縣歐邦珠寶商行</span>
+        </div>
+        <div class="footer-bottom">
+            <p>本網站所有商品均為手工獨家訂製，每一件都是獨一無二的藝術品。圖案僅供參考，實際成品會依據照片微調。</p>
+        </div>
+    </div>
+</footer>
+
+<!-- 彈窗 Modal 結構（共用） -->
+<div id="commonModal" class="modal-mask" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); z-index:2000; align-items:center; justify-content:center;">
+    <div class="modal-container" style="background:#fff; max-width:360px; width:85%; border-radius:32px; padding:28px 24px; text-align:center;">
         <h3 id="modalTitle"></h3>
         <div id="modalBody"></div>
-        <button class="modal-close" onclick="closeModal()">關閉</button>
+        <button class="modal-close" onclick="closeModal()" style="margin-top:16px; background:#eee; border:none; padding:8px 24px; border-radius:40px;">關閉</button>
     </div>
 </div>
-
-<!-- 圖片預覽彈窗（證件） -->
-<div id="imagePreviewModal" class="modal-mask image-preview-modal">
-    <div class="modal-container" style="padding: 16px;">
-        <img id="previewImage" src="" alt="證件圖片" style="width:100%; border-radius: 16px;">
-        <button class="modal-close" style="margin-top: 16px;" onclick="closeImagePreview()">關閉</button>
+<div id="imagePreviewModal" class="modal-mask" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); align-items:center; justify-content:center;z-index:2001;">
+    <div style="background:#fff; border-radius:32px; padding:16px; max-width:340px;">
+        <img id="previewImage" src="" style="width:100%; border-radius:16px;">
+        <button onclick="closeImagePreview()" style="margin-top:16px; display:block; width:100%; background:#f0f0f0; border:none; padding:8px; border-radius:40px;">關閉</button>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    const swiper = new Swiper(".mySwiper", {
-        loop: true,
-        autoplay: { delay: 3500, disableOnInteraction: false },
-        pagination: { el: ".swiper-pagination", clickable: true },
-    });
+    function k2() { window.location.href = "gz.html"; }
+    function k3() { window.location.href = "#"; }
 
-    function k2() {
-        window.location.href = "https://www.line.me/en/";
-    }
-
-    // 彈窗相關邏輯
+    // Swiper 評價
+    new Swiper('.reviewSwiper', { loop: true, autoplay: { delay: 4000 }, pagination: { el: '.swiper-pagination', clickable: true }, slidesPerView: 1, breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } } });
+    
+    // 彈窗邏輯
     const modal = document.getElementById('commonModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
     const imageModal = document.getElementById('imagePreviewModal');
     const previewImg = document.getElementById('previewImage');
-
-    function openModal(title, contentHtml) {
-        modalTitle.innerText = title;
-        modalBody.innerHTML = contentHtml;
-        modal.classList.add('active');
-    }
-
-    function closeModal() {
-        modal.classList.remove('active');
-    }
-
-    function openImagePreview(imgUrl) {
-        previewImg.src = imgUrl;
-        imageModal.classList.add('active');
-    }
-
-    function closeImagePreview() {
-        imageModal.classList.remove('active');
-    }
-
-    // 證件圖片點擊
-    document.getElementById('viewLicenseBtn').addEventListener('click', () => {
-        openImagePreview('img/z.png');
-    });
-
-    // ========== 詳細、合規的彈窗內容（符合 Google 廣告政策） ==========
-    // 關於我們
-    document.getElementById('aboutLink').addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('關於我們', `
-            <p><strong>東海縣歐邦珠寶商行</strong> 成立於 2018 年，專注於高端人像公仔手工定制。我們以「把記憶化為觸手可及的溫暖」為理念，為全球客戶提供獨一無二的個性化禮物。</p>
-            <p>📌 我們的核心服務：<br>
-            • 一張照片即可定制，高度還原人物神態、髮型、服裝。<br>
-            • 全程一對一溝通，製作過程可多次修改，滿意後再發貨。<br>
-            • 所有公仔均採用進口環保軟陶，純手工捏製，可永久珍藏。</p>
-            <p>📞 聯絡方式：<br>
-            📧 電子郵件：<strong>niceadhd@gmail.com</strong><br>
-            💬 LINE：點擊頁面按鈕即可添加客服（服務時間 9:00-22:00）</p>
-            <p>🏢 公司登記地址：蔬石灣市東海縣告山街道中華路<br>
-            🧾 統一編號 / 商業登記證：詳見「查看證件」按鈕。</p>
-            <p>我們承諾：所有訂製資訊僅用於製作，不使用任何虛假宣傳，成品不符可協商修改或退款。</p>
-        `);
-    });
-
-    // 隱私政策（詳細、透明）
-    document.getElementById('privacyLink').addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('隱私政策', `
-            <p><strong>生效日期：</strong> 2026 年 1 月 1 日</p>
-            <p><strong>1. 我們收集的資訊</strong><br>
-            為了完成公仔定制，我們需要您提供：<br>
-            • 照片（用於製作人物形象）<br>
-            • 姓名、聯絡電話、收件地址<br>
-            • 如有特殊需求，可能會需要額外的參考圖片或文字描述。</p>
-            <p><strong>2. 資訊使用方式</strong><br>
-            所有收集的資訊僅用於：<br>
-            - 製作您訂製的人像公仔；<br>
-            - 配送商品及售後服務；<br>
-            - 必要時與您溝通製作進度。<br>
-            我們不會將您的照片或個人資訊用於任何其他商業行銷，也不會出售、出租或與第三方共享。</p>
-            <p><strong>3. 資料儲存與保護</strong><br>
-            您的照片在訂單完成後 90 天內將會從伺服器上自動刪除。我們採用業界標準的加密措施保護您的資料。</p>
-            <p><strong>4. 退款與售後</strong><br>
-            如有品質問題，請參閱「退款政策」。您有權要求我們刪除您提供的任何個人資料。</p>
-            <p><strong>5. 聯絡我們</strong><br>
-            如對隱私政策有任何疑問，請發送電子郵件至 <strong>niceadhd@gmail.com</strong>，我們將在 24 小時內回覆。</p>
-        `);
-    });
-
-    // 退款政策（詳細、符合 Google 購物廣告要求）
-    document.getElementById('refundLink').addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('退款政策', `
-            <p><strong>1. 定制商品性質說明</strong><br>
-            由於每件人像公仔均為手工訂製，根據消費者保護法及平台規範，此類商品不適用於無條件退貨。但我們提供完整的售後保障。</p>
-            <p><strong>2. 可退款情況（符合以下任一即可申請全額或部分退款）</strong><br>
-            ✅ 成品與照片嚴重不符（五官、髮型、服裝差異過大，經雙方確認無法修正）。<br>
-            ✅ 運送過程中造成公仔不可修復的破損（需提供開箱影片或照片）。<br>
-            ✅ 因我方原因導致延遲發貨超過 15 個工作天（不含例假日），您可要求取消訂單並退款。</p>
-            <p><strong>3. 退款流程</strong><br>
-            • 請在收到貨品後 7 日內透過 <strong>niceadhd@gmail.com</strong> 聯絡我們，提供訂單編號、問題照片及簡短說明。<br>
-            • 客服將於 24 小時內回覆，並協商解決方案（重做、局部修補或部分退款）。<br>
-            • 若雙方同意退款，款項將於原路返回（信用卡 / 第三方支付），處理時間約 5-15 個工作日。</p>
-            <p><strong>4. 不適用退款的情況</strong><br>
-            ❌ 客戶未提供足夠清晰的參考照片導致還原度不達預期（製作前客服會確認）。<br>
-            ❌ 客戶已確認草圖／半成品後要求大幅改變設計。<br>
-            ❌ 因主觀審美差異（例如「覺得不像但他人認為很像」）需以客觀照片對比為準。</p>
-            <p><strong>5. 最終聯絡方式</strong><br>
-            所有售後申請請統一發送至 <strong>niceadhd@gmail.com</strong>，標題請註明「訂單號 + 退款申請」。我們保證在 48 小時內給予具體解決方案。</p>
-        `);
-    });
-
-    // 點擊遮罩關閉彈窗
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-    imageModal.addEventListener('click', (e) => {
-        if (e.target === imageModal) closeImagePreview();
-    });
+    function openModal(title, html){ modalTitle.innerText = title; modalBody.innerHTML = html; modal.style.display = 'flex'; }
+    function closeModal(){ modal.style.display = 'none'; }
+    function openImagePreview(url){ previewImg.src = url; imageModal.style.display = 'flex'; }
+    function closeImagePreview(){ imageModal.style.display = 'none'; }
+    
+    // 頁尾按鈕
+    document.getElementById('aboutLinkFooter')?.addEventListener('click', (e) => { e.preventDefault(); openModal('關於我們', `<p><strong>東海縣歐邦珠寶商行</strong> 2018年創立，專注高精度人像公仔。每一件均純手工捏製，15年以上資歷工藝師。公司登記證齊全，全球客戶一致信賴。</p><p>📧 niceadhd@gmail.com</p>`); });
+    document.getElementById('privacyLinkFooter')?.addEventListener('click', (e) => { e.preventDefault(); openModal('隱私政策', `<p><strong>生效日期：2026.01.01</strong></p><p>我們僅收集製作必需之照片、聯絡資訊，不用於任何其他行銷。<br>訂單完成後90天自動刪除照片，採用加密傳輸。<br>如有疑問請聯繫 niceadhd@gmail.com</p>`); });
+    document.getElementById('refundLinkFooter')?.addEventListener('click', (e) => { e.preventDefault(); openModal('退款政策', `<p><strong>1. 手工訂製特殊商品</strong>，不適用7天無理由退貨。<br><strong>2. 如嚴重不像／破損／延遲15天以上，可全額退款。</strong><br>3. 請於收貨後7日內附照片寄至 niceadhd@gmail.com。<br>4. 雙方協商重製或按比例退款。</p>`); });
+    document.getElementById('viewLicenseBtnFooter')?.addEventListener('click', (e) => { e.preventDefault(); openImagePreview('img/z.png'); });
 </script>
-
 </body>
 </html>
