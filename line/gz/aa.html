@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>專屬人像公仔定制 | 匠心手作 永恆收藏</title>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"Kggou8IL90BHn32e",ck:"Kggou8IL90BHn32e"})</script>
+    
+    <!-- LINE Tag Base Code -->
+<!-- Do Not Modify -->
+<script>
+(function(g,d,o){
+  g._ltq=g._ltq||[];g._lt=g._lt||function(){g._ltq.push(arguments)};
+  var h=location.protocol==='https:'?'https://d.line-scdn.net':'http://d.line-cdn.net';
+  var s=d.createElement('script');s.async=1;
+  s.src=o||h+'/n/line_tag/public/release/v1/lt.js';
+  var t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);
+    })(window, document);
+_lt('init', {
+  customerType: 'lap',
+  tagId: 'a3839ee7-0782-4d35-a042-c36fc0dc2152'
+});
+_lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://tr.line.me/tag.gif?c_t=lap&t_id=a3839ee7-0782-4d35-a042-c36fc0dc2152&e=pv&noscript=1" />
+</noscript>
+<!-- End LINE Tag Base Code -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        :root {
+            --line-green: #06C755;
+            --line-dark: #05b34c;
+            --clay-orange: #ff7a3c;
+            --bg-warm: #fdfbf9;
+            --text-black: #1a1a1a;
+            --text-gray: #666;
+            --border-color: #eee;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            background-color: #f5f5f5;
+            color: var(--text-black);
+            line-height: 1.6;
+        }
+
+        /* 手機端寬度適配 */
+        .app-shell {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--bg-warm);
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 120px;
+            overflow-x: hidden;
+        }
+
+        /* 1. 首屏主視覺圖片 */
+        .main-visual {
+            width: 100%;
+            height: 110vw;
+            max-height: 550px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .main-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 2. 圓形圖片左右循環滾動 */
+        .circle-carousel {
+            margin-top: 20px;
+            padding: 12px 0;
+            background: rgba(255,255,255,0.6);
+            border-radius: 80px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .circle-carousel .swiper-slide {
+            width: 80px;
+            text-align: center;
+        }
+        .circle-carousel .swiper-slide img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+
+        /* 3. 其他原有樣式 */
+        .hero-info { padding: 30px 15px; text-align: center; }
+        .nowrap-title {
+            white-space: nowrap; 
+            display: block;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+        }
+        .title-primary { font-size: clamp(20px, 6.5vw, 32px); color: var(--text-black); margin-bottom: 6px; }
+        .title-secondary { font-size: clamp(18px, 6vw, 28px); color: var(--clay-orange); margin-bottom: 12px; }
+        .title-tertiary { font-size: 20px; font-weight: 700; opacity: 0.8; margin-bottom: 20px; }
+
+        .feature-bar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0 25px;
+            white-space: nowrap;
+        }
+        .feature-tag {
+            background: #fff;
+            border: 1px solid #ff7a3c33;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: clamp(12px, 3.6vw, 15px);
+            font-weight: 700;
+            color: #4e3627;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        /* 按鈕呼吸特效 */
+        .btn-line-main, .btn-footer-nowrap {
+            animation: lineBreathe 2s infinite ease-in-out;
+        }
+        @keyframes lineBreathe {
+            0% { transform: scale(1); box-shadow: 0 8px 20px rgba(6, 199, 85, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 8px 30px rgba(6, 199, 85, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 8px 20px rgba(6, 199, 85, 0.4); }
+        }
+
+        .btn-line-main {
+            background: var(--line-green);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 19px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            width: 100%;
+            margin: 10px auto;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* 優惠與倒計時 */
+        .promo-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #FFF2E6;
+            border-radius: 50px;
+            padding: 8px 18px;
+            margin: 8px auto 0;
+            width: fit-content;
+            font-weight: 700;
+            font-size: 15px;
+            color: #D93A0B;
+        }
+        .promo-row .countdown {
+            background: #1a1a1a;
+            color: #FFC107;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-family: monospace;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .section-box { padding: 35px 20px; }
+        .section-title { font-size: 24px; font-weight: 800; margin-bottom: 25px; text-align: center; position: relative; }
+        .section-title::after { content: ''; width: 50px; height: 4px; background: var(--clay-orange); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); border-radius: 2px; }
+
+        .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .service-card { background: white; padding: 20px 10px; border-radius: 20px; text-align: center; border: 1px solid var(--border-color); }
+        .service-card .icon { font-size: 32px; display: block; margin-bottom: 10px; }
+        .service-card h4 { font-size: 15px; font-weight: bold; margin-bottom: 5px; }
+        .service-card p { font-size: 12px; color: var(--text-gray); }
+
+        .process-wrap { background: #fff; border-radius: 30px; padding: 25px 15px; margin: 20px 0; border: 1px solid #eee; }
+        .process-item { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .process-num { background: var(--clay-orange); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+        .process-text { font-size: 15px; font-weight: 600; color: #444; }
+
+        .review-card { background: white; border-radius: 24px; padding: 20px; margin-bottom: 15px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .review-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .review-user-info { flex: 1; }
+        .review-user-name { font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 4px; }
+        .review-user-name .verify-tag { font-size: 10px; background: #E6F7FF; color: #1890FF; padding: 1px 6px; border-radius: 4px; font-weight: normal; }
+        .review-user-sub { font-size: 11px; color: #999; margin-top: 2px; }
+        .review-stars { color: #FFB800; font-size: 11px; margin-bottom: 8px; }
+        .review-content { font-size: 14px; color: #333; line-height: 1.6; }
+
+        .scene-wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px 0; }
+        .scene-tag-btn { background: white; border: 1px solid #ff7a3c44; padding: 10px 18px; border-radius: 12px; font-weight: 700; font-size: 15px; color: #bb5a37; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
+
+        .trust-banner { background: linear-gradient(135deg, #1a1a1a 0%, #333 100%); color: #fff; padding: 30px 20px; border-radius: 30px; text-align: center; margin: 20px 0; }
+        .trust-banner h4 { font-size: 20px; margin-bottom: 10px; }
+        .scarcity-text { background: #FF4D4F; color: white; padding: 4px 15px; border-radius: 50px; font-size: 13px; font-weight: 800; display: inline-block; margin-top: 15px; }
+
+        .footer-company {
+            background: #fff;
+            border-top: 1px solid var(--border-color);
+            padding: 20px 20px 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        .company-name { font-weight: 700; color: #333; margin-bottom: 6px; }
+        .company-address { font-size: 12px; color: #888; margin-bottom: 8px; }
+        .license-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; background: #f9f9f9; padding: 6px 12px; border-radius: 30px; cursor: pointer; transition: 0.2s; }
+        .license-link img { width: 20px; height: auto; vertical-align: middle; }
+        .license-link span { font-size: 12px; color: var(--line-green); font-weight: 500; }
+        .legal-links { display: flex; justify-content: center; gap: 24px; margin: 15px 0 12px; }
+        .legal-links a { color: #888; font-size: 13px; text-decoration: none; font-weight: 500; }
+        .footer-copy { color: #bbb; font-size: 10px; margin-top: 8px; }
+
+        .modal-mask {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 2000;
+            display: flex; align-items: center; justify-content: center;
+            visibility: hidden; opacity: 0; transition: all 0.2s;
+        }
+        .modal-mask.active { visibility: visible; opacity: 1; }
+        .modal-container {
+            max-width: 340px; width: 85%; background: white; border-radius: 32px;
+            padding: 28px 24px; text-align: center; box-shadow: 0 25px 40px rgba(0,0,0,0.2);
+            max-height: 80vh; overflow-y: auto;
+        }
+        .modal-container h3 { font-size: 24px; font-weight: 800; margin-bottom: 16px; color: #333; }
+        .modal-container p { font-size: 15px; line-height: 1.6; color: #555; margin-bottom: 12px; text-align: left; }
+        .modal-close { background: #f0f0f0; border: none; padding: 10px 20px; border-radius: 40px; font-weight: 600; font-size: 14px; cursor: pointer; margin-top: 16px; }
+        .image-preview-modal .modal-container { padding: 16px; }
+        .image-preview-modal img { width: 100%; border-radius: 16px; }
+
+        .floating-action {
+            position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 100%; max-width: 500px; padding: 12px 15px calc(15px + env(safe-area-inset-bottom));
+            background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.08); z-index: 999;
+        }
+        .btn-footer-nowrap {
+            background: var(--line-green); color: white; height: 56px; border-radius: 100px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 18px; text-decoration: none;
+            white-space: nowrap; border: none; width: 100%;
+            box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-shell">
+    <!-- 1. 單張主視覺圖片 -->
+    <div class="main-visual">
+        <img src="img/1.jpg" alt="人像公仔作品">
+    </div>
+
+    <!-- 2. 圓形圖片左右循環滾動（使用原輪播圖地址） -->
+    <div class="circle-carousel swiper circleSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/1.jpg" alt="作品圖1"></div>
+            <div class="swiper-slide"><img src="img/2.jpg" alt="作品圖2"></div>
+            <div class="swiper-slide"><img src="img/3.jpg" alt="作品圖3"></div>
+            <div class="swiper-slide"><img src="img/4.jpg" alt="作品圖4"></div>
+            <div class="swiper-slide"><img src="img/5.jpg" alt="作品圖5"></div>
+            <!-- 再多加兩張循環用 -->
+            <div class="swiper-slide"><img src="img/1.jpg" alt="作品圖1"></div>
+            <div class="swiper-slide"><img src="img/2.jpg" alt="作品圖2"></div>
+        </div>
+    </div>
+
+    <section class="hero-info">
+        <h1 class="nowrap-title title-primary">把重要時刻，變成永恆收藏</h1>
+        <h2 class="nowrap-title title-secondary">把照片變成專屬人像公仔</h2>
+        <p class="title-tertiary">獨一無二 只屬於你</p>
+        
+        <div class="feature-bar">
+            <span class="feature-tag">✨ 真人定制</span>
+            <span class="feature-tag">🎨 高還原度</span>
+            <span class="feature-tag">✏️ 支持修改</span>
+        </div>
+
+        <button onclick="k2()" class="btn-line-main">
+            👉 立即添加 LINE 諮詢定制
+        </button>
+        <!-- 主按鈕附近優惠＋倒計時 -->
+        <div class="promo-row">
+            <span>🔥 添加LINE 優惠2000台幣</span>
+            <span class="countdown" id="countdownMain">30:00</span>
+        </div>
+    </section>
+
+    <section class="section-box" style="background: white;">
+        <h3 class="section-title">送普通禮物太沒新意？</h3>
+        <h3 class="section-title" style="color:var(--clay-orange); margin-top:-15px;">送專屬定制 才夠用心</h3>
+        <div class="service-grid">
+            <div class="service-card">
+                <span class="icon">🧑‍🎨</span>
+                <h4>15年工藝大師</h4>
+                <p>純手工揉捏，完美還原照片神韻與表情細節。</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">🧪</span>
+                <h4>進口環保軟陶</h4>
+                <p>環保無味、永不褪色，可永久珍藏的溫暖禮物。</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">💬</span>
+                <h4>全程1對1溝通</h4>
+                <p>製作過程中隨時反饋，成品滿意才發貨。</p>
+            </div>
+            <div class="service-card">
+                <span class="icon">🎁</span>
+                <h4>送禮首選推薦</h4>
+                <p>紀念意義滿分，給TA一份觸手可及的驚喜。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-box">
+        <h3 class="section-title">讓每個瞬間都值得被紀念</h3>
+        <p style="text-align: center; color: var(--line-green); font-weight: 800; margin-bottom: 15px;">✅ 场景刺激</p>
+        <div class="scene-wrap">
+            <div class="scene-tag-btn">🎂 生日驚喜</div>
+            <div class="scene-tag-btn">💍 求婚告白</div>
+            <div class="scene-tag-btn">💑 情侶紀念</div>
+            <div class="scene-tag-btn">🎓 畢業收藏</div>
+            <div class="scene-tag-btn">🎁 特別的TA</div>
+        </div>
+    </section>
+
+    <section class="section-box" style="background: #fff; border-radius: 30px; margin: 15px; padding: 25px;">
+        <h3 class="section-title">想知道做出來有多像？</h3>
+        <div class="process-wrap">
+            <div class="process-item"><div class="process-num">1</div><div class="process-text">添加 LINE，聯繫您的專屬訂製師</div></div>
+            <div class="process-item"><div class="process-num">2</div><div class="process-text">發送您想要訂製的照片（單人/雙人均可）</div></div>
+            <div class="process-item"><div class="process-num">3</div><div class="process-text">工藝師開始手工製作，過程可多次修改</div></div>
+            <div class="process-item"><div class="process-num">4</div><div class="process-text">成品核對，精美包裝發貨</div></div>
+        </div>
+        <button onclick="k2()" style="background: white; color: var(--line-green); border: 2px solid var(--line-green); animation: none; box-shadow: none;" class="btn-line-main">
+            👉 添加 LINE 看真實案例
+        </button>
+        <!-- 按鈕附近同樣優惠+倒計時 -->
+        <div class="promo-row">
+            <span>🔥 添加LINE 優惠2000台幣</span>
+            <span class="countdown" id="countdownProcess">30:00</span>
+        </div>
+    </section>
+
+    <section class="section-box">
+        <h3 class="section-title">已為上千位客戶定制</h3>
+        <p style="text-align: center; font-size: 14px; color: #999; margin-top: -15px; margin-bottom: 25px;">手工製作 先到先排 · 越早定制越早收到驚喜</p>
+
+        <!-- 評論區 共8則 -->
+        <div class="review-card">
+            <div class="review-header">
+                <img src="img/a1.png" class="review-avatar" alt="User">
+                <div class="review-user-info"><div class="review-user-name">林** <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 台中市 | 定制款式：雙人場景版</div></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-content">拿到的時候真的驚呆了，神態抓得超準！送給老公的生日禮物，他感動得不得了，客服全程一對一跟我溝通細節，真的很用心。</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <img src="img/a3.png" class="review-avatar" alt="User">
+                <div class="review-user-info"><div class="review-user-name">Jason Lin <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 台北市 | 定制款式：單人全身版</div></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-content">求婚的時候用的，大家都誇公仔做得像本人。特別是衣服上的小Logo都還原了。手工製作確實有溫度，早定是對的，排隊挺久的。</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <img src="img/a4.png" class="review-avatar" alt="User">
+                <div class="review-user-info"><div class="review-user-name">張** <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 桃園市 | 定制款式：Q版禮物款</div></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-content">送給老婆的紀念日禮物。拿在手上有份量，手工質感很強，不是那種廉價塑料。這波驚喜給滿分！</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <img src="img/a5.png" class="review-avatar" alt="User">
+                <div class="review-user-info"><div class="review-user-name">陳** <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 新北市 | 定制款式：全家福套組</div></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-content">雖然等了快兩週，但收到真的驚豔。一對一溝通過程很舒服，成品非常有神韻，家裡人都很喜歡。</p>
+        </div>
+
+        <!-- 新增評論 5~8 -->
+        <div class="review-card">
+            <div class="review-header">
+                <img src="img/a1.png" class="review-avatar" alt="User">
+                <div class="review-user-info"><div class="review-user-name">吳小姐 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 高雄市 | 定制款式：寵物伴侶款</div></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-content">連我家貓咪都有訂製！做工超細，毛色漸層都做出來，超級感動！大推～</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <img src="img/a3.png" class="review-avatar" alt="User">
+                <div class="review-user-info"><div class="review-user-name">周先生 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 彰化市 | 定制款式：軍裝紀念版</div></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-content">退伍紀念公仔，軍徽、臂章都完美重現，懷念的記憶變成實體，非常推薦。</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <img src="img/a4.png" class="review-avatar" alt="User">
+                <div class="review-user-info"><div class="review-user-name">李媽媽 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 台南市 | 定制款式：母子情深</div></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-content">把兒子的照片做成公仔，放在客廳每天都看得到，手藝真的沒話說，很感動。</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-header">
+                <img src="img/a5.png" class="review-avatar" alt="User">
+                <div class="review-user-info"><div class="review-user-name">黃先生 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 新竹市 | 定制款式：雙人立姿</div></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-content">紀念交往五週年，女友看到直接感動哭，製作過程可以修改草圖，成品超讚！</p>
+        </div>
+    </section>
+
+    <div class="trust-banner">
+        <h4>匠心手作 · 品質保證</h4>
+        <p style="font-size: 14px; opacity: 0.8;">每一件作品都凝聚著工藝師數十小時的心血</p>
+        <div class="scarcity-text">🔥 今日僅剩 10 個定制名額</div>
+    </div>
+
+    <!-- 底部公司資訊區 （原有內容保留） -->
+    <div class="footer-company">
+        <div class="company-name">香港壹石貿易有限公司</div>
+        <div class="company-address">香港尖沙咀柯士甸路7-9號煥利商業大廈7樓63室</div>
+        <div class="license-link" id="viewLicenseBtn">
+            <img src="img/icon-cert.png" alt="證件圖示" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%2300c853\'%3E%3Cpath d=\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6z\'/%3E%3C/svg%3E'">
+            <span>查看商業登記證</span>
+        </div>
+        <div class="legal-links">
+            <a href="#" id="aboutLink">關於我們</a>
+            <a href="#" id="privacyLink">隱私政策</a>
+            <a href="#" id="refundLink">退款政策</a>
+        </div>
+        <div class="footer-copy">© 2026 香港壹石貿易有限公司 版權所有</div>
+    </div>
+
+    <div class="floating-action">
+        <div class="promo-row" style="margin-bottom: 8px; background: rgba(255,242,230,0.95);">
+            <span>🎁 添加LINE 優惠2000台幣</span>
+            <span class="countdown" id="countdownFloat">30:00</span>
+        </div>
+        <button onclick="k2()" class="btn-footer-nowrap">
+            👉 立即添加 LINE | 發送照片 免費諮詢
+        </button>
+    </div>
+</div>
+
+<!-- 通用彈窗結構 -->
+<div id="commonModal" class="modal-mask">
+    <div class="modal-container">
+        <h3 id="modalTitle"></h3>
+        <div id="modalBody"></div>
+        <button class="modal-close" onclick="closeModal()">關閉</button>
+    </div>
+</div>
+
+<div id="imagePreviewModal" class="modal-mask image-preview-modal">
+    <div class="modal-container" style="padding: 16px;">
+        <img id="previewImage" src="" alt="證件圖片">
+        <button class="modal-close" style="margin-top: 16px;" onclick="closeImagePreview()">關閉</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    // 圓形圖片左右循環輪播
+    const circleSwiper = new Swiper(".circleSwiper", {
+        slidesPerView: "auto",
+        centeredSlides: true,
+        loop: true,
+        autoplay: { delay: 0, disableOnInteraction: false, stopOnLastSlide: false },
+        speed: 4000,
+        freeMode: false,
+        allowTouchMove: true,
+        breakpoints: { 0: { slidesPerView: 3.5, spaceBetween: 8 } }
+    });
+
+    // 倒計時 30分鐘 (1800秒)
+    let endTime = Date.now() + 30 * 60 * 1000;
+    function updateCountdowns() {
+        const now = Date.now();
+        let diff = Math.max(0, endTime - now);
+        let mins = Math.floor(diff / 60000);
+        let secs = Math.floor((diff % 60000) / 1000);
+        let timeStr = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+        const elements = ['countdownMain', 'countdownProcess', 'countdownFloat'];
+        elements.forEach(id => {
+            let el = document.getElementById(id);
+            if (el) el.innerText = timeStr;
+        });
+        if (diff <= 0) {
+            clearInterval(timer);
+            elements.forEach(id => {
+                let el = document.getElementById(id);
+                if (el && el.parentNode) el.parentNode.innerHTML = "⏰ 優惠已結束";
+            });
+        }
+    }
+    updateCountdowns();
+    const timer = setInterval(updateCountdowns, 1000);
+
+    // 其餘功能保持原有
+    function k2() {
+        _lt('send', 'cv', {type: 'GenerateLead'},['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
+        _lt('send', 'cv', {type: 'CompleteReservation'},['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
+        window.location.href = "https://lin.ee/S1OIiHM";
+    }
+
+    const modal = document.getElementById('commonModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const imageModal = document.getElementById('imagePreviewModal');
+    const previewImg = document.getElementById('previewImage');
+
+    function openModal(title, contentHtml) {
+        modalTitle.innerText = title;
+        modalBody.innerHTML = contentHtml;
+        modal.classList.add('active');
+    }
+    function closeModal() { modal.classList.remove('active'); }
+    function openImagePreview(imgUrl) { previewImg.src = imgUrl; imageModal.classList.add('active'); }
+    function closeImagePreview() { imageModal.classList.remove('active'); }
+
+    document.getElementById('viewLicenseBtn')?.addEventListener('click', () => openImagePreview('img/z.png'));
+    document.getElementById('aboutLink')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal('關於我們', `<p><strong>香港壹石貿易有限公司</strong> 成立於 2018 年，專注於高端人像公仔手工定制。我們以「把記憶化為觸手可及的溫暖」為理念，為全球客戶提供獨一無二的個性化禮物。</p>
+        <p>📌 核心服務：一張照片即可定制，高度還原人物神態、髮型、服裝；全程一對一溝通，製作過程可多次修改；進口環保軟陶，純手工捏製，可永久珍藏。</p>
+        <p>📞 聯絡方式：<strong>cnnnn6446@gmail.com</strong> (客服 9:00-22:00)<br>🏢 公司登記地址：香港尖沙咀柯士甸路7-9號煥利商業大廈7樓63室</p>`);
+    });
+    document.getElementById('privacyLink')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal('隱私政策', `<p><strong>生效日期：2026-01-01</strong></p><p><strong>1. 我們收集的資訊</strong><br>為了完成公仔定制，需要提供：照片、姓名、聯絡電話、收件地址、特殊需求參考圖。</p>
+        <p><strong>2. 資訊使用方式</strong><br>僅用於製作公仔、配送商品及售後服務，不會用於其他商業行銷，不與第三方共享。</p>
+        <p><strong>3. 資料儲存與保護</strong><br>訂單完成後90天內自動刪除照片，採用業界加密保護。</p>
+        <p><strong>4. 退款與售後</strong><br>品質問題可申請退款，您有權要求刪除個人資料。</p>`);
+    });
+    document.getElementById('refundLink')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal('退款政策', `<p><strong>1. 定制商品性質說明</strong><br>手工訂製不適用無條件退貨，但提供完整售後保障。</p>
+        <p><strong>2. 可退款情況</strong><br>✅ 成品與照片嚴重不符；✅ 運輸造成不可修復破損；✅ 我方延遲發貨超過15工作天。</p>
+        <p><strong>3. 退款流程</strong><br>收到貨後7日內聯絡 cnnnn6446@gmail.com，提供訂單編號與照片。24小時內回覆，同意退款後5-15個工作日返還。</p>
+        <p><strong>4. 不適用退款</strong><br>❌ 未提供清晰參考照片；❌ 確認草圖後大幅修改；❌ 主觀審美差異。</p>`);
+    });
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeImagePreview(); });
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"48615963fdef450cbdc295358554f39e","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
