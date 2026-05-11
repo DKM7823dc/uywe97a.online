@@ -250,7 +250,7 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
 <body>
 
 <div class="app-shell">
-    <!-- 轮播图区域（恢复） -->
+    <!-- 轮播图 -->
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide"><img src="img/1.jpg" alt="作品圖 1"></div>
@@ -262,7 +262,7 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
         <div class="swiper-pagination"></div>
     </div>
 
-    <!-- 圆形图片左右循环滚动（保留） -->
+    <!-- 圆形图片左右循环滚动 -->
     <div class="circle-carousel swiper circleSwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide"><img src="img/1.jpg" alt="作品圖1"></div>
@@ -290,7 +290,7 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
             👉 立即添加 LINE 諮詢定制
         </button>
         <div class="promo-row">
-            <span>🔥 添加LINE 優惠2000台幣</span>
+            <span>🔥 领取优惠券</span>
             <span class="countdown" id="countdownMain">30:00</span>
         </div>
     </section>
@@ -330,7 +330,7 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
             👉 添加 LINE 看真實案例
         </button>
         <div class="promo-row">
-            <span>🔥 添加LINE 優惠2000台幣</span>
+            <span>🔥 领取优惠券</span>
             <span class="countdown" id="countdownProcess">30:00</span>
         </div>
     </section>
@@ -405,7 +405,7 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
 
     <div class="floating-action">
         <div class="promo-row" style="margin-bottom: 8px; background: rgba(255,242,230,0.95);">
-            <span>🎁 添加LINE 優惠2000台幣</span>
+            <span>🎁 领取优惠券</span>
             <span class="countdown" id="countdownFloat">30:00</span>
         </div>
         <button onclick="k2()" class="btn-footer-nowrap">
@@ -424,10 +424,10 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    // 主轮播图初始化
+    // 主轮播图初始化，间隔2.5秒
     const mainSwiper = new Swiper(".mySwiper", {
         loop: true,
-        autoplay: { delay: 3500, disableOnInteraction: false },
+        autoplay: { delay: 2500, disableOnInteraction: false },
         pagination: { el: ".swiper-pagination", clickable: true },
     });
     // 圆形图片循环滚动
