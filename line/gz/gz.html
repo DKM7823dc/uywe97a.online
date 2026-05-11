@@ -49,7 +49,6 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
             line-height: 1.6;
         }
 
-        /* 手機端寬度適配 */
         .app-shell {
             max-width: 500px;
             margin: 0 auto;
@@ -60,8 +59,8 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
             overflow-x: hidden;
         }
 
-        /* 1. 首屏主視覺圖片 */
-        .main-visual {
+        /* 1. 轮播图样式 */
+        .swiper.mySwiper {
             width: 100%;
             height: 110vw;
             max-height: 550px;
@@ -70,13 +69,18 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        .main-visual img {
+        .swiper.mySwiper .swiper-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+        .swiper-pagination-bullet-active {
+            background: var(--line-green) !important;
+            width: 20px;
+            border-radius: 4px;
+        }
 
-        /* 2. 圓形圖片左右循環滾動 */
+        /* 2. 圆形图片左右循环滚动 */
         .circle-carousel {
             margin-top: 20px;
             padding: 12px 0;
@@ -99,37 +103,16 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
             background: #fff;
         }
 
-        /* 3. 其他原有樣式 */
         .hero-info { padding: 30px 15px; text-align: center; }
-        .nowrap-title {
-            white-space: nowrap; 
-            display: block;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-        }
+        .nowrap-title { white-space: nowrap; display: block; font-weight: 900; letter-spacing: -0.5px; }
         .title-primary { font-size: clamp(20px, 6.5vw, 32px); color: var(--text-black); margin-bottom: 6px; }
         .title-secondary { font-size: clamp(18px, 6vw, 28px); color: var(--clay-orange); margin-bottom: 12px; }
         .title-tertiary { font-size: 20px; font-weight: 700; opacity: 0.8; margin-bottom: 20px; }
 
-        .feature-bar {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 15px 0 25px;
-            white-space: nowrap;
-        }
-        .feature-tag {
-            background: #fff;
-            border: 1px solid #ff7a3c33;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: clamp(12px, 3.6vw, 15px);
-            font-weight: 700;
-            color: #4e3627;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-        }
+        .feature-bar { display: flex; justify-content: center; gap: 10px; margin: 15px 0 25px; white-space: nowrap; }
+        .feature-tag { background: #fff; border: 1px solid #ff7a3c33; padding: 6px 12px; border-radius: 8px; font-size: clamp(12px, 3.6vw, 15px); font-weight: 700; color: #4e3627; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
 
-        /* 按鈕呼吸特效 */
+        /* 按钮呼吸特效 */
         .btn-line-main, .btn-footer-nowrap {
             animation: lineBreathe 2s infinite ease-in-out;
         }
@@ -157,7 +140,6 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
             cursor: pointer;
         }
 
-        /* 優惠與倒計時 */
         .promo-row {
             display: flex;
             align-items: center;
@@ -268,12 +250,19 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
 <body>
 
 <div class="app-shell">
-    <!-- 1. 單張主視覺圖片 -->
-    <div class="main-visual">
-        <img src="img/1.jpg" alt="人像公仔作品">
+    <!-- 轮播图区域（恢复） -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/1.jpg" alt="作品圖 1"></div>
+            <div class="swiper-slide"><img src="img/2.jpg" alt="作品圖 2"></div>
+            <div class="swiper-slide"><img src="img/3.jpg" alt="作品圖 3"></div>
+            <div class="swiper-slide"><img src="img/4.jpg" alt="作品圖 4"></div>
+            <div class="swiper-slide"><img src="img/5.jpg" alt="作品圖 5"></div>
+        </div>
+        <div class="swiper-pagination"></div>
     </div>
 
-    <!-- 2. 圓形圖片左右循環滾動（使用原輪播圖地址） -->
+    <!-- 圆形图片左右循环滚动（保留） -->
     <div class="circle-carousel swiper circleSwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide"><img src="img/1.jpg" alt="作品圖1"></div>
@@ -281,7 +270,6 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
             <div class="swiper-slide"><img src="img/3.jpg" alt="作品圖3"></div>
             <div class="swiper-slide"><img src="img/4.jpg" alt="作品圖4"></div>
             <div class="swiper-slide"><img src="img/5.jpg" alt="作品圖5"></div>
-            <!-- 再多加兩張循環用 -->
             <div class="swiper-slide"><img src="img/1.jpg" alt="作品圖1"></div>
             <div class="swiper-slide"><img src="img/2.jpg" alt="作品圖2"></div>
         </div>
@@ -301,7 +289,6 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
         <button onclick="k2()" class="btn-line-main">
             👉 立即添加 LINE 諮詢定制
         </button>
-        <!-- 主按鈕附近優惠＋倒計時 -->
         <div class="promo-row">
             <span>🔥 添加LINE 優惠2000台幣</span>
             <span class="countdown" id="countdownMain">30:00</span>
@@ -312,26 +299,10 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
         <h3 class="section-title">送普通禮物太沒新意？</h3>
         <h3 class="section-title" style="color:var(--clay-orange); margin-top:-15px;">送專屬定制 才夠用心</h3>
         <div class="service-grid">
-            <div class="service-card">
-                <span class="icon">🧑‍🎨</span>
-                <h4>15年工藝大師</h4>
-                <p>純手工揉捏，完美還原照片神韻與表情細節。</p>
-            </div>
-            <div class="service-card">
-                <span class="icon">🧪</span>
-                <h4>進口環保軟陶</h4>
-                <p>環保無味、永不褪色，可永久珍藏的溫暖禮物。</p>
-            </div>
-            <div class="service-card">
-                <span class="icon">💬</span>
-                <h4>全程1對1溝通</h4>
-                <p>製作過程中隨時反饋，成品滿意才發貨。</p>
-            </div>
-            <div class="service-card">
-                <span class="icon">🎁</span>
-                <h4>送禮首選推薦</h4>
-                <p>紀念意義滿分，給TA一份觸手可及的驚喜。</p>
-            </div>
+            <div class="service-card"><span class="icon">🧑‍🎨</span><h4>15年工藝大師</h4><p>純手工揉捏，完美還原照片神韻與表情細節。</p></div>
+            <div class="service-card"><span class="icon">🧪</span><h4>進口環保軟陶</h4><p>環保無味、永不褪色，可永久珍藏的溫暖禮物。</p></div>
+            <div class="service-card"><span class="icon">💬</span><h4>全程1對1溝通</h4><p>製作過程中隨時反饋，成品滿意才發貨。</p></div>
+            <div class="service-card"><span class="icon">🎁</span><h4>送禮首選推薦</h4><p>紀念意義滿分，給TA一份觸手可及的驚喜。</p></div>
         </div>
     </section>
 
@@ -358,7 +329,6 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
         <button onclick="k2()" style="background: white; color: var(--line-green); border: 2px solid var(--line-green); animation: none; box-shadow: none;" class="btn-line-main">
             👉 添加 LINE 看真實案例
         </button>
-        <!-- 按鈕附近同樣優惠+倒計時 -->
         <div class="promo-row">
             <span>🔥 添加LINE 優惠2000台幣</span>
             <span class="countdown" id="countdownProcess">30:00</span>
@@ -369,76 +339,44 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
         <h3 class="section-title">已為上千位客戶定制</h3>
         <p style="text-align: center; font-size: 14px; color: #999; margin-top: -15px; margin-bottom: 25px;">手工製作 先到先排 · 越早定制越早收到驚喜</p>
 
-        <!-- 評論區 共8則 -->
+        <!-- 评论8则 -->
         <div class="review-card">
-            <div class="review-header">
-                <img src="img/a1.png" class="review-avatar" alt="User">
-                <div class="review-user-info"><div class="review-user-name">林** <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 台中市 | 定制款式：雙人場景版</div></div>
-            </div>
+            <div class="review-header"><img src="img/a1.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">林** <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 台中市 | 定制款式：雙人場景版</div></div></div>
             <div class="review-stars">★★★★★</div>
             <p class="review-content">拿到的時候真的驚呆了，神態抓得超準！送給老公的生日禮物，他感動得不得了，客服全程一對一跟我溝通細節，真的很用心。</p>
         </div>
-
         <div class="review-card">
-            <div class="review-header">
-                <img src="img/a3.png" class="review-avatar" alt="User">
-                <div class="review-user-info"><div class="review-user-name">Jason Lin <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 台北市 | 定制款式：單人全身版</div></div>
-            </div>
+            <div class="review-header"><img src="img/a3.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">Jason Lin <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 台北市 | 定制款式：單人全身版</div></div></div>
             <div class="review-stars">★★★★★</div>
             <p class="review-content">求婚的時候用的，大家都誇公仔做得像本人。特別是衣服上的小Logo都還原了。手工製作確實有溫度，早定是對的，排隊挺久的。</p>
         </div>
-
         <div class="review-card">
-            <div class="review-header">
-                <img src="img/a4.png" class="review-avatar" alt="User">
-                <div class="review-user-info"><div class="review-user-name">張** <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 桃園市 | 定制款式：Q版禮物款</div></div>
-            </div>
+            <div class="review-header"><img src="img/a4.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">張** <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 桃園市 | 定制款式：Q版禮物款</div></div></div>
             <div class="review-stars">★★★★★</div>
             <p class="review-content">送給老婆的紀念日禮物。拿在手上有份量，手工質感很強，不是那種廉價塑料。這波驚喜給滿分！</p>
         </div>
-
         <div class="review-card">
-            <div class="review-header">
-                <img src="img/a5.png" class="review-avatar" alt="User">
-                <div class="review-user-info"><div class="review-user-name">陳** <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 新北市 | 定制款式：全家福套組</div></div>
-            </div>
+            <div class="review-header"><img src="img/a5.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">陳** <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 新北市 | 定制款式：全家福套組</div></div></div>
             <div class="review-stars">★★★★★</div>
             <p class="review-content">雖然等了快兩週，但收到真的驚豔。一對一溝通過程很舒服，成品非常有神韻，家裡人都很喜歡。</p>
         </div>
-
-        <!-- 新增評論 5~8 -->
         <div class="review-card">
-            <div class="review-header">
-                <img src="img/a1.png" class="review-avatar" alt="User">
-                <div class="review-user-info"><div class="review-user-name">吳小姐 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 高雄市 | 定制款式：寵物伴侶款</div></div>
-            </div>
+            <div class="review-header"><img src="img/a1.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">吳小姐 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 高雄市 | 定制款式：寵物伴侶款</div></div></div>
             <div class="review-stars">★★★★★</div>
             <p class="review-content">連我家貓咪都有訂製！做工超細，毛色漸層都做出來，超級感動！大推～</p>
         </div>
-
         <div class="review-card">
-            <div class="review-header">
-                <img src="img/a3.png" class="review-avatar" alt="User">
-                <div class="review-user-info"><div class="review-user-name">周先生 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 彰化市 | 定制款式：軍裝紀念版</div></div>
-            </div>
+            <div class="review-header"><img src="img/a3.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">周先生 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 彰化市 | 定制款式：軍裝紀念版</div></div></div>
             <div class="review-stars">★★★★★</div>
             <p class="review-content">退伍紀念公仔，軍徽、臂章都完美重現，懷念的記憶變成實體，非常推薦。</p>
         </div>
-
         <div class="review-card">
-            <div class="review-header">
-                <img src="img/a4.png" class="review-avatar" alt="User">
-                <div class="review-user-info"><div class="review-user-name">李媽媽 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 台南市 | 定制款式：母子情深</div></div>
-            </div>
+            <div class="review-header"><img src="img/a4.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">李媽媽 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 台南市 | 定制款式：母子情深</div></div></div>
             <div class="review-stars">★★★★★</div>
             <p class="review-content">把兒子的照片做成公仔，放在客廳每天都看得到，手藝真的沒話說，很感動。</p>
         </div>
-
         <div class="review-card">
-            <div class="review-header">
-                <img src="img/a5.png" class="review-avatar" alt="User">
-                <div class="review-user-info"><div class="review-user-name">黃先生 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 新竹市 | 定制款式：雙人立姿</div></div>
-            </div>
+            <div class="review-header"><img src="img/a5.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">黃先生 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 新竹市 | 定制款式：雙人立姿</div></div></div>
             <div class="review-stars">★★★★★</div>
             <p class="review-content">紀念交往五週年，女友看到直接感動哭，製作過程可以修改草圖，成品超讚！</p>
         </div>
@@ -450,7 +388,6 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
         <div class="scarcity-text">🔥 今日僅剩 10 個定制名額</div>
     </div>
 
-    <!-- 底部公司資訊區 （原有內容保留） -->
     <div class="footer-company">
         <div class="company-name">香港壹石貿易有限公司</div>
         <div class="company-address">香港尖沙咀柯士甸路7-9號煥利商業大廈7樓63室</div>
@@ -477,25 +414,23 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
     </div>
 </div>
 
-<!-- 通用彈窗結構 -->
+<!-- Modal 弹窗结构 -->
 <div id="commonModal" class="modal-mask">
-    <div class="modal-container">
-        <h3 id="modalTitle"></h3>
-        <div id="modalBody"></div>
-        <button class="modal-close" onclick="closeModal()">關閉</button>
-    </div>
+    <div class="modal-container"><h3 id="modalTitle"></h3><div id="modalBody"></div><button class="modal-close" onclick="closeModal()">關閉</button></div>
 </div>
-
 <div id="imagePreviewModal" class="modal-mask image-preview-modal">
-    <div class="modal-container" style="padding: 16px;">
-        <img id="previewImage" src="" alt="證件圖片">
-        <button class="modal-close" style="margin-top: 16px;" onclick="closeImagePreview()">關閉</button>
-    </div>
+    <div class="modal-container" style="padding: 16px;"><img id="previewImage" src="" alt="證件圖片"><button class="modal-close" style="margin-top: 16px;" onclick="closeImagePreview()">關閉</button></div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    // 圓形圖片左右循環輪播
+    // 主轮播图初始化
+    const mainSwiper = new Swiper(".mySwiper", {
+        loop: true,
+        autoplay: { delay: 3500, disableOnInteraction: false },
+        pagination: { el: ".swiper-pagination", clickable: true },
+    });
+    // 圆形图片循环滚动
     const circleSwiper = new Swiper(".circleSwiper", {
         slidesPerView: "auto",
         centeredSlides: true,
@@ -507,7 +442,7 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
         breakpoints: { 0: { slidesPerView: 3.5, spaceBetween: 8 } }
     });
 
-    // 倒計時 30分鐘 (1800秒)
+    // 倒计时30分钟
     let endTime = Date.now() + 30 * 60 * 1000;
     function updateCountdowns() {
         const now = Date.now();
@@ -515,14 +450,13 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
         let mins = Math.floor(diff / 60000);
         let secs = Math.floor((diff % 60000) / 1000);
         let timeStr = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
-        const elements = ['countdownMain', 'countdownProcess', 'countdownFloat'];
-        elements.forEach(id => {
+        ['countdownMain', 'countdownProcess', 'countdownFloat'].forEach(id => {
             let el = document.getElementById(id);
             if (el) el.innerText = timeStr;
         });
         if (diff <= 0) {
             clearInterval(timer);
-            elements.forEach(id => {
+            ['countdownMain', 'countdownProcess', 'countdownFloat'].forEach(id => {
                 let el = document.getElementById(id);
                 if (el && el.parentNode) el.parentNode.innerHTML = "⏰ 優惠已結束";
             });
@@ -531,7 +465,6 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
     updateCountdowns();
     const timer = setInterval(updateCountdowns, 1000);
 
-    // 其餘功能保持原有
     function k2() {
         _lt('send', 'cv', {type: 'GenerateLead'},['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
         _lt('send', 'cv', {type: 'CompleteReservation'},['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
@@ -544,11 +477,7 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
     const imageModal = document.getElementById('imagePreviewModal');
     const previewImg = document.getElementById('previewImage');
 
-    function openModal(title, contentHtml) {
-        modalTitle.innerText = title;
-        modalBody.innerHTML = contentHtml;
-        modal.classList.add('active');
-    }
+    function openModal(title, contentHtml) { modalTitle.innerText = title; modalBody.innerHTML = contentHtml; modal.classList.add('active'); }
     function closeModal() { modal.classList.remove('active'); }
     function openImagePreview(imgUrl) { previewImg.src = imgUrl; imageModal.classList.add('active'); }
     function closeImagePreview() { imageModal.classList.remove('active'); }
@@ -556,23 +485,15 @@ _lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
     document.getElementById('viewLicenseBtn')?.addEventListener('click', () => openImagePreview('img/z.png'));
     document.getElementById('aboutLink')?.addEventListener('click', (e) => {
         e.preventDefault();
-        openModal('關於我們', `<p><strong>香港壹石貿易有限公司</strong> 成立於 2018 年，專注於高端人像公仔手工定制。我們以「把記憶化為觸手可及的溫暖」為理念，為全球客戶提供獨一無二的個性化禮物。</p>
-        <p>📌 核心服務：一張照片即可定制，高度還原人物神態、髮型、服裝；全程一對一溝通，製作過程可多次修改；進口環保軟陶，純手工捏製，可永久珍藏。</p>
-        <p>📞 聯絡方式：<strong>cnnnn6446@gmail.com</strong> (客服 9:00-22:00)<br>🏢 公司登記地址：香港尖沙咀柯士甸路7-9號煥利商業大廈7樓63室</p>`);
+        openModal('關於我們', `<p><strong>香港壹石貿易有限公司</strong> 成立於 2018 年，專注於高端人像公仔手工定制。我們以「把記憶化為觸手可及的溫暖」為理念，為全球客戶提供獨一無二的個性化禮物。</p><p>📌 核心服務：一張照片即可定制，高度還原人物神態、髮型、服裝；全程一對一溝通，製作過程可多次修改；進口環保軟陶，純手工捏製，可永久珍藏。</p><p>📞 聯繫方式：<strong>cnnnn6446@gmail.com</strong> (客服 9:00-22:00)<br>🏢 公司登記地址：香港尖沙咀柯士甸路7-9號煥利商業大廈7樓63室</p>`);
     });
     document.getElementById('privacyLink')?.addEventListener('click', (e) => {
         e.preventDefault();
-        openModal('隱私政策', `<p><strong>生效日期：2026-01-01</strong></p><p><strong>1. 我們收集的資訊</strong><br>為了完成公仔定制，需要提供：照片、姓名、聯絡電話、收件地址、特殊需求參考圖。</p>
-        <p><strong>2. 資訊使用方式</strong><br>僅用於製作公仔、配送商品及售後服務，不會用於其他商業行銷，不與第三方共享。</p>
-        <p><strong>3. 資料儲存與保護</strong><br>訂單完成後90天內自動刪除照片，採用業界加密保護。</p>
-        <p><strong>4. 退款與售後</strong><br>品質問題可申請退款，您有權要求刪除個人資料。</p>`);
+        openModal('隱私政策', `<p><strong>生效日期：2026-01-01</strong></p><p><strong>1. 我們收集的資訊</strong><br>為了完成公仔定制，需要提供：照片、姓名、聯絡電話、收件地址、特殊需求參考圖。</p><p><strong>2. 資訊使用方式</strong><br>僅用於製作公仔、配送商品及售後服務，不會用於其他商業行銷，不與第三方共享。</p><p><strong>3. 資料儲存與保護</strong><br>訂單完成後90天內自動刪除照片，採用業界加密保護。</p><p><strong>4. 退款與售後</strong><br>品質問題可申請退款，您有權要求刪除個人資料。</p>`);
     });
     document.getElementById('refundLink')?.addEventListener('click', (e) => {
         e.preventDefault();
-        openModal('退款政策', `<p><strong>1. 定制商品性質說明</strong><br>手工訂製不適用無條件退貨，但提供完整售後保障。</p>
-        <p><strong>2. 可退款情況</strong><br>✅ 成品與照片嚴重不符；✅ 運輸造成不可修復破損；✅ 我方延遲發貨超過15工作天。</p>
-        <p><strong>3. 退款流程</strong><br>收到貨後7日內聯絡 cnnnn6446@gmail.com，提供訂單編號與照片。24小時內回覆，同意退款後5-15個工作日返還。</p>
-        <p><strong>4. 不適用退款</strong><br>❌ 未提供清晰參考照片；❌ 確認草圖後大幅修改；❌ 主觀審美差異。</p>`);
+        openModal('退款政策', `<p><strong>1. 定制商品性質說明</strong><br>手工訂製不適用無條件退貨，但提供完整售後保障。</p><p><strong>2. 可退款情況</strong><br>✅ 成品與照片嚴重不符；✅ 運輸造成不可修復破損；✅ 我方延遲發貨超過15工作天。</p><p><strong>3. 退款流程</strong><br>收到貨後7日內聯絡 cnnnn6446@gmail.com，提供訂單編號與照片。24小時內回覆，同意退款後5-15個工作日返還。</p><p><strong>4. 不適用退款</strong><br>❌ 未提供清晰參考照片；❌ 確認草圖後大幅修改；❌ 主觀審美差異。</p>`);
     });
     modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
     imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeImagePreview(); });
