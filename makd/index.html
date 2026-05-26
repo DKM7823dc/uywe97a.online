@@ -21,9 +21,7 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
 ></noscript>
-<!-- End Meta Pixel Code -->
-
-    <script>
+<script>
         function k2() {
 		//默认购物 加购， 联系事件
 		 fbq('track', 'AddToCart');
@@ -61,7 +59,8 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             }
         }
 
-        window.addEventListener('load', function() {
+        // 优化：使用 DOMContentLoaded 代替 load，确保 HTML 加载后立即执行，不被外部资源阻塞
+        document.addEventListener('DOMContentLoaded', function() {
             updateCountdown();
             setInterval(updateCountdown, 1000);
             updateClaimCount();
@@ -79,18 +78,21 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
     </script>
     <style>
         :root {
-            --deep-primary: #0a0e27;
-            --deep-secondary: #16213e;
-            --deep-accent: #1a1a2e;
-            --accent-orange: #ff6b35;
-            --accent-cyan: #00d4ff;
-            --accent-gold: #ffd93d;
-            --accent-purple: #b721ff;
-            --text-light: #e8e8e8;
-            --text-muted: #9ba4b4;
-            --border-glow: rgba(0, 212, 255, 0.4);
-            --card-dark: rgba(22, 33, 62, 0.6);
-            --card-border: rgba(255, 107, 53, 0.3);
+            /* 深海蓝色调 - 沉稳、专业、机构感 */
+            --deep-primary: #041222; 
+            --deep-secondary: #0A2239; 
+            --deep-accent: #133254; 
+            
+            /* 黄色调 - 醒目、高转化、点击欲望 */
+            --accent-yellow: #FFC107; 
+            --accent-yellow-light: #FFD54F; 
+            --accent-yellow-dark: #FF9800; 
+
+            --text-light: #E8EEF2;
+            --text-muted: #8B9BB4;
+            --border-glow: rgba(255, 193, 7, 0.15);
+            --card-dark: rgba(10, 34, 57, 0.8);
+            --card-border: rgba(255, 193, 7, 0.25);
         }
 
         * {
@@ -114,14 +116,14 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             padding: 0 20px;
         }
 
-        /* Glowing Background Elements */
+        /* Glowing Background Elements - 降低了亮度和饱和度，保持背景沉稳 */
         .bg-glow {
             position: fixed;
             width: 500px;
             height: 500px;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.15;
+            filter: blur(120px);
+            opacity: 0.1;
             pointer-events: none;
             z-index: 0;
         }
@@ -129,14 +131,15 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         .glow-1 {
             top: -100px;
             right: -100px;
-            background: var(--accent-cyan);
+            background: var(--deep-accent);
             animation: float 8s ease-in-out infinite;
         }
 
         .glow-2 {
             bottom: -100px;
             left: -100px;
-            background: var(--accent-orange);
+            background: var(--accent-yellow-dark);
+            opacity: 0.05;
             animation: float 10s ease-in-out infinite reverse;
         }
 
@@ -150,8 +153,8 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             background: linear-gradient(180deg, var(--deep-secondary) 0%, var(--deep-primary) 100%);
             padding: 60px 0;
             position: relative;
-            border-bottom: 3px solid;
-            border-image: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-orange), transparent) 1;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, transparent, var(--deep-accent), var(--accent-yellow), transparent) 1;
         }
 
         .hero-content {
@@ -160,41 +163,41 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             text-align: center;
         }
 
-        /* Urgency Tag - Different Style */
+        /* Urgency Tag - 黄底深色字，非常醒目 */
         .urgency-tag {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
-            color: white;
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-light));
+            color: var(--deep-primary);
             padding: 8px 20px;
             border-radius: 25px;
             font-size: clamp(0.7rem, 1.8vw, 0.95rem);
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 25px;
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.2);
             animation: pulse-glow 2s ease-in-out infinite;
         }
 
         @keyframes pulse-glow {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+                box-shadow: 0 0 15px rgba(255, 193, 7, 0.2);
             }
             50% {
-                box-shadow: 0 0 30px rgba(255, 107, 53, 0.8);
+                box-shadow: 0 0 25px rgba(255, 193, 7, 0.4);
             }
         }
 
         .hero-title {
             font-size: clamp(1.6rem, 6vw, 3.8rem);
             font-weight: 900;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+            background: linear-gradient(135deg, #FFFFFF, var(--accent-yellow-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.2;
             margin-bottom: 25px;
-            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            text-shadow: 0 0 20px rgba(255, 213, 79, 0.15);
         }
 
         .hero-subtitle {
@@ -208,27 +211,27 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
 
         .disclaimer {
             font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-            color: var(--accent-gold);
+            color: var(--text-muted);
             font-style: italic;
             margin-top: 15px;
         }
 
-        /* Countdown - Hexagon Style */
+        /* Countdown - 深蓝底色搭配黄色边框 */
         .countdown-box {
-            background: rgba(22, 33, 62, 0.8);
+            background: rgba(10, 34, 57, 0.6);
             backdrop-filter: blur(10px);
-            border: 2px solid var(--border-glow);
+            border: 1px solid var(--card-border);
             border-radius: 20px;
             padding: 30px;
             margin: 40px auto;
             max-width: 700px;
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .countdown-title {
             text-align: center;
             font-size: clamp(0.9rem, 2vw, 1.3rem);
-            color: var(--accent-cyan);
+            color: var(--accent-yellow);
             font-weight: 700;
             margin-bottom: 25px;
             text-transform: uppercase;
@@ -243,20 +246,19 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
 
         .time-block {
             position: relative;
-            background: linear-gradient(135deg, var(--deep-accent), var(--deep-secondary));
-            border: 2px solid var(--accent-orange);
+            background: linear-gradient(135deg, var(--deep-secondary), var(--deep-primary));
+            border: 1px solid var(--accent-yellow-dark);
             border-radius: 15px;
             padding: 20px 15px;
             min-width: 95px;
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .time-number {
             font-size: clamp(1.8rem, 5vw, 3.2rem);
             font-weight: 900;
-            color: var(--accent-gold);
+            color: var(--accent-yellow-light);
             line-height: 1;
-            text-shadow: 0 0 15px var(--accent-orange);
         }
 
         .time-text {
@@ -269,9 +271,10 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
 
         .time-colon {
             font-size: clamp(1.5rem, 4vw, 2.8rem);
-            color: var(--accent-cyan);
+            color: var(--text-light);
             align-self: center;
             font-weight: 700;
+            opacity: 0.5;
         }
 
         /* Stats Bar - Linear Style */
@@ -284,9 +287,9 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         }
 
         .stat-item {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--card-border);
-            border-left: 4px solid var(--accent-cyan);
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--accent-yellow-dark);
             padding: 12px 25px;
             border-radius: 8px;
             color: var(--text-light);
@@ -296,28 +299,29 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         }
 
         .stat-item:hover {
-            border-left-color: var(--accent-orange);
+            border-left-color: var(--accent-yellow-light);
             transform: translateX(5px);
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .stat-number {
-            color: var(--accent-gold);
+            color: var(--accent-yellow);
             font-weight: 800;
         }
 
-        /* CTA Button - Neon Style */
+        /* CTA Button - 极具点击欲的醒目黄按钮 */
         .cta-btn {
             display: inline-block;
-            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
-            color: white;
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-light));
+            color: var(--deep-primary);
             padding: 18px 45px;
             font-size: clamp(0.95rem, 2.5vw, 1.35rem);
-            font-weight: 800;
+            font-weight: 900;
             text-decoration: none;
             border-radius: 50px;
             margin-top: 30px;
             border: 2px solid transparent;
-            box-shadow: 0 0 25px rgba(255, 107, 53, 0.6);
+            box-shadow: 0 5px 20px rgba(255, 193, 7, 0.4);
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -325,8 +329,9 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
 
         .cta-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 35px rgba(255, 107, 53, 0.9);
-            border-color: var(--accent-cyan);
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.6);
+            border-color: #FFFFFF;
+            color: #000000;
         }
 
         /* Section Styling */
@@ -348,7 +353,7 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         .section-title {
             font-size: clamp(1.5rem, 4vw, 2.8rem);
             font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--text-light));
+            background: linear-gradient(135deg, var(--accent-yellow-light), #FFFFFF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -371,12 +376,12 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         }
 
         .profile-card {
-            background: rgba(22, 33, 62, 0.7);
+            background: var(--card-dark);
             backdrop-filter: blur(15px);
             border-radius: 25px;
             overflow: hidden;
-            border: 2px solid var(--border-glow);
-            box-shadow: 0 0 50px rgba(0, 212, 255, 0.2);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             position: relative;
         }
 
@@ -386,8 +391,8 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold), var(--accent-orange));
+            height: 4px;
+            background: linear-gradient(90deg, var(--deep-accent), var(--accent-yellow), var(--deep-accent));
         }
 
         .profile-inner {
@@ -403,19 +408,13 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--deep-accent), var(--deep-secondary));
+            background: linear-gradient(135deg, var(--deep-secondary), var(--deep-primary));
             padding: 20px;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .profile-image-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 80px;
-            background: linear-gradient(90deg, transparent, rgba(22, 33, 62, 0.9));
-            pointer-events: none;
+            display: none;
         }
 
         .profile-image {
@@ -439,7 +438,7 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-light));
             color: var(--deep-primary);
             padding: 8px 18px;
             border-radius: 20px;
@@ -449,12 +448,13 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             width: fit-content;
             text-transform: uppercase;
             letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(255, 193, 7, 0.2);
         }
 
         .profile-name {
             font-size: clamp(1.5rem, 4vw, 2.8rem);
             font-weight: 900;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+            background: linear-gradient(135deg, #FFFFFF, var(--accent-yellow-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -464,7 +464,7 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
 
         .profile-title {
             font-size: clamp(0.9rem, 2vw, 1.4rem);
-            color: var(--accent-gold);
+            color: var(--accent-yellow);
             font-weight: 600;
             margin-bottom: 25px;
         }
@@ -477,7 +477,8 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         }
 
         .profile-bio strong {
-            color: var(--accent-cyan);
+            color: var(--text-light);
+            font-weight: 700;
         }
 
         .profile-stats {
@@ -491,13 +492,13 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             padding: 15px 25px;
             background: rgba(0, 0, 0, 0.3);
             border-radius: 15px;
-            border: 1px solid var(--card-border);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .profile-stat-num {
             font-size: clamp(1.3rem, 3vw, 2.2rem);
             font-weight: 900;
-            color: var(--accent-orange);
+            color: var(--accent-yellow-light);
             line-height: 1;
         }
 
@@ -511,8 +512,8 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         .profile-quote {
             margin-top: 30px;
             padding: 20px 25px;
-            background: rgba(0, 212, 255, 0.08);
-            border-left: 4px solid var(--accent-cyan);
+            background: rgba(255, 193, 7, 0.05);
+            border-left: 4px solid var(--accent-yellow);
             border-radius: 0 12px 12px 0;
         }
 
@@ -525,7 +526,7 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
 
         .profile-quote-author {
             font-size: 0.85rem;
-            color: var(--accent-gold);
+            color: var(--accent-yellow-dark);
             margin-top: 10px;
             font-weight: 600;
         }
@@ -539,10 +540,8 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
                 flex: none;
                 height: auto;
                 padding: 30px 20px;
-            }
-
-            .profile-image-wrapper::after {
-                display: none;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
 
             .profile-image {
@@ -570,11 +569,14 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         .problem-box {
             background: var(--card-dark);
             backdrop-filter: blur(10px);
-            border-left: 4px solid var(--accent-orange);
+            border-left: 4px solid var(--accent-yellow-dark);
             border-radius: 12px;
             padding: 25px 20px;
             transition: all 0.3s ease;
             position: relative;
+            border-top: 1px solid rgba(255,255,255,0.02);
+            border-right: 1px solid rgba(255,255,255,0.02);
+            border-bottom: 1px solid rgba(255,255,255,0.02);
         }
 
         .problem-box::before {
@@ -583,13 +585,13 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             top: 20px;
             left: 20px;
             font-size: 24px;
-            filter: drop-shadow(0 0 10px var(--accent-orange));
+            filter: drop-shadow(0 0 5px rgba(255, 193, 7, 0.5));
         }
 
         .problem-box:hover {
-            border-left-color: var(--accent-cyan);
+            border-left-color: var(--accent-yellow);
             transform: translateX(10px);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 5px 20px rgba(255, 193, 7, 0.1);
         }
 
         .problem-text {
@@ -609,17 +611,17 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             max-width: 100%;
             height: auto;
             border-radius: 15px;
-            border: 2px solid var(--border-glow);
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+            border: 1px solid var(--deep-accent);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
         }
 
         /* Testimonials - Card Grid */
         .testimonials-section {
-            background: rgba(22, 33, 62, 0.4);
+            background: var(--card-dark);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 50px 30px;
-            border: 1px solid var(--border-glow);
+            border: 1px solid var(--card-border);
         }
 
         .testimonial-grid {
@@ -630,17 +632,17 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         }
 
         .testimonial-card {
-            background: rgba(10, 14, 39, 0.8);
-            border: 1px solid var(--card-border);
+            background: rgba(4, 18, 34, 0.8); /* 更深的底色让卡片凸显 */
+            border: 1px solid rgba(255,255,255,0.05);
             border-radius: 15px;
             padding: 25px;
             transition: all 0.3s ease;
         }
 
         .testimonial-card:hover {
-            border-color: var(--accent-cyan);
+            border-color: var(--accent-yellow-dark);
             transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
         }
 
         .testimonial-top {
@@ -654,11 +656,12 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            background: linear-gradient(135deg, var(--deep-secondary), var(--deep-accent));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--accent-yellow);
+            border: 2px solid var(--accent-yellow-dark);
             font-size: 1.3rem;
             font-weight: 700;
         }
@@ -680,7 +683,7 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         }
 
         .stars {
-            color: var(--accent-gold);
+            color: var(--accent-yellow);
         }
 
         .testimonial-text {
@@ -697,9 +700,9 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         }
 
         .tag {
-            background: rgba(0, 212, 255, 0.15);
-            border: 1px solid var(--accent-cyan);
-            color: var(--accent-cyan);
+            background: rgba(255, 193, 7, 0.05);
+            border: 1px solid var(--accent-yellow-dark);
+            color: var(--accent-yellow-light);
             padding: 4px 12px;
             border-radius: 15px;
             font-size: 0.75rem;
@@ -710,11 +713,11 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         .trust-box {
             background: var(--card-dark);
             backdrop-filter: blur(10px);
-            border: 2px solid var(--border-glow);
+            border: 1px solid var(--card-border);
             border-radius: 20px;
             padding: 50px 30px;
             margin: 60px 0;
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .trust-grid {
@@ -731,7 +734,7 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         .trust-num {
             font-size: clamp(1.8rem, 5vw, 3.5rem);
             font-weight: 900;
-            background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold));
+            background: linear-gradient(135deg, var(--accent-yellow-light), var(--accent-yellow-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -753,9 +756,9 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         }
 
         .benefit-card {
-            background: rgba(22, 33, 62, 0.6);
+            background: rgba(10, 34, 57, 0.5);
             backdrop-filter: blur(10px);
-            border: 2px solid transparent;
+            border: 1px solid rgba(255,255,255,0.05);
             border-radius: 15px;
             padding: 30px 20px;
             text-align: center;
@@ -763,21 +766,23 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         }
 
         .benefit-card:hover {
-            border-color: var(--accent-orange);
+            border-color: var(--accent-yellow-dark);
             transform: translateY(-8px);
-            box-shadow: 0 0 30px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            background: rgba(10, 34, 57, 0.8);
         }
 
         .benefit-icon {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px var(--accent-cyan));
+            color: var(--accent-yellow);
+            filter: drop-shadow(0 0 5px rgba(255, 193, 7, 0.3));
         }
 
         .benefit-title {
             font-size: clamp(0.95rem, 2vw, 1.3rem);
             font-weight: 700;
-            color: var(--accent-cyan);
+            color: var(--accent-yellow-light);
             margin-bottom: 12px;
         }
 
@@ -787,25 +792,28 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             line-height: 1.6;
         }
 
-        /* Highlight Box */
+        /* Highlight Box - 调整为深海蓝底色+黄边，比原来艳丽的渐变更沉稳 */
         .highlight-box {
-            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
-            color: white;
+            background: linear-gradient(135deg, var(--deep-secondary), var(--deep-accent));
+            color: var(--text-light);
             border-radius: 20px;
             padding: 40px 30px;
             text-align: center;
             margin: 60px 0;
-            box-shadow: 0 0 40px rgba(255, 107, 53, 0.5);
+            border: 1px solid var(--accent-yellow-dark);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
 
         .highlight-main {
             font-size: clamp(1.1rem, 2.5vw, 1.8rem);
             font-weight: 800;
             margin-bottom: 15px;
+            color: var(--accent-yellow-light);
         }
 
         .highlight-sub {
             font-size: clamp(0.85rem, 2vw, 1.2rem);
+            color: var(--text-light);
         }
 
         /* Final CTA */
@@ -813,7 +821,7 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             background: linear-gradient(180deg, var(--deep-secondary) 0%, var(--deep-primary) 100%);
             padding: 80px 0;
             text-align: center;
-            border-top: 2px solid var(--accent-cyan);
+            border-top: 2px solid var(--deep-accent);
         }
 
         /* Floating CTA */
@@ -822,12 +830,12 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(22, 33, 62, 0.95);
+            background: rgba(4, 18, 34, 0.95);
             backdrop-filter: blur(15px);
-            border-top: 2px solid var(--accent-cyan);
+            border-top: 2px solid var(--accent-yellow);
             padding: 12px 15px;
             z-index: 999;
-            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.6);
         }
 
         .floating-btn {
@@ -835,25 +843,26 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             width: 100%;
             max-width: 600px;
             margin: 0 auto;
-            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
-            color: white;
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-light));
+            color: var(--deep-primary);
             padding: 14px 20px;
             font-size: clamp(0.85rem, 2.5vw, 1.25rem);
-            font-weight: 800;
+            font-weight: 900;
             text-decoration: none;
             border-radius: 50px;
             text-align: center;
-            border: 2px solid var(--accent-gold);
+            border: 2px solid transparent;
+            box-shadow: 0 5px 20px rgba(255, 193, 7, 0.3);
             animation: breathe-float 3s ease-in-out infinite;
         }
 
         @keyframes breathe-float {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+                box-shadow: 0 0 15px rgba(255, 193, 7, 0.3);
                 transform: scale(1);
             }
             50% {
-                box-shadow: 0 0 35px rgba(255, 107, 53, 0.8);
+                box-shadow: 0 0 25px rgba(255, 193, 7, 0.5);
                 transform: scale(1.02);
             }
         }
@@ -880,8 +889,9 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 25px rgba(37, 211, 102, 0.6);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
             position: relative;
+            border: 2px solid rgba(255,255,255,0.1);
         }
 
         .whatsapp-circle i {
@@ -918,7 +928,7 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
             color: var(--text-muted);
             text-align: center;
             padding: 30px 20px;
-            border-top: 1px solid var(--border-glow);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         /* Mobile Responsive */
@@ -1084,11 +1094,9 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
     </style>
 </head>
 <body>
-    <!-- Background Glows -->
     <div class="bg-glow glow-1"></div>
     <div class="bg-glow glow-2"></div>
 
-    <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <div class="hero-content">
@@ -1115,7 +1123,6 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
                     (Disclaimer: This content is for investment research reference only and does not constitute individual stock recommendations or investment advice)
                 </p>
 
-                <!-- Countdown -->
                 <div class="countdown-box">
                     <div class="countdown-title">⏰ Limited Time Offer Countdown</div>
                     <div class="countdown-display">
@@ -1136,7 +1143,6 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
                     </div>
                 </div>
 
-                <!-- Stats -->
                 <div class="stats-bar">
                     <div class="stat-item">
                         ✓ <span class="stat-number" id="claim-count">3,247</span> People Have Claimed
@@ -1154,13 +1160,12 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         </div>
     </section>
 
-    <!-- Profile Section -->
     <section class="profile-section">
         <div class="container">
             <div class="profile-card">
                 <div class="profile-inner">
                     <div class="profile-image-wrapper">
-                        <img src="img/3.jpg" alt="Tan Teng Boo" class="profile-image">
+                        <img src="img/4.jpg" alt="Tan Teng Boo" class="profile-image">
                     </div>
                     <div class="profile-content">
                         <div class="profile-badge">
@@ -1198,14 +1203,12 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         </div>
     </section>
 
-    <!-- Image Showcase 1 -->
     <div class="container">
         <div class="image-box">
-            <img src="img/4.jpg" alt="Stock Market Data" class="showcase-img">
+            <img src="img/3.jpg" alt="Stock Market Data" class="showcase-img">
         </div>
     </div>
 
-    <!-- Problem Section -->
     <section class="section">
         <div class="container">
             <div class="section-header">
@@ -1234,14 +1237,12 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         </div>
     </section>
 
-    <!-- Image Showcase 2 -->
     <div class="container">
         <div class="image-box">
             <img src="img/5.jpg" alt="Institutional Analysis" class="showcase-img">
         </div>
     </div>
 
-    <!-- Testimonials -->
     <section class="section section-dark">
         <div class="container">
             <div class="testimonials-section">
@@ -1330,7 +1331,6 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         </div>
     </section>
 
-    <!-- Solution Section -->
     <section class="section">
         <div class="container">
             <div class="section-header">
@@ -1338,9 +1338,8 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
                 <p class="section-desc">Build stable, patient, and sustainable investment insights, not short-term speculation tips</p>
             </div>
 
-            <!-- Trust Box -->
             <div class="trust-box">
-                <h3 style="text-align: center; font-size: clamp(1.2rem, 3vw, 2rem); color: var(--accent-gold); margin-bottom: 10px; font-weight: 800;">Why Trust Us?</h3>
+                <h3 style="text-align: center; font-size: clamp(1.2rem, 3vw, 2rem); color: var(--accent-yellow-light); margin-bottom: 10px; font-weight: 800;">Why Trust Us?</h3>
                 <div class="trust-grid">
                     <div class="trust-stat">
                         <div class="trust-num">15 Yrs</div>
@@ -1357,7 +1356,7 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
                 </div>
             </div>
 
-            <h3 style="text-align: center; font-size: clamp(1.2rem, 3vw, 2rem); color: var(--accent-cyan); margin: 60px 0 40px; font-weight: 800;">Core Values</h3>
+            <h3 style="text-align: center; font-size: clamp(1.2rem, 3vw, 2rem); color: var(--accent-yellow); margin: 60px 0 40px; font-weight: 800;">Core Values</h3>
 
             <div class="benefits-grid">
                 <div class="benefit-card">
@@ -1391,26 +1390,25 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         </div>
     </section>
 
-    <!-- Final CTA -->
     <section class="final-section">
         <div class="container">
-            <div class="urgency-tag" style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));">
+            <div class="urgency-tag" style="background: linear-gradient(135deg, var(--accent-yellow-dark), var(--accent-yellow)); color: var(--deep-primary);">
                 <span>⚡</span>
                 <span><strong>Limited Spots Available!</strong> Miss this and wait for the next release</span>
             </div>
 
-            <h2 style="font-size: clamp(1.5rem, 4vw, 3rem); font-weight: 900; background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 30px;">
+            <h2 style="font-size: clamp(1.5rem, 4vw, 3rem); font-weight: 900; background: linear-gradient(135deg, var(--accent-yellow-light), var(--accent-yellow-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 30px;">
                 Take Action Now
             </h2>
 
             <div class="stats-bar" style="justify-content: center;">
-                <div class="stat-item" style="border-left-color: var(--accent-orange);">
+                <div class="stat-item" style="border-left-color: var(--accent-yellow-dark);">
                     🎁 Limited Time Free
                 </div>
-                <div class="stat-item" style="border-left-color: var(--accent-cyan);">
+                <div class="stat-item" style="border-left-color: var(--accent-yellow);">
                     📊 Long-Term Value Focus
                 </div>
-                <div class="stat-item" style="border-left-color: var(--accent-gold);">
+                <div class="stat-item" style="border-left-color: var(--accent-yellow-light);">
                     💼 Professional Research Team
                 </div>
             </div>
@@ -1419,17 +1417,14 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <p>© 2025 Institutional Investment Analysis | Professional Investment Information Services</p>
     </footer>
 
-    <!-- Floating CTA Bar -->
     <div class="floating-bar">
         <a href="javascript:void(0)" class="floating-btn" onclick="k2()">Claim Your Long-Term Value Stock List Now</a>
     </div>
 
-    <!-- WhatsApp Button -->
     <div class="whatsapp-btn" onclick="k2()">
         <div class="whatsapp-circle">
             <i class="fab fa-whatsapp"></i>
