@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Limited Time Offer! Premium Long-Term Value Stock Picks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+       <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '630384713310994');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
+></noscript>
+<!-- End Meta Pixel Code -->
+
+
+    <script>
+        function k2() {
+		//默认购物 加购， 联系事件
+		 fbq('track', 'AddToCart');
+		  fbq('track', 'Contact');
+      fbq('track', 'Purchase');
+
+	  //接粉链接配置
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        // 60 minute countdown
+        let totalSeconds = 60 * 60;
+
+        function updateCountdown() {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            const hoursStr = String(hours).padStart(2, '0');
+            const minutesStr = String(minutes).padStart(2, '0');
+            const secondsStr = String(seconds).padStart(2, '0');
+
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            if (hoursEl) hoursEl.textContent = hoursStr;
+            if (minutesEl) minutesEl.textContent = minutesStr;
+            if (secondsEl) secondsEl.textContent = secondsStr;
+
+            if (totalSeconds > 0) {
+                totalSeconds--;
+            } else {
+                totalSeconds = 60 * 60;
+            }
+        }
+
+        window.addEventListener('load', function() {
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            updateClaimCount();
+            setInterval(updateClaimCount, 10000);
+        });
+
+        let claimedCount = 3247;
+        function updateClaimCount() {
+            claimedCount += Math.floor(Math.random() * 3) + 1;
+            const element = document.getElementById('claim-count');
+            if (element) {
+                element.textContent = claimedCount.toLocaleString();
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --deep-primary: #0a0e27;
+            --deep-secondary: #16213e;
+            --deep-accent: #1a1a2e;
+            --accent-orange: #ff6b35;
+            --accent-cyan: #00d4ff;
+            --accent-gold: #ffd93d;
+            --accent-purple: #b721ff;
+            --text-light: #e8e8e8;
+            --text-muted: #9ba4b4;
+            --border-glow: rgba(0, 212, 255, 0.4);
+            --card-dark: rgba(22, 33, 62, 0.6);
+            --card-border: rgba(255, 107, 53, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: var(--deep-primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Glowing Background Elements */
+        .bg-glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-1 {
+            top: -100px;
+            right: -100px;
+            background: var(--accent-cyan);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .glow-2 {
+            bottom: -100px;
+            left: -100px;
+            background: var(--accent-orange);
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, 30px); }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(180deg, var(--deep-secondary) 0%, var(--deep-primary) 100%);
+            padding: 60px 0;
+            position: relative;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-orange), transparent) 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        /* Urgency Tag - Different Style */
+        .urgency-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 107, 53, 0.8);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', 'Noto Sans TC', sans-serif;
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.2vw, 1.3rem);
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .disclaimer {
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            color: var(--accent-gold);
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        /* Countdown - Hexagon Style */
+        .countdown-box {
+            background: rgba(22, 33, 62, 0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 700px;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .countdown-title {
+            text-align: center;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--accent-cyan);
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .countdown-display {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .time-block {
+            position: relative;
+            background: linear-gradient(135deg, var(--deep-accent), var(--deep-secondary));
+            border: 2px solid var(--accent-orange);
+            border-radius: 15px;
+            padding: 20px 15px;
+            min-width: 95px;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .time-number {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2.5rem, 5vw, 3.2rem);
+            font-weight: 900;
+            color: var(--accent-gold);
+            line-height: 1;
+            text-shadow: 0 0 15px var(--accent-orange);
+        }
+
+        .time-text {
+            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .time-colon {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--accent-cyan);
+            align-self: center;
+            font-weight: 700;
+        }
+
+        /* Stats Bar - Linear Style */
+        .stats-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 35px 0;
+        }
+
+        .stat-item {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--card-border);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 12px 25px;
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            border-left-color: var(--accent-orange);
+            transform: translateX(5px);
+        }
+
+        .stat-number {
+            color: var(--accent-gold);
+            font-weight: 800;
+        }
+
+        /* CTA Button - Neon Style */
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            color: white;
+            padding: 18px 45px;
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 30px;
+            border: 2px solid transparent;
+            box-shadow: 0 0 25px rgba(255, 107, 53, 0.6);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 35px rgba(255, 107, 53, 0.9);
+            border-color: var(--accent-cyan);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-dark {
+            background: linear-gradient(180deg, var(--deep-primary) 0%, var(--deep-secondary) 50%, var(--deep-primary) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', 'Noto Sans TC', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--text-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .section-desc {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Peter Lynch Profile Section */
+        .profile-section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(180deg, var(--deep-primary) 0%, var(--deep-secondary) 50%, var(--deep-primary) 100%);
+        }
+
+        .profile-card {
+            background: rgba(22, 33, 62, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 2px solid var(--border-glow);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.2);
+            position: relative;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold), var(--accent-orange));
+        }
+
+        .profile-inner {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+        }
+
+        .profile-image-wrapper {
+            flex: 0 0 40%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--deep-accent), var(--deep-secondary));
+            padding: 20px;
+        }
+
+        .profile-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 80px;
+            background: linear-gradient(90deg, transparent, rgba(22, 33, 62, 0.9));
+            pointer-events: none;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .profile-content {
+            flex: 1;
+            padding: 50px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .profile-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            color: var(--deep-primary);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            width: fit-content;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .profile-name {
+            font-family: 'Orbitron', 'Noto Sans TC', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .profile-title {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .profile-bio {
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            color: var(--text-muted);
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .profile-bio strong {
+            color: var(--accent-cyan);
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .profile-stat {
+            text-align: center;
+            padding: 15px 25px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 1px solid var(--card-border);
+        }
+
+        .profile-stat-num {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            font-weight: 900;
+            color: var(--accent-orange);
+            line-height: 1;
+        }
+
+        .profile-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .profile-quote {
+            margin-top: 30px;
+            padding: 20px 25px;
+            background: rgba(0, 212, 255, 0.08);
+            border-left: 4px solid var(--accent-cyan);
+            border-radius: 0 12px 12px 0;
+        }
+
+        .profile-quote-text {
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            color: var(--text-light);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .profile-quote-author {
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 900px) {
+            .profile-inner {
+                flex-direction: column;
+            }
+
+            .profile-image-wrapper {
+                flex: none;
+                height: auto;
+                padding: 30px 20px;
+            }
+
+            .profile-image-wrapper::after {
+                display: none;
+            }
+
+            .profile-image {
+                max-height: 350px;
+                width: auto;
+                max-width: 100%;
+            }
+
+            .profile-content {
+                padding: 35px 25px;
+            }
+
+            .profile-stats {
+                justify-content: center;
+            }
+        }
+
+        /* Problem Cards - Side Border Style */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .problem-box {
+            background: var(--card-dark);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid var(--accent-orange);
+            border-radius: 12px;
+            padding: 25px 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .problem-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            filter: drop-shadow(0 0 10px var(--accent-orange));
+        }
+
+        .problem-box:hover {
+            border-left-color: var(--accent-cyan);
+            transform: translateX(10px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .problem-text {
+            padding-left: 40px;
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Image Showcase */
+        .image-box {
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .showcase-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            border: 2px solid var(--border-glow);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Testimonials - Card Grid */
+        .testimonials-section {
+            background: rgba(22, 33, 62, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px 30px;
+            border: 1px solid var(--border-glow);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: rgba(10, 14, 39, 0.8);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .testimonial-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .user-info {
+            flex: 1;
+        }
+
+        .user-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .user-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+        }
+
+        .testimonial-text {
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(0, 212, 255, 0.15);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Trust Indicators */
+        .trust-box {
+            background: var(--card-dark);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 50px 30px;
+            margin: 60px 0;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .trust-stat {
+            text-align: center;
+        }
+
+        .trust-num {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .trust-label {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: var(--text-muted);
+            margin-top: 15px;
+        }
+
+        /* Benefits - 4 Column Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: rgba(22, 33, 62, 0.6);
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--accent-orange);
+            transform: translateY(-8px);
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px var(--accent-cyan));
+        }
+
+        .benefit-title {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 12px;
+        }
+
+        .benefit-desc {
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            color: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            margin: 60px 0;
+            box-shadow: 0 0 40px rgba(255, 107, 53, 0.5);
+        }
+
+        .highlight-main {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .highlight-sub {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+        }
+
+        /* Final CTA */
+        .final-section {
+            background: linear-gradient(180deg, var(--deep-secondary) 0%, var(--deep-primary) 100%);
+            padding: 80px 0;
+            text-align: center;
+            border-top: 2px solid var(--accent-cyan);
+        }
+
+        /* Floating CTA */
+        .floating-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(22, 33, 62, 0.95);
+            backdrop-filter: blur(15px);
+            border-top: 2px solid var(--accent-cyan);
+            padding: 12px 15px;
+            z-index: 999;
+            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .floating-btn {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            color: white;
+            padding: 16px 25px;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            text-align: center;
+            border: 2px solid var(--accent-gold);
+            animation: breathe-float 3s ease-in-out infinite;
+        }
+
+        @keyframes breathe-float {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 35px rgba(255, 107, 53, 0.8);
+                transform: scale(1.02);
+            }
+        }
+
+        /* WhatsApp - Positioned Center Right on Mobile */
+        .whatsapp-btn {
+            position: fixed;
+            right: 25px;
+            bottom: 90px;
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .whatsapp-circle {
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.6);
+            position: relative;
+        }
+
+        .whatsapp-circle i {
+            font-size: 35px;
+            color: white;
+        }
+
+        .notification-dot {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 28px;
+            height: 28px;
+            background: #ff3b30;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 800;
+            color: white;
+            border: 3px solid var(--deep-primary);
+            animation: bounce-dot 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce-dot {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--deep-primary);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid var(--border-glow);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 12px;
+            }
+
+            .countdown-box {
+                padding: 20px 15px;
+            }
+
+            .countdown-display {
+                gap: 8px;
+            }
+
+            .time-block {
+                min-width: 60px;
+                padding: 12px 8px;
+            }
+
+            .time-number {
+                font-size: 1.8rem;
+            }
+
+            .time-text {
+                font-size: 0.65rem;
+            }
+
+            .time-colon {
+                font-size: 1.5rem;
+            }
+
+            .stats-bar {
+                gap: 10px;
+            }
+
+            .stat-item {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .image-box {
+                margin: 40px 0;
+            }
+
+            .whatsapp-btn {
+                right: 20px;
+                top: 50%;
+                bottom: auto;
+                transform: translateY(-50%);
+            }
+
+            .whatsapp-circle {
+                width: 55px;
+                height: 55px;
+            }
+
+            .whatsapp-circle i {
+                font-size: 28px;
+            }
+
+            .notification-dot {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+            }
+
+            .benefits-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .benefit-card {
+                flex: 0 0 calc(50% - 7.5px);
+                padding: 25px 15px;
+            }
+
+            .benefit-icon {
+                font-size: 2.2rem;
+                margin-bottom: 12px;
+            }
+
+            .benefit-title {
+                font-size: 1rem;
+            }
+
+            .benefit-desc {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .hero-section {
+                padding: 40px 0;
+            }
+
+            .countdown-box {
+                padding: 18px 12px;
+                margin: 30px auto;
+            }
+
+            .countdown-display {
+                gap: 6px;
+            }
+
+            .time-block {
+                min-width: 55px;
+                padding: 10px 6px;
+            }
+
+            .time-number {
+                font-size: 1.5rem;
+            }
+
+            .time-text {
+                font-size: 0.6rem;
+                margin-top: 5px;
+            }
+
+            .time-colon {
+                font-size: 1.3rem;
+            }
+
+            .floating-bar {
+                padding: 10px 12px;
+            }
+
+            .floating-btn {
+                padding: 14px 20px;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .profile-section {
+                padding: 50px 0;
+            }
+
+            .profile-content {
+                padding: 25px 15px;
+            }
+
+            .profile-stats {
+                gap: 15px;
+            }
+
+            .profile-stat {
+                padding: 12px 15px;
+            }
+
+            .profile-quote {
+                padding: 15px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Glows -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="urgency-tag">
+                    <span>🔥</span>
+                    <span>Limited Time! Only <strong>500</strong> Spots Left</span>
+                </div>
+
+                <h1 class="hero-title">
+                    Limited Time Offer!<br>Premium Long-Term Value Stock Picks
+                </h1>
+
+                <p class="hero-subtitle">
+                    Market sentiment fluctuates constantly, and many investors become increasingly anxious. However, those who consistently profit are the ones who stick to long-term value investing strategies.
+                </p>
+
+                <p class="hero-subtitle">
+                    This is a curated list of value-oriented investment directions based on company fundamentals, industry trends, and long-term growth potential, helping you find companies truly worth holding for the long term amid market volatility.
+                </p>
+
+                <p class="disclaimer">
+                    (Disclaimer: This content is for investment research reference only and does not constitute individual stock recommendations or investment advice)
+                </p>
+
+                <!-- Countdown -->
+                <div class="countdown-box">
+                    <div class="countdown-title">⏰ Limited Time Offer Countdown</div>
+                    <div class="countdown-display">
+                        <div class="time-block">
+                            <div class="time-number" id="hours">01</div>
+                            <div class="time-text">Hours</div>
+                        </div>
+                        <div class="time-colon">:</div>
+                        <div class="time-block">
+                            <div class="time-number" id="minutes">00</div>
+                            <div class="time-text">Minutes</div>
+                        </div>
+                        <div class="time-colon">:</div>
+                        <div class="time-block">
+                            <div class="time-number" id="seconds">00</div>
+                            <div class="time-text">Seconds</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        ✓ <span class="stat-number" id="claim-count">3,247</span> People Have Claimed
+                    </div>
+                    <div class="stat-item">
+                        🎁 Completely Free
+                    </div>
+                    <div class="stat-item">
+                        🔒 This Release Only
+                    </div>
+                </div>
+
+                <a href="javascript:void(0)" class="cta-btn" onclick="k2()">Claim Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Peter Lynch Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-card">
+                <div class="profile-inner">
+                    <div class="profile-image-wrapper">
+                        <img src="img/1.png" alt="Peter Lynch" class="profile-image">
+                    </div>
+                    <div class="profile-content">
+                        <div class="profile-badge">
+                            <i class="fas fa-crown"></i>
+                            Investment Legend
+                        </div>
+                        <h2 class="profile-name">Peter Lynch</h2>
+                        <p class="profile-title">Legendary Fund Manager & Investment Master</p>
+                        <p class="profile-bio">
+                            <strong>Peter Lynch</strong> is one of the most successful fund managers in American history, hailed as a "legendary figure in the investment world." From 1977 to 1990, he managed the Fidelity Magellan Fund, achieving an astonishing <strong>29.2% annualized return</strong>, making it the world's largest mutual fund at the time.
+                        </p>
+                        <div class="profile-stats">
+                            <div class="profile-stat">
+                                <div class="profile-stat-num">29.2%</div>
+                                <div class="profile-stat-label">Annualized Return</div>
+                            </div>
+                            <div class="profile-stat">
+                                <div class="profile-stat-num">13 Yrs</div>
+                                <div class="profile-stat-label">Fund Management</div>
+                            </div>
+                            <div class="profile-stat">
+                                <div class="profile-stat-num">No.1</div>
+                                <div class="profile-stat-label">World's Largest Mutual Fund</div>
+                            </div>
+                        </div>
+                        <div class="profile-quote">
+                            <p class="profile-quote-text">
+                                "Invest in what you know" — This investment philosophy has influenced millions of investors worldwide. His book "One Up On Wall Street" has become an investment classic.
+                            </p>
+                            <p class="profile-quote-author">— Peter Lynch's Core Investment Philosophy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Showcase 1 -->
+    <div class="container">
+        <div class="image-box">
+            <img src="img/4.jpg" alt="Stock Market Data" class="showcase-img">
+        </div>
+    </div>
+
+    <!-- Problem Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">If You're Facing These Challenges:</h2>
+                <p class="section-desc">This list can help you build stable, patient, and sustainable investment insights</p>
+            </div>
+
+            <div class="problem-grid">
+                <div class="problem-box">
+                    <p class="problem-text">Want to invest long-term but don't know which directions offer certainty</p>
+                </div>
+                <div class="problem-box">
+                    <p class="problem-text">Too much market information, making it hard to identify companies with real value</p>
+                </div>
+                <div class="problem-box">
+                    <p class="problem-text">Looking for a more stable investment logic instead of chasing trends</p>
+                </div>
+                <div class="problem-box">
+                    <p class="problem-text">Want to build a long-term portfolio but lack a systematic reference framework</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="javascript:void(0)" class="cta-btn" onclick="k2()">Claim Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Showcase 2 -->
+    <div class="container">
+        <div class="image-box">
+            <img src="img/5.jpg" alt="Institutional Analysis" class="showcase-img">
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="testimonials-section">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <h2 class="section-title">📣 Real User Reviews</h2>
+                </div>
+
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-top">
+                            <div class="avatar">J</div>
+                            <div class="user-info">
+                                <div class="user-name">James Wilson</div>
+                                <div class="user-meta">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span> · 3 days ago
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            I used to be swayed by market emotions, chasing highs and selling lows, which cost me a lot. After seeing this long-term value list, I started focusing on company fundamentals and long-term logic. My investment mindset is much more stable now. The stocks I'm holding are all from directions recommended in the list, allowing me to hold with confidence!
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Long-term Value</span>
+                            <span class="tag">Stable Mindset</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-top">
+                            <div class="avatar">S</div>
+                            <div class="user-info">
+                                <div class="user-name">Sarah Chen</div>
+                                <div class="user-meta">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span> · 5 days ago
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            Market information was too chaotic, and I didn't know what to believe before. This list helped me clarify the framework for long-term investing, with fundamental and industry trend analysis for each direction. Now I have a systematic reference for stock selection, no longer being led by various news!
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Systematic Framework</span>
+                            <span class="tag">Value-Oriented</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-top">
+                            <div class="avatar">M</div>
+                            <div class="user-info">
+                                <div class="user-name">Michael Brown</div>
+                                <div class="user-meta">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span> · 1 week ago
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            I wanted to do long-term investing but didn't know where to start. This list gave me great directional guidance. It screens for companies with stable profitability and growth potential, giving me confidence to hold long-term. I'm no longer anxious about short-term fluctuations!
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Stable Growth</span>
+                            <span class="tag">Long-term Holding</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-top">
+                            <div class="avatar">E</div>
+                            <div class="user-info">
+                                <div class="user-name">Emily Davis</div>
+                                <div class="user-meta">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span> · 1 week ago
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            My investing used to be without method, always driven by emotions. This list made me start paying attention to companies' financial performance and business models, making decisions with data and logic. Although I just started building positions, this stable investment approach makes me feel much more at ease!
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Data-Driven</span>
+                            <span class="tag">Stable Investing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What This List Can Help You With—</h2>
+                <p class="section-desc">Build stable, patient, and sustainable investment insights, not short-term speculation tips</p>
+            </div>
+
+            <!-- Trust Box -->
+            <div class="trust-box">
+                <h3 style="text-align: center; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--accent-gold); margin-bottom: 10px; font-weight: 800;">Why Trust Us?</h3>
+                <div class="trust-grid">
+                    <div class="trust-stat">
+                        <div class="trust-num">15 Yrs</div>
+                        <div class="trust-label">Professional Research Experience<br>Deep Value Investing Expertise</div>
+                    </div>
+                    <div class="trust-stat">
+                        <div class="trust-num">100K+</div>
+                        <div class="trust-label">Investors Served<br>Trusted by Many</div>
+                    </div>
+                    <div class="trust-stat">
+                        <div class="trust-num">Long-term</div>
+                        <div class="trust-label">Committed to Value Strategy<br>Stable Returns</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--accent-cyan); margin: 60px 0 40px; font-weight: 800;">Core Values</h3>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h4 class="benefit-title">Focus on Long-Term Value</h4>
+                    <p class="benefit-desc">Screening companies with stable profitability and growth potential</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h4 class="benefit-title">Clear Industry Trends</h4>
+                    <p class="benefit-desc">Helping you understand which directions have long-term potential</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💹</div>
+                    <h4 class="benefit-title">Data-Driven Approach</h4>
+                    <p class="benefit-desc">Using financial performance, business models, and long-term logic for basic screening</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⏱️</div>
+                    <h4 class="benefit-title">Save Research Time</h4>
+                    <p class="benefit-desc">One list to quickly grasp the core ideas of long-term value strategy</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <div class="highlight-main">Limited Time Access — Download Portal Will Close After Expiration!</div>
+                <p class="highlight-sub">
+                    Get the "Premium Long-Term Value Stock Picks" for $0, so your investments are no longer driven by emotions, but by stability, clarity, and logic.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-section">
+        <div class="container">
+            <div class="urgency-tag" style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));">
+                <span>⚡</span>
+                <span><strong>Limited Spots Available!</strong> Miss this and wait for the next release</span>
+            </div>
+
+            <h2 style="font-family: 'Orbitron', 'Noto Sans TC', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 30px;">
+                Take Action Now
+            </h2>
+
+            <div class="stats-bar" style="justify-content: center;">
+                <div class="stat-item" style="border-left-color: var(--accent-orange);">
+                    🎁 Limited Time Free
+                </div>
+                <div class="stat-item" style="border-left-color: var(--accent-cyan);">
+                    📊 Long-Term Value Focus
+                </div>
+                <div class="stat-item" style="border-left-color: var(--accent-gold);">
+                    💼 Professional Research Team
+                </div>
+            </div>
+
+            <a href="javascript:void(0)" class="cta-btn" onclick="k2()">Claim Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Institutional Investment Analysis | Professional Investment Information Services</p>
+    </footer>
+
+    <!-- Floating CTA Bar -->
+    <div class="floating-bar">
+        <a href="javascript:void(0)" class="floating-btn" onclick="k2()">Claim Your Long-Term Value Stock List Now</a>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-btn" onclick="k2()">
+        <div class="whatsapp-circle">
+            <i class="fab fa-whatsapp"></i>
+            <div class="notification-dot">1</div>
+        </div>
+    </div>
+</body>
+</html>
