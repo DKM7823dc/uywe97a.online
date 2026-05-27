@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/2x32.webp" sizes="32x32" />
+    <title>UM The Home of Full Color Media</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FE3D42',
+                        'primary-light': '#FF6B6F',
+                        'primary-dark': '#E6252B'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #FE3D42 0%, #FF6B6F 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FE3D42, #FF6B6F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(254, 61, 66, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Hero Banner Carousel -->
+    <section class="relative h-screen overflow-hidden">
+        <div id="carousel" class="relative w-full h-full">
+		
+		
+		    <!-- Slide 5 -->
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+                <img src="img/55.png" 
+                     data-mobile="https://www.umww.net/img/14.png"
+                     alt="Hero Image 4" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                <!-- Hero Content for Slide 4 -->
+                <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                    <div class="max-w-4xl mx-auto animate-fade-in">
+                        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                           Tourism Ireland nombra a UM como su nueva agencia de estrategia, planificación y compra de medios
+                        </h1>
+                    
+                        
+                    </div>
+                </div>
+            </div>
+			
+			
+            <!-- Slide 1 -->
+            <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-1000">
+                <img src="img/1.png" 
+                     data-mobile="img/11.png"
+                     alt="Hero Image 1" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                <!-- Hero Content for Slide 1 -->
+                <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                    <div class="max-w-4xl mx-auto animate-fade-in">
+                        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                           UM gana la cuenta de medios de 7-Eleven
+                        </h1>
+                        <p class="text-xl md:text-2xl text-gray-200 font-light max-w-3xl mx-auto">
+                            La agencia se encargará de la estrategia, planificación y compra de medios en Estados Unidos
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+                <img src="img/2.jpg" 
+                     data-mobile="img/12.png"
+                     alt="Hero Image 2" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                <!-- Hero Content for Slide 2 -->
+                <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                    <div class="max-w-4xl mx-auto animate-fade-in">
+                        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                           Beyond Yoga nombra a UM como su agencia de medios de referencia (Agency of Record).
+                        </h1>
+                         
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+                <img src="img/3.jpg" 
+                     data-mobile="https://www.umww.net/img/13.png"
+                     alt="Hero Image 3" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                <!-- Hero Content for Slide 3 -->
+                <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                    <div class="max-w-4xl mx-auto animate-fade-in">
+                        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                          UM presenta su propuesta integral “Full Color Media” para combatir la uniformidad de las marcas.
+                        </h1>
+                        
+                      
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+                <img src="img/44.webp"  
+                     alt="Hero Image 4" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                <!-- Hero Content for Slide 4 -->
+                <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                    <div class="max-w-4xl mx-auto animate-fade-in">
+                        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                            UM presenta su propuesta integral “Full Color Media” para combatir la uniformidad de las marcas.
+                        </h1>
+                       
+                        
+                    </div>
+                </div>
+            </div>
+			
+			
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-gentle">
+            <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white rounded-full mt-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Color Media Section -->
+    <section class="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl md:text-6xl font-bold mb-8">
+                  <span class="text-gradient">El hogar del "Full Color Media"</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-up">
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                   El modelo propio de crecimiento de marca para marketing de UM impulsa la diferenciación de las marcas mediante un enfoque que identifica de forma inteligente cómo cada marca genera diferenciación dentro de su categoría y fomenta la conexión social. El modelo define el patrón único, complejo y matizado de una marca en tres ámbitos clave: </p>
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                    Potenciar la visibilidad de la marca dentro de su categoría → impulsando su diferenciación frente a la competencia.
+Conectar las marcas con la vitalidad cultural → aportando mayor relevancia a la marca.
+Crear diferenciación de marca a través de la variabilidad → generando un valor intrínseco para el consumidor.
+                    </p>
+                </div>
+                
+                <div class="relative">
+                    <div class="glass-effect rounded-2xl p-8 hover-scale">
+                        <img src="img/a1.jpg" 
+                             alt="Full Color Media" class="w-full rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stand Against Bland Section -->
+    <section class="py-20 px-4 bg-white dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-up">
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                  Potenciar la visibilidad de la marca dentro de su categoría → impulsando su diferenciación frente a la competencia.
+Conectar las marcas con la vitalidad cultural → aportando mayor relevancia a la marca.
+Crear diferenciación de marca a través de la variabilidad → generando un valor intrínseco para el consumidor. </p>
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                 La red global de agencias de medios de UM, sin fronteras ni límites, opera en más de 100 mercados, con más de 120 oficinas y más de 3.000 empleados. Construimos nuestros equipos sobre tres valores fundamentales: Comunidad, Valentía y Curiosidad, potenciando todo el espectro de nuestros talentos únicos para impulsar un éxito compartido.  </p>
+                </div>
+                
+                <div class="relative">
+                    <div class="glass-effect rounded-2xl p-8 hover-scale">
+                        <img src="https://www.umww.net/img/33.jpg" 
+                             alt="Stand Against Bland" class="w-full rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Pillars Section -->
+    <section class="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Curiosity -->
+                <div class="relative group hover-scale">
+                    <div class="relative h-96 rounded-2xl overflow-hidden">
+                        <img src="https://www.rew527mh.shop/55/4.png" 
+                             alt="Curiosity" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        
+                        <!-- Default Text -->
+                        <div class="absolute bottom-8 left-8 right-8 group-hover:opacity-0 transition-opacity duration-300">
+                            <h3 class="text-3xl font-bold text-white">Exploración</h3>
+                        </div>
+                        
+                        <!-- Hover Text -->
+                        <div class="absolute inset-0 p-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-70">
+                            <p class="text-white text-center leading-relaxed">
+                            llena de curiosidad, creatividad e imaginación. Creemos que el crecimiento y la innovación requieren preguntarse constantemente: «¿Por qué?». Vemos el mundo de una manera diferente. Siempre sentimos curiosidad por encontrar una mejor manera de hacer las cosas y nunca tenemos miedo de equivocarnos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Courage -->
+                <div class="relative group hover-scale">
+                    <div class="relative h-96 rounded-2xl overflow-hidden">
+                        <img src="https://www.rew527mh.shop/55/5.png" 
+                             alt="Courage" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        
+                        <!-- Default Text -->
+                        <div class="absolute bottom-8 left-8 right-8 group-hover:opacity-0 transition-opacity duration-300">
+                            <h3 class="text-3xl font-bold text-white">Apoyo mutuo</h3>
+                        </div>
+                        
+                        <!-- Hover Text -->
+                        <div class="absolute inset-0 p-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-70">
+                            <p class="text-white text-center leading-relaxed">
+                              Hacemos las preguntas difíciles, defendemos la diversidad y la equidad en todos los ámbitos de nuestro trabajo y mantenemos siempre una mirada crítica. Creemos que la indiferencia es nuestro mayor enemigo. Es mejor ir demasiado lejos que no llegar lo suficientemente lejos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community -->
+                <div class="relative group hover-scale">
+                    <div class="relative h-96 rounded-2xl overflow-hidden">
+                        <img src="https://www.rew527mh.shop/55/6.png" 
+                             alt="Community" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        
+                        <!-- Default Text -->
+                        <div class="absolute bottom-8 left-8 right-8 group-hover:opacity-0 transition-opacity duration-300">
+                            <h3 class="text-3xl font-bold text-white">Equidad</h3>
+                        </div>
+                        
+                        <!-- Hover Text -->
+                        <div class="absolute inset-0 p-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-70">
+                            <p class="text-white text-center leading-relaxed">
+                               Colaboración y apoyo mutuo orientados a objetivos comunes. Creemos que el gran trabajo solo puede lograrse reuniendo una representación diversa de pensamiento, conocimiento, habilidades y experiencia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary dark:bg-primary-dark text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- First Row: Logo, Address, Contact -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 items-start">
+                <!-- Left: UM Logo -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-4xl md:text-5xl font-bold text-white">UM</h3>
+                </div>
+                
+                <!-- Center: Address -->
+                <div class="text-center">
+                    <h4 class="text-lg font-semibold mb-3 text-white">Sede global</h4>
+                    <div class="space-y-1 text-white">
+                        <p>100 West 33rd Street</p>
+                        <p>New York, NY 10001</p>
+                         <p> <a href="" class="text-white hover:text-gray-200 transition-colors duration-300">atencion@umww.online</a></p>
+                             <p> 212-883-4700</p>
+                    </div>
+                </div>
+                
+             
+            </div>
+            
+            <!-- Copyright and Links Section -->
+            <div class="border-t border-white/20 pt-6">
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-center">
+                    <p class="text-white text-sm">
+                        © 2025 UM Estados Unidos (Sede global) 
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <a href="Privacy.html" class="text-white hover:text-gray-200 transition-colors duration-300 text-sm md:text-base">
+                           Aviso de privacidad
+                        </a>
+                        <span class="text-white">|</span>
+                        <a href="terms.html" class="text-white hover:text-gray-200 transition-colors duration-300 text-sm md:text-base">
+                            Términos de uso
+                        </a>
+                        <span class="text-white">|</span>
+                        <a href="cookies.html" class="text-white hover:text-gray-200 transition-colors duration-300 text-sm md:text-base">
+                            Política de Cookies
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === index ? '1' : '0';
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Check if mobile and update image sources
+        function updateImagesForMobile() {
+            const isMobile = window.innerWidth <= 768;
+            const carouselImages = document.querySelectorAll('#carousel img');
+            
+            carouselImages.forEach(img => {
+                if (isMobile && img.dataset.mobile) {
+                    img.src = img.dataset.mobile;
+                } else {
+                    // Reset to original desktop source
+                    const originalSrc = img.getAttribute('src');
+                    if (!originalSrc.includes('umww.net')) {
+                        // Keep original desktop source
+                    }
+                }
+            });
+        }
+
+        // Update images on load and resize
+        updateImagesForMobile();
+        window.addEventListener('resize', updateImagesForMobile);
+
+        // Auto-advance carousel every 2 seconds
+        setInterval(nextSlide, 2000);
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements with slide-up animation
+        document.querySelectorAll('.animate-slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

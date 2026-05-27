@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/2x32.webp" sizes="32x32" />
+    <title>Configuración de Cookies - UM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FE3D42',
+                        'primary-light': '#FF6B6F',
+                        'primary-dark': '#E6252B'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .text-gradient {
+            background: linear-gradient(135deg, #FE3D42, #FF6B6F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <header class="bg-primary dark:bg-primary-dark text-white py-6 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold">UM</h1>
+                    <p class="text-white/90 text-sm">El hogar del “Full Color Media”</p>
+                </div>
+                <a href="index.html" class="text-white hover:text-gray-200 transition-colors duration-300 text-sm md:text-base">
+                    ← Volver al inicio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12 animate-fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="text-gradient">Configuración de Cookies</span>
+                </h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300">
+                    Última actualización: Octubre 2025
+                </p>
+            </div>
+
+            <div class="prose prose-lg max-w-none dark:prose-invert animate-slide-up">
+                <div class="space-y-8">
+                    <section class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                        <h2 class="text-2xl font-semibold mb-4 text-primary">1. ¿Qué es una cookie?</h2>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            Las cookies son pequeños archivos de texto que se almacenan en su dispositivo cuando visita nuestro sitio web. Nos permiten mejorar su experiencia de navegación y ofrecer servicios personalizados.
+                        </p>
+                    </section>
+
+                    <section class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                        <h2 class="text-2xl font-semibold mb-4 text-primary">2. Tipos de cookies utilizadas</h2>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                <h3 class="font-semibold text-primary mb-2">Cookies esenciales</h3>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    Necesarias para el funcionamiento básico del sitio web. Estas cookies no pueden desactivarse.
+                                </p>
+                            </div>
+                            <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                <h3 class="font-semibold text-primary mb-2">Cookies de rendimiento</h3>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    Recopilan información anónima sobre la forma en que los visitantes utilizan nuestro sitio.
+                                </p>
+                            </div>
+                            <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                <h3 class="font-semibold text-primary mb-2">Cookies de funcionalidad</h3>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    Permiten recordar sus preferencias y personalizar su experiencia.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                        <h2 class="text-2xl font-semibold mb-4 text-primary">3. ¿Por qué utilizamos cookies?</h2>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                            Utilizamos cookies para:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2">
+                            <li>Mejorar el rendimiento y la funcionalidad del sitio web.</li>
+                            <li>Analizar el uso del sitio y optimizar nuestros servicios.</li>
+                            <li>Recordar sus preferencias y configuraciones.</li>
+                            <li>Ofrecer contenido personalizado.</li>
+                        </ul>
+                    </section>
+
+                    <section class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                        <h2 class="text-2xl font-semibold mb-4 text-primary">4. Gestión de cookies</h2>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                            Puede controlar y gestionar las cookies de diferentes maneras:
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    <strong>Configuración del navegador:</strong> configure su navegador para bloquear o eliminar cookies.
+                                </p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    <strong>Banner de consentimiento:</strong> utilice nuestro banner para gestionar sus preferencias.
+                                </p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    <strong>Modo privado:</strong> navegue en modo privado para evitar el almacenamiento de cookies.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                        <h2 class="text-2xl font-semibold mb-4 text-primary">5. Cookies de terceros</h2>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            Nuestro sitio puede utilizar cookies de servicios de terceros, como Google Analytics, para el análisis del tráfico. Estos servicios cuentan con sus propias políticas de cookies, que le recomendamos consultar.
+                        </p>
+                    </section>
+
+                    <section class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                        <h2 class="text-2xl font-semibold mb-4 text-primary">6. Periodo de conservación</h2>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                            Las cookies pueden tener diferentes duraciones:
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded">
+                                <h4 class="font-semibold text-primary text-sm mb-1">Cookies de sesión</h4>
+                                <p class="text-gray-700 dark:text-gray-300 text-xs">Se eliminan al cerrar el navegador.</p>
+                            </div>
+                            <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded">
+                                <h4 class="font-semibold text-primary text-sm mb-1">Cookies persistentes</h4>
+                                <p class="text-gray-700 dark:text-gray-300 text-xs">Permanecen almacenadas hasta su fecha de expiración o hasta que sean eliminadas manualmente.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                        <h2 class="text-2xl font-semibold mb-4 text-primary">7. Impacto de la desactivación</h2>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            La desactivación de determinadas cookies puede afectar al funcionamiento del sitio web. Las cookies esenciales no pueden desactivarse, ya que son necesarias para el correcto funcionamiento del sitio.
+                        </p>
+                    </section>
+
+                    <section class="bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                        <h2 class="text-2xl font-semibold mb-4 text-primary">8. Actualizaciones de esta política</h2>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            Esta Política de Cookies podrá actualizarse periódicamente para reflejar cambios en nuestras prácticas o por motivos legales. Le recomendamos revisarla regularmente.
+                        </p>
+                    </section>
+
+                    <section class="bg-primary/10 dark:bg-primary-dark/20 p-6 rounded-lg border-2 border-primary/20">
+                        <h2 class="text-2xl font-semibold mb-4 text-primary">9. Sus preferencias de cookies</h2>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                            Puede modificar sus preferencias de cookies en cualquier momento mediante la configuración de su navegador o poniéndose en contacto con nosotros directamente.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <button class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg transition-colors duration-300 text-sm">
+                                Aceptar todas las cookies
+                            </button>
+                            <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 text-sm">
+                                Solo cookies esenciales
+                            </button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-primary dark:bg-primary-dark text-white py-12 px-4 mt-16">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 items-start">
+                <div class="text-center md:text-left">
+                    <h3 class="text-4xl md:text-5xl font-bold text-white">UM</h3>
+                </div>
+                
+                <div class="text-center">
+                    <h4 class="text-lg font-semibold mb-3 text-white">Sede Mundial</h4>
+                    <div class="space-y-1 text-white">
+                        <p>100 West 33rd Street</p>
+                        <p>New York, NY 10001</p>
+                        <p> <a href="" class="text-white hover:text-gray-200 transition-colors duration-300">7-eleven@umww.net</a></p>
+                        <p> 212-883-4700</p>
+                    </div>
+                </div>
+              
+            </div>
+            
+            <div class="border-t border-white/20 pt-6">
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-center">
+                    <p class="text-white text-sm">
+                        © 2025 UM Estados Unidos (Sede mundial)
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <a href="Privacy.html" class="text-white hover:text-gray-200 transition-colors duration-300 text-sm md:text-base">
+                            Política de Privacidad
+                        </a>
+                        <span class="text-white">|</span>
+                        <a href="terms.html" class="text-white hover:text-gray-200 transition-colors duration-300 text-sm md:text-base">
+                            Términos de Uso
+                        </a>
+                        <span class="text-white">|</span>
+                        <a href="cookies.html" class="text-white hover:text-gray-200 transition-colors duration-300 text-sm md:text-base">
+                            Configuración de Cookies
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements with slide-up animation
+        document.querySelectorAll('.animate-slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Cookie preference buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const acceptAllBtn = document.querySelector('button');
+            const essentialOnlyBtn = document.querySelectorAll('button')[1];
+            
+            if (acceptAllBtn) {
+                acceptAllBtn.addEventListener('click', function() {
+                    // Here you would implement cookie acceptance logic
+                    alert('Se han aceptado todas las cookies');
+                });
+            }
+            
+            if (essentialOnlyBtn) {
+                essentialOnlyBtn.addEventListener('click', function() {
+                    // Here you would implement essential-only cookie logic
+                    alert('Solo se han aceptado las cookies esenciales');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
