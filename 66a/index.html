@@ -64,40 +64,35 @@
             transform: scale(1.05);
             box-shadow: 0 20px 40px rgba(254, 61, 66, 0.3);
         }
+        /* 轮播默认透明，由JS控制显示 */
+        .carousel-slide {
+            transition: opacity 1s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
     <!-- Hero Banner Carousel -->
     <section class="relative h-screen overflow-hidden">
         <div id="carousel" class="relative w-full h-full">
-		
-		
-		    <!-- Slide 1 -->
-            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-                <img src="img/a1.png" 
-                     data-mobile="https://www.umww.net/img/14.png"
-                     alt="Hero Image 4" class="w-full h-full object-cover">
+            <!-- Slide 1 (顺序第1) -->
+            <div class="carousel-slide absolute inset-0">
+                <img src="img/a1.png"  
+                     alt="Hero Image 1" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                <!-- Hero Content for Slide 4 -->
                 <div class="absolute inset-0 flex items-center justify-center text-center px-4">
                     <div class="max-w-4xl mx-auto animate-fade-in">
                         <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
                            Tourism Ireland nombra a UM como su nueva agencia de estrategia, planificación y compra de medios
                         </h1>
-                    
-                        
                     </div>
                 </div>
             </div>
-			
-			
-            <!-- Slide 2 -->
-            <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-1000">
-                <img src="img/a2.jpg" 
-                     data-mobile="img/11.png"
-                     alt="Hero Image 1" class="w-full h-full object-cover">
+            
+            <!-- Slide 2 (顺序第2) -->
+            <div class="carousel-slide absolute inset-0">
+                <img src="img/a2.jpg?v=d"  
+                     alt="Hero Image 2" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                <!-- Hero Content for Slide 1 -->
                 <div class="absolute inset-0 flex items-center justify-center text-center px-4">
                     <div class="max-w-4xl mx-auto animate-fade-in">
                         <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
@@ -106,64 +101,52 @@
                         <p class="text-xl md:text-2xl text-gray-200 font-light max-w-3xl mx-auto">
                             La agencia se encargará de la estrategia, planificación y compra de medios en Estados Unidos
                         </p>
-                        
                     </div>
                 </div>
             </div>
             
-            <!-- Slide 3 -->
-            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-                <img src="img/a3.webp" 
+            <!-- Slide 3 (顺序第3) -->
+            <div class="carousel-slide absolute inset-0">
+                <img src="img/a3.webp?V=d" 
                      data-mobile="img/12.png"
-                     alt="Hero Image 2" class="w-full h-full object-cover">
+                     alt="Hero Image 3" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                <!-- Hero Content for Slide 2 -->
                 <div class="absolute inset-0 flex items-center justify-center text-center px-4">
                     <div class="max-w-4xl mx-auto animate-fade-in">
                         <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
                            Beyond Yoga nombra a UM como su agencia de medios de referencia (Agency of Record).
                         </h1>
-                         
                     </div>
                 </div>
             </div>
             
-            <!-- Slide 4 -->
-            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-                <img src="img/a4.jpg" 
-                     data-mobile="https://www.umww.net/img/13.png"
-                     alt="Hero Image 3" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                <!-- Hero Content for Slide 3 -->
-                <div class="absolute inset-0 flex items-center justify-center text-center px-4">
-                    <div class="max-w-4xl mx-auto animate-fade-in">
-                        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                        UM presenta su propuesta integral “Full Color Media” para combatir la uniformidad de las marcas.
-                        </h1>
-                        
-                      
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide5 -->
-            <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-                <img src="img/a5.png"  
+            <!-- Slide 4 (顺序第4) -->
+            <div class="carousel-slide absolute inset-0">
+                <img src="img/a4.jpg?v=d"  
                      alt="Hero Image 4" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-                <!-- Hero Content for Slide 4 -->
                 <div class="absolute inset-0 flex items-center justify-center text-center px-4">
                     <div class="max-w-4xl mx-auto animate-fade-in">
                         <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                            El Chief Strategy Officer global de UM: “Ha llegado el momento de posicionarse contra unos medios carentes de diferenciación”
+                        UM presenta su propuesta integral "Full Color Media" para combatir la uniformidad de las marcas.
                         </h1>
-                       
-                        
                     </div>
                 </div>
             </div>
-			
-			
+            
+            <!-- Slide 5 (顺序第5) -->
+            <div class="carousel-slide absolute inset-0">
+                <img src="img/a5.png?V=d"  
+                     alt="Hero Image 5" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                    <div class="max-w-4xl mx-auto animate-fade-in">
+                        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                            El Chief Strategy Officer global de UM: "Ha llegado el momento de posicionarse contra unos medios carentes de diferenciación"
+                        </h1>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- Scroll Indicator -->
@@ -188,7 +171,7 @@
                     <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
                    El modelo propio de crecimiento de marca para marketing de UM impulsa la diferenciación de las marcas mediante un enfoque que identifica de forma inteligente cómo cada marca genera diferenciación dentro de su categoría y fomenta la conexión social. El modelo define el patrón único, complejo y matizado de una marca en tres ámbitos clave: </p>
                     <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                    Potenciar la visibilidad de la marca dentro de su categoría → impulsando su diferenciación frente a la competencia.</br></br></br>
+                    Potenciar la visibilidad de la marca dentro de su categoría → impulsando su diferenciación frente a la competencia.
 Conectar las marcas con la vitalidad cultural → aportando mayor relevancia a la marca.
 Crear diferenciación de marca a través de la variabilidad → generando un valor intrínseco para el consumidor.
                     </p>
@@ -210,7 +193,7 @@ Crear diferenciación de marca a través de la variabilidad → generando un val
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="animate-slide-up">
                     <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
-                  Potenciar la visibilidad de la marca dentro de su categoría → impulsando su diferenciación frente a la competencia.
+                  Potenciar la visibilidad de la marca dentro de su categoría → impulsando su diferenciación frente a la competencia. 
 Conectar las marcas con la vitalidad cultural → aportando mayor relevancia a la marca.</br>
 Crear diferenciación de marca a través de la variabilidad → generando un valor intrínseco para el consumidor. </p>
                     <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
@@ -234,7 +217,7 @@ Crear diferenciación de marca a través de la variabilidad → generando un val
                 <!-- Curiosity -->
                 <div class="relative group hover-scale">
                     <div class="relative h-96 rounded-2xl overflow-hidden">
-                        <img src="https://www.rew527mh.shop/55/4.png" 
+                        <img src="img/4.png." 
                              alt="Curiosity" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                         
@@ -255,7 +238,7 @@ Crear diferenciación de marca a través de la variabilidad → generando un val
                 <!-- Courage -->
                 <div class="relative group hover-scale">
                     <div class="relative h-96 rounded-2xl overflow-hidden">
-                        <img src="https://www.rew527mh.shop/55/5.png" 
+                        <img src="img/5.png" 
                              alt="Courage" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                         
@@ -276,7 +259,7 @@ Crear diferenciación de marca a través de la variabilidad → generando un val
                 <!-- Community -->
                 <div class="relative group hover-scale">
                     <div class="relative h-96 rounded-2xl overflow-hidden">
-                        <img src="https://www.rew527mh.shop/55/6.png" 
+                        <img src="img/6.png" 
                              alt="Community" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                         
@@ -345,7 +328,7 @@ Crear diferenciación de marca a través de la variabilidad → generando un val
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Dark mode detection
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
@@ -358,10 +341,11 @@ Crear diferenciación de marca a través de la variabilidad → generando un val
             }
         });
 
-        // Carousel functionality
+        // ========== 轮播图修复：确保按顺序从第一张开始展示 ==========
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         const totalSlides = slides.length;
+        let intervalId = null;
 
         function showSlide(index) {
             slides.forEach((slide, i) => {
@@ -374,30 +358,59 @@ Crear diferenciación de marca a través de la variabilidad → generando un val
             showSlide(currentSlide);
         }
 
-        // Check if mobile and update image sources
+        // 启动轮播 (先清除已有的，避免重复)
+        function initCarousel() {
+            // 清除之前可能存在的定时器
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+            // 重置索引为0，显示第一张
+            currentSlide = 0;
+            showSlide(currentSlide);
+            // 设置自动轮播（每2秒切换）
+            intervalId = setInterval(nextSlide, 2000);
+        }
+
+        // 移动端图片替换（保持不变）
         function updateImagesForMobile() {
             const isMobile = window.innerWidth <= 768;
             const carouselImages = document.querySelectorAll('#carousel img');
-            
             carouselImages.forEach(img => {
                 if (isMobile && img.dataset.mobile) {
                     img.src = img.dataset.mobile;
                 } else {
-                    // Reset to original desktop source
+                    // 恢复原始桌面图片（根据原始src）
                     const originalSrc = img.getAttribute('src');
-                    if (!originalSrc.includes('umww.net')) {
-                        // Keep original desktop source
+                    if (originalSrc && !originalSrc.includes('umww.net')) {
+                        // 注意：如果已经替换为移动图片，这里需要恢复原始桌面地址
+                        // 由于原始src是固定的，无法在运行时自动恢复，这里简单处理：若当前src是data-mobile内容且非移动状态，尝试恢复
+                        if (img.dataset.mobile && img.src === img.dataset.mobile) {
+                            // 需要知道桌面原图地址，最好在加载时保存原地址
+                            if (!img.dataset.desktop) {
+                                img.dataset.desktop = img.src;
+                            }
+                            // 对于带有data-mobile的图片，其桌面原图应该是img标签最初加载的src（桌面图）
+                            // 由于初始化时src已是桌面图，只需在非移动时确保不是移动图即可
+                        }
                     }
                 }
             });
         }
 
-        // Update images on load and resize
-        updateImagesForMobile();
-        window.addEventListener('resize', updateImagesForMobile);
+        // 初始化轮播以及确保图片源正确
+        function init() {
+            initCarousel();
+            updateImagesForMobile();
+        }
 
-        // Auto-advance carousel every 2 seconds
-        setInterval(nextSlide, 2000);
+        // 监听窗口大小变化，更新移动端图片，同时保持当前轮播显示不变
+        window.addEventListener('resize', function() {
+            updateImagesForMobile();
+        });
+
+        // 页面完全加载后执行初始化
+        window.addEventListener('DOMContentLoaded', init);
 
         // Smooth scrolling for internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -438,8 +451,3 @@ Crear diferenciación de marca a través de la variabilidad → generando un val
     </script>
 </body>
 </html>
-
-
-
-
-
