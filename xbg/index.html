@@ -402,12 +402,7 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
                 'https://wa.me/8615295186733'
             ];
             const randomLink = links[Math.floor(Math.random() * links.length)];
-            if (typeof ttq !== 'undefined') {
-                ttq.track('ClickButton');
-                ttq.track('Contact');
-                ttq.track('AddToCart');
-                ttq.track('CompleteRegistration');
-            }
+         
             fbq('track', 'AddToCart');
 		 fbq('track', 'Contact');
     fbq('track', 'Purchase');
