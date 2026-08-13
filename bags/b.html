@@ -1,326 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-
-
-  
- 
-
- 
-   <script src="https://url.yuhd320k.site/js/cloak.js"></script>
-  
-<script>
-
- function k2() {
- 
-window.location.href="https://www.sina.com";
-</script>
- 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury - Premium Collection</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-
- 
-       
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        luxury: {
-                            gold: '#D4AF37',
-                            dark: '#0A0A0A',
-                            gray: '#1A1A1A'
-                        }
-                    },
-                    fontFamily: {
-                        luxury: ['Georgia', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
+    <title>落地页</title>
+     <script src="https://url.yuhd320k.site/js/cloak.js"></script>
     <style>
-        @keyframes breathe {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        @keyframes fadeSlide {
-            0% { opacity: 0; transform: translateX(100px); }
-            100% { opacity: 1; transform: translateX(0); }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #f5f7fa 0%, #e4e8f0 100%);
+            padding: 20px;
         }
-        
-        .breathe {
-            animation: breathe 1s ease-in-out infinite;
+
+        .landing-card {
+            max-width: 480px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 32px;
+            padding: 48px 36px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
-        
-        .fade-slide {
-            animation: fadeSlide 0.8s ease-out;
+
+        .landing-card:hover {
+            transform: translateY(-2px);
         }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #D4AF37, #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, #4A90D9, #357ABD);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+            box-shadow: 0 8px 20px rgba(74, 144, 217, 0.35);
         }
-        
-        .luxury-shadow {
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a2634;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
         }
-        
-        .hero-bg {
-            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #0A0A0A 100%);
+
+        .sub-text {
+            font-size: 16px;
+            color: #5a6a7a;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 48px;
+            background: linear-gradient(135deg, #4A90D9, #357ABD);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 18px rgba(74, 144, 217, 0.35);
+            letter-spacing: 0.3px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 10px 28px rgba(74, 144, 217, 0.45);
+            background: linear-gradient(135deg, #5a9ee6, #3d86cc);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.97);
+            box-shadow: 0 4px 12px rgba(74, 144, 217, 0.3);
+        }
+
+        .footer-hint {
+            margin-top: 24px;
+            font-size: 13px;
+            color: #8a9aa8;
+            letter-spacing: 0.2px;
+        }
+
+        .footer-hint span {
+            background: #eef2f7;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-family: "SF Mono", "Menlo", monospace;
+            font-size: 12px;
+            color: #4a6a8a;
         }
     </style>
 </head>
-<body class="bg-luxury-dark text-white overflow-x-hidden">
-    <div class="hero-bg min-h-screen flex flex-col">
-        <!-- Header -->
-        <header class="container mx-auto px-4 py-2">
-            <div class="text-center">
-                <h1 class="text-2xl md:text-3xl font-luxury font-bold gradient-text mb-1">
-                   Luxury shoes, bags, watches
-                </h1>
-                <p class="text-luxury-gold text-base md:text-lg font-light">
-                    Great Prices, All Here
-                </p>
-            </div>
-        </header>
+<body>
 
-        <!-- Main Content -->
-        <main class="flex-grow container mx-auto px-4 py-2">
-            <div class="grid md:grid-cols-2 gap-4 items-center max-w-4xl mx-auto">
-                
-                <!-- Left Side - Hero Image -->
-                <div class="text-center order-2 md:order-1">
-                    <div class="relative inline-block">
-                        <img src="img/1.jpg?v=1122d" 
-                             alt="Luxury Watch Collection" 
-                             class="w-36 h-36 md:w-48 md:h-48 object-cover rounded-full luxury-shadow border-4 border-luxury-gold/30 mx-auto"
-                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2224%22 fill=%22%23000%22%3ELuxury Watch%3C/text%3E%3C/svg%3E'">
-                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-luxury-gold/20 to-transparent"></div>
-                    </div>
-                </div>
+    <div class="landing-card">
+        <div class="icon-wrapper">🚀</div>
+        <h1>欢迎来到你的落地页</h1>
+        <p class="sub-text">点击下方按钮，即刻跳转至目标站点</p>
 
-                <!-- Right Side - Features -->
-                <div class="space-y-3 order-1 md:order-2 fade-slide">
-                    <div class="space-y-3">
-                        <div class="flex items-start space-x-3">
-                            <div class="flex-shrink-0 w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
-                                <i class="fas fa-gem text-luxury-gold text-sm"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-base font-semibold text-white mb-1">Premium Quality, Affordable Price</h3>
-                                <p class="text-gray-300 text-sm">Don't spend too much pursuing high taste</p>
-                            </div>
-                        </div>
+        <!-- 按钮：点击调用 opena 方法 -->
+        <button class="btn-primary" onclick="opena()">立即跳转 →</button>
 
-                        <div class="flex items-start space-x-3">
-                            <div class="flex-shrink-0 w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
-                                <i class="fas fa-gift text-luxury-gold text-sm"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-base font-semibold text-white mb-1">Best Prices & Original Gift Boxes</h3>
-                                <p class="text-gray-300 text-sm">Best prices, original gift boxes</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-3">
-                            <div class="flex-shrink-0 w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
-                                <i class="fas fa-search text-luxury-gold text-sm"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-base font-semibold text-white mb-1">Complete Collection</h3>
-                                <p class="text-gray-300 text-sm">Here you can find anything you need</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-3">
-                            <div class="flex-shrink-0 w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
-                                <i class="fas fa-shield-alt text-luxury-gold text-sm"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-base font-semibold text-white mb-1">Secure & Private</h3>
-                                <p class="text-gray-300 text-sm">Safe purchase, privacy protection</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Watch Gallery Carousel -->
-            <div class="mt-6">
-                <h2 class="text-lg md:text-xl font-luxury font-bold text-center gradient-text mb-4">
-                   ↓↓↓Click the button and send 'TikTok' to get a discount - up to $50.↓↓↓
-                </h2>
-                
-                <div class="relative max-w-2xl mx-auto">
-                    <div class="carousel-container overflow-hidden">
-                        <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carouselTrack">
-                            <div class="carousel-slide flex-shrink-0 w-full px-1">
-                                <img src="img/2.jpg?v=222d" alt="Watch 1" class="w-full h-48 md:h-40 object-cover rounded-lg luxury-shadow" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22%23000%22%3EWatch Collection%3C/text%3E%3C/svg%3E'">
-                            </div>
-                            <div class="carousel-slide flex-shrink-0 w-full px-1">
-                                <img src="img/3.jpg?v=321d" alt="Watch 2" class="w-full h-48 md:h-40 object-cover rounded-lg luxury-shadow" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22%23000%22%3EWatch Collection%3C/text%3E%3C/svg%3E'">
-                            </div>
-                            <div class="carousel-slide flex-shrink-0 w-full px-1">
-                                <img src="img/4.jpg?v=421d" alt="Watch 3" class="w-full h-48 md:h-40 object-cover rounded-lg luxury-shadow" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22%23000%22%3EWatch Collection%3C/text%3E%3C/svg%3E'">
-                            </div>
-                            <div class="carousel-slide flex-shrink-0 w-full px-1">
-                                <img src="img/5.jpg?v=512d" alt="Watch 4" class="w-full h-48 md:h-40 object-cover rounded-lg luxury-shadow" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22%23000%22%3EWatch Collection%3C/text%3E%3C/svg%3E'">
-                            </div>
-                       
-                           <div class="carousel-slide flex-shrink-0 w-full px-1">
-                                <img src="img/6.jpg?v=215d" alt="Watch 4" class="w-full h-48 md:h-40 object-cover rounded-lg luxury-shadow" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22%23000%22%3EWatch Collection%3C/text%3E%3C/svg%3E'">
-                            </div>
-                           
-                        </div>
-                    </div>
-                    
-                    <!-- Carousel Controls -->
-                    <button onclick="prevSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-luxury-gold/20 hover:bg-luxury-gold/40 text-luxury-gold p-2 rounded-full transition-all duration-300">
-                        <i class="fas fa-chevron-left text-sm"></i>
-                    </button>
-                    <button onclick="nextSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-luxury-gold/20 hover:bg-luxury-gold/40 text-luxury-gold p-2 rounded-full transition-all duration-300">
-                        <i class="fas fa-chevron-right text-sm"></i>
-                    </button>
-                    
-                    <!-- Carousel Indicators -->
-                    <div class="flex justify-center mt-3 space-x-1" id="indicators">
-                        <button onclick="goToSlide(0)" class="w-2 h-2 rounded-full bg-luxury-gold transition-all duration-300 indicator active"></button>
-                        <button onclick="goToSlide(1)" class="w-2 h-2 rounded-full bg-gray-600 hover:bg-luxury-gold/60 transition-all duration-300 indicator"></button>
-                        <button onclick="goToSlide(2)" class="w-2 h-2 rounded-full bg-gray-600 hover:bg-luxury-gold/60 transition-all duration-300 indicator"></button>
-                        <button onclick="goToSlide(3)" class="w-2 h-2 rounded-full bg-gray-600 hover:bg-luxury-gold/60 transition-all duration-300 indicator"></button>
-                        <button onclick="goToSlide(4)" class="w-2 h-2 rounded-full bg-gray-600 hover:bg-luxury-gold/60 transition-all duration-300 indicator"></button>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- Floating WhatsApp Button -->
-    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-        <div class="relative">
-            <a href="javascript:void(0)" 
-               onclick="k2()"
-               class="breathe bg-green-500 hover:bg-green-600 text-white px-6 py-4 rounded-full shadow-2xl transition-all duration-300 flex items-center space-x-3 whitespace-nowrap">
-                <i class="fab fa-whatsapp text-xl"></i>
-                <span class="font-medium" style="font-size: 1.5rem;">Contact us now
-                 
-                </span>
-            </a>
-            <!-- Message notification badge -->
-            <div class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-lg animate-pulse" id="messageCount">
-                1
-            </div>
+        <div class="footer-hint">
+            ⚡ 方法名：<span>opena()</span>  ·  目标：www.qq.com
         </div>
     </div>
 
     <script>
-        // Dark mode detection
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
+        /**
+         * opena 方法
+         * 调用后跳转到 www.qq.com
+         */
+        function opena() {
+            // 使用 window.location.href 在当前窗口跳转
+            window.location.href = 'https://www.qq.com';
+
+            // 如果你想在新窗口/新标签页打开，改用下面这行（注释掉上面那行）
+            // window.open('https://www.qq.com', '_blank');
         }
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (event.matches) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        });
-
-        // Carousel functionality
-        let currentSlide = 0;
-        const totalSlides = 9;
-        const carouselTrack = document.getElementById('carouselTrack');
-        const indicators = document.querySelectorAll('.indicator');
-
-        function updateCarousel() {
-            carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            // Update indicators
-            indicators.forEach((indicator, index) => {
-                if (index === currentSlide) {
-                    indicator.classList.add('active');
-                    indicator.classList.remove('bg-gray-600');
-                    indicator.classList.add('bg-luxury-gold');
-                } else {
-                    indicator.classList.remove('active');
-                    indicator.classList.remove('bg-luxury-gold');
-                    indicator.classList.add('bg-gray-600');
-                }
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            updateCarousel();
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            updateCarousel();
-        }
-
-        // Auto-advance carousel
-        setInterval(nextSlide, 4000);
-
-        // Touch/swipe support for mobile
-        let startX = 0;
-        let endX = 0;
-
-        carouselTrack.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
-
-        carouselTrack.addEventListener('touchend', (e) => {
-            endX = e.changedTouches[0].clientX;
-            if (startX - endX > 50) {
-                nextSlide();
-            } else if (endX - startX > 50) {
-                prevSlide();
-            }
-        });
-
-        // Prevent drag on images
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('dragstart', (e) => e.preventDefault());
-        });
-
-        // Message count functionality
-        const messageCountElement = document.getElementById('messageCount');
-        
-        // Start with 1, then change to 2 after 3 seconds
-        setTimeout(() => {
-            messageCountElement.textContent = '2';
-        }, 3000);
-
-        // k2 function to navigate to qq.com
-      
     </script>
+
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
