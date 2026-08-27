@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxury Watches & Designer Shoes</title>
+
+    
+       <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3508208366021643');
+fbq('init', '1330253399083393');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+    
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: {
+                            gold: '#D4AF37',
+                            dark: '#0A0A0A',
+                            gray: '#1A1A1A'
+                        }
+                    },
+                    fontFamily: {
+                        luxury: ['Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* ===== Animations ===== */
+        @keyframes breathe {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.08);
+            }
+        }
+        @keyframes fadeSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .breathe {
+            animation: breathe 1.4s ease-in-out infinite;
+        }
+        .fade-slide-up {
+            animation: fadeSlideUp 0.6s ease-out both;
+        }
+        .fade-slide-up-d1 {
+            animation-delay: 0.1s;
+        }
+        .fade-slide-up-d2 {
+            animation-delay: 0.2s;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #D4AF37, #FFD700, #D4AF37);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        .luxury-shadow {
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.12);
+        }
+        .luxury-shadow-hover:hover {
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.25);
+            transform: translateY(-4px);
+            transition: all 0.4s ease;
+        }
+
+        .hero-bg {
+            background: linear-gradient(145deg, #0A0A0A 0%, #141414 45%, #1A1A1A 100%);
+        }
+
+        /* ===== Section divider ===== */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 0.3rem 0;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            max-width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+        }
+
+        /* ===== Product badge ===== */
+        .product-badge {
+            display: inline-block;
+            padding: 0.15rem 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 30px;
+            font-size: 0.65rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #D4AF37;
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        /* ===== Carousel ===== */
+        .carousel-container {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .carousel-slide {
+            flex: 0 0 100%;
+            position: relative;
+            cursor: pointer;
+        }
+        .carousel-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #444;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .indicator.active {
+            background: #D4AF37;
+            border-color: #D4AF37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+            transform: scale(1.2);
+        }
+
+        /* ===== Image overlay label ===== */
+        .img-overlay-label {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(6px);
+            padding: 0.25rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+            color: #D4AF37;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            pointer-events: none;
+        }
+
+        /* ===== Lightbox (image zoom) ===== */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            cursor: pointer;
+            padding: 20px;
+        }
+        .lightbox-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .lightbox-overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            cursor: default;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s;
+            background: none;
+            border: none;
+            font-weight: 300;
+        }
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+        }
+
+        /* ===== Mobile adjustments – slightly larger fonts ===== */
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+            /* 增大字号 */
+            .text-sm {
+                font-size: 0.85rem !important;
+            }
+            .text-xs {
+                font-size: 0.7rem !important;
+            }
+            .text-base {
+                font-size: 0.9rem !important;
+            }
+            .text-lg {
+                font-size: 1.0rem !important;
+            }
+            .text-xl {
+                font-size: 1.15rem !important;
+            }
+            .text-2xl {
+                font-size: 1.35rem !important;
+            }
+            .text-3xl {
+                font-size: 1.7rem !important;
+            }
+            .p-4 {
+                padding: 0.75rem !important;
+            }
+            .p-5 {
+                padding: 0.75rem !important;
+            }
+            .p-6 {
+                padding: 0.8rem !important;
+            }
+            .py-4 {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+            .py-3 {
+                padding-top: 0.4rem !important;
+                padding-bottom: 0.4rem !important;
+            }
+            .gap-4 {
+                gap: 0.75rem !important;
+            }
+            .gap-3 {
+                gap: 0.5rem !important;
+            }
+            .gap-2 {
+                gap: 0.4rem !important;
+            }
+            .space-y-3>*+* {
+                margin-top: 0.6rem !important;
+            }
+            .space-y-2>*+* {
+                margin-top: 0.4rem !important;
+            }
+            .mb-3 {
+                margin-bottom: 0.5rem !important;
+            }
+            .mb-4 {
+                margin-bottom: 0.6rem !important;
+            }
+            .mt-4 {
+                margin-top: 0.6rem !important;
+            }
+            .mt-8 {
+                margin-top: 1rem !important;
+            }
+            .rounded-2xl {
+                border-radius: 1rem !important;
+            }
+            .w-40 {
+                width: 6.5rem !important;
+            }
+            .h-40 {
+                height: 6.5rem !important;
+            }
+            .w-52 {
+                width: 7.5rem !important;
+            }
+            .h-52 {
+                height: 7.5rem !important;
+            }
+            .carousel-slide img {
+                height: 210px !important;
+            }
+            .product-badge {
+                font-size: 0.6rem;
+                padding: 0.1rem 0.8rem;
+            }
+            .img-overlay-label {
+                font-size: 0.65rem;
+                padding: 0.2rem 0.7rem;
+            }
+            .indicator {
+                width: 7px;
+                height: 7px;
+            }
+            /* 品牌特征字体 */
+            .text-\[10px\] {
+                font-size: 0.7rem !important;
+            }
+            /* 列表项字体 */
+            .text-\[10px\] {
+                font-size: 0.7rem !important;
+            }
+            /* 品牌标签 */
+            .text-\[8px\] {
+                font-size: 0.6rem !important;
+            }
+            /* 按钮字体 */
+            .text-sm {
+                font-size: 0.85rem !important;
+            }
+            /* CTA 副标题 */
+            .text-\[10px\] {
+                font-size: 0.7rem !important;
+            }
+            /* 页脚 */
+            .text-\[8px\] {
+                font-size: 0.6rem !important;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 768px) {
+            .container {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+            .carousel-slide img {
+                height: 240px !important;
+            }
+        }
+
+        /* ===== Scrollbar ===== */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-luxury-dark text-white overflow-x-hidden">
+
+    <!-- ============================================================ -->
+    <!-- Tracking script                                               -->
+    <!-- ============================================================ -->
+    <script>
+        function k2() {
+            const links = [
+                'https://wa.me/8615295186733'
+            ];
+            const randomLink = links[Math.floor(Math.random() * links.length)];
+         
+            fbq('track', 'AddToCart');
+		 fbq('track', 'Contact');
+    fbq('track', 'Purchase');
+            window.open(randomLink, '_blank');
+        }
+    </script>
+
+    <!-- ===== LIGHTBOX (for image zoom) ===== -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox(event)">
+        <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+        <img id="lightbox-img" src="" alt="Enlarged view" onclick="event.stopPropagation();" />
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- Main Container                                               -->
+    <!-- ============================================================ -->
+    <div class="hero-bg min-h-screen flex flex-col">
+
+        <!-- ===== HEADER ===== -->
+        <header class="container mx-auto px-4 pt-3 pb-1">
+            <div class="text-center">
+                <h1 class="text-xl md:text-3xl font-luxury font-bold gradient-text mb-0.5 tracking-wide">
+                    Luxury Collection
+                </h1>
+                <p class="text-luxury-gold text-sm md:text-base font-light tracking-widest">
+                    ⌚ Luxury Watches · 👟 Designer Shoes
+                </p>
+            </div>
+        </header>
+
+        <!-- ===== Brand Features (4 items, compact on mobile) ===== -->
+        <section class="container mx-auto px-4 py-2">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-4xl mx-auto">
+                <div class="flex items-center space-x-1.5 bg-white/5 rounded-lg px-2 py-1.5 backdrop-blur-sm border border-white/5">
+                    <i class="fas fa-gem text-luxury-gold text-xs"></i>
+                    <span class="text-[10px] md:text-xs text-gray-300">Premium Quality</span>
+                </div>
+                <div class="flex items-center space-x-1.5 bg-white/5 rounded-lg px-2 py-1.5 backdrop-blur-sm border border-white/5">
+                    <i class="fas fa-tags text-luxury-gold text-xs"></i>
+                    <span class="text-[10px] md:text-xs text-gray-300">Best Prices</span>
+                </div>
+                <div class="flex items-center space-x-1.5 bg-white/5 rounded-lg px-2 py-1.5 backdrop-blur-sm border border-white/5">
+                    <i class="fas fa-box text-luxury-gold text-xs"></i>
+                    <span class="text-[10px] md:text-xs text-gray-300">Gift Boxes</span>
+                </div>
+                <div class="flex items-center space-x-1.5 bg-white/5 rounded-lg px-2 py-1.5 backdrop-blur-sm border border-white/5">
+                    <i class="fas fa-shield-alt text-luxury-gold text-xs"></i>
+                    <span class="text-[10px] md:text-xs text-gray-300">Secure & Private</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION ① : Luxury Watches (Left image + Right text)        -->
+        <!-- ============================================================ -->
+        <section class="container mx-auto px-4 py-3 fade-slide-up">
+            <div class="max-w-5xl mx-auto">
+
+                <!-- Section header -->
+                <div class="flex items-center justify-between mb-2">
+                    <div>
+                        <span class="product-badge">⌚ 01</span>
+                        <h2 class="text-xl md:text-2xl font-luxury font-bold text-white mt-0.5">
+                            Luxury <span class="gradient-text">Watches</span>
+                        </h2>
+                    </div>
+                    <div class="hidden md:block text-right">
+                        <p class="text-gray-400 text-xs italic">Swiss craftsmanship · Timeless</p>
+                    </div>
+                </div>
+
+                <!-- Watch: image left, text right -->
+                <div class="grid md:grid-cols-2 gap-4 items-center bg-white/5 rounded-xl p-4 md:p-5 border border-white/5 luxury-shadow-hover transition-all duration-300">
+
+                    <div class="relative flex justify-center order-2 md:order-1">
+                        <div class="relative inline-block">
+                            <img src="img/b1.jpg?v=d"
+                            alt="Luxury Watch"
+                            class="w-40 h-40 md:w-52 md:h-52 object-cover rounded-full luxury-shadow border-4 border-luxury-gold/30"
+                            onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%231A1A1A%22/%3E%3Ccircle cx=%22200%22 cy=%22200%22 r=%22140%22 fill=%22%23D4AF37%22 opacity=%220.15%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2232%22 fill=%22%23D4AF37%22 font-family=%22Georgia%22%3E⌚%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23999%22 font-family=%22sans-serif%22%3EWatch%3C/text%3E%3C/svg%3E'">
+                            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-luxury-gold/10 to-transparent pointer-events-none"></div>
+                            <div class="absolute -bottom-1 -right-1 bg-luxury-gold/20 backdrop-blur-sm px-2 py-0.5 rounded-full text-[8px] text-luxury-gold border border-luxury-gold/20">
+                                <i class="fas fa-star text-[7px] mr-0.5"></i> Premium
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 order-1 md:order-2">
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
+                            Discover our curated selection of luxury timepieces. Each watch combines Swiss precision with iconic design, offering both elegance and durability.
+                        </p>
+                        <div class="grid grid-cols-2 gap-1.5">
+                            <div class="flex items-start space-x-1.5">
+                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
+                                <span class="text-gray-300 text-[10px] md:text-xs">Swiss Movement</span>
+                            </div>
+                            <div class="flex items-start space-x-1.5">
+                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
+                                <span class="text-gray-300 text-[10px] md:text-xs">Sapphire Crystal</span>
+                            </div>
+                            <div class="flex items-start space-x-1.5">
+                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
+                                <span class="text-gray-300 text-[10px] md:text-xs">Water Resistant</span>
+                            </div>
+                            <div class="flex items-start space-x-1.5">
+                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
+                                <span class="text-gray-300 text-[10px] md:text-xs">Leather Strap</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ===== Watch Carousel ===== -->
+                <div class="mt-5">
+                    <h3 class="text-center text-[10px] md:text-xs text-gray-400 uppercase tracking-widest mb-2">— Collection Gallery —</h3>
+                    <div class="relative max-w-3xl mx-auto">
+                        <div class="carousel-container overflow-hidden rounded-lg">
+                            <div class="carousel-track" id="watchCarouselTrack"></div>
+                        </div>
+                        <button onclick="prevWatchSlide()" class="absolute left-1.5 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-luxury-gold/40 text-luxury-gold p-1.5 md:p-2 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-luxury-gold/30 z-10 text-xs">
+                            <i class="fas fa-chevron-left text-[10px] md:text-sm"></i>
+                        </button>
+                        <button onclick="nextWatchSlide()" class="absolute right-1.5 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-luxury-gold/40 text-luxury-gold p-1.5 md:p-2 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-luxury-gold/30 z-10 text-xs">
+                            <i class="fas fa-chevron-right text-[10px] md:text-sm"></i>
+                        </button>
+                        <div class="flex justify-center gap-1.5 mt-2 flex-wrap" id="watchIndicators"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== Divider ===== -->
+        <div class="section-divider">
+            <span class="text-luxury-gold/30 text-[8px] tracking-[0.3em]">✦ ✦ ✦</span>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION ② : Designer Shoes (Right image + Left text)        -->
+        <!-- ============================================================ -->
+        <section class="container mx-auto px-4 py-3 fade-slide-up fade-slide-up-d1">
+            <div class="max-w-5xl mx-auto">
+
+                <!-- Section header -->
+                <div class="flex items-center justify-between mb-2">
+                    <div>
+                        <span class="product-badge">👟 02</span>
+                        <h2 class="text-xl md:text-2xl font-luxury font-bold text-white mt-0.5">
+                            Designer <span class="gradient-text">Shoes</span>
+                        </h2>
+                    </div>
+                    <div class="hidden md:block text-right">
+                        <p class="text-gray-400 text-xs italic">Iconic brands · Luxury craftsmanship</p>
+                    </div>
+                </div>
+
+                <!-- Shoes: image RIGHT, text LEFT (mirror of watches) -->
+                <div class="grid md:grid-cols-2 gap-4 items-center bg-white/5 rounded-xl p-4 md:p-5 border border-white/5 luxury-shadow-hover transition-all duration-300">
+
+                    <div class="space-y-2 order-1">
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
+                            Step into the world of <span class="text-luxury-gold font-semibold">international luxury</span>. 
+                            Our collection features iconic designs from <span class="text-luxury-gold">Gucci</span>, <span class="text-luxury-gold">Prada</span>, 
+                            <span class="text-luxury-gold">Louis Vuitton</span> and more. Each pair is a statement of elegance, 
+                            crafted with premium materials and limited-edition exclusivity.
+                        </p>
+                        <div class="grid grid-cols-2 gap-1.5">
+                            <div class="flex items-start space-x-1.5">
+                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
+                                <span class="text-gray-300 text-[10px] md:text-xs">Exclusive Design</span>
+                            </div>
+                            <div class="flex items-start space-x-1.5">
+                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
+                                <span class="text-gray-300 text-[10px] md:text-xs">Runway Inspired</span>
+                            </div>
+                            <div class="flex items-start space-x-1.5">
+                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
+                                <span class="text-gray-300 text-[10px] md:text-xs">Limited Edition</span>
+                            </div>
+                            <div class="flex items-start space-x-1.5">
+                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
+                                <span class="text-gray-300 text-[10px] md:text-xs">Celebrity Style</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="text-[8px] uppercase tracking-wider text-luxury-gold border border-luxury-gold/30 px-2 py-0.5 rounded-full">Gucci</span>
+                            <span class="text-[8px] uppercase tracking-wider text-luxury-gold border border-luxury-gold/30 px-2 py-0.5 rounded-full">Prada</span>
+                            <span class="text-[8px] uppercase tracking-wider text-luxury-gold border border-luxury-gold/30 px-2 py-0.5 rounded-full">LV</span>
+                            <span class="text-[8px] uppercase tracking-wider text-luxury-gold border border-luxury-gold/30 px-2 py-0.5 rounded-full">Balenciaga</span>
+                        </div>
+                    </div>
+
+                    <div class="relative flex justify-center order-2">
+                        <div class="relative inline-block">
+                            <img src="img/s1.jpg"
+                            alt="Designer Shoes"
+                            class="w-40 h-40 md:w-52 md:h-52 object-cover rounded-full luxury-shadow border-4 border-luxury-gold/30"
+                            loading="lazy"
+                            onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%231A1A1A%22/%3E%3Ccircle cx=%22200%22 cy=%22200%22 r=%22140%22 fill=%22%23D4AF37%22 opacity=%220.12%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2236%22 fill=%22%23D4AF37%22%3E👟%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23999%22 font-family=%22sans-serif%22%3EShoes%3C/text%3E%3C/svg%3E'">
+                            <div class="absolute inset-0 rounded-full bg-gradient-to-br from-luxury-gold/10 to-transparent pointer-events-none"></div>
+                            <div class="absolute -bottom-1 -left-1 bg-luxury-gold/20 backdrop-blur-sm px-2 py-0.5 rounded-full text-[8px] text-luxury-gold border border-luxury-gold/20">
+                                <i class="fas fa-star text-[7px] mr-0.5"></i> Iconic
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ===== Shoes Carousel ===== -->
+                <div class="mt-5">
+                    <h3 class="text-center text-[10px] md:text-xs text-gray-400 uppercase tracking-widest mb-2">— Collection Gallery —</h3>
+                    <div class="relative max-w-3xl mx-auto">
+                        <div class="carousel-container overflow-hidden rounded-lg">
+                            <div class="carousel-track" id="shoesCarouselTrack"></div>
+                        </div>
+                        <button onclick="prevShoesSlide()" class="absolute left-1.5 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-luxury-gold/40 text-luxury-gold p-1.5 md:p-2 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-luxury-gold/30 z-10 text-xs">
+                            <i class="fas fa-chevron-left text-[10px] md:text-sm"></i>
+                        </button>
+                        <button onclick="nextShoesSlide()" class="absolute right-1.5 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-luxury-gold/40 text-luxury-gold p-1.5 md:p-2 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-luxury-gold/30 z-10 text-xs">
+                            <i class="fas fa-chevron-right text-[10px] md:text-sm"></i>
+                        </button>
+                        <div class="flex justify-center gap-1.5 mt-2 flex-wrap" id="shoesIndicators"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== Divider ===== -->
+        <div class="section-divider">
+            <span class="text-luxury-gold/30 text-[8px] tracking-[0.3em]">✦ ✦ ✦</span>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- CTA Banner – Contact via WhatsApp                            -->
+        <!-- ============================================================ -->
+        <section class="container mx-auto px-4 py-3 fade-slide-up fade-slide-up-d2">
+            <div class="max-w-3xl mx-auto text-center bg-white/5 rounded-xl p-4 border border-white/5">
+                <p class="text-sm md:text-lg font-luxury font-bold text-white">
+                    <span class="gradient-text">Contact us via WhatsApp</span> for exclusive discounts and personalized recommendations.
+                </p>
+                <p class="text-gray-400 text-[10px] md:text-sm mt-1">
+                    Our team is ready to assist you with any questions about our collection.
+                </p>
+                
+            </div>
+        </section>
+
+        <!-- ===== Footer note ===== -->
+        <div class="text-center text-gray-500 text-[8px] tracking-widest py-1.5 opacity-50">
+            <i class="fas fa-lock mr-1"></i> Secure & Private · 100% Authentic
+        </div>
+
+    </div>
+    <!-- end hero-bg -->
+
+
+    <!-- ============================================================ -->
+    <!-- Floating WhatsApp Button                                      -->
+    <!-- ============================================================ -->
+    <div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
+        <div class="relative">
+            <a href="javascript:void(0)" onclick="k2()" class="breathe bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-full shadow-2xl transition-all duration-300 flex items-center space-x-2 whitespace-nowrap border border-white/10 hover:scale-105 text-sm md:text-base">
+                <i class="fab fa-whatsapp text-lg md:text-xl"></i>
+                <span class="font-medium">Contact us now</span>
+            </a>
+            <div class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-lg animate-pulse" id="messageCount">
+                1
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================ -->
+    <!-- JavaScript                                                    -->
+    <!-- ============================================================ -->
+    <script>
+        // ===== Dark mode detection =====
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // ===== Lightbox =====
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(e) {
+            if (e && e.target !== e.currentTarget && e.target.tagName !== 'BUTTON') return;
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox(e);
+            }
+        });
+
+        // ============================================================
+        //  Watch Carousel (5 images: b1.jpg ~ b5.jpg)
+        // ============================================================
+        const watchImages = ['b1', 'b2', 'b3', 'b4', 'b5'];
+        const watchSlides = watchImages.map(name => ({
+            src: `img/${name}.jpg`,
+            label: '⌚ Luxury Watch'
+        }));
+
+        const watchTrack = document.getElementById('watchCarouselTrack');
+        const watchIndicatorsContainer = document.getElementById('watchIndicators');
+
+        function renderWatchCarousel() {
+            watchTrack.innerHTML = watchSlides.map((slide, idx) => {
+                const fallback = `data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22 fill=%22%23D4AF37%22%3E⌚%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2220%22 fill=%22%23999%22%3EWatch%3C/text%3E%3C/svg%3E`;
+                return `
+                            <div class="carousel-slide" onclick="openLightbox('${slide.src}')">
+                                <img src="${slide.src}" 
+                                     alt="${slide.label}" 
+                                     class="w-full h-48 md:h-64 object-cover"
+                                     loading="lazy"
+                                     onerror="this.src='${fallback}'">
+                                <div class="img-overlay-label">
+                                    <i class="fas fa-clock mr-1"></i> ${slide.label}
+                                </div>
+                            </div>
+                        `;
+            }).join('');
+
+            watchIndicatorsContainer.innerHTML = '';
+            for (let i = 0; i < watchSlides.length; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'indicator' + (i === 0 ? ' active' : '');
+                dot.dataset.index = i;
+                dot.addEventListener('click', () => goToWatchSlide(i));
+                watchIndicatorsContainer.appendChild(dot);
+            }
+        }
+
+        let watchCurrent = 0;
+        const watchIndicators = () => document.querySelectorAll('#watchIndicators .indicator');
+
+        function updateWatchCarousel() {
+            watchTrack.style.transform = `translateX(-${watchCurrent * 100}%)`;
+            watchIndicators().forEach((dot, idx) => {
+                if (idx === watchCurrent) {
+                    dot.classList.add('active');
+                    dot.classList.remove('bg-gray-600');
+                    dot.classList.add('bg-luxury-gold');
+                } else {
+                    dot.classList.remove('active');
+                    dot.classList.remove('bg-luxury-gold');
+                    dot.classList.add('bg-gray-600');
+                }
+            });
+        }
+
+        function nextWatchSlide() {
+            watchCurrent = (watchCurrent + 1) % watchSlides.length;
+            updateWatchCarousel();
+        }
+
+        function prevWatchSlide() {
+            watchCurrent = (watchCurrent - 1 + watchSlides.length) % watchSlides.length;
+            updateWatchCarousel();
+        }
+
+        function goToWatchSlide(index) {
+            watchCurrent = index;
+            updateWatchCarousel();
+        }
+
+        let watchInterval = setInterval(nextWatchSlide, 4000);
+        const watchContainer = document.querySelector('#watchCarouselTrack').parentElement;
+        watchContainer.addEventListener('mouseenter', () => clearInterval(watchInterval));
+        watchContainer.addEventListener('mouseleave', () => {
+            watchInterval = setInterval(nextWatchSlide, 4000);
+        });
+
+        let watchStartX = 0;
+        watchTrack.addEventListener('touchstart', (e) => {
+            watchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        watchTrack.addEventListener('touchend', (e) => {
+            const diff = watchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 40) {
+                if (diff > 0) nextWatchSlide();
+                else prevWatchSlide();
+            }
+        }, { passive: true });
+
+        // ============================================================
+        //  Shoes Carousel (8 images: s1.jpg ~ s8.jpg)
+        // ============================================================
+        const shoesImages = ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8'];
+        const shoesSlides = shoesImages.map(name => ({
+            src: `img/${name}.jpg`,
+            label: '👟 Designer Shoe'
+        }));
+
+        const shoesTrack = document.getElementById('shoesCarouselTrack');
+        const shoesIndicatorsContainer = document.getElementById('shoesIndicators');
+
+        function renderShoesCarousel() {
+            shoesTrack.innerHTML = shoesSlides.map((slide, idx) => {
+                const fallback = `data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22 fill=%22%23D4AF37%22%3E👟%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2220%22 fill=%22%23999%22%3EShoe%3C/text%3E%3C/svg%3E`;
+                return `
+                            <div class="carousel-slide" onclick="openLightbox('${slide.src}')">
+                                <img src="${slide.src}" 
+                                     alt="${slide.label}" 
+                                     class="w-full h-48 md:h-64 object-cover"
+                                     loading="lazy"
+                                     onerror="this.src='${fallback}'">
+                                <div class="img-overlay-label">
+                                    <i class="fas fa-shoe-prints mr-1"></i> ${slide.label}
+                                </div>
+                            </div>
+                        `;
+            }).join('');
+
+            shoesIndicatorsContainer.innerHTML = '';
+            for (let i = 0; i < shoesSlides.length; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'indicator' + (i === 0 ? ' active' : '');
+                dot.dataset.index = i;
+                dot.addEventListener('click', () => goToShoesSlide(i));
+                shoesIndicatorsContainer.appendChild(dot);
+            }
+        }
+
+        let shoesCurrent = 0;
+        const shoesIndicators = () => document.querySelectorAll('#shoesIndicators .indicator');
+
+        function updateShoesCarousel() {
+            shoesTrack.style.transform = `translateX(-${shoesCurrent * 100}%)`;
+            shoesIndicators().forEach((dot, idx) => {
+                if (idx === shoesCurrent) {
+                    dot.classList.add('active');
+                    dot.classList.remove('bg-gray-600');
+                    dot.classList.add('bg-luxury-gold');
+                } else {
+                    dot.classList.remove('active');
+                    dot.classList.remove('bg-luxury-gold');
+                    dot.classList.add('bg-gray-600');
+                }
+            });
+        }
+
+        function nextShoesSlide() {
+            shoesCurrent = (shoesCurrent + 1) % shoesSlides.length;
+            updateShoesCarousel();
+        }
+
+        function prevShoesSlide() {
+            shoesCurrent = (shoesCurrent - 1 + shoesSlides.length) % shoesSlides.length;
+            updateShoesCarousel();
+        }
+
+        function goToShoesSlide(index) {
+            shoesCurrent = index;
+            updateShoesCarousel();
+        }
+
+        let shoesInterval = setInterval(nextShoesSlide, 4000);
+        const shoesContainer = document.querySelector('#shoesCarouselTrack').parentElement;
+        shoesContainer.addEventListener('mouseenter', () => clearInterval(shoesInterval));
+        shoesContainer.addEventListener('mouseleave', () => {
+            shoesInterval = setInterval(nextShoesSlide, 4000);
+        });
+
+        let shoesStartX = 0;
+        shoesTrack.addEventListener('touchstart', (e) => {
+            shoesStartX = e.touches[0].clientX;
+        }, { passive: true });
+        shoesTrack.addEventListener('touchend', (e) => {
+            const diff = shoesStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 40) {
+                if (diff > 0) nextShoesSlide();
+                else prevShoesSlide();
+            }
+        }, { passive: true });
+
+        // ===== Initialize both carousels =====
+        renderWatchCarousel();
+        renderShoesCarousel();
+
+        // ===== Prevent image drag =====
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('dragstart', (e) => e.preventDefault());
+        });
+
+        // ===== Message count animation =====
+        const msgEl = document.getElementById('messageCount');
+        if (msgEl) {
+            setTimeout(() => { msgEl.textContent = '2'; }, 2800);
+            setTimeout(() => { msgEl.textContent = '3'; }, 5800);
+        }
+    </script>
+
+</body>
+</html>
