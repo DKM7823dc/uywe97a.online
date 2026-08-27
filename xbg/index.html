@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luxury Watches & Designer Shoes</title>
+    <title>Apple Collection — iPhone & Mac</title>
 
-    
-       <script>
+    <!-- Meta Pixel Code -->
+    <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -24,7 +24,6 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
-    
     <script src="https://cdn.tailwindcss.com">
     </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
@@ -33,14 +32,15 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
             theme: {
                 extend: {
                     colors: {
-                        luxury: {
-                            gold: '#D4AF37',
-                            dark: '#0A0A0A',
-                            gray: '#1A1A1A'
+                        brand: {
+                            blue: '#0066CC',
+                            sky: '#38BDF8',
+                            card: '#F5F7FA',
+                            ink: '#0A2540'
                         }
                     },
                     fontFamily: {
-                        luxury: ['Georgia', 'serif']
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
                     }
                 }
             }
@@ -49,48 +49,25 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
     <style>
         /* ===== Animations ===== */
         @keyframes breathe {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.08);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
         }
-        @keyframes fadeSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(24px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         @keyframes shimmer {
-            0% {
-                background-position: -200% 0;
-            }
-            100% {
-                background-position: 200% 0;
-            }
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
 
-        .breathe {
-            animation: breathe 1.4s ease-in-out infinite;
-        }
-        .fade-slide-up {
-            animation: fadeSlideUp 0.6s ease-out both;
-        }
-        .fade-slide-up-d1 {
-            animation-delay: 0.1s;
-        }
-        .fade-slide-up-d2 {
-            animation-delay: 0.2s;
-        }
+        .breathe { animation: breathe 1.4s ease-in-out infinite; }
+        .fade-up { animation: fadeUp 0.7s ease-out both; }
+        .fade-up-d1 { animation-delay: 0.12s; }
+        .fade-up-d2 { animation-delay: 0.24s; }
 
         .gradient-text {
-            background: linear-gradient(135deg, #D4AF37, #FFD700, #D4AF37);
+            background: linear-gradient(135deg, #0066CC, #38BDF8, #0066CC);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -98,109 +75,89 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
             animation: shimmer 4s ease-in-out infinite;
         }
 
-        .luxury-shadow {
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.12);
-        }
-        .luxury-shadow-hover:hover {
-            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.25);
-            transform: translateY(-4px);
-            transition: all 0.4s ease;
-        }
+        .soft-shadow { box-shadow: 0 30px 60px rgba(0, 102, 204, 0.14); }
 
-        .hero-bg {
-            background: linear-gradient(145deg, #0A0A0A 0%, #141414 45%, #1A1A1A 100%);
-        }
-
-        /* ===== Section divider ===== */
-        .section-divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            padding: 0.3rem 0;
-        }
-        .section-divider::before,
-        .section-divider::after {
-            content: '';
-            flex: 1;
-            max-width: 100px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
-        }
-
-        /* ===== Product badge ===== */
         .product-badge {
             display: inline-block;
-            padding: 0.15rem 1rem;
-            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 0.25rem 0.9rem;
+            border: 1px solid rgba(0, 102, 204, 0.25);
             border-radius: 30px;
-            font-size: 0.65rem;
+            font-size: 0.68rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: #D4AF37;
-            background: rgba(212, 175, 55, 0.08);
+            color: #0066CC;
+            background: rgba(0, 102, 204, 0.06);
         }
 
-        /* ===== Carousel ===== */
-        .carousel-container {
-            border-radius: 12px;
-            overflow: hidden;
+        /* ===== Gallery ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.85rem;
         }
-        .carousel-track {
-            display: flex;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        .gallery-grid-3 {
+            grid-template-columns: repeat(2, 1fr);
         }
-        .carousel-slide {
-            flex: 0 0 100%;
+        @media (min-width: 640px) {
+            .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+            .gallery-grid-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .gallery-item {
             position: relative;
-            cursor: pointer;
-        }
-        .carousel-slide img {
             display: block;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+            background: #EFF2F6;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
         }
+        .gallery-item:hover img { transform: scale(1.07); }
 
-        .indicator {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #444;
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .indicator.active {
-            background: #D4AF37;
-            border-color: #D4AF37;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-            transform: scale(1.2);
-        }
-
-        /* ===== Image overlay label ===== */
-        .img-overlay-label {
+        .gallery-label {
             position: absolute;
             bottom: 10px;
             left: 10px;
-            background: rgba(10, 10, 10, 0.7);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(6px);
-            padding: 0.25rem 0.9rem;
-            border-radius: 30px;
-            font-size: 0.7rem;
+            color: #0066CC;
+            font-size: 0.65rem;
             letter-spacing: 0.5px;
-            color: #D4AF37;
-            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 0.18rem 0.7rem;
+            border-radius: 30px;
+            border: 1px solid rgba(0, 102, 204, 0.18);
             pointer-events: none;
         }
+        .gallery-zoom {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 102, 204, 0);
+            color: #fff;
+            font-size: 1.4rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        .gallery-item:hover .gallery-zoom {
+            background: rgba(0, 102, 204, 0.28);
+            opacity: 1;
+        }
 
-        /* ===== Lightbox (image zoom) ===== */
+        /* ===== Lightbox ===== */
         .lightbox-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.92);
             z-index: 9999;
             display: flex;
@@ -212,10 +169,7 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
             cursor: pointer;
             padding: 20px;
         }
-        .lightbox-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .lightbox-overlay.active { opacity: 1; visibility: visible; }
         .lightbox-overlay img {
             max-width: 90%;
             max-height: 90%;
@@ -226,8 +180,7 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
         }
         .lightbox-close {
             position: absolute;
-            top: 20px;
-            right: 30px;
+            top: 20px; right: 30px;
             font-size: 2.5rem;
             color: white;
             cursor: pointer;
@@ -236,163 +189,16 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
             border: none;
             font-weight: 300;
         }
-        .lightbox-close:hover {
-            transform: rotate(90deg);
-        }
-
-        /* ===== Mobile adjustments – slightly larger fonts ===== */
-        @media (max-width: 640px) {
-            .container {
-                padding-left: 12px;
-                padding-right: 12px;
-            }
-            /* 增大字号 */
-            .text-sm {
-                font-size: 0.85rem !important;
-            }
-            .text-xs {
-                font-size: 0.7rem !important;
-            }
-            .text-base {
-                font-size: 0.9rem !important;
-            }
-            .text-lg {
-                font-size: 1.0rem !important;
-            }
-            .text-xl {
-                font-size: 1.15rem !important;
-            }
-            .text-2xl {
-                font-size: 1.35rem !important;
-            }
-            .text-3xl {
-                font-size: 1.7rem !important;
-            }
-            .p-4 {
-                padding: 0.75rem !important;
-            }
-            .p-5 {
-                padding: 0.75rem !important;
-            }
-            .p-6 {
-                padding: 0.8rem !important;
-            }
-            .py-4 {
-                padding-top: 0.5rem !important;
-                padding-bottom: 0.5rem !important;
-            }
-            .py-3 {
-                padding-top: 0.4rem !important;
-                padding-bottom: 0.4rem !important;
-            }
-            .gap-4 {
-                gap: 0.75rem !important;
-            }
-            .gap-3 {
-                gap: 0.5rem !important;
-            }
-            .gap-2 {
-                gap: 0.4rem !important;
-            }
-            .space-y-3>*+* {
-                margin-top: 0.6rem !important;
-            }
-            .space-y-2>*+* {
-                margin-top: 0.4rem !important;
-            }
-            .mb-3 {
-                margin-bottom: 0.5rem !important;
-            }
-            .mb-4 {
-                margin-bottom: 0.6rem !important;
-            }
-            .mt-4 {
-                margin-top: 0.6rem !important;
-            }
-            .mt-8 {
-                margin-top: 1rem !important;
-            }
-            .rounded-2xl {
-                border-radius: 1rem !important;
-            }
-            .w-40 {
-                width: 6.5rem !important;
-            }
-            .h-40 {
-                height: 6.5rem !important;
-            }
-            .w-52 {
-                width: 7.5rem !important;
-            }
-            .h-52 {
-                height: 7.5rem !important;
-            }
-            .carousel-slide img {
-                height: 210px !important;
-            }
-            .product-badge {
-                font-size: 0.6rem;
-                padding: 0.1rem 0.8rem;
-            }
-            .img-overlay-label {
-                font-size: 0.65rem;
-                padding: 0.2rem 0.7rem;
-            }
-            .indicator {
-                width: 7px;
-                height: 7px;
-            }
-            /* 品牌特征字体 */
-            .text-\[10px\] {
-                font-size: 0.7rem !important;
-            }
-            /* 列表项字体 */
-            .text-\[10px\] {
-                font-size: 0.7rem !important;
-            }
-            /* 品牌标签 */
-            .text-\[8px\] {
-                font-size: 0.6rem !important;
-            }
-            /* 按钮字体 */
-            .text-sm {
-                font-size: 0.85rem !important;
-            }
-            /* CTA 副标题 */
-            .text-\[10px\] {
-                font-size: 0.7rem !important;
-            }
-            /* 页脚 */
-            .text-\[8px\] {
-                font-size: 0.6rem !important;
-            }
-        }
-
-        @media (min-width: 641px) and (max-width: 768px) {
-            .container {
-                padding-left: 16px;
-                padding-right: 16px;
-            }
-            .carousel-slide img {
-                height: 240px !important;
-            }
-        }
+        .lightbox-close:hover { transform: rotate(90deg); }
 
         /* ===== Scrollbar ===== */
-        ::-webkit-scrollbar {
-            width: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0A0A0A;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #D4AF37;
-            border-radius: 10px;
-        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #F3F4F6; }
+        ::-webkit-scrollbar-thumb { background: #0066CC; border-radius: 10px; }
     </style>
 </head>
 
-<body class="bg-luxury-dark text-white overflow-x-hidden">
+<body class="bg-white text-gray-900 font-sans">
 
     <!-- ============================================================ -->
     <!-- Tracking script                                               -->
@@ -400,10 +206,14 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
     <script>
         function k2() {
             const links = [
-                'https://wa.me/8615295186733'
+                'https://wa.me/8618252783716',
+'https://wa.me/8617201939646',
+'https://wa.me/8617300502141',
+
+
             ];
             const randomLink = links[Math.floor(Math.random() * links.length)];
-         
+
             fbq('track', 'AddToCart');
 		 fbq('track', 'Contact');
     fbq('track', 'Purchase');
@@ -411,255 +221,273 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
         }
     </script>
 
-    <!-- ===== LIGHTBOX (for image zoom) ===== -->
+    <!-- ===== LIGHTBOX ===== -->
     <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox(event)">
         <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
         <img id="lightbox-img" src="" alt="Enlarged view" onclick="event.stopPropagation();" />
     </div>
 
     <!-- ============================================================ -->
-    <!-- Main Container                                               -->
+    <!-- Sticky Navigation                                             -->
     <!-- ============================================================ -->
-    <div class="hero-bg min-h-screen flex flex-col">
-
-        <!-- ===== HEADER ===== -->
-        <header class="container mx-auto px-4 pt-3 pb-1">
-            <div class="text-center">
-                <h1 class="text-xl md:text-3xl font-luxury font-bold gradient-text mb-0.5 tracking-wide">
-                    Luxury Collection
-                </h1>
-                <p class="text-luxury-gold text-sm md:text-base font-light tracking-widest">
-                    ⌚ Luxury Watches · 👟 Designer Shoes
-                </p>
+    <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <span class="w-7 h-7 rounded-lg bg-brand-blue text-white flex items-center justify-center"><i class="fab fa-apple text-sm"></i></span>
+                <span class="font-semibold tracking-tight text-gray-900">Apple Collection</span>
+            </a>
+            <div class="hidden md:flex items-center gap-7 text-sm text-gray-600">
+                <a href="#iphone" class="hover:text-brand-blue transition-colors">iPhone</a>
+                <a href="#mac" class="hover:text-brand-blue transition-colors">Mac</a>
+                <a href="#contact" class="hover:text-brand-blue transition-colors">Contact</a>
             </div>
-        </header>
-
-        <!-- ===== Brand Features (4 items, compact on mobile) ===== -->
-        <section class="container mx-auto px-4 py-2">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-4xl mx-auto">
-                <div class="flex items-center space-x-1.5 bg-white/5 rounded-lg px-2 py-1.5 backdrop-blur-sm border border-white/5">
-                    <i class="fas fa-gem text-luxury-gold text-xs"></i>
-                    <span class="text-[10px] md:text-xs text-gray-300">Premium Quality</span>
-                </div>
-                <div class="flex items-center space-x-1.5 bg-white/5 rounded-lg px-2 py-1.5 backdrop-blur-sm border border-white/5">
-                    <i class="fas fa-tags text-luxury-gold text-xs"></i>
-                    <span class="text-[10px] md:text-xs text-gray-300">Best Prices</span>
-                </div>
-                <div class="flex items-center space-x-1.5 bg-white/5 rounded-lg px-2 py-1.5 backdrop-blur-sm border border-white/5">
-                    <i class="fas fa-box text-luxury-gold text-xs"></i>
-                    <span class="text-[10px] md:text-xs text-gray-300">Gift Boxes</span>
-                </div>
-                <div class="flex items-center space-x-1.5 bg-white/5 rounded-lg px-2 py-1.5 backdrop-blur-sm border border-white/5">
-                    <i class="fas fa-shield-alt text-luxury-gold text-xs"></i>
-                    <span class="text-[10px] md:text-xs text-gray-300">Secure & Private</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================ -->
-        <!-- SECTION ① : Luxury Watches (Left image + Right text)        -->
-        <!-- ============================================================ -->
-        <section class="container mx-auto px-4 py-3 fade-slide-up">
-            <div class="max-w-5xl mx-auto">
-
-                <!-- Section header -->
-                <div class="flex items-center justify-between mb-2">
-                    <div>
-                        <span class="product-badge">⌚ 01</span>
-                        <h2 class="text-xl md:text-2xl font-luxury font-bold text-white mt-0.5">
-                            Luxury <span class="gradient-text">Watches</span>
-                        </h2>
-                    </div>
-                    <div class="hidden md:block text-right">
-                        <p class="text-gray-400 text-xs italic">Swiss craftsmanship · Timeless</p>
-                    </div>
-                </div>
-
-                <!-- Watch: image left, text right -->
-                <div class="grid md:grid-cols-2 gap-4 items-center bg-white/5 rounded-xl p-4 md:p-5 border border-white/5 luxury-shadow-hover transition-all duration-300">
-
-                    <div class="relative flex justify-center order-2 md:order-1">
-                        <div class="relative inline-block">
-                            <img src="img/b1.jpg?v=d"
-                            alt="Luxury Watch"
-                            class="w-40 h-40 md:w-52 md:h-52 object-cover rounded-full luxury-shadow border-4 border-luxury-gold/30"
-                            onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%231A1A1A%22/%3E%3Ccircle cx=%22200%22 cy=%22200%22 r=%22140%22 fill=%22%23D4AF37%22 opacity=%220.15%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2232%22 fill=%22%23D4AF37%22 font-family=%22Georgia%22%3E⌚%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23999%22 font-family=%22sans-serif%22%3EWatch%3C/text%3E%3C/svg%3E'">
-                            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-luxury-gold/10 to-transparent pointer-events-none"></div>
-                            <div class="absolute -bottom-1 -right-1 bg-luxury-gold/20 backdrop-blur-sm px-2 py-0.5 rounded-full text-[8px] text-luxury-gold border border-luxury-gold/20">
-                                <i class="fas fa-star text-[7px] mr-0.5"></i> Premium
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-2 order-1 md:order-2">
-                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
-                            Discover our curated selection of luxury timepieces. Each watch combines Swiss precision with iconic design, offering both elegance and durability.
-                        </p>
-                        <div class="grid grid-cols-2 gap-1.5">
-                            <div class="flex items-start space-x-1.5">
-                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
-                                <span class="text-gray-300 text-[10px] md:text-xs">Swiss Movement</span>
-                            </div>
-                            <div class="flex items-start space-x-1.5">
-                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
-                                <span class="text-gray-300 text-[10px] md:text-xs">Sapphire Crystal</span>
-                            </div>
-                            <div class="flex items-start space-x-1.5">
-                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
-                                <span class="text-gray-300 text-[10px] md:text-xs">Water Resistant</span>
-                            </div>
-                            <div class="flex items-start space-x-1.5">
-                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
-                                <span class="text-gray-300 text-[10px] md:text-xs">Leather Strap</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- ===== Watch Carousel ===== -->
-                <div class="mt-5">
-                    <h3 class="text-center text-[10px] md:text-xs text-gray-400 uppercase tracking-widest mb-2">— Collection Gallery —</h3>
-                    <div class="relative max-w-3xl mx-auto">
-                        <div class="carousel-container overflow-hidden rounded-lg">
-                            <div class="carousel-track" id="watchCarouselTrack"></div>
-                        </div>
-                        <button onclick="prevWatchSlide()" class="absolute left-1.5 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-luxury-gold/40 text-luxury-gold p-1.5 md:p-2 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-luxury-gold/30 z-10 text-xs">
-                            <i class="fas fa-chevron-left text-[10px] md:text-sm"></i>
-                        </button>
-                        <button onclick="nextWatchSlide()" class="absolute right-1.5 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-luxury-gold/40 text-luxury-gold p-1.5 md:p-2 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-luxury-gold/30 z-10 text-xs">
-                            <i class="fas fa-chevron-right text-[10px] md:text-sm"></i>
-                        </button>
-                        <div class="flex justify-center gap-1.5 mt-2 flex-wrap" id="watchIndicators"></div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ===== Divider ===== -->
-        <div class="section-divider">
-            <span class="text-luxury-gold/30 text-[8px] tracking-[0.3em]">✦ ✦ ✦</span>
+            <a href="#contact" class="bg-brand-blue hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors">Contact us</a>
         </div>
+    </nav>
 
-        <!-- ============================================================ -->
-        <!-- SECTION ② : Designer Shoes (Right image + Left text)        -->
-        <!-- ============================================================ -->
-        <section class="container mx-auto px-4 py-3 fade-slide-up fade-slide-up-d1">
-            <div class="max-w-5xl mx-auto">
-
-                <!-- Section header -->
-                <div class="flex items-center justify-between mb-2">
-                    <div>
-                        <span class="product-badge">👟 02</span>
-                        <h2 class="text-xl md:text-2xl font-luxury font-bold text-white mt-0.5">
-                            Designer <span class="gradient-text">Shoes</span>
-                        </h2>
-                    </div>
-                    <div class="hidden md:block text-right">
-                        <p class="text-gray-400 text-xs italic">Iconic brands · Luxury craftsmanship</p>
-                    </div>
-                </div>
-
-                <!-- Shoes: image RIGHT, text LEFT (mirror of watches) -->
-                <div class="grid md:grid-cols-2 gap-4 items-center bg-white/5 rounded-xl p-4 md:p-5 border border-white/5 luxury-shadow-hover transition-all duration-300">
-
-                    <div class="space-y-2 order-1">
-                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
-                            Step into the world of <span class="text-luxury-gold font-semibold">international luxury</span>. 
-                            Our collection features iconic designs from <span class="text-luxury-gold">Gucci</span>, <span class="text-luxury-gold">Prada</span>, 
-                            <span class="text-luxury-gold">Louis Vuitton</span> and more. Each pair is a statement of elegance, 
-                            crafted with premium materials and limited-edition exclusivity.
-                        </p>
-                        <div class="grid grid-cols-2 gap-1.5">
-                            <div class="flex items-start space-x-1.5">
-                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
-                                <span class="text-gray-300 text-[10px] md:text-xs">Exclusive Design</span>
-                            </div>
-                            <div class="flex items-start space-x-1.5">
-                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
-                                <span class="text-gray-300 text-[10px] md:text-xs">Runway Inspired</span>
-                            </div>
-                            <div class="flex items-start space-x-1.5">
-                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
-                                <span class="text-gray-300 text-[10px] md:text-xs">Limited Edition</span>
-                            </div>
-                            <div class="flex items-start space-x-1.5">
-                                <i class="fas fa-check-circle text-luxury-gold text-[10px] mt-0.5"></i>
-                                <span class="text-gray-300 text-[10px] md:text-xs">Celebrity Style</span>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="text-[8px] uppercase tracking-wider text-luxury-gold border border-luxury-gold/30 px-2 py-0.5 rounded-full">Gucci</span>
-                            <span class="text-[8px] uppercase tracking-wider text-luxury-gold border border-luxury-gold/30 px-2 py-0.5 rounded-full">Prada</span>
-                            <span class="text-[8px] uppercase tracking-wider text-luxury-gold border border-luxury-gold/30 px-2 py-0.5 rounded-full">LV</span>
-                            <span class="text-[8px] uppercase tracking-wider text-luxury-gold border border-luxury-gold/30 px-2 py-0.5 rounded-full">Balenciaga</span>
-                        </div>
-                    </div>
-
-                    <div class="relative flex justify-center order-2">
-                        <div class="relative inline-block">
-                            <img src="img/s1.jpg"
-                            alt="Designer Shoes"
-                            class="w-40 h-40 md:w-52 md:h-52 object-cover rounded-full luxury-shadow border-4 border-luxury-gold/30"
-                            loading="lazy"
-                            onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%231A1A1A%22/%3E%3Ccircle cx=%22200%22 cy=%22200%22 r=%22140%22 fill=%22%23D4AF37%22 opacity=%220.12%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2236%22 fill=%22%23D4AF37%22%3E👟%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2214%22 fill=%22%23999%22 font-family=%22sans-serif%22%3EShoes%3C/text%3E%3C/svg%3E'">
-                            <div class="absolute inset-0 rounded-full bg-gradient-to-br from-luxury-gold/10 to-transparent pointer-events-none"></div>
-                            <div class="absolute -bottom-1 -left-1 bg-luxury-gold/20 backdrop-blur-sm px-2 py-0.5 rounded-full text-[8px] text-luxury-gold border border-luxury-gold/20">
-                                <i class="fas fa-star text-[7px] mr-0.5"></i> Iconic
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- ===== Shoes Carousel ===== -->
-                <div class="mt-5">
-                    <h3 class="text-center text-[10px] md:text-xs text-gray-400 uppercase tracking-widest mb-2">— Collection Gallery —</h3>
-                    <div class="relative max-w-3xl mx-auto">
-                        <div class="carousel-container overflow-hidden rounded-lg">
-                            <div class="carousel-track" id="shoesCarouselTrack"></div>
-                        </div>
-                        <button onclick="prevShoesSlide()" class="absolute left-1.5 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-luxury-gold/40 text-luxury-gold p-1.5 md:p-2 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-luxury-gold/30 z-10 text-xs">
-                            <i class="fas fa-chevron-left text-[10px] md:text-sm"></i>
-                        </button>
-                        <button onclick="nextShoesSlide()" class="absolute right-1.5 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-luxury-gold/40 text-luxury-gold p-1.5 md:p-2 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-luxury-gold/30 z-10 text-xs">
-                            <i class="fas fa-chevron-right text-[10px] md:text-sm"></i>
-                        </button>
-                        <div class="flex justify-center gap-1.5 mt-2 flex-wrap" id="shoesIndicators"></div>
-                    </div>
-                </div>
-
+    <!-- ============================================================ -->
+    <!-- Hero (split)                                                  -->
+    <!-- ============================================================ -->
+    <section class="max-w-6xl mx-auto px-4 pt-10 md:pt-16 pb-14 grid md:grid-cols-2 gap-10 items-center">
+        <div class="fade-up">
+            <span class="product-badge">100% Genuine · Sealed New</span>
+            <h1 class="mt-4 text-3xl md:text-5xl font-bold leading-tight text-gray-900 tracking-tight">
+                The iPhone &amp; Mac<br><span class="gradient-text">worth waiting for.</span>
+            </h1>
+            <p class="mt-4 text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
+                Genuine Apple devices, factory sealed and unlocked for worldwide use. From the latest iPhone to the most powerful Mac — all in one place.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+                <a href="#contact" class="bg-brand-blue hover:bg-blue-700 text-white font-medium px-5 py-2.5 rounded-full transition-colors">Get in touch</a>
+                <a href="#iphone" class="border border-gray-200 hover:border-brand-blue/40 hover:text-brand-blue text-gray-700 font-medium px-5 py-2.5 rounded-full transition-colors">Browse iPhone</a>
             </div>
-        </section>
-
-        <!-- ===== Divider ===== -->
-        <div class="section-divider">
-            <span class="text-luxury-gold/30 text-[8px] tracking-[0.3em]">✦ ✦ ✦</span>
+            <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
+                <span><i class="fas fa-shield-alt text-brand-blue mr-1"></i> Secure &amp; Private</span>
+                <span><i class="fas fa-box text-brand-blue mr-1"></i> Original Packaging</span>
+                <span><i class="fas fa-certificate text-brand-blue mr-1"></i> 100% Genuine</span>
+            </div>
         </div>
+        <div class="relative fade-up fade-up-d1">
+            <div class="rounded-3xl overflow-hidden border border-gray-100 soft-shadow">
+                <img src="img/a1.webp" alt="Apple iPhone" class="w-full h-72 md:h-96 object-cover">
+            </div>
+            <div class="absolute -bottom-5 -left-3 md:-left-6 bg-white border border-gray-100 rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center"><i class="fas fa-certificate"></i></span>
+                <div>
+                    <p class="text-sm font-semibold text-gray-900">Genuine Apple</p>
+                    <p class="text-[10px] text-gray-500">Factory sealed · Unlocked</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- ============================================================ -->
-        <!-- CTA Banner – Contact via WhatsApp                            -->
-        <!-- ============================================================ -->
-        <section class="container mx-auto px-4 py-3 fade-slide-up fade-slide-up-d2">
-            <div class="max-w-3xl mx-auto text-center bg-white/5 rounded-xl p-4 border border-white/5">
-                <p class="text-sm md:text-lg font-luxury font-bold text-white">
-                    <span class="gradient-text">Contact us via WhatsApp</span> for exclusive discounts and personalized recommendations.
-                </p>
-                <p class="text-gray-400 text-[10px] md:text-sm mt-1">
-                    Our team is ready to assist you with any questions about our collection.
-                </p>
+    <!-- ============================================================ -->
+    <!-- Feature strip                                                 -->
+    <!-- ============================================================ -->
+    <section class="border-y border-gray-100 bg-white">
+        <div class="max-w-6xl mx-auto px-4 py-5 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="flex items-center justify-center gap-2 text-gray-700">
+                <i class="fas fa-certificate text-brand-blue"></i>
+                <span class="text-xs md:text-sm font-medium">100% Genuine</span>
+            </div>
+            <div class="flex items-center justify-center gap-2 text-gray-700">
+                <i class="fas fa-mobile-alt text-brand-blue"></i>
+                <span class="text-xs md:text-sm font-medium">Latest Models</span>
+            </div>
+            <div class="flex items-center justify-center gap-2 text-gray-700">
+                <i class="fas fa-box text-brand-blue"></i>
+                <span class="text-xs md:text-sm font-medium">Sealed &amp; New</span>
+            </div>
+            <div class="flex items-center justify-center gap-2 text-gray-700">
+                <i class="fas fa-shield-alt text-brand-blue"></i>
+                <span class="text-xs md:text-sm font-medium">Secure &amp; Private</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION ① : Apple iPhone (gallery)                            -->
+    <!-- ============================================================ -->
+    <section id="iphone" class="bg-brand-card py-12 md:py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-8">
+                <div>
+                    <span class="product-badge">📱 01 — iPhone</span>
+                    <h2 class="mt-3 text-2xl md:text-4xl font-bold text-gray-900 tracking-tight">Apple <span class="gradient-text">iPhone</span></h2>
+                    <p class="mt-2 text-gray-600 text-sm max-w-lg">Every model, brand new and factory sealed — from the compact everyday iPhone to the flagship Pro series.</p>
+                </div>
+                <p class="text-xs text-gray-500 italic hidden md:block">Pro camera · A-Series chip · Face ID</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('img/a1.webp')">
+                    <img src="img/a1.webp" alt="Apple iPhone" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/a2.webp')">
+                    <img src="img/a2.webp" alt="Apple iPhone" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/a3.webp')">
+                    <img src="img/a3.webp" alt="Apple iPhone" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/a4.webp')">
+                    <img src="img/a4.webp" alt="Apple iPhone" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/a5.webp')">
+                    <img src="img/a5.webp" alt="Apple iPhone" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/a6.webp')">
+                    <img src="img/a6.webp" alt="Apple iPhone" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/a7.webp')">
+                    <img src="img/a7.webp" alt="Apple iPhone" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/a8.webp')">
+                    <img src="img/a8.webp" alt="Apple iPhone" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <a href="javascript:void(0)" onclick="k2()" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-3 rounded-full transition-colors shadow-lg">
+                    <i class="fab fa-whatsapp text-lg"></i> View more iPhones on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION ② : Apple Computers (gallery)                         -->
+    <!-- ============================================================ -->
+    <section id="mac" class="bg-white py-12 md:py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-8">
+                <div>
+                    <span class="product-badge">💻 02 — Mac</span>
+                    <h2 class="mt-3 text-2xl md:text-4xl font-bold text-gray-900 tracking-tight">Apple <span class="gradient-text">Computers</span></h2>
+                    <p class="mt-2 text-gray-600 text-sm max-w-lg">MacBook Air, MacBook Pro and iMac — powered by Apple Silicon for incredible performance.</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[11px] uppercase tracking-wider text-brand-blue border border-brand-blue/30 px-2.5 py-1 rounded-full">MacBook Air</span>
+                    <span class="text-[11px] uppercase tracking-wider text-brand-blue border border-brand-blue/30 px-2.5 py-1 rounded-full">MacBook Pro</span>
+                    <span class="text-[11px] uppercase tracking-wider text-brand-blue border border-brand-blue/30 px-2.5 py-1 rounded-full">iMac</span>
+                    <span class="text-[11px] uppercase tracking-wider text-brand-blue border border-brand-blue/30 px-2.5 py-1 rounded-full">Mac mini</span>
+                </div>
+            </div>
+
+            <div class="gallery-grid gallery-grid-3">
+                <div class="gallery-item" onclick="openLightbox('img/b1.webp')">
+                    <img src="img/b1.webp" alt="Apple Computer" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/b2.webp')">
+                    <img src="img/b2.webp" alt="Apple Computer" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/b3.webp')">
+                    <img src="img/b3.webp" alt="Apple Computer" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/b4.webp')">
+                    <img src="img/b4.webp" alt="Apple Computer" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/b5.webp')">
+                    <img src="img/b5.webp" alt="Apple Computer" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/b6.webp')">
+                    <img src="img/b6.webp" alt="Apple Computer" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/b7.webp')">
+                    <img src="img/b7.webp" alt="Apple Computer" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('img/b8.webp')">
+                    <img src="img/b8.webp" alt="Apple Computer" loading="lazy">
+                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                </div>
                 
             </div>
-        </section>
 
-        <!-- ===== Footer note ===== -->
-        <div class="text-center text-gray-500 text-[8px] tracking-widest py-1.5 opacity-50">
-            <i class="fas fa-lock mr-1"></i> Secure & Private · 100% Authentic
+            <div class="mt-8 text-center">
+                <a href="javascript:void(0)" onclick="k2()" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-3 rounded-full transition-colors shadow-lg">
+                    <i class="fab fa-whatsapp text-lg"></i> View more Macs on WhatsApp
+                </a>
+            </div>
         </div>
+    </section>
 
-    </div>
-    <!-- end hero-bg -->
+    <!-- ============================================================ -->
+    <!-- CTA Band                                                      -->
+    <!-- ============================================================ -->
+    <section id="contact" class="bg-brand-card border-t border-gray-100 py-14 md:py-20">
+        <div class="max-w-3xl mx-auto px-4 text-center fade-up">
+            <h2 class="text-2xl md:text-4xl font-bold text-gray-900 tracking-tight">Ready to order?</h2>
+            <p class="mt-3 text-gray-600 text-sm md:text-base">Contact us on WhatsApp for availability and personalized recommendations.</p>
+            <a href="javascript:void(0)" onclick="k2()" class="mt-6 inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-3 rounded-full transition-colors shadow-lg">
+                <i class="fab fa-whatsapp text-xl"></i> Chat on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Footer                                                        -->
+    <!-- ============================================================ -->
+    <footer class="bg-white border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="col-span-2">
+                <div class="flex items-center gap-2">
+                    <span class="w-7 h-7 rounded-lg bg-brand-blue text-white flex items-center justify-center"><i class="fab fa-apple text-sm"></i></span>
+                    <span class="font-semibold text-gray-900">Apple Collection</span>
+                </div>
+                <p class="mt-3 text-xs text-gray-500 max-w-xs">Genuine Apple iPhone &amp; Mac. Factory sealed, unlocked and ready to use worldwide.</p>
+            </div>
+            <div>
+                <p class="text-sm font-semibold text-gray-900 mb-3">Products</p>
+                <ul class="space-y-2 text-xs text-gray-500">
+                    <li><a href="#iphone" class="hover:text-brand-blue transition-colors">iPhone</a></li>
+                    <li><a href="#mac" class="hover:text-brand-blue transition-colors">Mac</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-sm font-semibold text-gray-900 mb-3">Contact</p>
+                <ul class="space-y-2 text-xs text-gray-500">
+                    <li><a href="javascript:void(0)" onclick="k2()" class="hover:text-brand-blue transition-colors"><i class="fab fa-whatsapp mr-1"></i> WhatsApp</a></li>
+                    <li>100% Genuine</li>
+                    <li>Secure &amp; Private</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-100">
+            <div class="max-w-6xl mx-auto px-4 py-4 text-center text-[11px] text-gray-400">
+                <i class="fas fa-lock mr-1"></i> Secure &amp; Private · 100% Genuine Apple
+            </div>
+        </div>
+    </footer>
 
 
     <!-- ============================================================ -->
@@ -682,18 +510,6 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
     <!-- JavaScript                                                    -->
     <!-- ============================================================ -->
     <script>
-        // ===== Dark mode detection =====
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-        }
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (event.matches) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        });
-
         // ===== Lightbox =====
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
@@ -714,192 +530,6 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
                 closeLightbox(e);
             }
         });
-
-        // ============================================================
-        //  Watch Carousel (5 images: b1.jpg ~ b5.jpg)
-        // ============================================================
-        const watchImages = ['b1', 'b2', 'b3', 'b4', 'b5'];
-        const watchSlides = watchImages.map(name => ({
-            src: `img/${name}.jpg`,
-            label: '⌚ Luxury Watch'
-        }));
-
-        const watchTrack = document.getElementById('watchCarouselTrack');
-        const watchIndicatorsContainer = document.getElementById('watchIndicators');
-
-        function renderWatchCarousel() {
-            watchTrack.innerHTML = watchSlides.map((slide, idx) => {
-                const fallback = `data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22 fill=%22%23D4AF37%22%3E⌚%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2220%22 fill=%22%23999%22%3EWatch%3C/text%3E%3C/svg%3E`;
-                return `
-                            <div class="carousel-slide" onclick="openLightbox('${slide.src}')">
-                                <img src="${slide.src}" 
-                                     alt="${slide.label}" 
-                                     class="w-full h-48 md:h-64 object-cover"
-                                     loading="lazy"
-                                     onerror="this.src='${fallback}'">
-                                <div class="img-overlay-label">
-                                    <i class="fas fa-clock mr-1"></i> ${slide.label}
-                                </div>
-                            </div>
-                        `;
-            }).join('');
-
-            watchIndicatorsContainer.innerHTML = '';
-            for (let i = 0; i < watchSlides.length; i++) {
-                const dot = document.createElement('button');
-                dot.className = 'indicator' + (i === 0 ? ' active' : '');
-                dot.dataset.index = i;
-                dot.addEventListener('click', () => goToWatchSlide(i));
-                watchIndicatorsContainer.appendChild(dot);
-            }
-        }
-
-        let watchCurrent = 0;
-        const watchIndicators = () => document.querySelectorAll('#watchIndicators .indicator');
-
-        function updateWatchCarousel() {
-            watchTrack.style.transform = `translateX(-${watchCurrent * 100}%)`;
-            watchIndicators().forEach((dot, idx) => {
-                if (idx === watchCurrent) {
-                    dot.classList.add('active');
-                    dot.classList.remove('bg-gray-600');
-                    dot.classList.add('bg-luxury-gold');
-                } else {
-                    dot.classList.remove('active');
-                    dot.classList.remove('bg-luxury-gold');
-                    dot.classList.add('bg-gray-600');
-                }
-            });
-        }
-
-        function nextWatchSlide() {
-            watchCurrent = (watchCurrent + 1) % watchSlides.length;
-            updateWatchCarousel();
-        }
-
-        function prevWatchSlide() {
-            watchCurrent = (watchCurrent - 1 + watchSlides.length) % watchSlides.length;
-            updateWatchCarousel();
-        }
-
-        function goToWatchSlide(index) {
-            watchCurrent = index;
-            updateWatchCarousel();
-        }
-
-        let watchInterval = setInterval(nextWatchSlide, 4000);
-        const watchContainer = document.querySelector('#watchCarouselTrack').parentElement;
-        watchContainer.addEventListener('mouseenter', () => clearInterval(watchInterval));
-        watchContainer.addEventListener('mouseleave', () => {
-            watchInterval = setInterval(nextWatchSlide, 4000);
-        });
-
-        let watchStartX = 0;
-        watchTrack.addEventListener('touchstart', (e) => {
-            watchStartX = e.touches[0].clientX;
-        }, { passive: true });
-        watchTrack.addEventListener('touchend', (e) => {
-            const diff = watchStartX - e.changedTouches[0].clientX;
-            if (Math.abs(diff) > 40) {
-                if (diff > 0) nextWatchSlide();
-                else prevWatchSlide();
-            }
-        }, { passive: true });
-
-        // ============================================================
-        //  Shoes Carousel (8 images: s1.jpg ~ s8.jpg)
-        // ============================================================
-        const shoesImages = ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8'];
-        const shoesSlides = shoesImages.map(name => ({
-            src: `img/${name}.jpg`,
-            label: '👟 Designer Shoe'
-        }));
-
-        const shoesTrack = document.getElementById('shoesCarouselTrack');
-        const shoesIndicatorsContainer = document.getElementById('shoesIndicators');
-
-        function renderShoesCarousel() {
-            shoesTrack.innerHTML = shoesSlides.map((slide, idx) => {
-                const fallback = `data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22500%22 viewBox=%220 0 800 500%22%3E%3Crect width=%22800%22 height=%22500%22 fill=%22%231A1A1A%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22 fill=%22%23D4AF37%22%3E👟%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2220%22 fill=%22%23999%22%3EShoe%3C/text%3E%3C/svg%3E`;
-                return `
-                            <div class="carousel-slide" onclick="openLightbox('${slide.src}')">
-                                <img src="${slide.src}" 
-                                     alt="${slide.label}" 
-                                     class="w-full h-48 md:h-64 object-cover"
-                                     loading="lazy"
-                                     onerror="this.src='${fallback}'">
-                                <div class="img-overlay-label">
-                                    <i class="fas fa-shoe-prints mr-1"></i> ${slide.label}
-                                </div>
-                            </div>
-                        `;
-            }).join('');
-
-            shoesIndicatorsContainer.innerHTML = '';
-            for (let i = 0; i < shoesSlides.length; i++) {
-                const dot = document.createElement('button');
-                dot.className = 'indicator' + (i === 0 ? ' active' : '');
-                dot.dataset.index = i;
-                dot.addEventListener('click', () => goToShoesSlide(i));
-                shoesIndicatorsContainer.appendChild(dot);
-            }
-        }
-
-        let shoesCurrent = 0;
-        const shoesIndicators = () => document.querySelectorAll('#shoesIndicators .indicator');
-
-        function updateShoesCarousel() {
-            shoesTrack.style.transform = `translateX(-${shoesCurrent * 100}%)`;
-            shoesIndicators().forEach((dot, idx) => {
-                if (idx === shoesCurrent) {
-                    dot.classList.add('active');
-                    dot.classList.remove('bg-gray-600');
-                    dot.classList.add('bg-luxury-gold');
-                } else {
-                    dot.classList.remove('active');
-                    dot.classList.remove('bg-luxury-gold');
-                    dot.classList.add('bg-gray-600');
-                }
-            });
-        }
-
-        function nextShoesSlide() {
-            shoesCurrent = (shoesCurrent + 1) % shoesSlides.length;
-            updateShoesCarousel();
-        }
-
-        function prevShoesSlide() {
-            shoesCurrent = (shoesCurrent - 1 + shoesSlides.length) % shoesSlides.length;
-            updateShoesCarousel();
-        }
-
-        function goToShoesSlide(index) {
-            shoesCurrent = index;
-            updateShoesCarousel();
-        }
-
-        let shoesInterval = setInterval(nextShoesSlide, 4000);
-        const shoesContainer = document.querySelector('#shoesCarouselTrack').parentElement;
-        shoesContainer.addEventListener('mouseenter', () => clearInterval(shoesInterval));
-        shoesContainer.addEventListener('mouseleave', () => {
-            shoesInterval = setInterval(nextShoesSlide, 4000);
-        });
-
-        let shoesStartX = 0;
-        shoesTrack.addEventListener('touchstart', (e) => {
-            shoesStartX = e.touches[0].clientX;
-        }, { passive: true });
-        shoesTrack.addEventListener('touchend', (e) => {
-            const diff = shoesStartX - e.changedTouches[0].clientX;
-            if (Math.abs(diff) > 40) {
-                if (diff > 0) nextShoesSlide();
-                else prevShoesSlide();
-            }
-        }, { passive: true });
-
-        // ===== Initialize both carousels =====
-        renderWatchCarousel();
-        renderShoesCarousel();
 
         // ===== Prevent image drag =====
         document.querySelectorAll('img').forEach(img => {
