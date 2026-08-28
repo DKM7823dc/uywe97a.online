@@ -112,22 +112,34 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
         }
 
         .gallery-item {
-            position: relative;
-            display: block;
+            display: flex;
+            flex-direction: column;
             border-radius: 16px;
             overflow: hidden;
-            aspect-ratio: 1 / 1;
             cursor: pointer;
-            background: #EFF2F6;
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 3px rgba(10, 37, 64, 0.06);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
-        .gallery-item img {
+        .gallery-item:hover {
+            box-shadow: 0 14px 30px rgba(10, 37, 64, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .gallery-img {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: #EFF2F6;
+        }
+        .gallery-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        .gallery-item:hover img { transform: scale(1.07); }
+        .gallery-item:hover .gallery-img img { transform: scale(1.07); }
 
         .gallery-label {
             position: absolute;
@@ -161,30 +173,32 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
             opacity: 1;
         }
 
-        .price-tag {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
+        .gallery-price {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(0, 102, 204, 0.18);
-            border-radius: 12px;
-            padding: 0.28rem 0.6rem;
-            pointer-events: none;
-            line-height: 1.15;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            padding: 0.55rem 0.8rem 0.65rem;
+        }
+        .price-new {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0066CC;
+            letter-spacing: -0.01em;
         }
         .price-old {
-            font-size: 0.6rem;
+            font-size: 0.72rem;
             color: #9CA3AF;
             text-decoration: line-through;
         }
-        .price-new {
-            font-size: 0.85rem;
+        .price-off {
+            font-size: 0.6rem;
             font-weight: 700;
+            letter-spacing: 0.3px;
             color: #0066CC;
+            background: rgba(0, 102, 204, 0.10);
+            padding: 0.16rem 0.5rem;
+            border-radius: 30px;
         }
 
         /* ===== Lightbox ===== */
@@ -382,52 +396,116 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
 
             <div class="gallery-grid">
                 <div class="gallery-item" onclick="openLightbox('img/a1.webp')">
-                    <img src="img/a1.webp" alt="Apple iPhone" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$1,199</span><span class="price-new">$599.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/a1.webp" alt="Apple iPhone" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$599.50</span>
+                            <span class="price-old">$1,199</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/a2.webp')">
-                    <img src="img/a2.webp" alt="Apple iPhone" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$999</span><span class="price-new">$499.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/a2.webp" alt="Apple iPhone" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$499.50</span>
+                            <span class="price-old">$999</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/a3.webp')">
-                    <img src="img/a3.webp" alt="Apple iPhone" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$1,399</span><span class="price-new">$699.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/a3.webp" alt="Apple iPhone" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$699.50</span>
+                            <span class="price-old">$1,399</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/a4.webp')">
-                    <img src="img/a4.webp" alt="Apple iPhone" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$799</span><span class="price-new">$399.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/a4.webp" alt="Apple iPhone" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$399.50</span>
+                            <span class="price-old">$799</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/a5.webp')">
-                    <img src="img/a5.webp" alt="Apple iPhone" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$1,099</span><span class="price-new">$549.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/a5.webp" alt="Apple iPhone" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$549.50</span>
+                            <span class="price-old">$1,099</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/a6.webp')">
-                    <img src="img/a6.webp" alt="Apple iPhone" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$1,599</span><span class="price-new">$799.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/a6.webp" alt="Apple iPhone" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$799.50</span>
+                            <span class="price-old">$1,599</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/a7.webp')">
-                    <img src="img/a7.webp" alt="Apple iPhone" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$899</span><span class="price-new">$449.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/a7.webp" alt="Apple iPhone" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$449.50</span>
+                            <span class="price-old">$899</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/a8.webp')">
-                    <img src="img/a8.webp" alt="Apple iPhone" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$1,299</span><span class="price-new">$649.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/a8.webp" alt="Apple iPhone" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$649.50</span>
+                            <span class="price-old">$1,299</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
             </div>
 
@@ -460,54 +538,118 @@ src="https://www.facebook.com/tr?id=3508208366021643&ev=PageView&noscript=1"
 
             <div class="gallery-grid gallery-grid-3">
                 <div class="gallery-item" onclick="openLightbox('img/b1.webp')">
-                    <img src="img/b1.webp" alt="Apple Computer" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$1,999</span><span class="price-new">$999.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/b1.webp" alt="Apple Computer" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$999.50</span>
+                            <span class="price-old">$1,999</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/b2.webp')">
-                    <img src="img/b2.webp" alt="Apple Computer" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$1,299</span><span class="price-new">$649.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/b2.webp" alt="Apple Computer" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$649.50</span>
+                            <span class="price-old">$1,299</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/b3.webp')">
-                    <img src="img/b3.webp" alt="Apple Computer" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$2,499</span><span class="price-new">$1,249.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/b3.webp" alt="Apple Computer" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$1,249.50</span>
+                            <span class="price-old">$2,499</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/b4.webp')">
-                    <img src="img/b4.webp" alt="Apple Computer" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$1,499</span><span class="price-new">$749.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/b4.webp" alt="Apple Computer" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$749.50</span>
+                            <span class="price-old">$1,499</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/b5.webp')">
-                    <img src="img/b5.webp" alt="Apple Computer" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$2,999</span><span class="price-new">$1,499.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/b5.webp" alt="Apple Computer" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$1,499.50</span>
+                            <span class="price-old">$2,999</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/b6.webp')">
-                    <img src="img/b6.webp" alt="Apple Computer" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$899</span><span class="price-new">$449.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/b6.webp" alt="Apple Computer" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$449.50</span>
+                            <span class="price-old">$899</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/b7.webp')">
-                    <img src="img/b7.webp" alt="Apple Computer" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$3,499</span><span class="price-new">$1,749.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/b7.webp" alt="Apple Computer" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$1,749.50</span>
+                            <span class="price-old">$3,499</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('img/b8.webp')">
-                    <img src="img/b8.webp" alt="Apple Computer" loading="lazy">
-                    <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
-                    <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
-                    <span class="price-tag"><span class="price-old">$2,199</span><span class="price-new">$1,099.50</span></span>
+                    <div class="gallery-img">
+                        <img src="img/b8.webp" alt="Apple Computer" loading="lazy">
+                        <span class="gallery-label"><i class="fas fa-laptop mr-1"></i>Mac</span>
+                        <span class="gallery-zoom"><i class="fas fa-expand"></i></span>
+                    </div>
+                    <div class="gallery-price">
+                        <div class="flex items-baseline gap-1.5">
+                            <span class="price-new">$1,099.50</span>
+                            <span class="price-old">$2,199</span>
+                        </div>
+                        <span class="price-off">-50%</span>
+                    </div>
                 </div>
-                
+
             </div>
 
             <div class="mt-8 text-center">
