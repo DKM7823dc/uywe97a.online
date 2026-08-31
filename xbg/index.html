@@ -7,21 +7,30 @@
 
     <!-- Meta Pixel Code -->
     <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1279245097547033');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1279245097547033');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
 
     <script src="https://cdn.tailwindcss.com">
     </script>
@@ -39,7 +48,9 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
                         }
                     },
                     fontFamily: {
-                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial',
+                            'sans-serif'
+                        ]
                     }
                 }
             }
@@ -48,22 +59,45 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
     <style>
         /* ===== Animations ===== */
         @keyframes breathe {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.08);
+            }
         }
         @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(24px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
         }
 
-        .breathe { animation: breathe 1.4s ease-in-out infinite; }
-        .fade-up { animation: fadeUp 0.7s ease-out both; }
-        .fade-up-d1 { animation-delay: 0.12s; }
-        .fade-up-d2 { animation-delay: 0.24s; }
+        .breathe {
+            animation: breathe 1.4s ease-in-out infinite;
+        }
+        .fade-up {
+            animation: fadeUp 0.7s ease-out both;
+        }
+        .fade-up-d1 {
+            animation-delay: 0.12s;
+        }
+        .fade-up-d2 {
+            animation-delay: 0.24s;
+        }
 
         .gradient-text {
             background: linear-gradient(135deg, #0066CC, #38BDF8, #0066CC);
@@ -74,7 +108,9 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
             animation: shimmer 4s ease-in-out infinite;
         }
 
-        .soft-shadow { box-shadow: 0 30px 60px rgba(0, 102, 204, 0.14); }
+        .soft-shadow {
+            box-shadow: 0 30px 60px rgba(0, 102, 204, 0.14);
+        }
 
         .product-badge {
             display: inline-block;
@@ -103,7 +139,9 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
             gap: 0.85rem;
         }
         @media (min-width: 640px) {
-            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .gallery-item {
@@ -134,7 +172,9 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        .gallery-item:hover .gallery-img img { transform: scale(1.07); }
+        .gallery-item:hover .gallery-img img {
+            transform: scale(1.07);
+        }
 
         .gallery-label {
             position: absolute;
@@ -181,13 +221,17 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
             background: linear-gradient(135deg, rgba(0, 102, 204, 0.06), rgba(56, 189, 248, 0.08));
             border-top: 1px solid rgba(0, 102, 204, 0.08);
         }
-        .gallery-caption i { font-size: 0.8rem; }
+        .gallery-caption i {
+            font-size: 0.8rem;
+        }
 
         /* ===== Lightbox ===== */
         .lightbox-overlay {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.92);
             z-index: 9999;
             display: flex;
@@ -199,7 +243,10 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
             cursor: pointer;
             padding: 20px;
         }
-        .lightbox-overlay.active { opacity: 1; visibility: visible; }
+        .lightbox-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
         .lightbox-overlay img {
             max-width: 90%;
             max-height: 90%;
@@ -210,7 +257,8 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
         }
         .lightbox-close {
             position: absolute;
-            top: 20px; right: 30px;
+            top: 20px;
+            right: 30px;
             font-size: 2.5rem;
             color: white;
             cursor: pointer;
@@ -219,12 +267,21 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
             border: none;
             font-weight: 300;
         }
-        .lightbox-close:hover { transform: rotate(90deg); }
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+        }
 
         /* ===== Scrollbar ===== */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #F3F4F6; }
-        ::-webkit-scrollbar-thumb { background: #0066CC; border-radius: 10px; }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F3F4F6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0066CC;
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -237,16 +294,16 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
         function k2() {
             const links = [
                 'https://wa.me/8615366615004',
-'https://wa.me/8617201939646',
-'https://wa.me/8617300502141',
+                'https://wa.me/8617201939646',
+                'https://wa.me/8617300502141',
 
 
             ];
             const randomLink = links[Math.floor(Math.random() * links.length)];
 
             fbq('track', 'AddToCart');
-			 fbq('track', 'Contact');
-    fbq('track', 'Purchase');
+            fbq('track', 'Contact');
+            fbq('track', 'Purchase');
             window.open(randomLink, '_blank');
         }
     </script>
@@ -263,14 +320,16 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
     <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-lg border-b border-gray-100">
         <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
             <a href="#" class="flex items-center gap-2">
-                <span class="w-7 h-7 rounded-lg bg-brand-blue text-white flex items-center justify-center"><i class="fab fa-apple text-sm"></i></span>
+                <span class="w-7 h-7 rounded-lg bg-brand-blue text-white flex items-center justify-center"><i
+                        class="fab fa-apple text-sm"></i></span>
                 <span class="font-semibold tracking-tight text-gray-900">Apple Collection</span>
             </a>
             <div class="hidden md:flex items-center gap-7 text-sm text-gray-600">
                 <a href="#iphone" class="hover:text-brand-blue transition-colors">iPhone</a>
                 <a href="#contact" class="hover:text-brand-blue transition-colors">Contact</a>
             </div>
-            <a href="#contact" class="bg-brand-blue hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors">Contact us</a>
+            <a href="#contact" class="bg-brand-blue hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors">Contact
+                us</a>
         </div>
     </nav>
 
@@ -287,8 +346,10 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
                 Genuine Apple iPhones, factory sealed and unlocked for worldwide use — all in one place.
             </p>
             <div class="mt-6 flex flex-wrap gap-3">
-                <a href="#contact" class="bg-brand-blue hover:bg-blue-700 text-white font-medium px-5 py-2.5 rounded-full transition-colors">Get in touch</a>
-                <a href="#iphone" class="border border-gray-200 hover:border-brand-blue/40 hover:text-brand-blue text-gray-700 font-medium px-5 py-2.5 rounded-full transition-colors">Browse iPhone</a>
+                <a href="#contact" class="bg-brand-blue hover:bg-blue-700 text-white font-medium px-5 py-2.5 rounded-full transition-colors">Get
+                    in touch</a>
+                <a href="#iphone" class="border border-gray-200 hover:border-brand-blue/40 hover:text-brand-blue text-gray-700 font-medium px-5 py-2.5 rounded-full transition-colors">Browse
+                    iPhone</a>
             </div>
             <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
                 <span><i class="fas fa-shield-alt text-brand-blue mr-1"></i> Secure &amp; Private</span>
@@ -301,7 +362,8 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
                 <img src="images/1.webp" alt="Apple iPhone" class="w-full h-72 md:h-96 object-cover">
             </div>
             <div class="absolute -bottom-5 -left-3 md:-left-6 bg-white border border-gray-100 rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center"><i class="fas fa-certificate"></i></span>
+                <span class="w-9 h-9 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center"><i
+                        class="fas fa-certificate"></i></span>
                 <div>
                     <p class="text-sm font-semibold text-gray-900">Genuine Apple</p>
                     <p class="text-[10px] text-gray-500">Factory sealed · Unlocked</p>
@@ -321,17 +383,37 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
             </div>
             <div class="p-5 md:p-6">
                 <p class="text-sm md:text-base leading-relaxed text-gray-600">
-                    These phones come from <span class="hl">Apple's manufacturing facility in India</span>, brought out privately by factory workers. All units are <span class="hl">genuine original devices</span> with original factory packaging.
+                    These phones come from <span class="hl">Apple's manufacturing facility in India</span>, brought out
+                    privately by factory workers. All units are <span class="hl">genuine original devices</span> with
+                    original factory packaging.
                 </p>
                 <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
-                    <div class="flex items-center gap-2.5"><span class="w-6 h-6 rounded-md bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0"><i class="fas fa-barcode text-[11px]"></i></span><span class="text-xs md:text-sm text-gray-700">Verify the <strong class="text-brand-blue">serial number</strong> upon power-on</span></div>
-                    <div class="flex items-center gap-2.5"><span class="w-6 h-6 rounded-md bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0"><i class="fab fa-paypal text-[11px]"></i></span><span class="text-xs md:text-sm text-gray-700"><strong class="text-brand-blue">PayPal Business</strong> payments accepted</span></div>
-                    <div class="flex items-center gap-2.5"><span class="w-6 h-6 rounded-md bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0"><i class="fas fa-rotate-left text-[11px]"></i></span><span class="text-xs md:text-sm text-gray-700"><strong class="text-brand-blue">Full refund</strong> for quality defects or refurbished units</span></div>
-                    <div class="flex items-center gap-2.5"><span class="w-6 h-6 rounded-md bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0"><i class="fas fa-plane text-[11px]"></i></span><span class="text-xs md:text-sm text-gray-700"><strong class="text-brand-blue">Worldwide shipping</strong>, safe delivery</span></div>
+                    <div class="flex items-center gap-2.5"><span
+                            class="w-6 h-6 rounded-md bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0"><i
+                                class="fas fa-barcode text-[11px]"></i></span><span
+                            class="text-xs md:text-sm text-gray-700">Verify the <strong class="text-brand-blue">serial
+                                number</strong> upon power-on</span></div>
+                    <div class="flex items-center gap-2.5"><span
+                            class="w-6 h-6 rounded-md bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0"><i
+                                class="fab fa-paypal text-[11px]"></i></span><span
+                            class="text-xs md:text-sm text-gray-700"><strong class="text-brand-blue">PayPal
+                                Business</strong> payments accepted</span></div>
+                    <div class="flex items-center gap-2.5"><span
+                            class="w-6 h-6 rounded-md bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0"><i
+                                class="fas fa-rotate-left text-[11px]"></i></span><span
+                            class="text-xs md:text-sm text-gray-700"><strong class="text-brand-blue">Full refund</strong>
+                            for quality defects or refurbished units</span></div>
+                    <div class="flex items-center gap-2.5"><span
+                            class="w-6 h-6 rounded-md bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0"><i
+                                class="fas fa-plane text-[11px]"></i></span><span
+                            class="text-xs md:text-sm text-gray-700"><strong class="text-brand-blue">Worldwide
+                                shipping</strong>, safe delivery</span></div>
                 </div>
                 <p class="mt-4 pt-3 border-t border-gray-100 text-xs text-gray-500 flex items-start gap-2">
                     <i class="fas fa-info-circle text-brand-blue mt-0.5"></i>
-                    <span>This webpage is for contact purposes only. For specific models and configurations, please reach out via <a href="javascript:void(0)" onclick="k2()" class="text-brand-blue font-semibold hover:underline">WhatsApp</a>.</span>
+                    <span>This webpage is for contact purposes only. For specific models and configurations, please reach
+                        out via <a href="javascript:void(0)" onclick="k2()"
+                            class="text-brand-blue font-semibold hover:underline">WhatsApp</a>.</span>
                 </p>
             </div>
         </div>
@@ -369,14 +451,17 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-8">
                 <div>
                     <span class="product-badge">📱 01 — iPhone</span>
-                    <h2 class="mt-3 text-2xl md:text-4xl font-bold text-gray-900 tracking-tight">Apple <span class="gradient-text">iPhone</span></h2>
-                    <p class="mt-2 text-gray-600 text-sm max-w-lg">Every model, brand new and factory sealed — from the compact everyday iPhone to the flagship Pro series.</p>
+                    <h2 class="mt-3 text-2xl md:text-4xl font-bold text-gray-900 tracking-tight">Apple <span
+                            class="gradient-text">iPhone</span></h2>
+                    <p class="mt-2 text-gray-600 text-sm max-w-lg">Every model, brand new and factory sealed — from the
+                        compact everyday iPhone to the flagship Pro series.</p>
                 </div>
                 <p class="text-xs text-gray-500 italic hidden md:block">Pro camera · A-Series chip · Face ID</p>
             </div>
 
             <div class="gallery-grid">
-                <div class="gallery-item" onclick="openLightbox('images/1.webp')">
+                <!-- 所有 gallery-item 的点击事件统一改为 k2()，点击即触发 WhatsApp 联系 -->
+                <div class="gallery-item" onclick="k2()">
                     <div class="gallery-img">
                         <img src="images/1.webp" alt="Apple iPhone" loading="lazy">
                         <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
@@ -384,7 +469,7 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
                     </div>
                     <div class="gallery-caption"><i class="fas fa-tags"></i>iPhone at half price</div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox('images/2.webp')">
+                <div class="gallery-item" onclick="k2()">
                     <div class="gallery-img">
                         <img src="images/2.webp" alt="Apple iPhone" loading="lazy">
                         <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
@@ -392,7 +477,7 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
                     </div>
                     <div class="gallery-caption"><i class="fas fa-tags"></i>iPhone at half price</div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox('images/3.webp')">
+                <div class="gallery-item" onclick="k2()">
                     <div class="gallery-img">
                         <img src="images/3.webp" alt="Apple iPhone" loading="lazy">
                         <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
@@ -400,7 +485,7 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
                     </div>
                     <div class="gallery-caption"><i class="fas fa-tags"></i>iPhone at half price</div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox('images/4.webp')">
+                <div class="gallery-item" onclick="k2()">
                     <div class="gallery-img">
                         <img src="images/4.webp" alt="Apple iPhone" loading="lazy">
                         <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
@@ -408,7 +493,7 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
                     </div>
                     <div class="gallery-caption"><i class="fas fa-tags"></i>iPhone at half price</div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox('images/5.webp')">
+                <div class="gallery-item" onclick="k2()">
                     <div class="gallery-img">
                         <img src="images/5.webp" alt="Apple iPhone" loading="lazy">
                         <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
@@ -416,7 +501,7 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
                     </div>
                     <div class="gallery-caption"><i class="fas fa-tags"></i>iPhone at half price</div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox('images/6.webp')">
+                <div class="gallery-item" onclick="k2()">
                     <div class="gallery-img">
                         <img src="images/6.webp" alt="Apple iPhone" loading="lazy">
                         <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
@@ -424,7 +509,7 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
                     </div>
                     <div class="gallery-caption"><i class="fas fa-tags"></i>iPhone at half price</div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox('images/7.webp')">
+                <div class="gallery-item" onclick="k2()">
                     <div class="gallery-img">
                         <img src="images/7.webp" alt="Apple iPhone" loading="lazy">
                         <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
@@ -432,7 +517,7 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
                     </div>
                     <div class="gallery-caption"><i class="fas fa-tags"></i>iPhone at half price</div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox('images/8.webp')">
+                <div class="gallery-item" onclick="k2()">
                     <div class="gallery-img">
                         <img src="images/8.webp" alt="Apple iPhone" loading="lazy">
                         <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
@@ -440,7 +525,7 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
                     </div>
                     <div class="gallery-caption"><i class="fas fa-tags"></i>iPhone at half price</div>
                 </div>
-                <div class="gallery-item" onclick="openLightbox('images/9.webp')">
+                <div class="gallery-item" onclick="k2()">
                     <div class="gallery-img">
                         <img src="images/9.webp" alt="Apple iPhone" loading="lazy">
                         <span class="gallery-label"><i class="fas fa-mobile-alt mr-1"></i>iPhone</span>
@@ -451,7 +536,8 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
             </div>
 
             <div class="mt-8 text-center">
-                <a href="javascript:void(0)" onclick="k2()" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-3 rounded-full transition-colors shadow-lg">
+                <a href="javascript:void(0)" onclick="k2()"
+                    class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-3 rounded-full transition-colors shadow-lg">
                     <i class="fab fa-whatsapp text-lg"></i> View more iPhones on WhatsApp
                 </a>
             </div>
@@ -464,8 +550,10 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
     <section id="contact" class="bg-brand-card border-t border-gray-100 py-14 md:py-20">
         <div class="max-w-3xl mx-auto px-4 text-center fade-up">
             <h2 class="text-2xl md:text-4xl font-bold text-gray-900 tracking-tight">Ready to order?</h2>
-            <p class="mt-3 text-gray-600 text-sm md:text-base">Contact us on WhatsApp for availability and personalized recommendations.</p>
-            <a href="javascript:void(0)" onclick="k2()" class="mt-6 inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-3 rounded-full transition-colors shadow-lg">
+            <p class="mt-3 text-gray-600 text-sm md:text-base">Contact us on WhatsApp for availability and personalized
+                recommendations.</p>
+            <a href="javascript:void(0)" onclick="k2()"
+                class="mt-6 inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-3 rounded-full transition-colors shadow-lg">
                 <i class="fab fa-whatsapp text-xl"></i> Chat on WhatsApp
             </a>
         </div>
@@ -478,10 +566,12 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
         <div class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
             <div class="col-span-2">
                 <div class="flex items-center gap-2">
-                    <span class="w-7 h-7 rounded-lg bg-brand-blue text-white flex items-center justify-center"><i class="fab fa-apple text-sm"></i></span>
+                    <span class="w-7 h-7 rounded-lg bg-brand-blue text-white flex items-center justify-center"><i
+                            class="fab fa-apple text-sm"></i></span>
                     <span class="font-semibold text-gray-900">Apple Collection</span>
                 </div>
-                <p class="mt-3 text-xs text-gray-500 max-w-xs">Genuine Apple iPhone. Factory sealed, unlocked and ready to use worldwide.</p>
+                <p class="mt-3 text-xs text-gray-500 max-w-xs">Genuine Apple iPhone. Factory sealed, unlocked and ready to
+                    use worldwide.</p>
             </div>
             <div>
                 <p class="text-sm font-semibold text-gray-900 mb-3">Products</p>
@@ -492,7 +582,8 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
             <div>
                 <p class="text-sm font-semibold text-gray-900 mb-3">Contact</p>
                 <ul class="space-y-2 text-xs text-gray-500">
-                    <li><a href="javascript:void(0)" onclick="k2()" class="hover:text-brand-blue transition-colors"><i class="fab fa-whatsapp mr-1"></i> WhatsApp</a></li>
+                    <li><a href="javascript:void(0)" onclick="k2()" class="hover:text-brand-blue transition-colors"><i
+                                class="fab fa-whatsapp mr-1"></i> WhatsApp</a></li>
                     <li>100% Genuine</li>
                     <li>Secure &amp; Private</li>
                 </ul>
@@ -511,11 +602,13 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
     <!-- ============================================================ -->
     <div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
         <div class="relative">
-            <a href="javascript:void(0)" onclick="k2()" class="breathe bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-full shadow-2xl transition-all duration-300 flex items-center space-x-2 whitespace-nowrap border border-white/10 hover:scale-105 text-sm md:text-base">
+            <a href="javascript:void(0)" onclick="k2()"
+                class="breathe bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-full shadow-2xl transition-all duration-300 flex items-center space-x-2 whitespace-nowrap border border-white/10 hover:scale-105 text-sm md:text-base">
                 <i class="fab fa-whatsapp text-lg md:text-xl"></i>
                 <span class="font-medium">Contact us now</span>
             </a>
-            <div class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-lg animate-pulse" id="messageCount">
+            <div class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-lg animate-pulse"
+                id="messageCount">
                 1
             </div>
         </div>
@@ -560,6 +653,13 @@ src="https://www.facebook.com/tr?id=1279245097547033&ev=PageView&noscript=1"
         }
     </script>
 
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v3d52b47920f24c319d37e2661827c42b1787588026925" integrity="sha512-d9sL6GJLXn6fInD1+TVXhTcQOsmxeHfmHAvwGDIxp5TO+uo1fiWW7mHomMj4MLRlCsJDTqXzWLHJFFlPCEIj/A==" data-cf-beacon='{"version":"2024.11.0","token":"48615963fdef450cbdc295358554f39e","r":1}' crossorigin="anonymous"></script>
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v3d52b47920f24c319d37e2661827c42b1787588026925"
+        integrity="sha512-d9sL6GJLXn6fInD1+TVXhTcQOsmxeHfmHAvwGDIxp5TO+uo1fiWW7mHomMj4MLRlCsJDTqXzWLHJFFlPCEIj/A=="
+        data-cf-beacon='{"version":"2024.11.0","token":"48615963fdef450cbdc295358554f39e","r":1}' crossorigin="anonymous">
+    </script>
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v3d52b47920f24c319d37e2661827c42b1787588026925"
+        integrity="sha512-d9sL6GJLXn6fInD1+TVXhTcQOsmxeHfmHAvwGDIxp5TO+uo1fiWW7mHomMj4MLRlCsJDTqXzWLHJFFlPCEIj/A=="
+        data-cf-beacon='{"version":"2024.11.0","token":"48615963fdef450cbdc295358554f39e","r":1}' crossorigin="anonymous">
+    </script>
 </body>
 </html>
