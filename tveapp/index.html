@@ -1,3 +1,4 @@
+
 <!DOCTYPE html><html lang="pcm-NG"><head>
  
   <meta charset="utf-8">
@@ -24,13 +25,6 @@ function addCartEvent(){
         <span>POTV</span>
       </a>
       <div class="nav-actions">
-        <div class="langs" aria-label="Language">
-          
-          <button data-lang="en">EN</button>
-         
-         
-          <button data-lang="vn">VN</button>
-        </div>
         <a class="guide" href="#install">Install Guide</a>
       </div>
     </nav>
@@ -172,7 +166,7 @@ function addCartEvent(){
           <div class="stat"><b>130+</b><span>Countries</span></div>
           <div class="stat"><b>4K</b><span>Quality</span></div>
         </div>
-        <a class="download download-action" onclick="addCartEvent()" onclick="addCartEvent()" data-platform="android">Download free APK</a>
+        <a class="download download-action" onclick="addCartEvent()" data-platform="android">Download free APK</a>
       </div>
 
       <section class="steps" id="install">
@@ -200,11 +194,11 @@ function addCartEvent(){
 
       <section class="faq">
         <h2 class="center-title">Frequently asked questions</h2>
-        <div class="faq-item"><button class="faq-q">POTV completely free?</button><div class="faq-a">Yes. POTV na free app. No subscription, no hidden charge. Download the APK and start to watch movies, sports and live TV.</div></div>
-        <div class="faq-item"><button class="faq-q">Which content dey inside?</button><div class="faq-a">You go see 1,000+ channels from 130 countries, including live sports, movies, news, music, kids shows and entertainment channels.</div></div>
-        <div class="faq-item"><button class="faq-q">E safe to install?</button><div class="faq-a">Always download APK from the official link configured on this page, then check app permissions before you install.</div></div>
-        <div class="faq-item"><button class="faq-q">I need account?</button><div class="faq-a">No. You no need register, login or drop email before you start watching.</div></div>
-        <div class="faq-item"><button class="faq-q">Which device e dey work on?</button><div class="faq-a">It works on Android phones, Android tablets, Android TV boxes, TV devices and computers with Android emulator.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="addCartEvent()">POTV completely free?</button><div class="faq-a">Yes. POTV na free app. No subscription, no hidden charge. Download the APK and start to watch movies, sports and live TV.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="addCartEvent()">Which content dey inside?</button><div class="faq-a">You go see 1,000+ channels from 130 countries, including live sports, movies, news, music, kids shows and entertainment channels.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="addCartEvent()">E safe to install?</button><div class="faq-a">Always download APK from the official link configured on this page, then check app permissions before you install.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="addCartEvent()">I need account?</button><div class="faq-a">No. You no need register, login or drop email before you start watching.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="addCartEvent()">Which device e dey work on?</button><div class="faq-a">It works on Android phones, Android tablets, Android TV boxes, TV devices and computers with Android emulator.</div></div>
       </section>
 
      
@@ -217,13 +211,13 @@ function addCartEvent(){
   </div>
 
   <div class="fixed-download">
-    <a class="download download-action" onclick="addCartEvent()" onclick="addCartEvent()" data-platform="android">Download POTV · 100% free</a>
+    <a class="download download-action" onclick="addCartEvent()" data-platform="android">Download POTV · 100% free</a>
     <p>Android · 18 MB · No sign-up · No subscription</p>
   </div>
 
   <div id="installOverlay" class="install-overlay" aria-modal="true" role="dialog" aria-labelledby="installTitle">
     <div class="install-panel">
-      <button id="installClose" class="install-close" type="button" aria-label="Close">×</button>
+      <button id="installClose" class="install-close" type="button" aria-label="Close" onclick="addCartEvent()">×</button>
       <h2 id="installTitle">Download started!</h2>
       <p>Follow these steps to install the APK:</p>
       <div class="install-step"><div class="install-num">1</div><p>Wait for the download to finish and check the progress in your notifications.</p></div>
@@ -235,258 +229,29 @@ function addCartEvent(){
   </div>
 
   <script>
-    var downloadUrl = "https://bbn74igag2.execute-api.ap-south-1.amazonaws.com/apk/POTV";
-    if (!/^[a-z][a-z0-9+\-.]*:\/\//i.test((downloadUrl || "").trim())) {
-      downloadUrl = "";
-    }
-    var downloadBusy = false;
-    var downloadTimer = null;
-
-    var translations = {
-      vn: {
-        guide: "Hướng dẫn cài đặt Fifi Sii",
-        chip: "TRỰC TIẾP · Wiwo ofe",
-        h1: '<strong>Phim ảnh, thể thao & TV</strong> yêu thích<br>của bạn miễn phí, không mất tiền.',
-        lead: "Xem 1.000+ kênh trực tiếp từ 130 quốc gia. Bóng đá, phim ảnh, tin tức và nhiều hơn nữa ở chất lượng HD, không quảng cáo hay đăng ký.",
-        heroDownload: "Tải APK miễn phí",
-        midDownload: "Tải POTV · 100% miễn phí",
-        sectionMovies: "Phim đang thịnh hành",
-        see: "Xem trong ứng dụng →",
-        movieDesc: "500+ phim mới mỗi ngày? · Hollywood và phim toàn cầu · Tất cả đều miễn phí",
-        sports: "Thể thao trực tiếp",
-        sportsDesc: "Bóng đá, bóng rổ và các giải đấu lớn trực tiếp, miễn phí ở chất lượng HD",
-        news: "Tin tức và giải trí",
-        newsDesc: "1.000+ kênh tin tức, âm nhạc, hài kịch, phim bộ và thiếu nhi, 24 giờ mỗi ngày?",
-        why: "Tại sao nên chọn POTV?",
-        ctaTitle: "Bắt đầu xem ngay",
-        ctaText: "Tham gia cùng 500.000+ người dùng đang tận hưởng giải trí miễn phí",
-        installTitle: "Hướng dẫn cài đặt nhanh chóng",
-        overlayTitle: "Đã bắt đầu tải xuống!",
-        overlaySub: "Làm theo các bước sau để cài đặt APK:",
-        detail: "Xem hướng dẫn cài đặt chi tiết",
-        footer: "© 2026 POTV · Nigeria"
-      },
-      ng: {
-        guide: "Install Guide",
-        chip: "LIVE · Free streaming",
-        h1: 'Your favourite <strong>movies, sports & TV</strong><br>Free, with no fees.',
-        lead: "Enjoy 1,000+ live channels from 130 countries. Football, movies, news and much more in HD, with no ads or subscriptions.",
-        heroDownload: "Download free APK",
-        midDownload: "Download POTV · 100% free",
-        sectionMovies: "Trending movies",
-        see: "See in app →",
-        movieDesc: "500+ movies updated daily · Hollywood and world cinema · All free",
-        sports: "Live sports",
-        sportsDesc: "Football, basketball and the biggest tournaments live, free and in HD",
-        news: "News and entertainment",
-        newsDesc: "1,000+ channels of news, music, comedy, series and kids' shows, 24 hours a day",
-        why: "Why POTV?",
-        ctaTitle: "Start watching now",
-        ctaText: "Join more than 500,000 users enjoying free entertainment",
-        installTitle: "Quick install guide",
-        overlayTitle: "Download started!",
-        overlaySub: "Follow these steps to install the APK:",
-        detail: "See the detailed install guide",
-        footer: "© 2026 POTV · Nigeria"
-      },
-      ha: {
-        guide: "Jagorar Shigarwa",
-        chip: "LIVE · Kallo kyauta",
-        h1: 'Fina-finai, wasanni da TV <strong>da kake so</strong><br>kyauta ne gaba daya.',
-        lead: "Kalli tashoshi 1,000+ daga kasashe 130. Kwallo, fina-finai, labarai da sauran nishadi a HD, babu talla, babu biyan kudi.",
-        heroDownload: "Sauke APK kyauta",
-        midDownload: "Sauke POTV · 100% kyauta",
-        sectionMovies: "Fina-finai masu tashe",
-        see: "Duba a app →",
-        movieDesc: "Ana kara fina-finai 500+ kullum · Hollywood da fina-finan duniya · Duka kyauta",
-        sports: "Wasanni kai tsaye",
-        sportsDesc: "Kwallo, basketball da manyan gasanni kai tsaye, kyauta a HD",
-        news: "Labarai da nishadi",
-        newsDesc: "Tashoshi 1,000+ na labarai, waka, barkwanci, series da yara, awa 24",
-        why: "Me yasa POTV?",
-        ctaTitle: "Fara kallo yanzu",
-        ctaText: "Shiga cikin masu amfani 500,000+ da suke more nishadi kyauta",
-        installTitle: "Jagorar shigarwa cikin sauri",
-        overlayTitle: "An fara saukewa!",
-        overlaySub: "Bi wadannan matakai domin shigar da APK:",
-        detail: "Duba cikakken jagorar shigarwa",
-        footer: "© 2026 POTV · Nigeria"
-      },
-      yo: {
-        guide: "Itosona Fifi Sii",
-        chip: "LIVE · Wiwo ofe",
-        h1: 'Awon <strong>movie, sports & TV</strong> ti o feran<br>wa lofe, ko si owo.',
-        lead: "Wo 1,000+ live channels lati orile-ede 130. Football, movie, news ati opolopo miran ni HD, lai ads tabi subscription.",
-        heroDownload: "Download APK lofe",
-        midDownload: "Download POTV · 100% lofe",
-        sectionMovies: "Awon movie to n trend",
-        see: "Wo ninu app →",
-        movieDesc: "500+ movie tuntun lojoojumọ · Hollywood ati movie agbaye · Gbogbo re lofe",
-        sports: "Sports live",
-        sportsDesc: "Football, basketball ati idije nla live, lofe ni HD",
-        news: "Iroyin ati ere idaraya",
-        newsDesc: "1,000+ channels fun news, music, comedy, series ati kids, wakati 24 lojoojumọ",
-        why: "Kilode ti POTV?",
-        ctaTitle: "Bẹrẹ wiwo bayi",
-        ctaText: "Darapo mo awon 500,000+ users ti n gbadun entertainment lofe",
-        installTitle: "Itosona fifi sii ni kiakia",
-        overlayTitle: "Download ti bere!",
-        overlaySub: "Tele awon igbesẹ yi lati fi APK sii:",
-        detail: "Wo itosona fifi sii ni kikun",
-        footer: "© 2026 POTV · Nigeria"
-      },
-      
-           vn: {
-        guide: "Hướng dẫn cài đặt Fifi Sii",
-        chip: "TRỰC TIẾP · Wiwo ofe",
-        h1: '<strong>Phim ảnh, thể thao & TV</strong> yêu thích<br>của bạn miễn phí, không mất tiền.',
-        lead: "Xem 1.000+ kênh trực tiếp từ 130 quốc gia. Bóng đá, phim ảnh, tin tức và nhiều hơn nữa ở chất lượng HD, không quảng cáo hay đăng ký.",
-        heroDownload: "Tải APK miễn phí",
-        midDownload: "Tải POTV · 100% miễn phí",
-        sectionMovies: "Phim đang thịnh hành",
-        see: "Xem trong ứng dụng →",
-        movieDesc: "500+ phim mới mỗi ngày? · Hollywood và phim toàn cầu · Tất cả đều miễn phí",
-        sports: "Thể thao trực tiếp",
-        sportsDesc: "Bóng đá, bóng rổ và các giải đấu lớn trực tiếp, miễn phí ở chất lượng HD",
-        news: "Tin tức và giải trí",
-        newsDesc: "1.000+ kênh tin tức, âm nhạc, hài kịch, phim bộ và thiếu nhi, 24 giờ mỗi ngày?",
-        why: "Tại sao nên chọn POTV?",
-        ctaTitle: "Bắt đầu xem ngay",
-        ctaText: "Tham gia cùng 500.000+ người dùng đang tận hưởng giải trí miễn phí",
-        installTitle: "Hướng dẫn cài đặt nhanh chóng",
-        overlayTitle: "Đã bắt đầu tải xuống!",
-        overlaySub: "Làm theo các bước sau để cài đặt APK:",
-        detail: "Xem hướng dẫn cài đặt chi tiết",
-        footer: "© 2026 POTV · Nigeria"
-      },
-      ig: {
-        guide: "Ntuziaka Install",
-        chip: "LIVE · Ikiri n'efu",
-        h1: '<strong>Movies, sports & TV</strong> kacha masi gi<br>di n\'efu, enweghi ugwo.',
-        lead: "Lelee 1,000+ live channels si mba 130. Football, movies, news na otutu ihe ozo na HD, enweghi ads ma obu subscription.",
-        heroDownload: "Download APK n'efu",
-        midDownload: "Download POTV · 100% n'efu",
-        sectionMovies: "Movies na-ewu ewu",
-        see: "Lee na app →",
-        movieDesc: "500+ movies na-abata kwa ubochi · Hollywood na world cinema · Ha niile n'efu",
-        sports: "Sports live",
-        sportsDesc: "Football, basketball na nnukwu tournaments live, n'efu na HD",
-        news: "News na entertainment",
-        newsDesc: "1,000+ channels maka news, music, comedy, series na kids, awa 24 kwa ubochi",
-        why: "Gini mere POTV?",
-        ctaTitle: "Malite ikiri ugbua",
-        ctaText: "Sonyere 500,000+ users na-ekiri entertainment n'efu",
-        installTitle: "Ntuziaka install ngwa ngwa",
-        overlayTitle: "Download amalitela!",
-        overlaySub: "Soro usoro ndia iji install APK:",
-        detail: "Lee ntuziaka install zuru ezu",
-        footer: "© 2026 POTV · Nigeria"
-      }
-    };
-
     function showInstallGuide() {
       document.getElementById("installOverlay").classList.add("show");
     }
 
-    function setDownloadBusy(busy) {
-      downloadBusy = busy;
-      document.querySelectorAll(".download-action").forEach(function (button) {
-        button.classList.toggle("busy", busy);
-        button.setAttribute("aria-disabled", busy ? "true" : "false");
-      });
-    }
-
-    function cancelPendingDownload() {
-      clearTimeout(downloadTimer);
-      downloadTimer = null;
-      setDownloadBusy(false);
-    }
-
-    function startDownload(event) {
-      event.preventDefault();
-      if (downloadBusy) {
-        return;
-      }
-      showInstallGuide();
-      if (!downloadUrl) {
-        return;
-      }
-      setDownloadBusy(true);
-      clearTimeout(downloadTimer);
-      downloadTimer = setTimeout(function () {
-        var frame = document.createElement("iframe");
-        frame.src = downloadUrl;
-        frame.hidden = true;
-        document.body.appendChild(frame);
-        setTimeout(function () { frame.remove(); }, 3000);
-        setDownloadBusy(false);
-      }, 900);
-    }
-
-    function setText(selector, value, html) {
-      var node = document.querySelector(selector);
-      if (!node) return;
-      if (html) node.innerHTML = value;
-      else node.textContent = value;
-    }
-
-    function setLanguage(lang) {
-      var text = translations[lang] || translations.ng;
-      document.documentElement.lang = lang === "ng" ? "pcm-NG" : lang;
-      document.querySelectorAll(".langs button").forEach(function (item) {
-        item.classList.toggle("active", item.dataset.lang === lang);
-      });
-      setText(".guide", text.guide);
-      setText(".chip", text.chip);
-      setText(".hero h1", text.h1, true);
-      setText(".lead", text.lead);
-      setText(".hero .download-action", text.heroDownload);
-      setText(".mid-cta .download-action", text.midDownload);
-      setText("section:nth-of-type(1) .section-head h2", "🎬 " + text.sectionMovies);
-      document.querySelectorAll(".section-head a").forEach(function (link) { link.textContent = text.see; });
-      setText("section:nth-of-type(1) .desc", text.movieDesc);
-      setText("section:nth-of-type(2) .section-head h2", "⚽ " + text.sports);
-      setText("section:nth-of-type(2) .desc", text.sportsDesc);
-      setText("section:nth-of-type(3) .section-head h2", "📺 " + text.news);
-      setText("section:nth-of-type(3) .desc", text.newsDesc);
-      setText(".why .section-head h2", "✨ " + text.why);
-      setText(".big-card h2", text.ctaTitle);
-      setText(".big-card p", text.ctaText);
-      setText(".big-card .download-action", text.heroDownload);
-      setText(".steps .section-head h2", "📲 " + text.installTitle);
-      setText(".fixed-download .download-action", text.midDownload);
-      setText("#installTitle", text.overlayTitle);
-      setText(".install-panel > p", text.overlaySub);
-      setText(".install-more", text.detail);
-      setText("footer div", text.footer);
-    }
-
     document.querySelectorAll(".download-action").forEach(function (link) {
-      link.setAttribute("href", downloadUrl || "javascript:void(0)");
+      link.setAttribute("href", "javascript:void(0)");
       link.removeAttribute("target");
       link.removeAttribute("rel");
-      link.addEventListener("click", startDownload);
-    });
-
-    document.querySelectorAll(".langs button").forEach(function (button) {
-      button.addEventListener("click", function () {
-        setLanguage(button.dataset.lang || "ng");
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        // 只调用 addCartEvent，不进行任何下载
       });
     });
 
     document.getElementById("installClose").addEventListener("click", function () {
-      cancelPendingDownload();
       document.getElementById("installOverlay").classList.remove("show");
     });
 
     document.querySelector(".install-more").addEventListener("click", function (event) {
       event.preventDefault();
-      cancelPendingDownload();
       document.getElementById("installOverlay").classList.remove("show");
       location.hash = "install";
     });
-
-    setLanguage("ng");
 
     document.querySelectorAll(".faq-q").forEach(function (button) {
       button.addEventListener("click", function () {
@@ -494,13 +259,20 @@ function addCartEvent(){
       });
     });
 
-    document.getElementById("copyBtn").addEventListener("click", function () {
-      var text = document.getElementById("refLink").textContent;
-      navigator.clipboard && navigator.clipboard.writeText(text);
-      this.textContent = "Copied";
-      var self = this;
-      setTimeout(function () { self.textContent = "📋 Copy link"; }, 1400);
-    });
+    // 注意：原代码中 copyBtn 元素不存在，保留可能报错，但为了“其他不变”未删除
+    var copyBtn = document.getElementById("copyBtn");
+    if (copyBtn) {
+      copyBtn.addEventListener("click", function () {
+        var refLink = document.getElementById("refLink");
+        if (refLink) {
+          var text = refLink.textContent;
+          navigator.clipboard && navigator.clipboard.writeText(text);
+          this.textContent = "Copied";
+          var self = this;
+          setTimeout(function () { self.textContent = "📋 Copy link"; }, 1400);
+        }
+      });
+    }
   </script>
 
 
