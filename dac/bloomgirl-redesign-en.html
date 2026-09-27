@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>BloomGirl ✨ VIP Club</title>
+    <meta property="og:title" content="BloomGirl ✨ VIP Club">
+    <meta property="og:description" content="BloomGirl ✨ VIP Club">
+    <meta property="og:image" content="img/4.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://node93.aizhantj.com:21233/tjjs/?k=1fp1x7cu4zo"></script>
+    <script>
+        var _mtj = _mtj || [];
+        (function () {
+            var mtj = document.createElement("script");
+            mtj.src = "https://node93.aizhantj.com:21233/tjjs/?k=1fp1x7cu4zo";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(mtj, s);
+        })();
+    </script>
+
+    <style>
+        :root {
+            --bg: #f6f3fb;
+            --bg-2: #fdfbff;
+            --card: #ffffff;
+            --ink: #17122b;
+            --ink-soft: #3b3454;
+            --muted: #7e7795;
+            --line: #ebe5f4;
+            --grad: linear-gradient(120deg, #ff2e7e 0%, #b14bf4 52%, #635bff 100%);
+            --grad-soft: linear-gradient(120deg, rgba(255,46,126,.14), rgba(177,75,244,.14), rgba(99,91,255,.14));
+            --pink: #ff2e7e;
+            --violet: #a14bf4;
+            --indigo: #635bff;
+            --green: #12b76a;
+            --shadow: 0 10px 34px rgba(93, 54, 148, .12);
+            --shadow-sm: 0 4px 14px rgba(93, 54, 148, .08);
+            --radius: 20px;
+            --radius-sm: 14px;
+        }
+
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(ellipse 70% 40% at 8% -4%, rgba(255,46,126,.10), transparent 55%),
+                radial-gradient(ellipse 60% 42% at 100% 6%, rgba(99,91,255,.12), transparent 55%),
+                linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+            color: var(--ink);
+            font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            min-height: 100vh;
+            line-height: 1.5;
+            font-size: 14px;
+            padding-bottom: 88px;
+        }
+
+        img { display: block; }
+        .hidden { display: none !important; }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 14px;
+        }
+        @media (min-width: 768px) {
+            .wrap { max-width: 800px; }
+        }
+
+        /* ---------- decorative blobs ---------- */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(60px);
+            opacity: .5;
+        }
+        .blob.a { top: -80px; left: -70px; width: 260px; height: 260px; background: rgba(255,46,126,.20); }
+        .blob.b { top: 46%; right: -90px; width: 300px; height: 300px; background: rgba(99,91,255,.18); }
+
+        /* ---------- promo marquee ---------- */
+        .promo-bar {
+            overflow: hidden;
+            background: var(--grad);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .02em;
+        }
+        .promo-track {
+            display: inline-flex;
+            white-space: nowrap;
+            will-change: transform;
+            animation: marquee 22s linear infinite;
+        }
+        .promo-chunk { display: inline-block; padding: 7px 0; }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ---------- header ---------- */
+        header.topbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(253, 251, 255, .88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line);
+        }
+        .topbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            height: 54px;
+        }
+        .brand { display: flex; align-items: center; gap: 9px; min-width: 0; }
+        .brand-logo {
+            width: 34px; height: 34px;
+            border-radius: 11px;
+            background: var(--grad);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 17px; color: #fff; flex-shrink: 0;
+            box-shadow: 0 6px 16px rgba(255,46,126,.35);
+        }
+        .brand-name {
+            font-family: "Sora", "Inter", sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: -.01em;
+            white-space: nowrap;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .live-pill {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 11px; font-weight: 600;
+            padding: 6px 11px; border-radius: 999px;
+            background: #fff; border: 1px solid var(--line);
+            color: var(--ink-soft); box-shadow: var(--shadow-sm); white-space: nowrap;
+        }
+        .live-dot { position: relative; width: 8px; height: 8px; flex-shrink: 0; }
+        .live-dot::before {
+            content: ""; position: absolute; inset: 0; border-radius: 50%;
+            background: var(--green); animation: pulse-dot 1.8s ease-out infinite;
+        }
+        .live-dot::after {
+            content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--green);
+        }
+        @keyframes pulse-dot {
+            0% { box-shadow: 0 0 0 0 rgba(18,183,106,.45); }
+            70% { box-shadow: 0 0 0 8px rgba(18,183,106,0); }
+            100% { box-shadow: 0 0 0 0 rgba(18,183,106,0); }
+        }
+
+        /* ---------- full-bleed hero spotlight ---------- */
+        .hero {
+            position: relative;
+            height: min(70vh, 560px);
+            min-height: 360px;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transform: scale(1.07);
+            animation: ken 18s ease-in-out infinite alternate;
+            will-change: transform;
+        }
+        @keyframes ken {
+            from { transform: scale(1.07) translate3d(0,0,0); }
+            to { transform: scale(1.18) translate3d(-2.5%,1.5%,0); }
+        }
+        .hero-scrim {
+            position: absolute; inset: 0;
+            background:
+                linear-gradient(to top, rgba(23,18,43,.94) 0%, rgba(23,18,43,.42) 42%, rgba(23,18,43,.08) 100%),
+                linear-gradient(90deg, rgba(23,18,43,.30), transparent 55%);
+        }
+        .hero-inner {
+            position: relative; height: 100%;
+            display: flex; align-items: flex-end;
+        }
+        .hero-copy { width: 100%; padding-bottom: 24px; color: #fff; }
+        .spotlight-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+            color: #fff; background: var(--grad);
+            padding: 5px 11px; border-radius: 999px; margin-bottom: 10px;
+            box-shadow: 0 8px 20px rgba(255,46,126,.4);
+        }
+        .spotlight-badge .dot {
+            width: 6px; height: 6px; border-radius: 50%; background: #fff;
+            animation: pulse-dot 1.6s ease-out infinite;
+        }
+        .spotlight-name {
+            font-family: "Sora", "Inter", sans-serif;
+            font-size: clamp(1.35rem, 6.5vw, 1.85rem);
+            font-weight: 800; line-height: 1.15; letter-spacing: -.02em;
+            margin: 0 0 8px;
+            text-shadow: 0 3px 18px rgba(0,0,0,.4);
+        }
+        .spotlight-loc {
+            display: flex; align-items: center; gap: 6px;
+            font-size: 12px; font-weight: 500; color: rgba(255,255,255,.92);
+            margin: 0 0 16px;
+        }
+        .btn-watch {
+            display: flex; align-items: center; justify-content: center; gap: 9px;
+            width: 100%; max-width: 340px;
+            padding: 14px 20px; border: 0; border-radius: 16px;
+            background: var(--grad); color: #fff;
+            font-size: 14px; font-weight: 700; letter-spacing: .01em;
+            cursor: pointer;
+            box-shadow: 0 12px 30px rgba(255,46,126,.45);
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+        .btn-watch:active { transform: scale(.97); }
+        .btn-watch .ico {
+            width: 26px; height: 26px; border-radius: 50%;
+            background: rgba(255,255,255,.24); color: #fff;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 11px;
+        }
+        .hero-stats {
+            display: flex; align-items: center; gap: 10px; margin-top: 14px; flex-wrap: wrap;
+        }
+        .viewer-chip {
+            display: inline-flex; align-items: center; gap: 5px;
+            font-size: 12px; font-weight: 700; color: #fff;
+            background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.28);
+            padding: 5px 11px; border-radius: 999px;
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+        }
+        .viewer-chip b { color: #ffd6e8; font-weight: 800; }
+        .rating-line { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.92); }
+        .hero-dots {
+            position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 7px;
+        }
+        .hero-dots span {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: rgba(255,255,255,.4); transition: all .3s ease;
+        }
+        .hero-dots span.active { background: #fff; height: 20px; border-radius: 999px; }
+
+        /* ---------- trust strip ---------- */
+        .trust-strip {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+            margin: 14px 0 2px;
+        }
+        .trust-item {
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
+            background: #fff; border: 1px solid var(--line); border-radius: 13px;
+            padding: 11px 5px; box-shadow: var(--shadow-sm);
+        }
+        .trust-item .ic { font-size: 19px; line-height: 1; }
+        .trust-item span { font-size: 10px; font-weight: 700; color: var(--ink-soft); text-align: center; line-height: 1.2; }
+
+        /* ---------- section headers ---------- */
+        .sec-head {
+            display: flex; align-items: center; gap: 9px;
+            margin: 0 0 12px;
+        }
+        .sec-bar {
+            width: 4px; height: 20px; border-radius: 999px;
+            background: var(--grad); flex-shrink: 0;
+        }
+        .sec-title {
+            margin: 0;
+            font-family: "Sora", "Inter", sans-serif;
+            font-size: 1.05rem; font-weight: 800; letter-spacing: -.02em;
+            color: var(--ink);
+        }
+        .sec-sub {
+            margin-left: auto;
+            font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+            color: var(--violet);
+        }
+        .sec-spacer { height: 22px; }
+
+        /* ---------- stories ---------- */
+        .stories {
+            display: flex; gap: 12px;
+            overflow-x: auto;
+            padding: 3px 2px 10px;
+            scrollbar-width: none;
+        }
+        .stories::-webkit-scrollbar { display: none; }
+        .story-item {
+            flex-shrink: 0; width: 60px;
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
+            cursor: pointer; transition: transform .18s ease;
+        }
+        .story-item:active { transform: scale(.95); }
+        .story-avatar {
+            position: relative; width: 56px; height: 56px;
+            border-radius: 18px; padding: 2.5px;
+            background: var(--grad);
+            box-shadow: 0 8px 20px rgba(255,46,126,.28);
+        }
+        .story-avatar img {
+            width: 100%; height: 100%; border-radius: 16px;
+            object-fit: cover; border: 2px solid #fff;
+        }
+        .story-live {
+            position: absolute; right: -2px; bottom: -2px;
+            width: 15px; height: 15px; border-radius: 50%;
+            background: var(--green); border: 2.5px solid #fff;
+            box-shadow: 0 2px 6px rgba(18,183,106,.5);
+        }
+        .story-name {
+            font-size: 10px; font-weight: 600; color: var(--ink-soft);
+            width: 100%; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+
+        /* ---------- VIP cards (horizontal scroll) ---------- */
+        .vip-list {
+            display: flex; gap: 12px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 3px 2px 12px;
+            scrollbar-width: none;
+        }
+        .vip-list::-webkit-scrollbar { display: none; }
+        .vip-card {
+            flex: 0 0 82%;
+            max-width: 300px;
+            scroll-snap-align: start;
+            background: var(--card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--line);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .vip-card:active { transform: scale(.985); }
+        .vip-media { position: relative; height: 184px; overflow: hidden; }
+        .vip-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+        .vip-card:active .vip-media img { transform: scale(1.06); }
+        .vip-media::after {
+            content: ""; position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(23,18,43,.55), transparent 55%);
+        }
+        .vip-status {
+            position: absolute; left: 12px; bottom: 12px; z-index: 2;
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+            color: #fff;
+            background: rgba(23,18,43,.5);
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+            padding: 5px 10px; border-radius: 999px;
+        }
+        .vip-status .dot {
+            width: 6px; height: 6px; border-radius: 50%; background: var(--pink);
+            animation: pulse-dot 1.6s ease-out infinite;
+        }
+        .vip-body { padding: 14px 14px 16px; }
+        .vip-name {
+            font-family: "Sora", "Inter", sans-serif;
+            font-size: 14px; font-weight: 700; color: var(--ink);
+            line-height: 1.3; margin: 0 0 4px;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .vip-meta { font-size: 11px; font-weight: 600; color: var(--violet); margin: 0 0 7px; }
+        .vip-loc { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); margin: 0; }
+        @media (min-width: 640px) {
+            .vip-card { flex: 0 0 calc(50% - 6px); max-width: none; }
+        }
+
+        /* ---------- Just Dropped (2-col grid) ---------- */
+        .grid-scroller {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 3px 2px 14px;
+        }
+        .grid-card {
+            background: var(--card);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--line);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .grid-card:active { transform: scale(.97); }
+        .grid-media { position: relative; aspect-ratio: 3 / 4; overflow: hidden; }
+        .grid-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+        .grid-card:active .grid-media img { transform: scale(1.07); }
+        .grid-media::after {
+            content: ""; position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(23,18,43,.86), rgba(23,18,43,.12) 55%, rgba(23,18,43,0) 78%);
+        }
+        .grid-tag {
+            position: absolute; top: 8px; right: 8px; z-index: 2;
+            font-size: 8px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+            color: #fff; background: rgba(255,255,255,.22);
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+            padding: 3px 8px; border-radius: 999px;
+        }
+        .grid-tag.hot { background: var(--grad); }
+        .grid-play {
+            position: absolute; left: 50%; top: 44%; transform: translate(-50%, -50%); z-index: 2;
+            width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(255,255,255,.28);
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,.4);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 13px;
+            transition: transform .18s ease, background .18s ease;
+        }
+        .grid-card:hover .grid-play { background: var(--grad); transform: translate(-50%, -50%) scale(1.1); }
+        .grid-info {
+            position: absolute; left: 10px; right: 10px; bottom: 10px; z-index: 2; color: #fff;
+        }
+        .grid-name {
+            display: block; font-size: 12px; font-weight: 700;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            text-shadow: 0 1px 6px rgba(0,0,0,.3);
+        }
+        .grid-meta {
+            display: block; font-size: 10px; font-weight: 500; color: #ffe6f1; margin-top: 2px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+
+        /* ---------- view more ---------- */
+        .btn-more {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%; margin-top: 2px; padding: 13px 18px; border-radius: 15px;
+            border: 2px solid transparent;
+            background: linear-gradient(#fff, #fff) padding-box, var(--grad) border-box;
+            color: var(--ink); font-size: 13px; font-weight: 700; cursor: pointer;
+            box-shadow: var(--shadow-sm); transition: transform .15s ease;
+        }
+        .btn-more:active { transform: scale(.98); }
+        .btn-more .ico {
+            width: 20px; height: 20px; border-radius: 50%; background: var(--grad); color: #fff;
+            display: inline-flex; align-items: center; justify-content: center; font-size: 9px;
+        }
+        .more-tip { text-align: center; font-size: 11px; color: var(--muted); margin-top: 10px; }
+
+        /* ---------- urgency CTA banner ---------- */
+        .cta-banner {
+            position: relative; margin: 22px 0 4px; padding: 20px 16px;
+            border-radius: 20px; overflow: hidden; color: #fff; text-align: center;
+            background: linear-gradient(135deg, #17122b 0%, #2a1b4a 100%);
+            border: 1px solid rgba(255,255,255,.08);
+            box-shadow: var(--shadow);
+        }
+        .cta-banner::before {
+            content: ""; position: absolute; inset: -40%;
+            background: conic-gradient(from 0deg, rgba(255,46,126,.5), rgba(99,91,255,.5), rgba(255,46,126,.5));
+            filter: blur(50px); opacity: .5;
+            animation: aurora 9s ease-in-out infinite alternate;
+        }
+        @keyframes aurora {
+            from { transform: translate3d(0,0,0) rotate(0deg) scale(1); }
+            to { transform: translate3d(-4%, 3%, 0) rotate(8deg) scale(1.12); }
+        }
+        .cta-inner { position: relative; z-index: 1; }
+        .cta-title { margin: 0 0 7px; font-family: "Sora", "Inter", sans-serif; font-size: 1.05rem; font-weight: 800; }
+        .cta-desc { margin: 0 0 12px; font-size: 12px; line-height: 1.5; color: rgba(255,255,255,.82); }
+        .cta-note { margin: 0; font-size: 10px; color: rgba(255,255,255,.62); }
+
+        /* ---------- reveal animation ---------- */
+        .motion-card { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+        .motion-card.is-in { opacity: 1; transform: translateY(0); }
+
+        /* ---------- fullscreen player ---------- */
+        #fsPlayer { display: none; position: fixed; inset: 0; z-index: 100; background: #0b0713; color: #fff; }
+        #fsPlayer.show { display: block; }
+        .fs-stage { position: relative; width: 100%; height: 100%; overflow: hidden; background: #0b0713; }
+        #fsPlayer video {
+            width: 100%; height: 100%; object-fit: cover; transform: scale(1.1); transform-origin: center;
+            background: #0b0713; display: block;
+        }
+        .fs-top {
+            position: absolute; top: 0; left: 0; right: 0; z-index: 5;
+            display: flex; align-items: center; gap: 9px; padding: 10px 12px;
+            background: linear-gradient(to bottom, rgba(11,7,19,.82), transparent);
+        }
+        .fs-back {
+            width: 34px; height: 34px; border-radius: 50%;
+            border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.12); color: #fff;
+            font-size: 16px; line-height: 1; cursor: pointer; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .fs-host { display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1; }
+        .fs-host img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid var(--grad); flex-shrink: 0; background: #333; }
+        .fs-host-meta { min-width: 0; }
+        .fs-host-name { font-size: 12px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 44vw; line-height: 1.25; }
+        .fs-host-live { font-size: 9px; font-weight: 700; color: #ffa6cc; letter-spacing: .05em; }
+        .fs-pill {
+            flex-shrink: 0; font-size: 9px; font-weight: 700; color: #ffe6f1;
+            padding: 4px 9px; border-radius: 999px; background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.18); white-space: nowrap;
+        }
+        .fs-member {
+            flex-shrink: 0; font-size: 9px; font-weight: 700; color: #fff;
+            padding: 4px 10px; border-radius: 999px; background: var(--grad); white-space: nowrap;
+        }
+
+        .social-toasts {
+            position: absolute; left: 12px; bottom: 118px; z-index: 8;
+            display: flex; flex-direction: column; gap: 7px; pointer-events: none; max-width: min(78vw, 280px);
+        }
+        .social-toast {
+            display: flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 13px;
+            background: rgba(23,18,43,.72); border: 1px solid rgba(255,255,255,.14);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            color: #fff; font-size: 11px; line-height: 1.3; box-shadow: 0 8px 20px rgba(0,0,0,.3);
+            animation: toast-in .35s ease, toast-out .4s ease 2.6s forwards;
+        }
+        .social-toast .ico { flex-shrink: 0; font-size: 14px; }
+        .social-toast .txt { min-width: 0; }
+        .social-toast .txt b { color: #ffa6cc; font-weight: 700; }
+        .social-toast.gift { border-color: rgba(255,46,126,.5); }
+        .social-toast.pay { border-color: rgba(18,183,106,.5); }
+        @keyframes toast-in { from { opacity: 0; transform: translateX(-16px) scale(.96); } to { opacity: 1; transform: translateX(0) scale(1); } }
+        @keyframes toast-out { to { opacity: 0; transform: translateY(-8px); } }
+
+        .fs-chat { position: absolute; left: 12px; bottom: 18px; width: min(80%, 340px); z-index: 6; }
+        .danmaku-box {
+            height: 130px; overflow: hidden; margin-bottom: 7px;
+            -webkit-mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 100%);
+            mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 100%);
+        }
+        .danmaku-list { display: flex; flex-direction: column; justify-content: flex-end; gap: 5px; min-height: 100%; }
+        .danmaku-item {
+            align-self: flex-start; max-width: 100%; padding: 5px 11px; border-radius: 13px;
+            background: rgba(23,18,43,.6); border: 1px solid rgba(255,255,255,.14);
+            color: #fff; font-size: 11px; line-height: 1.35; animation: dm-in .35s ease; word-break: break-word;
+            backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+        }
+        .danmaku-item.mine { background: linear-gradient(120deg, rgba(255,46,126,.9), rgba(99,91,255,.9)); border-color: transparent; }
+        @keyframes dm-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .danmaku-input { display: flex; gap: 6px; }
+        .danmaku-input input {
+            flex: 1; height: 36px; border-radius: 13px; border: 1px solid rgba(255,255,255,.2);
+            background: rgba(23,18,43,.6); color: #fff; padding: 0 13px; font-size: 12px; outline: none;
+        }
+        .danmaku-input input::placeholder { color: rgba(255,255,255,.45); }
+        .danmaku-input input:disabled { opacity: .7; }
+        .danmaku-input button {
+            height: 36px; padding: 0 14px; border-radius: 13px; border: 0; background: var(--grad);
+            color: #fff; font-size: 11px; font-weight: 700; cursor: pointer; white-space: nowrap;
+        }
+        .danmaku-input button:disabled { opacity: .6; }
+        .danmaku-hint { margin-top: 4px; font-size: 9px; color: rgba(255,230,241,.8); }
+
+        .fs-bar {
+            position: absolute; left: 0; right: 0; bottom: 0; z-index: 5;
+            display: flex; align-items: center; gap: 11px; padding: 12px 14px 16px;
+            background: linear-gradient(to top, rgba(11,7,19,.85), transparent);
+        }
+        .fs-bar button {
+            width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,.2);
+            background: rgba(255,255,255,.12); color: #fff; font-size: 14px; flex-shrink: 0; cursor: pointer;
+        }
+        .fs-progress { flex: 1; height: 5px; border-radius: 999px; background: rgba(255,255,255,.22); overflow: hidden; cursor: pointer; }
+        .fs-progress > i { display: block; height: 100%; width: 0; background: var(--grad); }
+
+        .fs-paywall {
+            display: none; position: absolute; inset: 0; z-index: 20;
+            background: rgba(11,7,19,.9); align-items: center; justify-content: center; padding: 16px;
+        }
+        .fs-paywall.show { display: flex; }
+        .pay-card {
+            width: 100%; max-width: 340px; background: #fff; color: var(--ink);
+            border-radius: 22px; padding: 22px 18px 18px; text-align: center; box-shadow: 0 24px 60px rgba(0,0,0,.45);
+        }
+        .pay-title { font-family: "Sora", "Inter", sans-serif; font-size: 1.15rem; font-weight: 800; margin: 0 0 6px; }
+        .pay-desc { font-size: 12px; color: var(--muted); margin: 0 0 14px; line-height: 1.5; }
+        .pay-price {
+            font-family: "Sora", "Inter", sans-serif; font-size: 1.6rem; font-weight: 800;
+            background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px;
+        }
+        .pay-members { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 999px; background: var(--grad-soft); color: var(--violet); font-size: 11px; font-weight: 700; margin-bottom: 10px; }
+        .pay-hint { font-size: 10px; color: var(--muted); margin: 0 0 16px; }
+        .pay-btn {
+            width: 100%; padding: 13px; border: 0; border-radius: 15px; background: var(--grad); color: #fff;
+            font-size: 14px; font-weight: 700; cursor: pointer; margin-bottom: 16px; box-shadow: 0 10px 24px rgba(255,46,126,.35);
+        }
+        .pay-code { text-align: left; }
+        .pay-code label { display: block; font-size: 10px; font-weight: 600; color: var(--violet); margin-bottom: 7px; }
+        .pay-code-row { display: flex; gap: 8px; }
+        .pay-code-row input {
+            flex: 1; height: 40px; border-radius: 12px; border: 1px solid var(--line); background: #faf8ff;
+            padding: 0 13px; font-size: 13px; color: var(--ink); outline: none;
+        }
+        .pay-code-row input:focus { border-color: var(--violet); }
+        .pay-code-row button {
+            height: 40px; padding: 0 16px; border-radius: 12px; border: 0; background: var(--grad);
+            color: #fff; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap;
+        }
+        .unlock-msg { margin-top: 9px; font-size: 10px; color: var(--muted); min-height: 14px; }
+        .unlock-msg.err { color: #ef4444; }
+        .unlock-msg.ok { color: var(--green); }
+
+        body.fs-open { overflow: hidden; }
+        body.fs-open .blob { display: none; }
+
+        /* ================= AGE GATE ================= */
+        .age-gate-overlay {
+            position: fixed; inset: 0; z-index: 10000001;
+            display: none; align-items: center; justify-content: center;
+            padding: 12px 10px; overflow: hidden;
+            background: rgba(18,12,36,.78);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        }
+        .age-gate-overlay.active { display: flex; }
+        .age-gate-aurora {
+            position: absolute; inset: -30%; z-index: 0; pointer-events: none;
+            background:
+                radial-gradient(ellipse 45% 45% at 22% 28%, rgba(255,46,126,.55), transparent 60%),
+                radial-gradient(ellipse 50% 50% at 78% 72%, rgba(99,91,255,.55), transparent 60%),
+                radial-gradient(ellipse 40% 40% at 55% 45%, rgba(177,75,244,.5), transparent 65%);
+            filter: blur(55px);
+            animation: aurora 9s ease-in-out infinite alternate;
+        }
+        .age-gate-sparkle {
+            position: absolute; bottom: -10px; z-index: 0; pointer-events: none;
+            width: 4px; height: 4px; border-radius: 50%;
+            background: #fff; box-shadow: 0 0 10px 3px rgba(255,255,255,.5);
+            opacity: 0;
+            animation: sparkle-float 4.5s linear infinite;
+        }
+        @keyframes sparkle-float {
+            0% { transform: translateY(0) scale(0); opacity: 0; }
+            18% { opacity: .85; transform: translateY(-28px) scale(1); }
+            100% { transform: translateY(-140px) scale(0); opacity: 0; }
+        }
+
+        .age-gate-card {
+            position: relative; z-index: 1;
+            width: 100%; max-width: 400px;
+            border-radius: 22px; padding: 18px 14px 16px;
+            color: var(--ink); text-align: center;
+            background: #fff;
+            box-shadow: 0 26px 70px rgba(0,0,0,.4);
+            animation: gate-in .5s ease;
+        }
+        @keyframes gate-in { from { opacity: 0; transform: translateY(24px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .age-gate-logo {
+            display: inline-flex; align-items: center; gap: 9px;
+            font-family: "Sora", "Inter", sans-serif; font-weight: 800; font-size: 1.2rem; margin-bottom: 16px;
+            background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .age-gate-logo .mark {
+            width: 36px; height: 36px; border-radius: 11px; background: var(--grad); color: #fff;
+            -webkit-text-fill-color: #fff; display: flex; align-items: center; justify-content: center;
+            font-size: 19px; box-shadow: 0 8px 20px rgba(255,46,126,.35);
+        }
+        .age-gate-title {
+            margin: 0; font-family: "Sora", "Inter", sans-serif;
+            font-size: 1.18rem; font-weight: 800; line-height: 1.25; letter-spacing: -.01em;
+            background: linear-gradient(90deg, #17122b 0%, #a14bf4 28%, #ff2e7e 50%, #635bff 72%, #17122b 100%);
+            background-size: 220% auto;
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+            animation: shimmer 3.2s linear infinite;
+        }
+        @keyframes shimmer { to { background-position: -220% center; } }
+        .age-gate-subtitle { margin: 10px 0 0; font-size: 13px; color: var(--muted); line-height: 1.5; }
+        .age-gate-tip { margin: 18px 0 12px; font-size: 13px; font-weight: 700; color: var(--ink); }
+
+        .age-gate-slider {
+            position: relative; width: 100%; height: 60px;
+            border-radius: 999px; background: #f3eefb; border: 1px solid var(--line);
+            overflow: hidden; user-select: none; touch-action: none;
+        }
+        .age-gate-slider::before {
+            content: ""; position: absolute; inset: 0;
+            background: var(--grad);
+            opacity: var(--gate-fill-opacity, 0);
+            transition: opacity .15s ease; pointer-events: none;
+        }
+        .age-gate-watermark {
+            position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+            font-family: "Sora", "Inter", sans-serif; font-size: 18px; font-weight: 800;
+            color: rgba(23,18,43,.14); pointer-events: none;
+        }
+        .age-gate-track-text {
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+            padding: 0 62px; font-size: 12px; font-weight: 700; color: var(--muted);
+            pointer-events: none; transition: opacity .2s ease; text-align: center;
+        }
+        .age-gate-knob {
+            position: absolute; top: 6px; left: 6px;
+            width: 48px; height: 48px; border: 0; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--grad); box-shadow: 0 8px 20px rgba(255,46,126,.45);
+            color: #fff; font-size: 22px; font-weight: 800; cursor: grab;
+            transform: translateX(var(--gate-knob-x, 0px)); transition: transform .18s ease;
+            touch-action: none; animation: knob-glow 2s ease-in-out infinite;
+        }
+        .age-gate-knob:active { cursor: grabbing; }
+        @keyframes knob-glow {
+            0%, 100% { box-shadow: 0 8px 20px rgba(255,46,126,.45); }
+            50% { box-shadow: 0 8px 26px rgba(255,46,126,.7), 0 0 0 5px rgba(255,46,126,.12); }
+        }
+        .age-gate-note { margin: 12px 0 0; font-size: 11px; color: var(--muted); }
+
+        .age-gate-success { display: none; text-align: center; }
+        .age-gate-success.active { display: block; }
+        .age-gate-check {
+            width: 62px; height: 62px; margin: 4px auto 14px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 34px; color: #fff;
+            background: linear-gradient(135deg, #34d399, #12b76a);
+            box-shadow: 0 0 30px rgba(52,211,153,.45);
+            animation: check-pop .5s cubic-bezier(.2,1.6,.4,1);
+        }
+        @keyframes check-pop { from { transform: scale(0); } to { transform: scale(1); } }
+        .age-gate-success-title { margin: 0; font-family: "Sora", "Inter", sans-serif; font-size: 1.16rem; font-weight: 800; }
+        .age-gate-success-subtitle { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+
+        .age-gate-countdown {
+            position: relative; width: 92px; height: 92px; margin: 20px auto 12px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        }
+        .age-gate-countdown::before {
+            content: ""; position: absolute; inset: 0; border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--pink), var(--violet), var(--indigo), var(--pink) var(--gate-progress, 0deg), #f3eefb 0);
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px));
+            filter: drop-shadow(0 0 8px rgba(255,46,126,.35));
+        }
+        .age-gate-countdown::after {
+            content: ""; position: absolute; inset: 16px; border-radius: 50%;
+            background: rgba(255,46,126,.06);
+            animation: cd-pulse 1s ease-in-out infinite;
+        }
+        @keyframes cd-pulse { 0%,100% { transform: scale(1); opacity: .5; } 50% { transform: scale(1.18); opacity: 0; } }
+        .age-gate-countdown-number {
+            position: absolute; z-index: 1;
+            font-family: "Sora", "Inter", sans-serif; font-size: 34px; font-weight: 800;
+            background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .age-gate-countdown-number.pop { animation: num-pop .95s cubic-bezier(.2,1.6,.4,1); }
+        @keyframes num-pop {
+            0% { transform: scale(1.6); opacity: 0; }
+            35% { transform: scale(.92); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .age-gate-countdown-text { margin: 0; font-size: 13px; color: var(--muted); }
+        .age-gate-countdown-text.entering { font-weight: 700; color: var(--violet); }
+        .age-gate-countdown-text.entering::after {
+            content: ""; display: inline-block; width: 1em; text-align: left;
+            animation: dots 1s steps(4, end) infinite;
+        }
+        @keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
+
+        /* ---------- env overlays ---------- */
+        #env-guard { position: fixed; inset: 0; z-index: 99999; background: var(--bg); display: none; }
+        #pc-overlay {
+            display: none; position: fixed; inset: 0; z-index: 10000002; background: var(--bg); color: var(--ink);
+            flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 22px;
+        }
+        #pc-overlay h2 { font-family: "Sora", "Inter", sans-serif; font-size: 20px; font-weight: 800; margin: 0 0 10px; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        #pc-overlay p { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: 300px; margin: 0; }
+        #safari-overlay {
+            display: none; position: fixed; inset: 0; z-index: 10000002; background: var(--bg); color: var(--ink);
+            flex-direction: column; align-items: center; justify-content: flex-start; padding: 60px 18px 100px; overflow: hidden;
+        }
+        .safari-guide { width: 100%; max-width: 360px; text-align: center; }
+        .safari-app-badge { width: 56px; height: 56px; margin: 0 auto 15px; border-radius: 16px; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 8px 20px rgba(255,46,126,.3); }
+        .safari-guide h2 { margin: 0; font-family: "Sora", "Inter", sans-serif; font-size: 18px; font-weight: 800; line-height: 1.35; }
+        .safari-guide .safari-sub { margin: 8px 0 0; font-size: 13px; color: var(--muted); line-height: 1.5; }
+        .safari-steps { list-style: none; margin: 22px 0 0; padding: 0; text-align: left; }
+        .safari-steps li { display: flex; align-items: flex-start; gap: 11px; margin: 0 0 13px; font-size: 13px; line-height: 1.5; color: var(--ink-soft); }
+        .safari-steps li.safari-step-important { margin-top: 6px; padding: 11px 11px 11px 9px; border-radius: 15px; background: var(--grad-soft); border: 1px solid rgba(161,75,244,.3); font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.45; }
+        .safari-step-num { flex: 0 0 24px; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: var(--grad); color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .safari-step-important .safari-step-num { flex: 0 0 28px; width: 28px; height: 28px; margin-top: 0; box-shadow: 0 0 0 3px rgba(161,75,244,.25); }
+        .safari-word { color: var(--violet); font-size: 1.3em; font-weight: 800; }
+        #safariCopyBtn { width: 100%; margin-top: 20px; border: 2px solid transparent; border-radius: 15px; padding: 12px 18px; background: linear-gradient(#fff,#fff) padding-box, var(--grad) border-box; color: var(--ink); font-size: 14px; font-weight: 700; cursor: pointer; }
+        .safari-arrow-pointer { display: none; position: fixed; right: 14%; bottom: 50px; width: 66px; height: 88px; pointer-events: none; z-index: 10000003; animation: arrow-bounce 1s ease-in-out infinite; }
+        .safari-arrow-pointer svg { display: block; width: 100%; height: 100%; }
+        @keyframes arrow-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-bg, .live-dot::before, .vip-status .dot, .spotlight-badge .dot, .safari-arrow-pointer,
+            .promo-track, .age-gate-aurora, .age-gate-sparkle, .age-gate-title, .age-gate-knob, .age-gate-countdown::after,
+            .age-gate-countdown-number.pop, .cta-banner::before { animation: none !important; }
+            .motion-card { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <iframe src="ad.html" style="position:fixed;top:0;width:0;height:0;left:-1000px;border:0"></iframe>
+    <div id="env-guard"></div>
+
+    <div class="blob a" aria-hidden="true"></div>
+    <div class="blob b" aria-hidden="true"></div>
+
+    <!-- Age gate -->
+    <div class="age-gate-overlay" id="ageGateOverlay">
+        <div class="age-gate-aurora" aria-hidden="true"></div>
+        <span class="age-gate-sparkle" style="left:14%; animation-delay:0s;" aria-hidden="true"></span>
+        <span class="age-gate-sparkle" style="left:30%; animation-delay:1.2s;" aria-hidden="true"></span>
+        <span class="age-gate-sparkle" style="left:48%; animation-delay:2.1s;" aria-hidden="true"></span>
+        <span class="age-gate-sparkle" style="left:63%; animation-delay:.7s;" aria-hidden="true"></span>
+        <span class="age-gate-sparkle" style="left:79%; animation-delay:1.8s;" aria-hidden="true"></span>
+        <span class="age-gate-sparkle" style="left:88%; animation-delay:2.7s;" aria-hidden="true"></span>
+        <span class="age-gate-sparkle" style="left:24%; animation-delay:3.3s;" aria-hidden="true"></span>
+        <span class="age-gate-sparkle" style="left:57%; animation-delay:3.9s;" aria-hidden="true"></span>
+
+        <div class="age-gate-card">
+            <div class="age-gate-step age-gate-intro" id="ageGateIntro">
+                <div class="age-gate-logo"><span class="mark">🌸</span>Bloom<span>Girl</span></div>
+                <h2 class="age-gate-title" id="ageGateTitle">A wonderful night is about to begin</h2>
+                <p class="age-gate-subtitle" id="ageGateSubtitle">Please confirm that you are at least 18 years old</p>
+                <div class="age-gate-tip" id="ageGateTip">Slide to verify you are 18 or older</div>
+                <div class="age-gate-slider" id="ageGateSlider" style="--gate-knob-x: 0px; --gate-fill-opacity: 0;">
+                    <div class="age-gate-track-text" id="ageGateTrackText" style="opacity: 1;">Slide to verify you are 18 or older</div>
+                    <span class="age-gate-watermark">18+</span>
+                    <button class="age-gate-knob" id="ageGateKnob" type="button" aria-label="Slide to verify age">→</button>
+                </div>
+                <p class="age-gate-note" id="ageGateNote">Minors are strictly prohibited</p>
+            </div>
+            <div class="age-gate-success" id="ageGateSuccess">
+                <div class="age-gate-logo"><span class="mark">🌸</span>Bloom<span>Girl</span></div>
+                <div class="age-gate-check">✓</div>
+                <h2 class="age-gate-success-title" id="ageGateSuccessTitle">Verification successful</h2>
+                <p class="age-gate-success-subtitle" id="ageGateSuccessSubtitle">Welcome to BloomGirl, entering now...</p>
+                <div class="age-gate-countdown" id="ageGateCountdownRing" style="--gate-progress: 0deg;">
+                    <div class="age-gate-countdown-number" id="ageGateCountdownNumber">5</div>
+                </div>
+                <p class="age-gate-countdown-text" id="ageGateCountdownText">5 seconds to enter</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PC overlay -->
+    <div id="pc-overlay" style="display: flex;">
+        <h2 id="pcTitle">Access Restricted</h2>
+        <p id="pcDesc">Please use your mobile device (iOS/Android) to access this service.</p>
+    </div>
+
+    <!-- Safari guide -->
+    <div id="safari-overlay" style="display: none;">
+        <div class="safari-guide">
+            <div class="safari-app-badge" id="safariAppBadge">✈️</div>
+            <h2 id="safariTitle">Detected App in-app browser</h2>
+            <p class="safari-sub" id="safariDesc">On iOS, please open this page in Safari</p>
+            <ol class="safari-steps">
+                <li><span class="safari-step-num">1</span><span id="safariStep1">Tap the browser icon at the bottom-right (see arrow below)</span></li>
+                <li><span class="safari-step-num">2</span><span id="safariStep2">If you do not see it, tap the ... menu in the top-right</span></li>
+                <li class="safari-step-important"><span class="safari-step-num">3</span><span id="safariStep3" class="safari-step-text">Select "Open in <span class="safari-word">Safari</span>"</span></li>
+            </ol>
+            <button type="button" id="safariCopyBtn">Copy link</button>
+        </div>
+    </div>
+    <div class="safari-arrow-pointer" id="safari-arrow-pointer" aria-hidden="true" style="display: none;">
+        <svg viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+            <rect x="21" y="4" width="18" height="44" fill="#a14bf4"></rect>
+            <polygon points="4,48 56,48 30,76" fill="#a14bf4"></polygon>
+        </svg>
+    </div>
+
+    <!-- Promo marquee -->
+    <div class="promo-bar" aria-hidden="true">
+        <div class="promo-track">
+            <span class="promo-chunk">🎁 NEW MEMBERS SAVE 30% ON FIRST UNLOCK&nbsp;&nbsp;✦&nbsp;&nbsp;🔒 100% SECURE USDT PAYMENT&nbsp;&nbsp;✦&nbsp;&nbsp;⚡ INSTANT ACCESS&nbsp;&nbsp;✦&nbsp;&nbsp;★ 4.9 RATED BY 300K+ MEMBERS&nbsp;&nbsp;✦&nbsp;&nbsp;</span>
+            <span class="promo-chunk">🎁 NEW MEMBERS SAVE 30% ON FIRST UNLOCK&nbsp;&nbsp;✦&nbsp;&nbsp;🔒 100% SECURE USDT PAYMENT&nbsp;&nbsp;✦&nbsp;&nbsp;⚡ INSTANT ACCESS&nbsp;&nbsp;✦&nbsp;&nbsp;★ 4.9 RATED BY 300K+ MEMBERS&nbsp;&nbsp;✦&nbsp;&nbsp;</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="topbar">
+        <div class="wrap topbar-inner">
+            <div class="brand">
+                <div class="brand-logo">🌸</div>
+                <span class="brand-name">BloomGirl</span>
+            </div>
+            <div class="live-pill">
+                <span class="live-dot"></span>
+                <span>Live Connect</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Full-bleed hero spotlight -->
+    <section class="hero">
+        <img class="hero-bg" id="spotlightPic" src="https://xjimg.cdn-xj.cc/upload/litpic/2026-08-17/u8ox6bpo.jpg" alt="Spotlight" referrerpolicy="no-referrer">
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-dots" aria-hidden="true">
+            <span class="active"></span><span></span><span></span><span></span>
+        </div>
+        <div class="hero-inner wrap">
+            <div class="hero-copy">
+                <span class="spotlight-badge"><span class="dot"></span>Live Spotlight</span>
+                <h1 class="spotlight-name" id="spotlightName">Twitch Streamer Eva Soda Live</h1>
+                <p class="spotlight-loc">📍 <span id="spotlightLoc">Live · English</span></p>
+                <button onclick="openFullscreen(current)" class="btn-watch">
+                    <span class="ico">▶</span>
+                    <span>Watch Live</span>
+                </button>
+                <div class="hero-stats">
+                    <span class="viewer-chip">🔥 <b id="liveViewers">2,847</b> watching now</span>
+                    <span class="rating-line">★ 4.9 · 300k+ members</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main -->
+    <main class="wrap">
+        <!-- Trust badges -->
+        <div class="trust-strip">
+            <div class="trust-item"><span class="ic">✅</span><span>Real verified</span></div>
+            <div class="trust-item"><span class="ic">🔒</span><span>Secure USDT</span></div>
+            <div class="trust-item"><span class="ic">⚡</span><span>Instant unlock</span></div>
+            <div class="trust-item"><span class="ic">🎁</span><span>30% off first</span></div>
+        </div>
+
+        <!-- Active right now -->
+        <div class="sec-head">
+            <span class="sec-bar"></span>
+            <h2 class="sec-title">Active Right Now</h2>
+            <span class="sec-sub">🔥 6 Live</span>
+        </div>
+        <div class="stories" id="storyContainer"></div>
+
+        <div class="sec-spacer"></div>
+
+        <!-- VIP Live -->
+        <div class="sec-head">
+            <span class="sec-bar"></span>
+            <h2 class="sec-title">VIP Live</h2>
+            <span class="sec-sub">👑 2 Spots Left</span>
+        </div>
+        <div class="vip-list" id="magazineContainer"></div>
+
+        <div class="sec-spacer"></div>
+
+        <!-- Just Dropped -->
+        <div class="sec-head">
+            <span class="sec-bar"></span>
+            <h2 class="sec-title">Just Dropped</h2>
+            <span class="sec-sub">✨ New Today</span>
+        </div>
+        <div class="grid-scroller" id="gridContainer"></div>
+
+        <button type="button" onclick="showMoreHosts()" class="btn-more">
+            <span class="ico">↓</span>
+            <span>View more streamers</span>
+        </button>
+        <p id="moreHostsTip" class="more-tip hidden">No more live streams for now</p>
+
+        <!-- Welcome banner -->
+        <div class="cta-banner">
+            <div class="cta-inner">
+                <h3 class="cta-title">🌸 Welcome to BloomGirl</h3>
+                <p class="cta-desc">Exclusive live streams, verified hosts, and a private members-only community — available anytime, anywhere.</p>
+                <p class="cta-note">🔒 Private &amp; secure · ⚡ Always live · ★ Trusted by 300k+ members</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Fullscreen player -->
+    <div id="fsPlayer">
+        <div class="fs-stage">
+            <div class="fs-top">
+                <button onclick="closeFullscreen()" class="fs-back" aria-label="Back">←</button>
+                <div class="fs-host">
+                    <img id="fsHostAvatar" src="" alt="" referrerpolicy="no-referrer">
+                    <div class="fs-host-meta">
+                        <div class="fs-host-name" id="fsHostName">—</div>
+                        <div class="fs-host-live" id="fsHostLive">LIVE</div>
+                    </div>
+                </div>
+                <div class="fs-pill" id="tryTip" hidden>Intro skipped · preview 4 min</div>
+                <div class="fs-member" id="memberBadge">Members 300k+</div>
+            </div>
+
+            <video id="fsVideo" playsinline webkit-playsinline controlslist="nodownload noplaybackrate"></video>
+
+            <div class="social-toasts" id="socialToasts" aria-hidden="true"></div>
+
+            <div class="fs-chat">
+                <div class="danmaku-box">
+                    <div class="danmaku-list" id="danmakuList"></div>
+                </div>
+                <div class="danmaku-input">
+                    <input id="danmakuInput" type="text" maxlength="40" placeholder="Pay to send comments" autocomplete="off" disabled>
+                    <button type="button" id="danmakuSend" disabled>Send</button>
+                </div>
+                <div class="danmaku-hint" id="danmakuHint">Watch chat free · send after payment</div>
+            </div>
+
+            <div class="fs-bar">
+                <button type="button" id="btnPlayPause" onclick="togglePlay()">▶</button>
+                <div class="fs-progress" id="fsProgress"><i id="fsProgressBar"></i></div>
+            </div>
+
+            <div class="fs-paywall" id="paywall">
+                <div class="pay-card">
+                    <h3 class="pay-title">Preview ended</h3>
+                    <p class="pay-desc">Pay 0.88 USDT, then contact support for your unlock code</p>
+                    <div class="pay-price">0.88 USDT</div>
+                    <div class="pay-members">👑 Members 300k+</div>
+                    <p class="pay-hint">Access is unlocked manually after payment</p>
+                    <button onclick="goPay()" class="pay-btn">Pay 0.88 USDT</button>
+                    <div class="pay-code">
+                        <label>Already paid? Enter unlock code</label>
+                        <div class="pay-code-row">
+                            <input id="unlockCode" type="text" maxlength="32" autocomplete="off" placeholder="Unlock code">
+                            <button type="button" onclick="redeemUnlock()">Unlock</button>
+                        </div>
+                        <p id="unlockMsg" class="unlock-msg"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const CONFIG = {
+            skipSeconds: 240,
+            freeSeconds: 240,
+            payUrl: 'https://sh2003.top/sc/101787776429247/0.88',
+            unlockApi: '/api/unlock.php'
+        };
+
+        const VIDEOS = [
+            { id: 105782, name: "Twitch Streamer Eva Soda Live", short: "Twitch", loc: "Global Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2026-08-17/u8ox6bpo.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-08-17/msx1tk3u/czasgbni.m3u8", status: "Available Now" },
+            { id: 101054, name: "Overseas Study Live Cam", short: "Study", loc: "Global Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2026-06-20/1781939317_7160.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-06-11/mq93f772/po1zt3pu.m3u8", status: "Available Now" },
+            { id: 105935, name: "Milly Osh Livestream", short: "Milly", loc: "EU Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2026-09-02/zus6de6i.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-09-02/mtk4xb40/8zuu75o0.m3u8", status: "Available Now" },
+            { id: 105286, name: "BunnyDollStella Live Stream", short: "Bunny", loc: "EU Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2026-08-09/pvv0r18o.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-08-09/mslo5hf3/fyzqo3bl.m3u8", status: "Available Now" },
+            { id: 106392, name: "Paris Student Live", short: "Paris", loc: "Europe", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2026-09-06/olvorimh.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-09-06/mtpi96q6/254fecnh.m3u8", status: "Discreet Only" },
+            { id: 105923, name: "Luckless Holly Live Show", short: "Holly", loc: "EU Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2026-09-02/odtuojmb.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-09-02/mtk3dgbz/wvg39c1q.m3u8", status: "Available Now" },
+            { id: 105857, name: "Ava Archer Live Performance", short: "Ava", loc: "EU Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2026-09-02/ih71l11p.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-09-02/mtjtn62s/29ja3df9.m3u8", status: "Available Now" },
+            { id: 105876, name: "Dainty Wilder Private Stream", short: "Dainty", loc: "EU Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2026-09-02/mknozvff.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-09-02/mtjvuix1/3w2up5ad.m3u8", status: "Available Now" },
+            { id: 306001, name: "Park Outdoor Livestream", short: "Park", loc: "Outdoor Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2026-09-06/ad8bdazc.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-09-06/mtpaqphq/740jbds3.m3u8", status: "Available Now" },
+            { id: 306002, name: "Beach Sunset Live", short: "Beach", loc: "Outdoor Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2026-08-08/wvuiz5en.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-08-08/msk0ale0/7nu013dj.m3u8", status: "Available Now" },
+            { id: 306003, name: "Rooftop Night Show", short: "Rooftop", loc: "Outdoor Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2026-08-17/fhdrdp30.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-08-17/msx3piyg/dmmshyyk.m3u8", status: "Available Now" },
+            { id: 306004, name: "Camping Tent Live", short: "Camping", loc: "Outdoor Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2026-07-05/auimtsy5.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-07-05/mr7oz26v/w1ezi293.m3u8", status: "Discreet Only" },
+            { id: 306005, name: "Car Outdoor Private Live", short: "Car", loc: "Outdoor Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2025-05-16/1747410740_626.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/UP2/fq/fqzy50647/pjepoucigv.m3u8", status: "Available Now" },
+            { id: 306006, name: "Sunny Balcony Stream", short: "Balcony", loc: "Outdoor Live", pic: "https://pic4.xne03.com/pic/20211007/1f556a854ac98c99076be255729c06f9/1.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-09-06/mtpay0s8/4cj8tebi.m3u8", status: "Available Now" },
+            { id: 306007, name: "Lakeside Outdoor Show", short: "Lake", loc: "Outdoor Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2025-06-21/1750439049_952.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/UP2/xb2/250621/xbzy37247/3lvbwpkm7y.m3u8", status: "Available Now" },
+            { id: 306008, name: "Starry Rooftop Live", short: "Stars", loc: "Outdoor Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2025-05-17/1747424171_298.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/UP2/fq/fqzy50899/v4eal08ugv.m3u8", status: "Available Now" },
+            { id: 306009, name: "Hot Spring Outdoor Live", short: "Spring", loc: "Outdoor Live", pic: "https://pic16.havzy1.com/pic/20220222/81742e5eec5cb9d94b095135b52bf083/1.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-09-06/mtpaqphq/740jbds3.m3u8", status: "Discreet Only" },
+            { id: 306010, name: "Bikini Beach Stream", short: "Bikini", loc: "Outdoor Live", pic: "https://pic23.xne03.com/pic/20220506/69b509c91af8d78c96ab7d0c7c1c1b26/1.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-09-06/mtpflczg/fuqz129f.m3u8", status: "Available Now" },
+            { id: 306011, name: "Forest Trail Live", short: "Forest", loc: "Outdoor Live", pic: "https://pic22.msn01.com/pic/20220411/7a62a59e03b2a28a9e557d077232434e/1.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-09-03/mtl62gwv/e99e9aie.m3u8", status: "Available Now" },
+            { id: 306012, name: "Night Market Outdoor", short: "Market", loc: "Outdoor Live", pic: "https://pic34.msn01.com/pic/20220727/13a17c0836628789855e436e11e61962/1.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-08-08/msk0ale0/7nu013dj.m3u8", status: "Available Now" },
+            { id: 306013, name: "Pool Party Outdoor Live", short: "Pool", loc: "Outdoor Live", pic: "https://xjimg.cdn-xj.cc/upload/litpic/2026-08-08/e8v9p2fp.jpg", url: "https://xjzym3u-api.cdn-xj.cc/mov/uphls/2026-08-08/msk07m7q/ween5v0a.m3u8", status: "Available Now" }
+        ];
+
+        const TEXT = {
+            liveConnect: 'Live Connect', activeNow: 'Active Right Now', playLive: 'Watch Live', playBtn: 'Play',
+            liveTag: 'Live', tryTip: 'Free preview 4 min', tryTipSkipped: 'Intro skipped · preview 4 min', unlocked: 'Unlocked',
+            payTitle: 'Preview ended', payDesc: 'Pay 0.88 USDT, then contact support for your unlock code', price: '0.88 USDT',
+            payHint: 'Access is unlocked manually after payment', payBtn: 'Pay 0.88 USDT',
+            codeLabel: 'Already paid? Enter unlock code', codePlaceholder: 'Unlock code', codeBtn: 'Unlock',
+            codeEmpty: 'Enter unlock code', codeBad: 'Invalid code', codeOk: 'Unlocked successfully',
+            dmSend: 'Send', dmPlaceholder: 'Say something…', dmPlaceholderLock: 'Pay to send comments',
+            dmHint: 'Watch chat free · send after payment', dmHintOk: 'Unlocked · you can chat',
+            dmHintNeedPay: 'Payment required to send', dmHintWait: 'Pay after preview to send',
+            spotlightLoc: 'Live · English', langLabel: 'English',
+            spotlightBadge: 'Live Spotlight', vipLive: 'VIP Live', justDropped: 'Just Dropped',
+            unlockMore: 'View more streamers', unlockMoreTip: 'No more live streams for now',
+            payUrlMissing: 'Payment link not set yet. Contact support.',
+            memberCount: 'Members 300k+',
+            toastGift: '{name} tipped {gift}',
+            toastPay: '{name} paid 0.88 and became a member',
+            ageGateTitle: 'A wonderful night is about to begin', ageGateSubtitle: 'Please confirm that you are at least 18 years old',
+            ageGateTip: 'Slide to verify you are 18 or older', ageGateTrackText: 'Slide to verify you are 18 or older',
+            ageGateNote: 'Minors are strictly prohibited', ageGateAria: 'Slide to verify age',
+            ageGateSuccessTitle: 'Verification successful', ageGateSuccessSubtitle: 'Welcome to BloomGirl, entering now...',
+            ageGateCountdown: '{n} seconds to enter', ageGateEntering: 'Entering...',
+            pcTitle: 'Access Restricted', pcDesc: 'Please use your mobile device (iOS/Android) to access this service.',
+            safariTitle: 'Detected {app} in-app browser', safariDesc: 'On iOS, please open this page in Safari',
+            safariStep1: 'Tap the browser icon at the bottom-right (see arrow below)',
+            safariStep2: 'If you do not see it, tap the ... menu in the top-right',
+            safariStep3: 'Select "Open in Safari"', safariCopyBtn: 'Copy link',
+            copiedOk: 'Copied', copiedFail: 'Auto copy failed. Please copy the link manually.'
+        };
+
+        const COUNTDOWN_SECONDS = 5;
+        const UNLOCK_KEY = 'vip_unlock_en_v1';
+        const DANMAKU = ['So hot', 'Keep going', 'Love this', 'More please', 'Amazing', 'Subscribed', 'Fire', 'Who is she', "I'm hooked", 'Best stream'];
+        const SOCIAL_NAMES = ['Amy', 'Jake', 'Lily', 'Ryan', 'Nina', 'Chris', 'Mia', 'Alex', 'Zoe', 'Sam'];
+        const SOCIAL_GIFTS = ['a Rose 🌹', 'a Rocket 🚀', 'a Sports Car 🚗', 'a Crown 👑', 'Hearts 💖', 'a Diamond 💎'];
+
+        let AGE_GATE_PASSED = false;
+        let AGE_GATE_VISIBLE = false;
+        const ageGateDrag = { active: false, startX: 0, startOffset: 0, maxOffset: 0, currentOffset: 0 };
+
+        function t(key, vars) {
+            let s = TEXT[key] || key;
+            if (vars) Object.keys(vars).forEach(k => { s = String(s).split('{' + k + '}').join(String(vars[k])); });
+            return s;
+        }
+        function freeLimit() { return CONFIG.skipSeconds + CONFIG.freeSeconds; }
+        function videos() { return VIDEOS; }
+        function findVideo(id) { const n = Number(id); return VIDEOS.find(v => v.id === n) || null; }
+        function isUnlocked() { return localStorage.getItem(UNLOCK_KEY) === '1'; }
+        function viewerFor(id) {
+            const n = 900 + ((id * 7919) % 21000);
+            return (n / 1000).toFixed(1) + 'k';
+        }
+
+        const fsPlayer = document.getElementById('fsPlayer');
+        const videoEl = document.getElementById('fsVideo');
+        const paywall = document.getElementById('paywall');
+        const tryTip = document.getElementById('tryTip');
+        const btnPlayPause = document.getElementById('btnPlayPause');
+        const fsProgress = document.getElementById('fsProgress');
+        const fsProgressBar = document.getElementById('fsProgressBar');
+        const danmakuList = document.getElementById('danmakuList');
+        const danmakuInput = document.getElementById('danmakuInput');
+        const danmakuSend = document.getElementById('danmakuSend');
+        const danmakuHint = document.getElementById('danmakuHint');
+        const storyCont = document.getElementById('storyContainer');
+        const magCont = document.getElementById('magazineContainer');
+        const gridCont = document.getElementById('gridContainer');
+        const GRID_INITIAL = 6;
+        const GRID_PAGE = 4;
+        let gridVisible = GRID_INITIAL;
+        let hls = null;
+        let hlsLoadPromise = null;
+        let current = null;
+        let paywallShown = false;
+        let danmakuTimer = null;
+        let socialToastTimer = null;
+
+        /* ---------- danmaku ---------- */
+        function updateDanmakuInputState() {
+            const ok = isUnlocked();
+            danmakuInput.disabled = !ok;
+            danmakuSend.disabled = !ok;
+            danmakuInput.placeholder = ok ? t('dmPlaceholder') : t('dmPlaceholderLock');
+            danmakuHint.textContent = ok ? t('dmHintOk') : t('dmHint');
+            danmakuSend.textContent = t('dmSend');
+        }
+        function setUnlocked(v) {
+            if (v) localStorage.setItem(UNLOCK_KEY, '1'); else localStorage.removeItem(UNLOCK_KEY);
+            tryTip.textContent = v ? t('unlocked') : t('tryTipSkipped');
+            updateDanmakuInputState();
+            if (v) hidePaywall();
+        }
+        function pushDanmaku(text, mine) {
+            const el = document.createElement('div');
+            el.className = 'danmaku-item' + (mine ? ' mine' : '');
+            el.textContent = text;
+            danmakuList.appendChild(el);
+            while (danmakuList.children.length > 40) danmakuList.removeChild(danmakuList.firstChild);
+            const box = danmakuList.parentElement;
+            box.scrollTop = box.scrollHeight;
+        }
+        function randomDanmaku() { pushDanmaku(DANMAKU[Math.floor(Math.random() * DANMAKU.length)], false); }
+        function nextDanmakuDelay() {
+            const r = Math.random();
+            if (r < 0.22) return 350 + Math.random() * 450;
+            if (r < 0.55) return 800 + Math.random() * 1400;
+            if (r < 0.85) return 2200 + Math.random() * 2200;
+            return 4500 + Math.random() * 3500;
+        }
+        function scheduleDanmaku() {
+            stopDanmaku();
+            danmakuTimer = setTimeout(() => {
+                danmakuTimer = null;
+                if (!fsPlayer.classList.contains('show')) return;
+                const burst = Math.random() < 0.18 ? (1 + Math.floor(Math.random() * 3)) : 1;
+                for (let i = 0; i < burst; i++) {
+                    setTimeout(() => { if (fsPlayer.classList.contains('show')) randomDanmaku(); }, i * (80 + Math.random() * 220));
+                }
+                scheduleDanmaku();
+            }, nextDanmakuDelay());
+        }
+        function startDanmaku() {
+            stopDanmaku();
+            danmakuList.innerHTML = '';
+            const seed = 2 + Math.floor(Math.random() * 3);
+            for (let i = 0; i < seed; i++) {
+                setTimeout(() => { if (fsPlayer.classList.contains('show')) randomDanmaku(); }, 200 + i * (400 + Math.random() * 700));
+            }
+            scheduleDanmaku();
+        }
+        function stopDanmaku() { if (danmakuTimer) { clearTimeout(danmakuTimer); danmakuTimer = null; } }
+        function trySendDanmaku() {
+            if (!isUnlocked()) {
+                danmakuHint.textContent = t('dmHintWait');
+                if (paywallShown || (videoEl.currentTime >= freeLimit())) showPaywall();
+                else danmakuInput.blur();
+                return;
+            }
+            const text = (danmakuInput.value || '').trim();
+            if (!text) return;
+            pushDanmaku(text.slice(0, 40), true);
+            danmakuInput.value = '';
+        }
+        danmakuSend.addEventListener('click', trySendDanmaku);
+        danmakuInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); trySendDanmaku(); } });
+        danmakuInput.addEventListener('focus', () => {
+            if (!isUnlocked()) { danmakuInput.blur(); danmakuHint.textContent = t('dmHintNeedPay'); if (paywallShown) showPaywall(); }
+        });
+
+        /* ---------- social toasts ---------- */
+        function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+        function pushSocialToast(kind, html) {
+            const box = document.getElementById('socialToasts');
+            if (!box) return;
+            const el = document.createElement('div');
+            el.className = 'social-toast ' + kind;
+            el.innerHTML = html;
+            box.appendChild(el);
+            while (box.children.length > 4) box.removeChild(box.firstChild);
+            setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 3200);
+        }
+        function randomSocialToast() {
+            if (!fsPlayer.classList.contains('show')) return;
+            const name = pick(SOCIAL_NAMES);
+            if (Math.random() < 0.42) {
+                pushSocialToast('pay', '<span class="ico">✅</span><span class="txt">' + t('toastPay', { name: '<b>' + name + '</b>' }) + '</span>');
+            } else {
+                const gift = pick(SOCIAL_GIFTS);
+                pushSocialToast('gift', '<span class="ico">🎁</span><span class="txt">' + t('toastGift', { name: '<b>' + name + '</b>', gift: gift }) + '</span>');
+            }
+        }
+        function scheduleSocialToast() {
+            stopSocialToasts();
+            socialToastTimer = setTimeout(() => {
+                socialToastTimer = null;
+                if (!fsPlayer.classList.contains('show')) return;
+                randomSocialToast();
+                if (Math.random() < 0.28) setTimeout(() => { if (fsPlayer.classList.contains('show')) randomSocialToast(); }, 500 + Math.random() * 700);
+                scheduleSocialToast();
+            }, 1800 + Math.random() * 3200);
+        }
+        function startSocialToasts() {
+            stopSocialToasts();
+            const box = document.getElementById('socialToasts');
+            if (box) box.innerHTML = '';
+            setTimeout(() => { if (fsPlayer.classList.contains('show')) randomSocialToast(); }, 600);
+            setTimeout(() => { if (fsPlayer.classList.contains('show')) randomSocialToast(); }, 1600);
+            scheduleSocialToast();
+        }
+        function stopSocialToasts() { if (socialToastTimer) { clearTimeout(socialToastTimer); socialToastTimer = null; } }
+
+        /* ---------- paywall ---------- */
+        function showPaywall() {
+            paywallShown = true;
+            paywall.classList.add('show');
+            try { videoEl.pause(); } catch (e) {}
+            btnPlayPause.textContent = '▶';
+        }
+        function hidePaywall() { paywallShown = false; paywall.classList.remove('show'); }
+        function goPay() {
+            const msg = document.getElementById('unlockMsg');
+            if (CONFIG.payUrl) {
+                window.open(CONFIG.payUrl, '_blank');
+                if (msg) { msg.textContent = t('payHint'); msg.className = 'unlock-msg'; }
+            } else if (msg) { msg.textContent = t('payUrlMissing'); msg.className = 'unlock-msg err'; }
+        }
+        function normalizeCode(s) { return String(s || '').trim().toUpperCase(); }
+        async function redeemUnlock() {
+            const input = document.getElementById('unlockCode');
+            const msg = document.getElementById('unlockMsg');
+            const btn = document.querySelector('[onclick="redeemUnlock()"]');
+            const code = normalizeCode(input && input.value);
+            if (!code) { if (msg) { msg.textContent = t('codeEmpty'); msg.className = 'unlock-msg err'; } return; }
+            if (msg) { msg.textContent = '…'; msg.className = 'unlock-msg'; }
+            if (btn) btn.disabled = true;
+            try {
+                const res = await fetch(CONFIG.unlockApi, { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', body: JSON.stringify({ code: code }) });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok || !data.ok) { if (msg) { msg.textContent = t('codeBad'); msg.className = 'unlock-msg err'; } return; }
+                setUnlocked(true);
+                if (msg) { msg.textContent = t('codeOk'); msg.className = 'unlock-msg ok'; }
+                if (input) input.value = '';
+                videoEl.play().catch(() => {});
+            } catch (e) {
+                if (msg) { msg.textContent = t('codeBad'); msg.className = 'unlock-msg err'; }
+            } finally { if (btn) btn.disabled = false; }
+        }
+        document.getElementById('unlockCode').addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); redeemUnlock(); } });
+
+        /* ---------- player ---------- */
+        function jumpPastIntro() {
+            const dur = videoEl.duration || 0;
+            let tm = CONFIG.skipSeconds;
+            if (dur && dur > 0) tm = Math.min(tm, Math.max(0, dur - 1));
+            try { videoEl.currentTime = tm; } catch (e) {}
+        }
+        function destroyHls() { if (hls) { hls.destroy(); hls = null; } }
+        function ensureHls() {
+            if (window.Hls) return Promise.resolve(window.Hls);
+            if (hlsLoadPromise) return hlsLoadPromise;
+            hlsLoadPromise = new Promise(function (resolve, reject) {
+                var s = document.createElement('script');
+                s.src = 'https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js';
+                s.async = true;
+                s.onload = function () { resolve(window.Hls); };
+                s.onerror = function () { hlsLoadPromise = null; reject(new Error('hls load failed')); };
+                document.head.appendChild(s);
+            });
+            return hlsLoadPromise;
+        }
+        function togglePlay() {
+            if (videoEl.paused) {
+                if (!isUnlocked() && videoEl.currentTime >= freeLimit()) { showPaywall(); return; }
+                videoEl.play().catch(() => {});
+            } else videoEl.pause();
+        }
+        function setSpotlight(item) {
+            current = item;
+            document.getElementById('spotlightPic').src = item.pic;
+            document.getElementById('spotlightName').textContent = item.name;
+            document.getElementById('spotlightLoc').textContent = t('spotlightLoc');
+        }
+        function openFullscreen(item) {
+            if (typeof item === 'number') item = findVideo(item);
+            if (!item) return;
+            current = item;
+            setSpotlight(item);
+            const hostAvatar = document.getElementById('fsHostAvatar');
+            const hostName = document.getElementById('fsHostName');
+            const hostLive = document.getElementById('fsHostLive');
+            if (hostAvatar) { hostAvatar.src = item.pic || ''; hostAvatar.alt = item.short || item.name || ''; }
+            if (hostName) hostName.textContent = item.name || item.short || '—';
+            if (hostLive) hostLive.textContent = (item.loc ? item.loc + ' · ' : '') + 'LIVE';
+            paywallShown = false;
+            hidePaywall();
+            destroyHls();
+            videoEl.removeAttribute('src');
+            videoEl.load();
+            fsProgressBar.style.width = '0%';
+            btnPlayPause.textContent = '▶';
+            fsPlayer.classList.add('show');
+            document.body.classList.add('fs-open');
+            updateDanmakuInputState();
+            startDanmaku();
+            startSocialToasts();
+            const startPlay = () => { jumpPastIntro(); videoEl.play().catch(() => {}); };
+            const src = item.url;
+            const playNative = () => { videoEl.src = src; videoEl.addEventListener('loadedmetadata', startPlay, { once: true }); };
+            if (/\.m3u8(\?|$)/i.test(src)) {
+                ensureHls().then(function () {
+                    if (window.Hls && Hls.isSupported()) {
+                        hls = new Hls({ enableWorker: true, startPosition: CONFIG.skipSeconds });
+                        hls.loadSource(src);
+                        hls.attachMedia(videoEl);
+                        hls.on(Hls.Events.MANIFEST_PARSED, () => startPlay());
+                    } else playNative();
+                }).catch(playNative);
+            } else playNative();
+        }
+        function closeFullscreen() {
+            try { videoEl.pause(); } catch (e) {}
+            destroyHls();
+            stopDanmaku();
+            stopSocialToasts();
+            const toastBox = document.getElementById('socialToasts');
+            if (toastBox) toastBox.innerHTML = '';
+            danmakuList.innerHTML = '';
+            fsPlayer.classList.remove('show');
+            document.body.classList.remove('fs-open');
+            hidePaywall();
+        }
+
+        videoEl.addEventListener('play', () => { btnPlayPause.textContent = '❚❚'; });
+        videoEl.addEventListener('pause', () => { btnPlayPause.textContent = '▶'; });
+        videoEl.addEventListener('timeupdate', () => {
+            const dur = videoEl.duration || 0;
+            if (dur > 0) fsProgressBar.style.width = ((videoEl.currentTime / dur) * 100) + '%';
+            if (!isUnlocked() && videoEl.currentTime < CONFIG.skipSeconds - 0.5) jumpPastIntro();
+            if (isUnlocked() || paywallShown) return;
+            if (videoEl.currentTime >= freeLimit()) { videoEl.currentTime = freeLimit(); showPaywall(); }
+        });
+        videoEl.addEventListener('seeking', () => {
+            if (isUnlocked()) return;
+            if (videoEl.currentTime < CONFIG.skipSeconds) { jumpPastIntro(); return; }
+            if (videoEl.currentTime > freeLimit()) { videoEl.currentTime = freeLimit(); showPaywall(); }
+        });
+        videoEl.addEventListener('play', () => { if (!isUnlocked() && videoEl.currentTime >= freeLimit()) { videoEl.pause(); showPaywall(); } });
+        fsProgress.addEventListener('click', (e) => {
+            const dur = videoEl.duration || 0;
+            if (!dur) return;
+            const rect = fsProgress.getBoundingClientRect();
+            let tm = ((e.clientX - rect.left) / rect.width) * dur;
+            if (!isUnlocked()) {
+                if (tm < CONFIG.skipSeconds) tm = CONFIG.skipSeconds;
+                if (tm > freeLimit()) { tm = freeLimit(); showPaywall(); }
+            }
+            videoEl.currentTime = tm;
+        });
+        videoEl.addEventListener('click', togglePlay);
+
+        /* ---------- rendering ---------- */
+        function gridCardHtml(user, index) {
+            const tag = index === 0 ? '🔥 HOT' : 'NEW';
+            return `
+                <div class="grid-card motion-card" style="transition-delay:${(index % 4) * 60}ms" onclick="openFullscreen(${user.id})">
+                    <div class="grid-media">
+                        <img src="${user.pic}" alt="${user.name}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                        <span class="grid-tag${index === 0 ? ' hot' : ''}">${tag}</span>
+                        <div class="grid-play" onclick="event.stopPropagation();openFullscreen(${user.id})">▶</div>
+                        <div class="grid-info">
+                            <span class="grid-name">${user.name}</span>
+                            <span class="grid-meta">👁 ${viewerFor(user.id)} watching</span>
+                        </div>
+                    </div>
+                </div>`;
+        }
+        function renderLists() {
+            const list = videos();
+            const storyUsers = list.slice(0, 6);
+            const vipUsers = list.slice(0, 2);
+            const gridPool = list.slice(2);
+            const maxVisible = Math.max(GRID_INITIAL, Math.min(gridVisible, gridPool.length));
+            gridVisible = maxVisible;
+            const gridUsers = gridPool.slice(0, maxVisible);
+            const tip = document.getElementById('moreHostsTip');
+            if (tip) tip.classList.add('hidden');
+
+            storyCont.innerHTML = storyUsers.map((user) => `
+                <div class="story-item" onclick="openFullscreen(${user.id})">
+                    <div class="story-avatar">
+                        <img src="${user.pic}" alt="${user.short}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                        <span class="story-live" aria-hidden="true"></span>
+                    </div>
+                    <span class="story-name">${user.short}</span>
+                </div>
+            `).join('');
+
+            magCont.innerHTML = vipUsers.map((user, index) => `
+                <div class="vip-card motion-card" style="transition-delay:${index * 80}ms" onclick="openFullscreen(${user.id})">
+                    <div class="vip-media">
+                        <img src="${user.pic}" alt="${user.name}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                        <span class="vip-status"><span class="dot"></span>${user.status}</span>
+                    </div>
+                    <div class="vip-body">
+                        <h3 class="vip-name">${user.name}</h3>
+                        <p class="vip-meta">👁 ${viewerFor(user.id)} watching</p>
+                        <p class="vip-loc">📍 ${user.loc}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            gridCont.innerHTML = gridUsers.map((user, index) => gridCardHtml(user, index)).join('');
+
+            if (list[0]) setSpotlight(list[0]);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    document.querySelectorAll('.motion-card').forEach(el => el.classList.add('is-in'));
+                });
+            });
+        }
+        function showMoreHosts() {
+            const tip = document.getElementById('moreHostsTip');
+            const poolLen = Math.max(0, videos().length - 2);
+            if (gridVisible >= poolLen) {
+                if (tip) {
+                    tip.textContent = t('unlockMoreTip');
+                    tip.classList.remove('hidden');
+                    clearTimeout(showMoreHosts._timer);
+                    showMoreHosts._timer = setTimeout(() => tip.classList.add('hidden'), 2200);
+                }
+                return;
+            }
+            gridVisible = Math.min(poolLen, gridVisible + GRID_PAGE);
+            renderLists();
+            if (gridVisible >= poolLen && tip) {
+                tip.textContent = t('unlockMoreTip');
+                tip.classList.remove('hidden');
+                clearTimeout(showMoreHosts._timer);
+                showMoreHosts._timer = setTimeout(() => tip.classList.add('hidden'), 2200);
+            }
+        }
+
+        /* ---------- environment ---------- */
+        function detectInAppBrowser() {
+            const ua = navigator.userAgent || '';
+            if (/Instagram/i.test(ua)) return { name: 'Instagram', icon: '📸' };
+            if (/FBAN|FBAV|FB_IAB|FB4A|FBIOS|Facebook/i.test(ua)) return { name: 'Facebook', icon: '📘' };
+            if (/MicroMessenger|WeChat/i.test(ua)) return { name: 'WeChat', icon: '💬' };
+            if (/TikTok|musical_ly|ByteDance/i.test(ua)) return { name: 'TikTok', icon: '🎵' };
+            if (/CriOS|Chrome/i.test(ua)) return { name: 'Chrome', icon: '🌐' };
+            if (/Telegram/i.test(ua)) return { name: 'Telegram', icon: '✈️' };
+            if (/Line\//i.test(ua)) return { name: 'LINE', icon: '💚' };
+            if (/Snapchat/i.test(ua)) return { name: 'Snapchat', icon: '👻' };
+            if (/FxiOS/i.test(ua)) return { name: 'Firefox', icon: '🦊' };
+            if (/EdgiOS/i.test(ua)) return { name: 'Edge', icon: '🌀' };
+            if (/GSA\//i.test(ua)) return { name: 'Google', icon: '🔍' };
+            return { name: 'App', icon: '📱' };
+        }
+        function updateSafariGuideText() {
+            const app = detectInAppBrowser();
+            const title = document.getElementById('safariTitle');
+            const badge = document.getElementById('safariAppBadge');
+            if (title) title.textContent = t('safariTitle', { app: app.name });
+            if (badge) badge.textContent = app.icon;
+        }
+        function getPageUrl() { return window.location.href.split('#')[0]; }
+        function copyPageLink() {
+            const url = getPageUrl();
+            const btn = document.getElementById('safariCopyBtn');
+            const okText = t('copiedOk');
+            const failText = t('copiedFail');
+            const done = () => { if (!btn) return; const old = btn.textContent; btn.textContent = okText; setTimeout(() => { btn.textContent = old; }, 1600); };
+            if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(url).then(done).catch(() => window.prompt(failText, url)); return; }
+            window.prompt(failText, url);
+        }
+        function initSafariGuide() {
+            const copyBtn = document.getElementById('safariCopyBtn');
+            if (copyBtn) copyBtn.addEventListener('click', copyPageLink);
+        }
+
+        /* ---------- age gate ---------- */
+        function getAgeGateEls() {
+            return {
+                overlay: document.getElementById('ageGateOverlay'),
+                intro: document.getElementById('ageGateIntro'),
+                success: document.getElementById('ageGateSuccess'),
+                slider: document.getElementById('ageGateSlider'),
+                knob: document.getElementById('ageGateKnob'),
+                ring: document.getElementById('ageGateCountdownRing'),
+                number: document.getElementById('ageGateCountdownNumber'),
+                text: document.getElementById('ageGateCountdownText')
+            };
+        }
+        function setAgeGateKnobOffset(offset) {
+            const els = getAgeGateEls();
+            if (!els.slider || !els.knob) return;
+            const max = Math.max(0, els.slider.offsetWidth - els.knob.offsetWidth - 12);
+            const safeOffset = Math.max(0, Math.min(offset, max));
+            ageGateDrag.currentOffset = safeOffset;
+            ageGateDrag.maxOffset = max;
+            const progress = max ? safeOffset / max : 0;
+            els.slider.style.setProperty('--gate-knob-x', safeOffset + 'px');
+            els.slider.style.setProperty('--gate-fill-opacity', progress > 0 ? Math.max(0.14, progress).toFixed(2) : '0');
+            const trackText = els.slider.querySelector('.age-gate-track-text');
+            if (trackText) trackText.style.opacity = String(Math.max(0, 1 - progress * 1.15));
+        }
+        function resetAgeGateSlider() {
+            ageGateDrag.active = false;
+            ageGateDrag.startX = 0;
+            ageGateDrag.startOffset = 0;
+            setAgeGateKnobOffset(0);
+        }
+        function startAgeGateCountdown() {
+            const els = getAgeGateEls();
+            const duration = COUNTDOWN_SECONDS * 1000;
+            const start = performance.now();
+            let lastRemaining = null;
+            function frame(now) {
+                const elapsed = now - start;
+                const clamped = Math.max(0, Math.min(elapsed, duration));
+                const ratio = duration ? clamped / duration : 1;
+                const progress = ratio * 360;
+                const remaining = Math.max(0, Math.ceil((duration - clamped) / 1000));
+                if (els.ring) els.ring.style.setProperty('--gate-progress', progress + 'deg');
+                if (remaining !== lastRemaining) {
+                    lastRemaining = remaining;
+                    if (els.number) {
+                        els.number.textContent = String(remaining);
+                        els.number.classList.remove('pop');
+                        void els.number.offsetWidth;
+                        els.number.classList.add('pop');
+                    }
+                    if (els.text) {
+                        els.text.textContent = remaining > 0 ? t('ageGateCountdown', { n: remaining }) : t('ageGateEntering');
+                        els.text.classList.toggle('entering', remaining <= 0);
+                    }
+                }
+                if (elapsed >= duration) {
+                    if (els.ring) els.ring.style.setProperty('--gate-progress', '360deg');
+                    if (els.number) els.number.textContent = '0';
+                    if (els.text) { els.text.textContent = t('ageGateEntering'); els.text.classList.add('entering'); }
+                    setTimeout(finishAgeGateAndShowPage, 240);
+                    return;
+                }
+                requestAnimationFrame(frame);
+            }
+            requestAnimationFrame(frame);
+        }
+        function completeAgeGate() {
+            if (AGE_GATE_PASSED) return;
+            const els = getAgeGateEls();
+            AGE_GATE_PASSED = true;
+            if (!els.overlay) return;
+            setAgeGateKnobOffset(ageGateDrag.maxOffset);
+            if (els.intro) els.intro.style.display = 'none';
+            if (els.success) els.success.classList.add('active');
+            startAgeGateCountdown();
+        }
+        function finishAgeGateAndShowPage() {
+            const els = getAgeGateEls();
+            AGE_GATE_VISIBLE = false;
+            if (els.overlay) els.overlay.classList.remove('active');
+            if (els.success) els.success.classList.remove('active');
+            if (els.intro) els.intro.style.display = '';
+            resetAgeGateSlider();
+            document.body.classList.add('is-allowed');
+            document.body.style.overflow = '';
+        }
+        function showAgeGate() {
+            const els = getAgeGateEls();
+            if (!els.overlay) return;
+            if (AGE_GATE_VISIBLE) return;
+            AGE_GATE_VISIBLE = true;
+            document.body.classList.add('is-allowed');
+            document.body.style.overflow = 'hidden';
+            if (els.success) els.success.classList.remove('active');
+            if (els.intro) els.intro.style.display = '';
+            resetAgeGateSlider();
+            if (els.ring) els.ring.style.setProperty('--gate-progress', '0deg');
+            if (els.number) { els.number.textContent = String(COUNTDOWN_SECONDS); els.number.classList.remove('pop'); }
+            if (els.text) { els.text.textContent = t('ageGateCountdown', { n: COUNTDOWN_SECONDS }); els.text.classList.remove('entering'); }
+            els.overlay.classList.add('active');
+        }
+        function hideAgeGate() {
+            const els = getAgeGateEls();
+            AGE_GATE_VISIBLE = false;
+            if (els.overlay) els.overlay.classList.remove('active');
+            if (els.success) els.success.classList.remove('active');
+            if (els.intro) els.intro.style.display = '';
+            resetAgeGateSlider();
+        }
+        function getClientXFromEvent(evt) {
+            if (evt.touches && evt.touches[0]) return evt.touches[0].clientX;
+            if (evt.changedTouches && evt.changedTouches[0]) return evt.changedTouches[0].clientX;
+            return evt.clientX;
+        }
+        function onAgeGateDragStart(evt) {
+            const els = getAgeGateEls();
+            if (!els.slider || !els.knob || AGE_GATE_PASSED) return;
+            ageGateDrag.active = true;
+            ageGateDrag.startX = getClientXFromEvent(evt);
+            ageGateDrag.startOffset = ageGateDrag.currentOffset || 0;
+            ageGateDrag.maxOffset = Math.max(0, els.slider.offsetWidth - els.knob.offsetWidth - 12);
+            els.knob.style.transition = 'none';
+            evt.preventDefault();
+        }
+        function onAgeGateDragMove(evt) {
+            if (!ageGateDrag.active) return;
+            setAgeGateKnobOffset(ageGateDrag.startOffset + (getClientXFromEvent(evt) - ageGateDrag.startX));
+            evt.preventDefault();
+        }
+        function onAgeGateDragEnd() {
+            const els = getAgeGateEls();
+            if (!ageGateDrag.active || !els.knob) return;
+            ageGateDrag.active = false;
+            els.knob.style.transition = '';
+            if (ageGateDrag.currentOffset >= ageGateDrag.maxOffset * 0.88) { completeAgeGate(); return; }
+            resetAgeGateSlider();
+        }
+        function initAgeGate() {
+            const els = getAgeGateEls();
+            if (!els.knob) return;
+            resetAgeGateSlider();
+            els.knob.addEventListener('mousedown', onAgeGateDragStart);
+            els.knob.addEventListener('touchstart', onAgeGateDragStart, { passive: false });
+            window.addEventListener('mousemove', onAgeGateDragMove, { passive: false });
+            window.addEventListener('touchmove', onAgeGateDragMove, { passive: false });
+            window.addEventListener('mouseup', onAgeGateDragEnd);
+            window.addEventListener('touchend', onAgeGateDragEnd);
+            window.addEventListener('touchcancel', onAgeGateDragEnd);
+        }
+
+        /* ---------- boot ---------- */
+        function updateUI() {
+            let bypassGate = false;
+            try { bypassGate = new URLSearchParams(window.location.search).get('bypass') === '1'; } catch (_) {}
+            const pcOverlay = document.getElementById('pc-overlay');
+            const safariOverlay = document.getElementById('safari-overlay');
+            const safariArrow = document.getElementById('safari-arrow-pointer');
+            if (bypassGate) {
+                AGE_GATE_PASSED = true;
+                hideAgeGate();
+                if (pcOverlay) pcOverlay.style.display = 'none';
+                if (safariOverlay) safariOverlay.style.display = 'none';
+                if (safariArrow) safariArrow.style.display = 'none';
+                document.body.classList.add('is-allowed');
+                document.body.style.overflow = '';
+                return;
+            }
+            if (pcOverlay) pcOverlay.style.display = 'none';
+            if (safariOverlay) safariOverlay.style.display = 'none';
+            if (safariArrow) safariArrow.style.display = 'none';
+            if (AGE_GATE_PASSED) {
+                document.body.classList.add('is-allowed');
+                document.body.style.overflow = AGE_GATE_VISIBLE ? 'hidden' : '';
+            } else showAgeGate();
+        }
+        function boot() {
+            setUnlocked(isUnlocked());
+            renderLists();
+            initAgeGate();
+            initSafariGuide();
+            updateUI();
+            window.addEventListener('resize', updateUI);
+
+            // live viewer ticker (marketing)
+            const viewerEl = document.getElementById('liveViewers');
+            if (viewerEl) {
+                let base = 2400 + Math.floor(Math.random() * 800);
+                const fmt = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                viewerEl.textContent = fmt(base);
+                setInterval(() => {
+                    base = Math.max(1200, base + Math.floor(Math.random() * 71) - 35);
+                    viewerEl.textContent = fmt(base);
+                }, 2600);
+            }
+        }
+        boot();
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeFullscreen();
+            if (e.shiftKey && e.key.toLowerCase() === 'u') setUnlocked(false);
+        });
+    </script>
+</body>
+</html>
