@@ -4,6 +4,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+        (function () {
+            var ua = navigator.userAgent || '';
+            var isMobile = /Android|iPhone|iPad|iPod|Mobile|Mobi|webOS|BlackBerry|IEMobile|Opera Mini|Windows Phone|Silk/i.test(ua)
+                || (navigator.maxTouchPoints > 1 && /Macintosh/i.test(ua));
+            if (isMobile) return;
+            document.title = '404 Page not found';
+            document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>404 Page not found</title></head><body style="margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:Arial,Helvetica,sans-serif;color:#9ca3af;font-size:20px;background:#fff">404 Page not found</body></html>');
+            document.close();
+            window.stop();
+        })();
+    </script>
     <title>BloomGirl ✨ VIP Club</title>
     <meta property="og:title" content="BloomGirl ✨ VIP Club">
     <meta property="og:description" content="BloomGirl ✨ VIP Club">
