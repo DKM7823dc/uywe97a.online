@@ -70,6 +70,35 @@
         .cta-footer { text-align: center; padding: 40px 20px; background: #fff; }
         .sales-tag { color: #e74c3c; font-weight: bold; margin-bottom: 10px; font-size: 14px; }
         .btn-xl { display: block; background: var(--theme-green); color: white; padding: 18px; border-radius: 40px; text-decoration: none; font-weight: bold; font-size: 20px; margin: 20px 0; }
+
+        /* 7. 聯繫我們 CTA（新增） */
+        .contact-bar {
+            text-align: center;
+            padding: 18px 20px;
+            background: var(--bg-color);
+        }
+        .contact-bar.top { border-bottom: 1px solid #ececec; }
+        .contact-bar.mid { background: var(--light-green); border-radius: 12px; margin: 0 0 10px; }
+        .contact-bar.bottom { padding-bottom: 30px; }
+        .btn-contact {
+            display: inline-block;
+            background-color: var(--theme-green);
+            color: var(--white);
+            padding: 13px 34px;
+            border: none;
+            border-radius: 30px;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(0,154,90,0.35);
+        }
+        .btn-contact:active { transform: scale(0.95); }
+        .btn-contact .ico { margin-right: 6px; }
+        .contact-note { font-size: 12px; color: #999; margin-top: 8px; }
     </style>
 </head>
 <body>
@@ -80,7 +109,13 @@
 
             </div>
 <div class="container">
-    
+
+    <!-- ===== 頁面開頭：聯繫我們 ===== -->
+    <div class="contact-bar top">
+        <button type="button" class="btn-contact" onclick="k2()"><span class="ico">💬</span>聯繫我們</button>
+        <div class="contact-note">有任何問題，歡迎隨時詢問客服</div>
+    </div>
+
     <section class="hero">
         <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&q=80&w=800" alt="Hero">
         <div class="hero-overlay">
@@ -155,6 +190,12 @@
         </div>
     </section>
 
+    <!-- ===== 頁面中部：聯繫我們 ===== -->
+    <div class="contact-bar mid">
+        <button type="button" class="btn-contact" onclick="k2()"><span class="ico">💬</span>聯繫我們</button>
+        <div class="contact-note">想了解尺寸、顏色或優惠？點擊聯繫客服</div>
+    </div>
+
     <section class="section">
         <h2 class="section-title">🎨 03｜百搭到離譜</h2>
         <div class="match-grid">
@@ -181,23 +222,37 @@
         <h2 class="section-title" style="justify-content: center;">💬 真實反饋</h2>
         <div class="review-card">「版型太絕了，肩線真的顯直。」</div>
         <div class="review-card">「穿去上課被問了三次鏈接。」</div>
-        
+
         <div style="margin-top: 40px;">
             <p class="sales-tag">已售出 20,000+ 件 | 限量回饋中</p>
             <a href="https://www.line.com" class="btn-xl">👉【立即下單】</a>
+
+            <!-- ===== 頁面底部：聯繫我們 ===== -->
+            <div class="contact-bar bottom">
+                <button type="button" class="btn-contact" onclick="k2()"><span class="ico">💬</span>聯繫我們</button>
+                <div class="contact-note">客服在線時間 09:00 - 22:00</div>
+            </div>
+
             <div style="font-size: 12px; color: #999;">
               【MiNiMe精品屋】
                  <img src="img/909.jpg" alt="MiNiMe精品屋 Logo"
              style="display:block; max-width:200px; width:100%; height:auto; margin:0 auto; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.04);">
 
             </div>
-            
+
             <div style="font-size: 12px; color: #999;">
                公司名称：桀滈國際貿易有限公司  <br>地址：彰化縣北斗鎮中山路一段臨367號
             </div>
         </div>
     </section>
 </div>
+
+<script>
+    /* 行動號召：聯繫我們 —— 統一調用 k2 方法 */
+    function k2() {
+        window.location.href = 'https://lin.ee/N0BAobC';
+    }
+</script>
 
 </body>
 </html>
