@@ -2,488 +2,532 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>專屬人像公仔定制 | 匠心手作 永恆收藏</title>
-<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-<script>LA.init({id:"Kggou8IL90BHn32e",ck:"Kggou8IL90BHn32e"})</script>
-    
-    <!-- LINE Tag Base Code -->
-<!-- Do Not Modify -->
-<script>
-(function(g,d,o){
-  g._ltq=g._ltq||[];g._lt=g._lt||function(){g._ltq.push(arguments)};
-  var h=location.protocol==='https:'?'https://d.line-scdn.net':'http://d.line-cdn.net';
-  var s=d.createElement('script');s.async=1;
-  s.src=o||h+'/n/line_tag/public/release/v1/lt.js';
-  var t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);
-    })(window, document);
-_lt('init', {
-  customerType: 'lap',
-  tagId: 'a3839ee7-0782-4d35-a042-c36fc0dc2152'
-});
-_lt('send', 'pv', ['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://tr.line.me/tag.gif?c_t=lap&t_id=a3839ee7-0782-4d35-a042-c36fc0dc2152&e=pv&noscript=1" />
-</noscript>
-<!-- End LINE Tag Base Code -->
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>這個夏天，不靠濾鏡也好看 | 夏日松弛感系列</title>
     <style>
         :root {
-            --line-green: #06C755;
-            --line-dark: #05b34c;
-            --clay-orange: #ff7a3c;
-            --bg-warm: #fdfbf9;
-            --text-black: #1a1a1a;
-            --text-gray: #666;
-            --border-color: #eee;
+            --theme-green: #009A5A; /* 品牌綠 */
+            --light-green: #EAF4EE; /* 淺背景綠 */
+            --bg-color: #F8F9F6;    /* 全局背景 */
+            --text-dark: #222222;
+            --text-gray: #666666;
+            --white: #FFFFFF;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-            background-color: #f5f5f5;
-            color: var(--text-black);
-            line-height: 1.6;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-dark); line-height: 1.6; }
 
-        .app-shell {
-            max-width: 500px;
-            margin: 0 auto;
-            background: var(--bg-warm);
-            min-height: 100vh;
-            position: relative;
-            padding-bottom: 120px;
-            overflow-x: hidden;
-        }
+        .container { max-width: 600px; margin: 0 auto; background-color: var(--white); box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        img { width: 100%; display: block; object-fit: cover; }
 
-        /* 1. 轮播图样式 */
-        .swiper.mySwiper {
-            width: 100%;
-            height: 110vw;
-            max-height: 550px;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .swiper.mySwiper .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .swiper-pagination-bullet-active {
-            background: var(--line-green) !important;
-            width: 20px;
-            border-radius: 4px;
-        }
+        /* 1. Hero Section */
+        .hero { position: relative; min-height: 550px; background: #e0dcd3; }
+        .hero img { height: 550px; }
+        .hero-overlay { position: absolute; top: 12%; right: 5%; width: 60%; text-align: right; z-index: 2; }
+        .hero-title { font-size: 28px; font-weight: 900; color: var(--white); text-shadow: 2px 2px 10px rgba(0,0,0,0.4); line-height: 1.3; margin-bottom: 15px; }
+        .hero-subtitle-box { background: rgba(43, 68, 56, 0.85); padding: 12px 18px; border-radius: 8px; display: inline-block; text-align: left; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .hero-subtitle-box p { color: var(--white); font-size: 13px; margin-bottom: 4px; letter-spacing: 0.5px; }
+        .hero-badges { color: var(--white); font-size: 11px; font-weight: bold; display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 20px; }
+        .btn-buy { background-color: var(--theme-green); color: var(--white); padding: 14px 28px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block; transition: transform 0.2s; box-shadow: 0 5px 15px rgba(0,154,90,0.4); }
+        .btn-buy:active { transform: scale(0.95); }
 
-        /* 2. 圆形图片左右循环滚动 */
-        .circle-carousel {
-            margin-top: 20px;
-            padding: 12px 0;
-            background: rgba(255,255,255,0.6);
-            border-radius: 80px;
-            width: 100%;
-            overflow: hidden;
-        }
-        .circle-carousel .swiper-slide {
-            width: 80px;
+        /* 通用 Section */
+        .section { padding: 40px 20px; border-bottom: 8px solid var(--bg-color); }
+        .section-title { font-size: 18px; font-weight: bold; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+        .section-title::before { content: ''; width: 4px; height: 18px; background: var(--theme-green); display: inline-block; border-radius: 2px; }
+
+        /* 2. 為什麼需要 */
+        .why-content { background: var(--white); border-radius: 12px; overflow: hidden; }
+        .why-text { padding: 20px 0; font-size: 14px; }
+        .why-text ul { list-style: none; margin: 15px 0; color: var(--text-gray); }
+        .why-text li { margin-bottom: 8px; padding-left: 20px; position: relative; }
+        .why-text li::before { content: '✕'; position: absolute; left: 0; color: #ccc; }
+        .highlight-quote { font-weight: bold; color: var(--text-dark); border-left: 3px solid var(--theme-green); padding-left: 15px; margin: 20px 0; }
+
+        /* 3. 面料 */
+        .fabric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+        .fabric-tag { background: var(--light-green); padding: 8px; border-radius: 6px; font-size: 13px; font-weight: bold; color: var(--theme-green); text-align: center; }
+
+        /* 4. 剪裁 */
+        .cut-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .cut-item { text-align: center; }
+        .cut-item img { height: 180px; border-radius: 6px; margin-bottom: 8px; }
+        .cut-item p { font-size: 12px; font-weight: bold; }
+        .cut-desc-box { background: var(--light-green); padding: 20px; border-radius: 10px; font-size: 13px; }
+        .cut-desc-box ul { list-style: none; }
+        .cut-desc-box li::before { content: '✔ '; color: var(--theme-green); font-weight: bold; }
+
+        /* 5. 百搭場景 */
+        .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .match-card { background: #fdfdfd; border-radius: 8px; overflow: hidden; }
+        .match-card img { height: 280px; }
+        .match-card p { padding: 12px; text-align: center; font-size: 13px; font-weight: bold; }
+        .match-card p span { color: var(--theme-green); }
+
+        /* 6. 反饋 & 底部 */
+        .review-card { background: var(--light-green); padding: 15px; border-radius: 8px; margin-bottom: 12px; font-size: 13px; display: flex; align-items: center; gap: 10px; }
+        .avatar { width: 35px; height: 35px; border-radius: 50%; background: #eee; }
+        .cta-footer { text-align: center; padding: 40px 20px; background: #fff; }
+        .sales-tag { color: #e74c3c; font-weight: bold; margin-bottom: 10px; font-size: 14px; }
+        .btn-xl { display: block; background: var(--theme-green); color: white; padding: 18px; border-radius: 40px; text-decoration: none; font-weight: bold; font-size: 20px; margin: 20px 0; }
+
+        /* 7. 聯繫我們 CTA */
+        .contact-bar {
             text-align: center;
+            padding: 18px 20px;
+            background: var(--bg-color);
         }
-        .circle-carousel .swiper-slide img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid white;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-            background: #fff;
-        }
-
-        .hero-info { padding: 30px 15px; text-align: center; }
-        .nowrap-title { white-space: nowrap; display: block; font-weight: 900; letter-spacing: -0.5px; }
-        .title-primary { font-size: clamp(20px, 6.5vw, 32px); color: var(--text-black); margin-bottom: 6px; }
-        .title-secondary { font-size: clamp(18px, 6vw, 28px); color: var(--clay-orange); margin-bottom: 12px; }
-        .title-tertiary { font-size: 20px; font-weight: 700; opacity: 0.8; margin-bottom: 20px; }
-
-        .feature-bar { display: flex; justify-content: center; gap: 10px; margin: 15px 0 25px; white-space: nowrap; }
-        .feature-tag { background: #fff; border: 1px solid #ff7a3c33; padding: 6px 12px; border-radius: 8px; font-size: clamp(12px, 3.6vw, 15px); font-weight: 700; color: #4e3627; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
-
-        /* 按钮呼吸特效 */
-        .btn-line-main, .btn-footer-nowrap {
-            animation: lineBreathe 2s infinite ease-in-out;
-        }
-        @keyframes lineBreathe {
-            0% { transform: scale(1); box-shadow: 0 8px 20px rgba(6, 199, 85, 0.4); }
-            50% { transform: scale(1.03); box-shadow: 0 8px 30px rgba(6, 199, 85, 0.7); }
-            100% { transform: scale(1); box-shadow: 0 8px 20px rgba(6, 199, 85, 0.4); }
-        }
-
-        .btn-line-main {
-            background: var(--line-green);
-            color: white;
-            padding: 16px 20px;
-            border-radius: 100px;
-            font-weight: 800;
-            font-size: 19px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-decoration: none;
-            width: 100%;
-            margin: 10px auto;
+        .contact-bar.top { border-bottom: 1px solid #ececec; }
+        .contact-bar.mid { background: var(--light-green); border-radius: 12px; margin: 0 0 10px; }
+        .contact-bar.bottom { padding-bottom: 30px; }
+        .btn-contact {
+            display: inline-block;
+            background-color: var(--theme-green);
+            color: var(--white);
+            padding: 13px 34px;
             border: none;
-            cursor: pointer;
-        }
-
-        .promo-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: #FFF2E6;
-            border-radius: 50px;
-            padding: 8px 18px;
-            margin: 8px auto 0;
-            width: fit-content;
-            font-weight: 700;
-            font-size: 15px;
-            color: #D93A0B;
-        }
-        .promo-row .countdown {
-            background: #1a1a1a;
-            color: #FFC107;
-            padding: 4px 12px;
-            border-radius: 40px;
-            font-family: monospace;
-            font-size: 18px;
+            border-radius: 30px;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 16px;
             letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(0,154,90,0.35);
         }
+        .btn-contact:active { transform: scale(0.95); }
+        .contact-note { font-size: 12px; color: #999; margin-top: 8px; }
 
-        .section-box { padding: 35px 20px; }
-        .section-title { font-size: 24px; font-weight: 800; margin-bottom: 25px; text-align: center; position: relative; }
-        .section-title::after { content: ''; width: 50px; height: 4px; background: var(--clay-orange); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); border-radius: 2px; }
-
-        .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .service-card { background: white; padding: 20px 10px; border-radius: 20px; text-align: center; border: 1px solid var(--border-color); }
-        .service-card .icon { font-size: 32px; display: block; margin-bottom: 10px; }
-        .service-card h4 { font-size: 15px; font-weight: bold; margin-bottom: 5px; }
-        .service-card p { font-size: 12px; color: var(--text-gray); }
-
-        .process-wrap { background: #fff; border-radius: 30px; padding: 25px 15px; margin: 20px 0; border: 1px solid #eee; }
-        .process-item { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .process-num { background: var(--clay-orange); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
-        .process-text { font-size: 15px; font-weight: 600; color: #444; }
-
-        .review-card { background: white; border-radius: 24px; padding: 20px; margin-bottom: 15px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
-        .review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-        .review-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .review-user-info { flex: 1; }
-        .review-user-name { font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 4px; }
-        .review-user-name .verify-tag { font-size: 10px; background: #E6F7FF; color: #1890FF; padding: 1px 6px; border-radius: 4px; font-weight: normal; }
-        .review-user-sub { font-size: 11px; color: #999; margin-top: 2px; }
-        .review-stars { color: #FFB800; font-size: 11px; margin-bottom: 8px; }
-        .review-content { font-size: 14px; color: #333; line-height: 1.6; }
-
-        .scene-wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px 0; }
-        .scene-tag-btn { background: white; border: 1px solid #ff7a3c44; padding: 10px 18px; border-radius: 12px; font-weight: 700; font-size: 15px; color: #bb5a37; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
-
-        .trust-banner { background: linear-gradient(135deg, #1a1a1a 0%, #333 100%); color: #fff; padding: 30px 20px; border-radius: 30px; text-align: center; margin: 20px 0; }
-        .trust-banner h4 { font-size: 20px; margin-bottom: 10px; }
-        .scarcity-text { background: #FF4D4F; color: white; padding: 4px 15px; border-radius: 50px; font-size: 13px; font-weight: 800; display: inline-block; margin-top: 15px; }
-
-        .footer-company {
-            background: #fff;
-            border-top: 1px solid var(--border-color);
-            padding: 20px 20px 30px;
-            text-align: center;
-            font-size: 14px;
-            color: #666;
-            line-height: 1.5;
+        /* ===== 8. 下訂須知（新增） ===== */
+        .policy-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 16px;
+            margin: 26px 0 12px;
+            padding-top: 24px;
+            border-top: 1px dashed #e4e4e4;
         }
-        .company-name { font-weight: 700; color: #333; margin-bottom: 6px; }
-        .company-address { font-size: 12px; color: #888; margin-bottom: 8px; }
-        .license-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; background: #f9f9f9; padding: 6px 12px; border-radius: 30px; cursor: pointer; transition: 0.2s; }
-        .license-link img { width: 20px; height: auto; vertical-align: middle; }
-        .license-link span { font-size: 12px; color: var(--line-green); font-weight: 500; }
-        .legal-links { display: flex; justify-content: center; gap: 24px; margin: 15px 0 12px; }
-        .legal-links a { color: #888; font-size: 13px; text-decoration: none; font-weight: 500; }
-        .footer-copy { color: #bbb; font-size: 10px; margin-top: 8px; }
+        .policy-links a {
+            font-size: 13px;
+            color: var(--text-gray);
+            text-decoration: none;
+            cursor: pointer;
+            border-bottom: 1px solid transparent;
+            transition: color .2s, border-color .2s;
+        }
+        .policy-links a:hover,
+        .policy-links a:active { color: var(--theme-green); border-color: var(--theme-green); }
 
         .modal-mask {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 2000;
-            display: flex; align-items: center; justify-content: center;
-            visibility: hidden; opacity: 0; transition: all 0.2s;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.55);
+            display: none;
+            z-index: 999;
+            padding: 20px;
+            overflow-y: auto;
         }
-        .modal-mask.active { visibility: visible; opacity: 1; }
-        .modal-container {
-            max-width: 340px; width: 85%; background: white; border-radius: 32px;
-            padding: 28px 24px; text-align: center; box-shadow: 0 25px 40px rgba(0,0,0,0.2);
-            max-height: 80vh; overflow-y: auto;
+        .modal-mask.active { display: flex; align-items: center; justify-content: center; }
+        .modal-box {
+            background: #fff;
+            border-radius: 14px;
+            width: 100%;
+            max-width: 560px;
+            max-height: 82vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,.3);
         }
-        .modal-container h3 { font-size: 24px; font-weight: 800; margin-bottom: 16px; color: #333; }
-        .modal-container p { font-size: 15px; line-height: 1.6; color: #555; margin-bottom: 12px; text-align: left; }
-        .modal-close { background: #f0f0f0; border: none; padding: 10px 20px; border-radius: 40px; font-weight: 600; font-size: 14px; cursor: pointer; margin-top: 16px; }
-        .image-preview-modal .modal-container { padding: 16px; }
-        .image-preview-modal img { width: 100%; border-radius: 16px; }
-
-        .floating-action {
-            position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 100%; max-width: 500px; padding: 12px 15px calc(15px + env(safe-area-inset-bottom));
-            background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.08); z-index: 999;
+        .modal-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: var(--light-green);
+            border-bottom: 1px solid #e6efe9;
         }
-        .btn-footer-nowrap {
-            background: var(--line-green); color: white; height: 56px; border-radius: 100px;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 900; font-size: 18px; text-decoration: none;
-            white-space: nowrap; border: none; width: 100%;
-            box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
+        .modal-head h3 { font-size: 16px; color: var(--theme-green); font-weight: bold; }
+        .modal-close {
+            border: none;
+            background: transparent;
+            font-size: 24px;
+            line-height: 1;
+            color: #8a8a8a;
+            cursor: pointer;
+            padding: 0 4px;
         }
+        .modal-body {
+            padding: 20px;
+            overflow-y: auto;
+            font-size: 13px;
+            color: #444;
+            line-height: 1.85;
+            text-align: left;
+        }
+        .modal-body h4 {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-dark);
+            margin: 18px 0 8px;
+            padding-left: 10px;
+            border-left: 3px solid var(--theme-green);
+        }
+        .modal-body h4:first-child { margin-top: 0; }
+        .modal-body p { margin-bottom: 10px; }
+        .modal-body .q { font-weight: bold; color: var(--text-dark); margin-bottom: 2px; }
     </style>
 </head>
 <body>
 
-<div class="app-shell">
-    <!-- 轮播图 -->
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="img/1.jpg" alt="作品圖 1"></div>
-            <div class="swiper-slide"><img src="img/2.jpg" alt="作品圖 2"></div>
-            <div class="swiper-slide"><img src="img/3.jpg" alt="作品圖 3"></div>
-            <div class="swiper-slide"><img src="img/4.jpg" alt="作品圖 4"></div>
-            <div class="swiper-slide"><img src="img/5.jpg" alt="作品圖 5"></div>
-        </div>
-        <div class="swiper-pagination"></div>
+    <div style="font-size: 12px; color: #999;">
+              【MiNiMe手作屋】
+                 <img src="img/18.jpg" alt="MiNiMe手作屋 Logo" style="display:block; max-width:200px; width:100%; height:auto; margin:0 auto; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.04);">
+
+            </div>
+<div class="container">
+
+    <!-- ===== 頁面開頭：聯繫我們 ===== -->
+    <div class="contact-bar top">
+        <button type="button" class="btn-contact" onclick="k2()">聯繫我們</button>
+        <div class="contact-note">有任何問題，歡迎隨時詢問客服</div>
     </div>
 
-    <!-- 圆形图片左右循环滚动 -->
-    <div class="circle-carousel swiper circleSwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="img/1.jpg" alt="作品圖1"></div>
-            <div class="swiper-slide"><img src="img/2.jpg" alt="作品圖2"></div>
-            <div class="swiper-slide"><img src="img/3.jpg" alt="作品圖3"></div>
-            <div class="swiper-slide"><img src="img/4.jpg" alt="作品圖4"></div>
-            <div class="swiper-slide"><img src="img/5.jpg" alt="作品圖5"></div>
-            <div class="swiper-slide"><img src="img/1.jpg" alt="作品圖1"></div>
-            <div class="swiper-slide"><img src="img/2.jpg" alt="作品圖2"></div>
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&q=80&w=800" alt="Hero">
+        <div class="hero-overlay">
+            <h1 class="hero-title">這個夏天，<br>不靠濾鏡也好看。</h1>
+            <div class="hero-subtitle-box">
+                <p>輕薄透氣 × 顯瘦剪裁 × 百搭出片</p>
+                <p>一件搞定通勤 / 出遊 / 約會 / 日常</p>
+            </div>
+            <div class="hero-badges">
+                <span>✅ 今日限時優惠</span>
+                <span>✅ 全國包郵</span>
+            </div>
+            <a href="#buy" class="btn-buy">👉【馬上入手】</a>
         </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">🌤 為什麼你需要一件適合夏天的衣服？</h2>
+        <div class="why-content">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800" alt="Lifestyle" style="border-radius: 12px;">
+            <div class="why-text">
+                <h4>夏天最怕什麼？</h4>
+                <ul>
+                    <li>一出門就悶汗</li>
+                    <li>穿兩小時就貼身黏膩</li>
+                    <li>版型松垮，顯胖顯矮</li>
+                    <li>便宜沒質感，貴的不值</li>
+                </ul>
+                <div class="highlight-quote">
+                    年輕人的穿搭，不是堆價格，是舒服、清爽、有態度。
+                </div>
+                <p>這件衣服的目標很簡單：讓你夏天穿得輕鬆，還能被誇。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">🌬 01｜真正為夏天設計的面料</h2>
+        <img src="https://images.unsplash.com/photo-1584184924103-e310d9dc82fc?auto=format&fit=crop&q=80&w=800" alt="Fabric" style="border-radius: 8px; height: 250px;">
+        <div class="fabric-grid">
+            <div class="fabric-tag">✔ 輕薄不透</div>
+            <div class="fabric-tag">✔ 柔軟不扎</div>
+            <div class="fabric-tag">✔ 透氣不悶</div>
+            <div class="fabric-tag">✔ 出汗不粘身</div>
+        </div>
+        <p style="font-size: 14px; color: var(--text-gray); text-align: center;">精選高品質夏季面料，貼膚舒服，風一吹就有自然垂感。</p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">✂ 02｜顯瘦靠的是剪裁</h2>
+        <div class="cut-grid">
+            <div class="cut-item">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=300" alt="Cut1">
+                <p>肩線調整</p>
+            </div>
+            <div class="cut-item">
+                <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&q=80&w=300" alt="Cut2">
+                <p>腰線提高</p>
+            </div>
+            <div class="cut-item">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=300" alt="Cut3">
+                <p>下擺弧度</p>
+            </div>
+        </div>
+        <div class="cut-desc-box">
+            <p style="font-weight: bold; margin-bottom: 10px;">細節優化：</p>
+            <ul style="line-height: 1.8;">
+                <li>顯直角肩 —— 精神有型</li>
+                <li>拉長腿比例 —— 視覺增高 5cm</li>
+                <li>修飾小肚子 —— 側顏無壓力</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===== 頁面中部：聯繫我們 ===== -->
+    <div class="contact-bar mid">
+        <button type="button" class="btn-contact" onclick="k2()">聯繫我們</button>
+        <div class="contact-note">想了解尺寸、顏色或優惠？點擊聯繫客服</div>
     </div>
 
-    <section class="hero-info">
-        <h1 class="nowrap-title title-primary">把重要時刻，變成永恆收藏</h1>
-        <h2 class="nowrap-title title-secondary">把照片變成專屬人像公仔</h2>
-        <p class="title-tertiary">獨一無二 只屬於你</p>
-        
-        <div class="feature-bar">
-            <span class="feature-tag">✨ 真人定制</span>
-            <span class="feature-tag">🎨 高還原度</span>
-            <span class="feature-tag">✏️ 支持修改</span>
-        </div>
-
-        <button onclick="k2()" class="btn-line-main">
-            👉 點擊加入line好友領取優惠
-        </button>
-        <div class="promo-row">
-            <span>🔥新增line好友 領取優惠券</span>
-            <span class="countdown" id="countdownMain">30:00</span>
-        </div>
-    </section>
-
-    <section class="section-box" style="background: white;">
-        <h3 class="section-title">送普通禮物太沒新意？</h3>
-        <h3 class="section-title" style="color:var(--clay-orange); margin-top:-15px;">送專屬定制 才夠用心</h3>
-        <div class="service-grid">
-            <div class="service-card"><span class="icon">🧑‍🎨</span><h4>15年工藝大師</h4><p>純手工揉捏，完美還原照片神韻與表情細節。</p></div>
-            <div class="service-card"><span class="icon">🧪</span><h4>進口環保軟陶</h4><p>環保無味、永不褪色，可永久珍藏的溫暖禮物。</p></div>
-            <div class="service-card"><span class="icon">💬</span><h4>全程1對1溝通</h4><p>製作過程中隨時反饋，成品滿意才發貨。</p></div>
-            <div class="service-card"><span class="icon">🎁</span><h4>送禮首選推薦</h4><p>紀念意義滿分，給TA一份觸手可及的驚喜。</p></div>
+    <section class="section">
+        <h2 class="section-title">🎨 03｜百搭到離譜</h2>
+        <div class="match-grid">
+            <div class="match-card">
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&q=80&w=400" alt="Jeans">
+                <p><span>👖 牛仔褲</span> = 清爽</p>
+            </div>
+            <div class="match-card">
+                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=400" alt="Skirt">
+                <p><span>👗 半裙</span> = 氛圍感</p>
+            </div>
+            <div class="match-card">
+                <img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&q=80&w=400" alt="Shorts">
+                <p><span>🩳 短褲</span> = 松弛感</p>
+            </div>
+            <div class="match-card">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&q=80&w=400" alt="Office">
+                <p><span>👔 西褲</span> = 通勤款</p>
+            </div>
         </div>
     </section>
 
-    <section class="section-box">
-        <h3 class="section-title">讓每個瞬間都值得被紀念</h3>
-        <p style="text-align: center; color: var(--line-green); font-weight: 800; margin-bottom: 15px;">✅ 场景刺激</p>
-        <div class="scene-wrap">
-            <div class="scene-tag-btn">🎂 生日驚喜</div>
-            <div class="scene-tag-btn">💍 求婚告白</div>
-            <div class="scene-tag-btn">💑 情侶紀念</div>
-            <div class="scene-tag-btn">🎓 畢業收藏</div>
-            <div class="scene-tag-btn">🎁 特別的TA</div>
+    <section class="cta-footer" id="buy">
+        <h2 class="section-title" style="justify-content: center;">💬 真實反饋</h2>
+        <div class="review-card">「版型太絕了，肩線真的顯直。」</div>
+        <div class="review-card">「穿去上課被問了三次鏈接。」</div>
+
+        <div style="margin-top: 40px;">
+            <p class="sales-tag">已售出 20,000+ 件 | 限量回饋中</p> 
+
+            <!-- ===== 頁面底部：聯繫我們 ===== -->
+            <div class="contact-bar bottom">
+                <button type="button" class="btn-contact" onclick="k2()">聯繫我們</button>
+                <div class="contact-note">客服在線時間 09:00 - 22:00</div>
+            </div>
+
+            <!-- ===== 下訂須知（新增） ===== -->
+            <div class="policy-links">
+                <a onclick="openPolicy('return')">退換貨政策</a>
+                <a onclick="openPolicy('shipping')">物流條款</a>
+                <a onclick="openPolicy('privacy')">隱私協議</a>
+                <a onclick="openPolicy('terms')">服務條款</a>
+                <a onclick="openPolicy('about')">關於我們</a>
+            </div>
+
+            <div style="font-size: 12px; color: #999;">
+              【MiNiMe手作屋】
+                 <img src="img/18.jpg" alt="MiNiMe手作屋 Logo"
+             style="display:block; max-width:200px; width:100%; height:auto; margin:0 auto; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.04);">
+
+            </div>
+
+            <div style="font-size: 12px; color: #999;">
+               公司名称：桀滈國際貿易有限公司  <br>地址：彰化縣北斗鎮中山路一段臨367號
+            </div>
         </div>
     </section>
+</div>
 
-    <section class="section-box" style="background: #fff; border-radius: 30px; margin: 15px; padding: 25px;">
-        <h3 class="section-title">想知道做出來有多像？</h3>
-        <div class="process-wrap">
-            <div class="process-item"><div class="process-num">1</div><div class="process-text">添加 LINE，聯繫您的專屬訂製師</div></div>
-            <div class="process-item"><div class="process-num">2</div><div class="process-text">發送您想要訂製的照片（單人/雙人均可）</div></div>
-            <div class="process-item"><div class="process-num">3</div><div class="process-text">工藝師開始手工製作，過程可多次修改</div></div>
-            <div class="process-item"><div class="process-num">4</div><div class="process-text">成品核對，精美包裝發貨</div></div>
+<!-- ===== 下訂須知 彈窗 ===== -->
+<div class="modal-mask" id="policyModal" onclick="if(event.target===this)closePolicy()">
+    <div class="modal-box">
+        <div class="modal-head">
+            <h3 id="policyTitle"></h3>
+            <button type="button" class="modal-close" onclick="closePolicy()" aria-label="關閉">&times;</button>
         </div>
-        <button onclick="k2()" style="background: white; color: var(--line-green); border: 2px solid var(--line-green); animation: none; box-shadow: none;" class="btn-line-main">
-            👉 添加 LINE 看真實案例
-        </button>
-        <div class="promo-row">
-            <span>🔥新增line好友 領取優惠券</span>
-            <span class="countdown" id="countdownProcess">30:00</span>
-        </div>
-    </section>
-
-    <section class="section-box">
-        <h3 class="section-title">已為上千位客戶定制</h3>
-        <p style="text-align: center; font-size: 14px; color: #999; margin-top: -15px; margin-bottom: 25px;">手工製作 先到先排 · 越早定制越早收到驚喜</p>
-
-        <!-- 评论8则 -->
-        <div class="review-card">
-            <div class="review-header"><img src="img/a1.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">林** <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 台中市 | 定制款式：雙人場景版</div></div></div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-content">拿到的時候真的驚呆了，神態抓得超準！送給老公的生日禮物，他感動得不得了，客服全程一對一跟我溝通細節，真的很用心。</p>
-        </div>
-        <div class="review-card">
-            <div class="review-header"><img src="img/a3.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">Jason Lin <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 台北市 | 定制款式：單人全身版</div></div></div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-content">求婚的時候用的，大家都誇公仔做得像本人。特別是衣服上的小Logo都還原了。手工製作確實有溫度，早定是對的，排隊挺久的。</p>
-        </div>
-        <div class="review-card">
-            <div class="review-header"><img src="img/a4.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">張** <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 桃園市 | 定制款式：Q版禮物款</div></div></div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-content">送給老婆的紀念日禮物。拿在手上有份量，手工質感很強，不是那種廉價塑料。這波驚喜給滿分！</p>
-        </div>
-        <div class="review-card">
-            <div class="review-header"><img src="img/a5.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">陳** <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 新北市 | 定制款式：全家福套組</div></div></div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-content">雖然等了快兩週，但收到真的驚豔。一對一溝通過程很舒服，成品非常有神韻，家裡人都很喜歡。</p>
-        </div>
-        <div class="review-card">
-            <div class="review-header"><img src="img/a1.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">吳小姐 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 高雄市 | 定制款式：寵物伴侶款</div></div></div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-content">連我家貓咪都有訂製！做工超細，毛色漸層都做出來，超級感動！大推～</p>
-        </div>
-        <div class="review-card">
-            <div class="review-header"><img src="img/a3.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">周先生 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 彰化市 | 定制款式：軍裝紀念版</div></div></div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-content">退伍紀念公仔，軍徽、臂章都完美重現，懷念的記憶變成實體，非常推薦。</p>
-        </div>
-        <div class="review-card">
-            <div class="review-header"><img src="img/a4.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">李媽媽 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 台南市 | 定制款式：母子情深</div></div></div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-content">把兒子的照片做成公仔，放在客廳每天都看得到，手藝真的沒話說，很感動。</p>
-        </div>
-        <div class="review-card">
-            <div class="review-header"><img src="img/a5.png" class="review-avatar" alt="User"><div class="review-user-info"><div class="review-user-name">黃先生 <span class="verify-tag">實名認證</span></div><div class="review-user-sub">來自 新竹市 | 定制款式：雙人立姿</div></div></div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-content">紀念交往五週年，女友看到直接感動哭，製作過程可以修改草圖，成品超讚！</p>
-        </div>
-    </section>
-
-    <div class="trust-banner">
-        <h4>匠心手作 · 品質保證</h4>
-        <p style="font-size: 14px; opacity: 0.8;">每一件作品都凝聚著工藝師數十小時的心血</p>
-        <div class="scarcity-text">🔥 今日僅剩 10 個定制名額</div>
-    </div>
- 
-
-    <div class="floating-action">
-        <div class="promo-row" style="margin-bottom: 8px; background: rgba(255,242,230,0.95);">
-            <span>🎁新增line好友,領取優惠券</span>
-            <span class="countdown" id="countdownFloat">30:00</span>
-        </div>
-        <button onclick="k2()" class="btn-footer-nowrap">
-            👉 點擊加入line好友領取優惠
-        </button>
+        <div class="modal-body" id="policyBody"></div>
     </div>
 </div>
 
-<!-- Modal 弹窗结构 -->
-<div id="commonModal" class="modal-mask">
-    <div class="modal-container"><h3 id="modalTitle"></h3><div id="modalBody"></div><button class="modal-close" onclick="closeModal()">關閉</button></div>
-</div>
-<div id="imagePreviewModal" class="modal-mask image-preview-modal">
-    <div class="modal-container" style="padding: 16px;"><img id="previewImage" src="" alt="證件圖片"><button class="modal-close" style="margin-top: 16px;" onclick="closeImagePreview()">關閉</button></div>
+<!-- ===== 下訂須知 內容模板（不顯示） ===== -->
+<div id="policyTemplates" style="display:none;">
+
+    <!-- 退換貨政策 -->
+    <div data-key="return" data-title="退換貨政策">
+        <h4>退換貨須知</h4>
+        <p>受理消費者的退換貨，七天內為退換貨保證期，若超過此期間視同驗收完成不得退換貨。</p>
+        <p>若包裝或配件有毀損、遺失恕不受理退換貨。</p>
+        <p>如您要退換貨，務必要在期限內與我們聯繫，以免不必要的誤會與糾紛。</p>
+        <p>如商品非因瑕疵、變質欲辦理換貨事宜，須由消費者負擔來回運費。希望買賣能互信互諒，如對商品有任何不滿想表達意見，我們都非常樂意傾聽。</p>
+        <p>若商品在運送途中產生瑕疵等狀況，請收到商品後第一時間通知賣家，並請將瑕疵商品寄回，賣家收到並確認瑕疵品後會快速將完好的新品寄出。</p>
+
+        <h4>如何申請退換貨</h4>
+        <p>1. 由於個人原因產生的退換貨：至收到商品之日起7天內，在不影響二次銷售的情況下向售後服務中心發送郵件，售後客服會在收到郵件後的1-3個工作日內受理您的請求，退換貨所產生的運費需自行承擔。</p>
+        <p>2. 由於質量原因產生的退換貨：至收到商品之日起7天內，向售後服務中心發送郵件至 cnnnn6446@gmail.com，客服會在收到郵件後的1-3個工作日內受理您的請求，退換貨所產生的運費由我方承擔。</p>
+
+        <h4>如何取消訂單</h4>
+        <p>取消訂單需要向售後服務中心發送郵件并注明相關原因，郵件內容應註明您的訂單號、姓名、電話。</p>
+
+        <h4>退貨地址</h4>
+        <p>彰化縣北斗鎮中山路一段臨367號</p>
+    </div>
+
+    <!-- 物流條款 -->
+    <div data-key="shipping" data-title="物流條款">
+        <h4>1、配送範圍與運費</h4>
+        <p>配送範圍全台灣、免運費</p>
+
+        <h4>2、配送時間</h4>
+        <p>下單成功之後，我們會按照下單先後順序進行配貨，配貨週期為5個工作日左右；不限定時間送貨和指定時段送貨、星期六週日及國定假日可以提供收送服務</p>
+
+        <h4>3、到貨時間</h4>
+        <p>訂單完成後到達時間為7個工作日左右</p>
+
+        <h4>4、簽收須知</h4>
+        <p>下單時，請盡量留下本人能夠簽收的地址與聯絡電話。</p>
+        <p>收到商品時請當場驗貨，檢查外包裝是否完好，商品種類數量是否與訂單明細相符，購物清單是否齊全，不提供簽收前拆開手機包裝驗貨。如果外箱封條出現破損或者撕開，您有權選擇拒收。</p>
+        <p>但對於封條完好，開箱後缺料等異常情況，請您聯繫優品商城24小時在線客服，並保持包裹原樣。</p>
+        <p>在本人不能親自簽收的情況下，請委託他人簽收並嚴格按照第二項內容操作。配送快遞員只負責派送貨物給快遞單指定位址，該位址任何人都可以簽收例如櫃台，不保證派送給指定的人。</p>
+        <p>出於風險考慮，您的訂單在確認購買後無法修改地址和電話，還請在下單時務必填入正確的地址和電話。爲您帶來的麻煩我們表示抱歉。</p>
+        <p>即日起，因資訊不足無法配送的滯留訂單將會被配送方保留5日。我們將會以電子郵件的形式通知用戶，請回覆信箱中的郵件或聯繫客服人員。逾期5日未能得到回覆的訂單我們將安排返回倉庫及退款。由此給您帶來的不便，敬請諒解。</p>
+
+        <h4>5、退貨退款</h4>
+        <p>1、如果您所訂購的商品有瑕疵，您可以要求全額退費</p>
+        <p>2、關於退貨退款方式及條件，依各該商品銷售網頁及訂購流程中之相關網頁之記載</p>
+        <p>3、您所退回的商品，必須保持所有商品、贈品、附件、包裝、及所有附隨文件或資料在出貨當時狀態的完整性，如果有實體發票，並應連同發票一併退回及簽署折讓單等相關法令所要求之單據；否則，優品商城得拒絕接受您的退貨退款要求。</p>
+        <p>4、您瞭解並同意，若因您要求退貨或換貨、或因優品商城無法接受您全部或部分之訂單、或契約因故解除或失其效力，而需為您辦理退款事宜時，優品商城得代您處理發票或折讓單等相關法令所要求之單據</p>
+
+        <h4>6、配送常見問題</h4>
+        <p class="q">Q1：下單時可以指定送貨時間嗎？</p>
+        <p>A1：依照訂單運輸信息中的「運輸公司」對應不同送貨時間。黑貓宅急便：可以選擇，指定時段送貨（時段為：13時前和14時~18時）送貨，不含週日。</p>
+        <p class="q">Q2：如何投訴快遞人員？</p>
+        <p>A2：依照訂單運輸信息中的「運輸公司」對應不同快遞公司，客戶可以聯絡黑貓當地的服務熱線：412-8888。（手機請加02）</p>
+        <p class="q">Q3：配送需要多長時間？</p>
+        <p>A3：正常情況下，自訂單出庫日起，7個工作日左右即可送達（不含週日）。</p>
+        <p class="q">Q4：簽收驗貨需注意什麼？</p>
+        <p>A4：請確保外包裝完好，收件人可以拒絕收取外包裝破損的貨物。</p>
+        <p class="q">Q5：收貨時是否需要提供證件？</p>
+        <p>A5：不需要。黑貓快遞員只負責派送貨物給快遞單指定位址，該位址任何人都可以簽收例如櫃台。不保證派送給指定的人。</p>
+    </div>
+
+    <!-- 隱私協議 -->
+    <div data-key="privacy" data-title="隱私協議">
+        <h4>隱私聲明</h4>
+        <p>我們十分重視客戶的隱私。因此，我們只會根據本隱私聲明擬定之方式收集及使用您的個人資料。</p>
+        <p>1) 在有必要或與交易有關時向您收集資料。</p>
+        <p>2) 在法例要求或與收集用途有關時才會保留您的資料。</p>
+        <p>您可以在不提供個人資料的情況下瀏覽我們網站。在沒有登入用戶帳號瀏覽我們的網站時，您將會以匿名身份瀏覽，而我們無法辦出您的身份。</p>
+        <p>我們十分樂意聆聽您的意見。若您有任何意見或建議，請將有關資料電郵至在線客服</p>
+
+        <h4>個人資料收集</h4>
+        <p>我們不會向第三方出售、分享或買賣網上收集的客戶個人資料。網上收集的個人資料僅於本公司集團內披露以供內部使用。下單時，我們將向您收集的基本個人資料包含：</p>
+        <p>1) 姓名<br>2) 送貨地址<br>3) 電郵地址<br>4) 聯絡電話號碼<br>5) 出生日期<br>6) 性別</p>
+        <p>我們所向您收集的個人資料將會作為以下用途：</p>
+        <p>1) 運送您所購買的商品<br>2) 提供商品運送狀況和客戶支援的最新消息<br>3) 為您提供有關商品的資料<br>4) 處理您的訂單，或根據您的要求或透過我們網站提供服務和資訊</p>
+        <p>此外，我們也會使用您所提供的資料管理您的帳戶；驗證及進行您的網上付款有關交易；審查從我們網站下載的資料；辨識網站瀏覽器；做網站用戶統計進行調查；在您表明不拒絕接收訊息的情況下，發送我們認為適合您的相關商品或服務資訊。</p>
+        <p>我們可能會將您的姓名和地址交給第三者（例如速遞公司或供應商），以方便送貨。</p>
+        <p>注：速遞公司有權要求您填寫身份證號碼，爲了提供海關內部查閱和核對以方便安排出口。</p>
+        <p>我們可能會保留您的訂單資料，但基於保安理由，我們不能直接檢索該資料。您可以登入帳戶，存取訂單資料，查詢個人訂單資料。您也可以管理個人地址、銀行資料和已訂閱的電子報。您有責任確保個人資料保密，並不會讓未授權的第三方得到這些資料。我們不會承擔任何不當使用密碼的責任。</p>
+
+        <h4>個人資料安全</h4>
+        <p>我們確保會安全和保密地保存所有收集到的資料。我們會以下列方式保護您的個人資料：</p>
+        <p>1) 限制存取個人資料<br>2) 維護科技產品防止未經授權存取電腦資料<br>3) 當資料沒有保留作記錄的用途，我們會在安全情況下銷毀您的個人資料</p>
+        <p>我們使用128位元安全通訊端層保密技術 (SSL) 處理您的財務資料。128位元安全通訊端層保密技術大約需要至少一萬億年破解，並且為業界標準的安全措施。</p>
+
+        <h4>個人資料披露</h4>
+        <p>除了提供我們網站送貨服務的相關公司及相關第三方以外，我們不會將您的個人資料分享給其他機構。</p>
+        <p>在特殊情況下，我們網站可能會被要求披露個人資料，例如：在有理由相信的情況下披露個人資料有助阻止生命或健康受到威脅，或作執法用途。</p>
+        <p>如果你認為我們網站違反了隱私條例，請聯繫在線客服</p>
+
+        <h4>電腦數據收集</h4>
+        <p>當您瀏覽我們網站時，本公司的伺服器會自動記錄您的瀏覽器所傳送的資料。資料包括：</p>
+        <p>- 您的電腦IP地址<br>- 瀏覽器類別<br>- 瀏覽我們網站前所瀏覽的網頁<br>- 在我們網站內瀏覽的頁面<br>- 於上述頁面的使用時間、於我們網站搜尋的產品及資料、存取時間及日期，以及其他統計數據。</p>
+        <p>收集所得的資料會用作分析和評估，從而幫助改善本網站及我們提供的服務和產品。這些資料不會與其他個人資料一同使用。</p>
+
+        <h4>隱私聲明更改</h4>
+        <p>我們網站保留隨時修改和更改隱私聲明的權利。</p>
+
+        <h4>有關違反隱私條例的投訴</h4>
+        <p>如果對我們處理客戶隱私或投訴的方法有任何不滿，請聯絡我們。</p>
+    </div>
+
+    <!-- 服務條款 -->
+    <div data-key="terms" data-title="服務條款">
+        <p>感謝您瀏覽網站。您可以根據以下服務條款及任何其他本網站所提及的條例存取或使用本網站或相關服務。使用服務，例如於本網站訂購商品，即表示您同意所有服務條款。本協議並不承認您與任何關係（合夥、合作、僱用或其他形式）。本協議並不賦予您成為的代表。保留在任何時間更改本網站、相關政策及協議、隱私聲明以及本服務條款的權利。您應該定時瀏覽本網站，查看上述的政策及協議、隱私聲明以及本服務條款的更新或更改。</p>
+
+        <h4>知識產權</h4>
+        <p>的所有軟件和內容（其定義為，或包括任何文字、音訊或音樂、影片、圖像、相片和圖片）是的知識產權作品，並受知識產權、版權法和國際公約條款的保護。本網站只供作個人及非商業用途。只有得到及/或其第三方授權人明確授權，方可使用內容作任何非個人及/或非商業用途。在未獲同意或授權前，不可發佈、複製、售賣或特許任何本網站的內容。任何未經授權的行為可能會導致民事後果或刑事處罰。保留在沒有通知的情況下撤消或修改任何服務的權利。若本網站因任何理由在任何時間或任何期間無法使用，我們概不負責</p>
+
+        <h4>產品描述</h4>
+        <p>將盡力確保本網站的內容和產品描述為準確和完整。不過，我們不保證內容和產品描述均為準確、完整、最新和無誤。如果您覺得提供的產品與描述不符，請參閱我們的退貨及退款程序。</p>
+
+        <h4>價格</h4>
+        <p>本網站所標示的價格為新臺幣。除非出現明顯錯誤，否則您的訂單獲接納時即代表您同意支付本網站所顯示的價格。我們盡力確保本網站所顯示的所有價格準確，但不能保證所有價格無誤，並保留更正任何錯誤的權利。如果我們發現您已訂購的任何產品價格有誤，我們會盡快通知您，屆時您可選擇重新確認或取消訂單。如果未能聯絡閣下，我們將把訂單作取消訂單般處理。</p>
+
+        <h4>接受訂單</h4>
+        <p>當您輸入個人資料、付款資料並提交訂單，我們將向您發出電郵以確認收到訂單。該電郵僅確認收到訂單，並不代表接受訂單。我們向您發出電郵確認貨品已經寄出時，即表示您的訂單已獲接受，而您與的合約亦已完成。只有在寄出商品時發出的確認電郵中列出的商品包括於合約中。保留權利因任何原因自行決定不接受訂貨。原因包括但不限於以下其一：</p>
+        <p>a) 你所訂購的商品缺貨，或因為未能達到我們的品質標準或因為其中一項或全部訂購商品適用於送貨限制而被撤回。</p>
+        <p>b) 我們發現價格或產品描述有誤</p>
+        <p>c) 我們未能獲得付款授權</p>
+        <p>d) 您不符合服務條款載列的購買資格</p>
+        <p>如果您的訂單有任何問題，我們的客戶服務團隊會盡快聯絡您。</p>
+
+        <h4>送貨和取貨</h4>
+        <p>當您在網站下訂單時，您會收到一個預期送貨時間的提示。團隊會盡力於預計時間內完成送貨，但不能保證一定能於預計時間內把貨品送到您手上。</p>
+        <p>為每個訂單於運送過程中投保，直至商品送到或被提取。提取商品時，您需要簽署收取商品確認。簽署後，您開始為商品承擔責任。如果取貨人不是原來購買者，或者交付的是禮物，即表示您接受上述人士的簽署確認為送貨證據並表示已完成您的訂單，同時接受相關的責任轉移。保留在沒有事先通知下自行決定更新送貨政策的權利。</p>
+
+        <h4>退貨</h4>
+        <p>希望為您提供最佳的網上購物體驗，因此設有免費、不問原因的退貨政策。如果因為任何原因未能對商品百分百滿意，您可以退還商品並獲得全額退款。</p>
+        <p>a) 客戶可以在訂購後7天內退還商品。</p>
+        <p>b) 退還的商品必須維持原狀：即未經穿著/使用，放於沒受損壞原裝品牌包裝盒及包裝袋，而且所有價錢牌均完好無缺。</p>
+        <p>如果希望退還商品，請填妥送貨時收到的退貨表格，連同附有原本包裝的商品寄回我們的地址。如果您沒有保留購買表格，請致電我們的客戶服務團隊，我們會以電郵方式補發給您</p>
+        <p>請注意，退貨時不設退還運費。</p>
+
+        <h4>您的權利</h4>
+        <p>本服務條款無意影響您根據臺灣法律所享有的權利。</p>
+
+        <h4>責任</h4>
+        <p>商品售賣於本網站的設計師、公司或第三方及其關聯人士向任何媒體所表達的觀點純屬其個人意見。對任何此等觀點概不負責，而此等觀點不一定反映本公司的觀點。</p>
+        <p>不保證使用本網站和服務均為無誤，也不保證本網站或支援本網站的伺服器沒有病毒或其他有害成分。我們建議所有本網站的用戶確保自己已安裝最新軟件，包括防毒軟件。</p>
+        <p>某些事情可能在本公司的合理監管之外發生，例如惡劣天氣。在此等情況下，會盡力維持服務，但對於任何未能滿足本服務條款的責任概不負責。</p>
+    </div>
+
+    <!-- 關於我們 -->
+    <div data-key="about" data-title="關於我們">
+        <p>我們專注於跨境電子商務業務，涉及服裝，電子產品，日用品和其他垂直類別。</p>
+        <p>公司所有員工都在不斷嘗試新的業務模式，不斷用新的方法和思想豐富和擴展新產品類別，以便為世界各地的消費者提供更多選擇。神秘之旅始於我們的客戶。我們的使命是通過以可承受的價格提供卓越的客戶服務和優質商品，提供無與倫比的購物體驗。我們與製造商和供應商緊密合作，在不影響價格的前提下提供獨特的趨勢產品。我們知道找到便宜的交易是多麼令人興奮，因此我們努力提供您會喜歡的令人驚嘆的產品！我們也知道時間很寶貴，因此我們簡化了購物流程。擁有種類繁多的產品，您一定會在一個地方找到所需的一切。神秘之旅是您可以信賴的品牌。</p>
+        <p>我們所有的產品都有30天退款保證，因此您可以無風險地購物，最重要的是，沒有壓力。我們的最終目標是建立忠實的客戶群，該客戶群將不斷回到我們的商店，以簡單，自由，舒適和便捷的方式購物。</p>
+
+        <h4>聯絡資訊</h4>
+        <p>公司：桀滈國際貿易有限公司<br>
+           地址：彰化縣北斗鎮中山路一段臨367號<br>
+           電話：0970-334470<br>
+           郵箱：cnnnn6446@gmail.com</p>
+    </div>
+
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    // 主轮播图初始化，间隔2.5秒
-    const mainSwiper = new Swiper(".mySwiper", {
-        loop: true,
-        autoplay: { delay: 2500, disableOnInteraction: false },
-        pagination: { el: ".swiper-pagination", clickable: true },
-    });
-    // 圆形图片循环滚动
-    const circleSwiper = new Swiper(".circleSwiper", {
-        slidesPerView: "auto",
-        centeredSlides: true,
-        loop: true,
-        autoplay: { delay: 0, disableOnInteraction: false, stopOnLastSlide: false },
-        speed: 4000,
-        freeMode: false,
-        allowTouchMove: true,
-        breakpoints: { 0: { slidesPerView: 3.5, spaceBetween: 8 } }
-    });
-
-    // 倒计时30分钟
-    let endTime = Date.now() + 30 * 60 * 1000;
-    function updateCountdowns() {
-        const now = Date.now();
-        let diff = Math.max(0, endTime - now);
-        let mins = Math.floor(diff / 60000);
-        let secs = Math.floor((diff % 60000) / 1000);
-        let timeStr = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
-        ['countdownMain', 'countdownProcess', 'countdownFloat'].forEach(id => {
-            let el = document.getElementById(id);
-            if (el) el.innerText = timeStr;
-        });
-        if (diff <= 0) {
-            clearInterval(timer);
-            ['countdownMain', 'countdownProcess', 'countdownFloat'].forEach(id => {
-                let el = document.getElementById(id);
-                if (el && el.parentNode) el.parentNode.innerHTML = "⏰ 優惠已結束";
-            });
-        }
-    }
-    updateCountdowns();
-    const timer = setInterval(updateCountdowns, 1000);
-
+    /* 行動號召：聯繫我們 —— 統一調用 k2 方法 */
     function k2() {
-        _lt('send', 'cv', {type: 'GenerateLead'},['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
-        _lt('send', 'cv', {type: 'CompleteReservation'},['a3839ee7-0782-4d35-a042-c36fc0dc2152']);
-        window.location.href = "https://lin.ee/S6WTEUb";
+        window.location.href = 'https://lin.ee/N0BAobC';
     }
 
-    const modal = document.getElementById('commonModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBody = document.getElementById('modalBody');
-    const imageModal = document.getElementById('imagePreviewModal');
-    const previewImg = document.getElementById('previewImage');
+    /* ===== 下訂須知 彈窗控制 ===== */
+    function openPolicy(key) {
+        var src = document.querySelector('#policyTemplates [data-key="' + key + '"]');
+        if (!src) return;
+        document.getElementById('policyTitle').textContent = src.getAttribute('data-title') || '';
+        document.getElementById('policyBody').innerHTML = src.innerHTML;
+        document.getElementById('policyModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
 
-    function openModal(title, contentHtml) { modalTitle.innerText = title; modalBody.innerHTML = contentHtml; modal.classList.add('active'); }
-    function closeModal() { modal.classList.remove('active'); }
-    function openImagePreview(imgUrl) { previewImg.src = imgUrl; imageModal.classList.add('active'); }
-    function closeImagePreview() { imageModal.classList.remove('active'); }
+    function closePolicy() {
+        document.getElementById('policyModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
 
-    document.getElementById('viewLicenseBtn')?.addEventListener('click', () => openImagePreview('img/z.png'));
-    document.getElementById('aboutLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('關於我們', `<p><strong>香港壹石貿易有限公司</strong> 成立於 2018 年，專注於高端人像公仔手工定制。我們以「把記憶化為觸手可及的溫暖」為理念，為全球客戶提供獨一無二的個性化禮物。</p><p>📌 核心服務：一張照片即可定制，高度還原人物神態、髮型、服裝；全程一對一溝通，製作過程可多次修改；進口環保軟陶，純手工捏製，可永久珍藏。</p><p>📞 聯繫方式：<strong>cnnnn6446@gmail.com</strong> (客服 9:00-22:00)<br>🏢 公司登記地址：香港尖沙咀柯士甸路7-9號煥利商業大廈7樓63室</p>`);
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closePolicy();
     });
-    document.getElementById('privacyLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('隱私政策', `<p><strong>生效日期：2026-01-01</strong></p><p><strong>1. 我們收集的資訊</strong><br>為了完成公仔定制，需要提供：照片、姓名、聯絡電話、收件地址、特殊需求參考圖。</p><p><strong>2. 資訊使用方式</strong><br>僅用於製作公仔、配送商品及售後服務，不會用於其他商業行銷，不與第三方共享。</p><p><strong>3. 資料儲存與保護</strong><br>訂單完成後90天內自動刪除照片，採用業界加密保護。</p><p><strong>4. 退款與售後</strong><br>品質問題可申請退款，您有權要求刪除個人資料。</p>`);
-    });
-    document.getElementById('refundLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('退款政策', `<p><strong>1. 定制商品性質說明</strong><br>手工訂製不適用無條件退貨，但提供完整售後保障。</p><p><strong>2. 可退款情況</strong><br>✅ 成品與照片嚴重不符；✅ 運輸造成不可修復破損；✅ 我方延遲發貨超過15工作天。</p><p><strong>3. 退款流程</strong><br>收到貨後7日內聯絡 cnnnn6446@gmail.com，提供訂單編號與照片。24小時內回覆，同意退款後5-15個工作日返還。</p><p><strong>4. 不適用退款</strong><br>❌ 未提供清晰參考照片；❌ 確認草圖後大幅修改；❌ 主觀審美差異。</p>`);
-    });
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-    imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeImagePreview(); });
 </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"48615963fdef450cbdc295358554f39e","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
 </body>
 </html>
