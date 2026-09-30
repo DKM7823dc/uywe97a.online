@@ -2,717 +2,532 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>歐邦人像公仔｜匠心手作 永恆收藏｜官方商城</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>這個夏天，不靠濾鏡也好看 | 夏日松弛感系列</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --theme-green: #009A5A; /* 品牌綠 */
+            --light-green: #EAF4EE; /* 淺背景綠 */
+            --bg-color: #F8F9F6;    /* 全局背景 */
+            --text-dark: #222222;
+            --text-gray: #666666;
+            --white: #FFFFFF;
         }
 
-        body {
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', 'Noto Sans TC', sans-serif;
-            background: #fefaf7;
-            color: #1f1a16;
-            line-height: 1.5;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-dark); line-height: 1.6; }
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .container { max-width: 600px; margin: 0 auto; background-color: var(--white); box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        img { width: 100%; display: block; object-fit: cover; }
 
-        /* 導航欄 */
-        .site-header {
-            background: #fffefc;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
-            border-bottom: 1px solid #f0e4da;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(8px);
-            background: rgba(255,255,245,0.96);
+        /* 1. Hero Section */
+        .hero { position: relative; min-height: 550px; background: #e0dcd3; }
+        .hero img { height: 550px; }
+        .hero-overlay { position: absolute; top: 12%; right: 5%; width: 60%; text-align: right; z-index: 2; }
+        .hero-title { font-size: 28px; font-weight: 900; color: var(--white); text-shadow: 2px 2px 10px rgba(0,0,0,0.4); line-height: 1.3; margin-bottom: 15px; }
+        .hero-subtitle-box { background: rgba(43, 68, 56, 0.85); padding: 12px 18px; border-radius: 8px; display: inline-block; text-align: left; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .hero-subtitle-box p { color: var(--white); font-size: 13px; margin-bottom: 4px; letter-spacing: 0.5px; }
+        .hero-badges { color: var(--white); font-size: 11px; font-weight: bold; display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 20px; }
+        .btn-buy { background-color: var(--theme-green); color: var(--white); padding: 14px 28px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block; transition: transform 0.2s; box-shadow: 0 5px 15px rgba(0,154,90,0.4); }
+        .btn-buy:active { transform: scale(0.95); }
+
+        /* 通用 Section */
+        .section { padding: 40px 20px; border-bottom: 8px solid var(--bg-color); }
+        .section-title { font-size: 18px; font-weight: bold; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+        .section-title::before { content: ''; width: 4px; height: 18px; background: var(--theme-green); display: inline-block; border-radius: 2px; }
+
+        /* 2. 為什麼需要 */
+        .why-content { background: var(--white); border-radius: 12px; overflow: hidden; }
+        .why-text { padding: 20px 0; font-size: 14px; }
+        .why-text ul { list-style: none; margin: 15px 0; color: var(--text-gray); }
+        .why-text li { margin-bottom: 8px; padding-left: 20px; position: relative; }
+        .why-text li::before { content: '✕'; position: absolute; left: 0; color: #ccc; }
+        .highlight-quote { font-weight: bold; color: var(--text-dark); border-left: 3px solid var(--theme-green); padding-left: 15px; margin: 20px 0; }
+
+        /* 3. 面料 */
+        .fabric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+        .fabric-tag { background: var(--light-green); padding: 8px; border-radius: 6px; font-size: 13px; font-weight: bold; color: var(--theme-green); text-align: center; }
+
+        /* 4. 剪裁 */
+        .cut-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .cut-item { text-align: center; }
+        .cut-item img { height: 180px; border-radius: 6px; margin-bottom: 8px; }
+        .cut-item p { font-size: 12px; font-weight: bold; }
+        .cut-desc-box { background: var(--light-green); padding: 20px; border-radius: 10px; font-size: 13px; }
+        .cut-desc-box ul { list-style: none; }
+        .cut-desc-box li::before { content: '✔ '; color: var(--theme-green); font-weight: bold; }
+
+        /* 5. 百搭場景 */
+        .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .match-card { background: #fdfdfd; border-radius: 8px; overflow: hidden; }
+        .match-card img { height: 280px; }
+        .match-card p { padding: 12px; text-align: center; font-size: 13px; font-weight: bold; }
+        .match-card p span { color: var(--theme-green); }
+
+        /* 6. 反饋 & 底部 */
+        .review-card { background: var(--light-green); padding: 15px; border-radius: 8px; margin-bottom: 12px; font-size: 13px; display: flex; align-items: center; gap: 10px; }
+        .avatar { width: 35px; height: 35px; border-radius: 50%; background: #eee; }
+        .cta-footer { text-align: center; padding: 40px 20px; background: #fff; }
+        .sales-tag { color: #e74c3c; font-weight: bold; margin-bottom: 10px; font-size: 14px; }
+        .btn-xl { display: block; background: var(--theme-green); color: white; padding: 18px; border-radius: 40px; text-decoration: none; font-weight: bold; font-size: 20px; margin: 20px 0; }
+
+        /* 7. 聯繫我們 CTA */
+        .contact-bar {
+            text-align: center;
+            padding: 18px 20px;
+            background: var(--bg-color);
         }
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            padding: 12px 0;
-        }
-        .logo a {
-            font-size: 26px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(115deg, #e05a2a, #f57c3c);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            text-decoration: none;
-        }
-        .logo span {
-            font-size: 12px;
-            font-weight: 500;
-            color: #b45a3b;
+        .contact-bar.top { border-bottom: 1px solid #ececec; }
+        .contact-bar.mid { background: var(--light-green); border-radius: 12px; margin: 0 0 10px; }
+        .contact-bar.bottom { padding-bottom: 30px; }
+        .btn-contact {
             display: inline-block;
-            margin-left: 4px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #3a2c24;
-            font-weight: 500;
-            font-size: 16px;
-            transition: 0.2s;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: #e2572c;
-        }
-        .cart-icon {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: #fdf3ec;
-            padding: 8px 16px;
-            border-radius: 100px;
-            font-weight: 600;
-        }
-        .cart-count {
-            background: #e2572c;
-            color: white;
-            font-size: 12px;
-            width: 20px;
-            height: 20px;
+            background-color: var(--theme-green);
+            color: var(--white);
+            padding: 13px 34px;
+            border: none;
             border-radius: 30px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* 主要 banner */
-        .hero-banner {
-            background: linear-gradient(145deg, #fff0e8, #ffe6db);
-            border-radius: 0 0 48px 48px;
-            margin-bottom: 40px;
-        }
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 40px;
-            padding: 40px 0;
-        }
-        .hero-text h1 {
-            font-size: 48px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-        .hero-text .highlight {
-            color: #e2572c;
-        }
-        .hero-text p {
-            font-size: 18px;
-            color: #4b3a2e;
-            margin-bottom: 28px;
-        }
-        .btn-primary {
-            background: #06C755;
-            color: white;
-            border: none;
-            padding: 14px 32px;
-            border-radius: 48px;
-            font-weight: 700;
+            font-family: inherit;
+            font-weight: bold;
             font-size: 16px;
+            letter-spacing: 1px;
             cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 6px 14px rgba(6,199,85,0.3);
-        }
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #e2572c;
-            color: #e2572c;
-            padding: 12px 28px;
-        }
-        .hero-img img {
-            width: 100%;
-            border-radius: 32px;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
-        }
-
-        /* 分類導航 */
-        .category-section {
-            margin: 60px 0;
-        }
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 24px;
-            text-align: center;
-        }
-        .category-card {
-            background: white;
-            border-radius: 40px;
-            padding: 20px 12px;
-            transition: 0.2s;
-            border: 1px solid #ffe0d0;
-            cursor: pointer;
-        }
-        .category-card img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 40px;
-            margin-bottom: 12px;
-        }
-        .category-card h4 {
-            font-weight: 700;
-        }
-
-        /* 寵物戒專區 */
-        .pet-ring-section {
-            background: linear-gradient(125deg, #fef3e8, #fff9f2);
-            border-radius: 48px;
-            padding: 48px 32px;
-            margin: 60px 0;
-            border: 1px solid #ffe0cf;
-        }
-        .pet-ring-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .pet-ring-header h2 {
-            font-size: 36px;
-            font-weight: 800;
-            color: #3a281d;
-        }
-        .pet-ring-header p {
-            font-size: 18px;
-            color: #b45a3b;
-            margin-top: 12px;
-        }
-        .pet-ring-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 24px;
-            margin-bottom: 32px;
-        }
-        .pet-ring-card {
-            background: white;
-            border-radius: 32px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: 0.25s;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.04);
-            border: 1px solid #ffe1d1;
-        }
-        .pet-ring-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
-        }
-        .pet-ring-card img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-        }
-        .pet-ring-info {
-            padding: 16px;
-            text-align: center;
-        }
-        .pet-ring-info h4 {
-            font-weight: 800;
-            margin-bottom: 6px;
-        }
-        .pet-ring-info p {
-            font-size: 14px;
-            color: #9b6a4e;
-        }
-        .pet-ring-btn {
-            display: block;
-            background: #e2572c;
-            color: white;
-            text-align: center;
-            padding: 14px 24px;
-            border-radius: 60px;
-            font-weight: 700;
-            width: fit-content;
-            margin: 0 auto;
-            transition: 0.2s;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-        }
-        .pet-ring-btn:hover {
-            background: #c2441e;
-            transform: scale(1.02);
-        }
-
-        /* 商品網格 */
-        .section-title {
-            font-size: 32px;
-            font-weight: 800;
-            margin: 48px 0 24px;
-            position: relative;
-            display: inline-block;
-        }
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: #e2572c;
-            border-radius: 4px;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 28px;
-            margin: 32px 0;
-        }
-        .product-card {
-            background: white;
-            border-radius: 32px;
-            overflow: hidden;
-            transition: 0.3s;
-            border: 1px solid #f5e4da;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.02);
-        }
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
-        }
-        .product-img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-        }
-        .product-info {
-            padding: 18px 16px 20px;
-        }
-        .product-title {
-            font-weight: 800;
-            font-size: 18px;
-            margin-bottom: 6px;
-        }
-        .product-price {
-            color: #e2572c;
-            font-weight: 800;
-            font-size: 20px;
-            margin: 12px 0;
-        }
-        .btn-sm {
-            background: #fdf0e9;
-            border: none;
-            padding: 10px 0;
-            width: 100%;
-            border-radius: 80px;
-            font-weight: 700;
-            color: #d14d24;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .btn-sm:hover {
-            background: #e05a2a;
-            color: white;
-        }
-
-        /* 特色模塊 */
-        .feature-icons {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 32px;
-            background: #fff7f2;
-            border-radius: 56px;
-            padding: 36px 28px;
-            margin: 50px 0;
-        }
-        .feature-item {
-            text-align: center;
-            flex: 1;
-            min-width: 120px;
-        }
-
-        /* 評價滑塊 */
-        .review-section {
-            background: #fff3ec;
-            border-radius: 56px;
-            padding: 48px 24px;
-            margin: 60px 0;
-        }
-
-        /* 頁腳 */
-        .footer {
-            background: #1e1915;
-            color: #ddcfc5;
-            padding: 48px 0 24px;
-            margin-top: 70px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 36px;
-        }
-        .footer-col h4 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-        .footer-col a {
-            display: block;
-            color: #bcaca0;
             text-decoration: none;
-            margin-bottom: 12px;
-            font-size: 14px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(0,154,90,0.35);
         }
-        .footer-bottom {
-            border-top: 1px solid #3a2e26;
-            margin-top: 40px;
-            padding-top: 24px;
-            text-align: center;
-            font-size: 13px;
-        }
-        .legal-links-footer {
+        .btn-contact:active { transform: scale(0.95); }
+        .contact-note { font-size: 12px; color: #999; margin-top: 8px; }
+
+        /* ===== 8. 下訂須知（新增） ===== */
+        .policy-links {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
+            gap: 8px 16px;
+            margin: 26px 0 12px;
+            padding-top: 24px;
+            border-top: 1px dashed #e4e4e4;
         }
-        @media (max-width: 768px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .header-inner {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .nav-links {
-                justify-content: center;
-            }
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-            .pet-ring-grid {
-                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            }
+        .policy-links a {
+            font-size: 13px;
+            color: var(--text-gray);
+            text-decoration: none;
+            cursor: pointer;
+            border-bottom: 1px solid transparent;
+            transition: color .2s, border-color .2s;
         }
+        .policy-links a:hover,
+        .policy-links a:active { color: var(--theme-green); border-color: var(--theme-green); }
+
+        .modal-mask {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.55);
+            display: none;
+            z-index: 999;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .modal-mask.active { display: flex; align-items: center; justify-content: center; }
+        .modal-box {
+            background: #fff;
+            border-radius: 14px;
+            width: 100%;
+            max-width: 560px;
+            max-height: 82vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,.3);
+        }
+        .modal-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: var(--light-green);
+            border-bottom: 1px solid #e6efe9;
+        }
+        .modal-head h3 { font-size: 16px; color: var(--theme-green); font-weight: bold; }
+        .modal-close {
+            border: none;
+            background: transparent;
+            font-size: 24px;
+            line-height: 1;
+            color: #8a8a8a;
+            cursor: pointer;
+            padding: 0 4px;
+        }
+        .modal-body {
+            padding: 20px;
+            overflow-y: auto;
+            font-size: 13px;
+            color: #444;
+            line-height: 1.85;
+            text-align: left;
+        }
+        .modal-body h4 {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-dark);
+            margin: 18px 0 8px;
+            padding-left: 10px;
+            border-left: 3px solid var(--theme-green);
+        }
+        .modal-body h4:first-child { margin-top: 0; }
+        .modal-body p { margin-bottom: 10px; }
+        .modal-body .q { font-weight: bold; color: var(--text-dark); margin-bottom: 2px; }
     </style>
 </head>
 <body>
 
-<header class="site-header">
-    <div class="container header-inner">
-        <div class="logo">
-            <a href="#">歐邦公仔<span>｜OUBANG DOLL</span></a>
-        </div>
-        <div class="nav-links">
-            <a href="#" class="active">首頁</a>
-            <a href="#">全部商品</a>
-            <a href="#">客製流程</a>
-            <a href="#">真實案例</a>
-            <a href="#">品牌故事</a>
-            <a href="#">部落格</a>
-            <div class="cart-icon">
-                🛒  <span class="cart-count">3</span>
-            </div>
-        </div>
-    </div>
-</header>
+    <div style="font-size: 12px; color: #999;">
+              【MiNiMe精品屋】
+                 <img src="img/909.jpg" alt="MiNiMe精品屋 Logo" style="display:block; max-width:200px; width:100%; height:auto; margin:0 auto; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.04);">
 
-<main>
-    <div class="hero-banner">
-        <div class="container hero-grid">
-            <div class="hero-text">
-                <h1>把重要時刻 <br>變成<span class="highlight">觸手可及的溫暖</span></h1>
-                <p>全球超過 3000+ 客戶信賴 · 純手工人像公仔<br>一張照片還原神韻，送給最特別的 TA</p>
-                <button class="btn-primary" onclick="k2()">立即開始定制 🎁</button>
-                <button class="btn-primary btn-outline" style="margin-left: 12px;" onclick="window.location.href='#products'">瀏覽商品 →</button>
             </div>
-            <div class="hero-img">
-                <img src="img/1.jpg" alt="人像公仔作品">
-            </div>
-        </div>
+<div class="container">
+
+    <!-- ===== 頁面開頭：聯繫我們 ===== -->
+    <div class="contact-bar top">
+        <button type="button" class="btn-contact" onclick="k2()">聯繫我們</button>
+        <div class="contact-note">有任何問題，歡迎隨時詢問客服</div>
     </div>
 
-    <!-- 分類/熱門類型 -->
-    <div class="container category-section">
-        <div class="category-grid">
-            <div class="category-card"><img src="img/2.jpg" alt="生日公仔"><h4>🎂 生日驚喜</h4></div>
-            <div class="category-card"><img src="img/3.jpg" alt="情侶公仔"><h4>💑 情侶紀念</h4></div>
-            <div class="category-card"><img src="img/4.jpg" alt="全家福"><h4>👨‍👩‍👧‍👦 全家福</h4></div>
-            <div class="category-card"><img src="img/5.jpg" alt="畢業公仔"><h4>🎓 畢業收藏</h4></div>
-            <div class="category-card"><img src="img/1.jpg" alt="寵物公仔"><h4>🐶 寵物定制</h4></div>
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&q=80&w=800" alt="Hero">
+        <div class="hero-overlay">
+            <h1 class="hero-title">這個夏天，<br>不靠濾鏡也好看。</h1>
+            <div class="hero-subtitle-box">
+                <p>輕薄透氣 × 顯瘦剪裁 × 百搭出片</p>
+                <p>一件搞定通勤 / 出遊 / 約會 / 日常</p>
+            </div>
+            <div class="hero-badges">
+                <span>✅ 今日限時優惠</span>
+                <span>✅ 全國包郵</span>
+            </div>
+            <a href="#buy" class="btn-buy">👉【馬上入手】</a>
         </div>
-    </div>
+    </section>
 
-    <!-- 定制宠物戒 專區 -->
-    <div class="container pet-ring-section">
-        <div class="pet-ring-header">
-            <h2>🐾 定制寵物戒 · 永恆陪伴</h2>
-            <p>把毛小孩的可愛時刻化作隨身戒飾，獨一無二的專屬信物</p>
-        </div>
-        <div class="pet-ring-grid">
-            <div class="pet-ring-card" onclick="k3()">
-                <img src="img/c1.jpg" alt="寵物戒金毛款">
-                <div class="pet-ring-info">
-                    <h4>黃金獵犬款</h4>
-                    <p>14K金+爪印刻字</p>
+    <section class="section">
+        <h2 class="section-title">🌤 為什麼你需要一件適合夏天的衣服？</h2>
+        <div class="why-content">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800" alt="Lifestyle" style="border-radius: 12px;">
+            <div class="why-text">
+                <h4>夏天最怕什麼？</h4>
+                <ul>
+                    <li>一出門就悶汗</li>
+                    <li>穿兩小時就貼身黏膩</li>
+                    <li>版型松垮，顯胖顯矮</li>
+                    <li>便宜沒質感，貴的不值</li>
+                </ul>
+                <div class="highlight-quote">
+                    年輕人的穿搭，不是堆價格，是舒服、清爽、有態度。
                 </div>
-            </div>
-            <div class="pet-ring-card" onclick="k3()">
-                <img src="img/c2.jpg" alt="寵物戒貓咪款">
-                <div class="pet-ring-info">
-                    <h4>英短藍貓款</h4>
-                    <p>925銀+晶鑽點綴</p>
-                </div>
-            </div>
-            <div class="pet-ring-card" onclick="k3()">
-                <img src="img/c3.jpg" alt="寵物戒柯基款">
-                <div class="pet-ring-info">
-                    <h4>柯基屁股款</h4>
-                    <p>純銀琺瑯彩</p>
-                </div>
-            </div>
-            <div class="pet-ring-card" onclick="k3()">
-                <img src="img/c4.jpg" alt="寵物戒貴賓款">
-                <div class="pet-ring-info">
-                    <h4>玩具貴賓款</h4>
-                    <p>玫瑰金+出生石</p>
-                </div>
-            </div>
-            <div class="pet-ring-card" onclick="k3()">
-                <img src="img/c5.jpg" alt="寵物戒客製款">
-                <div class="pet-ring-info">
-                    <h4>獨家客製款</h4>
-                    <p>照片／爪印 完全訂製</p>
-                </div>
+                <p>這件衣服的目標很簡單：讓你夏天穿得輕鬆，還能被誇。</p>
             </div>
         </div>
-        <button class="pet-ring-btn" onclick="k3()">👉 立即訂製寵物戒｜享受專屬優惠</button>
-    </div>
+    </section>
 
-    <!-- 精選商品區 -->
-    <div class="container" id="products">
-        <div class="section-title">🔥 人氣推薦 · 匠心限量款</div>
-        <div class="product-grid">
-            <div class="product-card"><img src="img/1.jpg" class="product-img"><div class="product-info"><div class="product-title">經典單人公仔</div><div class="product-price">NT$2,880</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
-            <div class="product-card"><img src="img/2.jpg" class="product-img"><div class="product-info"><div class="product-title">雙人甜蜜對偶</div><div class="product-price">NT$4,560</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
-            <div class="product-card"><img src="img/3.jpg" class="product-img"><div class="product-info"><div class="product-title">全家福公仔組</div><div class="product-price">NT$7,990</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
-            <div class="product-card"><img src="img/4.jpg" class="product-img"><div class="product-info"><div class="product-title">寵物擬真公仔</div><div class="product-price">NT$3,280</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
-            <div class="product-card"><img src="img/5.jpg" class="product-img"><div class="product-info"><div class="product-title">校服紀念系列</div><div class="product-price">NT$3,120</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
-            <div class="product-card"><img src="img/1.jpg" class="product-img"><div class="product-info"><div class="product-title">Q版大頭公仔</div><div class="product-price">NT$2,560</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
-            <div class="product-card"><img src="img/2.jpg" class="product-img"><div class="product-info"><div class="product-title">求婚告白特別版</div><div class="product-price">NT$5,200</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
-            <div class="product-card"><img src="img/3.jpg" class="product-img"><div class="product-info"><div class="product-title">軍裝紀念公仔</div><div class="product-price">NT$3,920</div><button class="btn-sm" onclick="k2()">客製諮詢</button></div></div>
+    <section class="section">
+        <h2 class="section-title">🌬 01｜真正為夏天設計的面料</h2>
+        <img src="https://images.unsplash.com/photo-1584184924103-e310d9dc82fc?auto=format&fit=crop&q=80&w=800" alt="Fabric" style="border-radius: 8px; height: 250px;">
+        <div class="fabric-grid">
+            <div class="fabric-tag">✔ 輕薄不透</div>
+            <div class="fabric-tag">✔ 柔軟不扎</div>
+            <div class="fabric-tag">✔ 透氣不悶</div>
+            <div class="fabric-tag">✔ 出汗不粘身</div>
         </div>
-    </div>
+        <p style="font-size: 14px; color: var(--text-gray); text-align: center;">精選高品質夏季面料，貼膚舒服，風一吹就有自然垂感。</p>
+    </section>
 
-    <!-- 特色賣點 -->
-    <div class="container feature-icons">
-        <div class="feature-item">🧑‍🎨 15年經驗工藝師</div>
-        <div class="feature-item">📷 一張照片即可製作</div>
-        <div class="feature-item">✈️ 全球免運(部分地區)</div>
-        <div class="feature-item">♻️ 無限次修改至滿意</div>
-        <div class="feature-item">🎁 終生珍藏級材質</div>
-    </div>
-
-    <!-- 客製流程 簡單步驟 -->
-    <div class="container">
-        <div class="section-title">✍️ 訂製流程 · 簡單四步</div>
-        <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; margin: 40px 0;">
-            <div style="flex:1; text-align:center"><span style="background:#e2572c; color:white; width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;border-radius:60px;">1</span><h4>添加 LINE</h4><p>聯繫專屬設計師</p></div>
-            <div style="flex:1; text-align:center"><span style="background:#e2572c; color:white; width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;border-radius:60px;">2</span><h4>發送照片</h4><p>提供正面/側面照片</p></div>
-            <div style="flex:1; text-align:center"><span style="background:#e2572c; color:white; width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;border-radius:60px;">3</span><h4>手作與溝通</h4><p>製作過程隨時反饋</p></div>
-            <div style="flex:1; text-align:center"><span style="background:#e2572c; color:white; width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;border-radius:60px;">4</span><h4>精美包裝發貨</h4><p>順豐/國際配送</p></div>
-        </div>
-    </div>
-
-    <!-- 真實評價滑塊 -->
-    <div class="container review-section">
-        <div class="swiper reviewSwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background:white; border-radius:32px; padding:24px;"><div class="review-stars">★★★★★</div><p style="font-size:16px;">「還原度超乎想像，細節做到淚目！絕對會推薦朋友來做。」</p><div class="review-user-name">林小姐 · 台中</div></div>
-                <div class="swiper-slide" style="background:white; border-radius:32px; padding:24px;"><div class="review-stars">★★★★★</div><p>「送男朋友的生日禮物，他看到直接感動哭了，超級值得！」</p><div class="review-user-name">陳小姐 · 香港</div></div>
-                <div class="swiper-slide" style="background:white; border-radius:32px; padding:24px;"><div class="review-stars">★★★★★</div><p>「客服非常有耐心，修改了三版髮型，最終成品完全是我想要的樣子。」</p><div class="review-user-name">王先生 · 台北</div></div>
-                <div class="swiper-slide" style="background:white; border-radius:32px; padding:24px;"><div class="review-stars">★★★★★</div><p>「全家福公仔質感超棒，爸媽愛不釋手，很值得紀念。」</p><div class="review-user-name">張媽媽 · 高雄</div></div>
-                <div class="swiper-slide" style="background:white; border-radius:32px; padding:24px;"><div class="review-stars">★★★★★</div><p>「跨國訂單也準時送達，包裝非常嚴實，公仔像到嚇一跳。」</p><div class="review-user-name">Jason · 美國</div></div>
+    <section class="section">
+        <h2 class="section-title">✂ 02｜顯瘦靠的是剪裁</h2>
+        <div class="cut-grid">
+            <div class="cut-item">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=300" alt="Cut1">
+                <p>肩線調整</p>
             </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </div>
-
-    <!-- FAQ 常見問題 -->
-    <div class="container" style="margin:60px auto;">
-        <div class="section-title">❓ 常見問題</div>
-        <div style="display:grid; gap:16px; margin-top:24px;">
-            <details><summary><strong>製作需要多久時間？</strong></summary><p>一般手工製作約 14-18 個工作天（不含假日），急件可與客服協商。</p></details>
-            <details><summary><strong>可以修改幾次？</strong></summary><p>製作中無限次免費修改，直到您滿意為止，但一旦最終確認後即不可大幅修改。</p></details>
-            <details><summary><strong>海外寄送費用如何計算？</strong></summary><p>滿 NT$4000 享全球免運優惠（部分偏遠地區需加收運費）。</p></details>
-            <details><summary><strong>退換貨政策？</strong></summary><p>手工訂製商品不適用七天鑑賞期，但如嚴重不像可免費重做或退款，詳見「退款政策」。</p></details>
-        </div>
-    </div>
-
-</main>
-
-<footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>歐邦人像公仔</h4>
-                <p>匠心手作，把回憶變成溫暖實體。已服務超過 3000+ 位客戶。</p>
-                <p style="margin-top:12px;">📧 cnnnn6446@gmail.com</p>
-                <p>📍 香港尖沙咀柯士甸路7-9號煥利商業大廈7樓63室</p>
+            <div class="cut-item">
+                <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&q=80&w=300" alt="Cut2">
+                <p>腰線提高</p>
             </div>
-            <div class="footer-col">
-                <h4>快速連結</h4>
-                <a href="#">全部商品</a>
-                <a href="#">客製流程</a>
-                <a href="#">品牌故事</a>
-                <a href="#">部落格</a>
-                <a href="#">真實案例</a>
-            </div>
-            <div class="footer-col">
-                <h4>政策與條款</h4>
-                <a href="#" id="aboutLinkFooter">關於我們</a>
-                <a href="#" id="privacyLinkFooter">隱私政策</a>
-                <a href="#" id="refundLinkFooter">退款政策</a>
-                <a href="#" id="viewLicenseBtnFooter">查看證件</a>
-            </div>
-            <div class="footer-col">
-                <h4>關注我們</h4>
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
-                <a href="#">LINE官方</a>
+            <div class="cut-item">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=300" alt="Cut3">
+                <p>下擺弧度</p>
             </div>
         </div>
-        <div class="legal-links-footer">
-            <span>© 2026 香港壹石貿易有限公司 |電話：+8613592382192</span>
+        <div class="cut-desc-box">
+            <p style="font-weight: bold; margin-bottom: 10px;">細節優化：</p>
+            <ul style="line-height: 1.8;">
+                <li>顯直角肩 —— 精神有型</li>
+                <li>拉長腿比例 —— 視覺增高 5cm</li>
+                <li>修飾小肚子 —— 側顏無壓力</li>
+            </ul>
         </div>
-        <div class="footer-bottom">
-            <p>本網站所有商品均為手工獨家訂製，每一件都是獨一無二的藝術品。圖案僅供參考，實際成品會依據照片微調。</p>
-        </div>
-    </div>
-</footer>
+    </section>
 
-<!-- 彈窗 Modal 結構 -->
-<div id="commonModal" class="modal-mask" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); z-index:2000; align-items:center; justify-content:center;">
-    <div class="modal-container" style="background:#fff; max-width:360px; width:85%; border-radius:32px; padding:28px 24px; text-align:center;">
-        <h3 id="modalTitle"></h3>
-        <div id="modalBody"></div>
-        <button class="modal-close" onclick="closeModal()" style="margin-top:16px; background:#eee; border:none; padding:8px 24px; border-radius:40px;">關閉</button>
+    <!-- ===== 頁面中部：聯繫我們 ===== -->
+    <div class="contact-bar mid">
+        <button type="button" class="btn-contact" onclick="k2()">聯繫我們</button>
+        <div class="contact-note">想了解尺寸、顏色或優惠？點擊聯繫客服</div>
     </div>
+
+    <section class="section">
+        <h2 class="section-title">🎨 03｜百搭到離譜</h2>
+        <div class="match-grid">
+            <div class="match-card">
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&q=80&w=400" alt="Jeans">
+                <p><span>👖 牛仔褲</span> = 清爽</p>
+            </div>
+            <div class="match-card">
+                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=400" alt="Skirt">
+                <p><span>👗 半裙</span> = 氛圍感</p>
+            </div>
+            <div class="match-card">
+                <img src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&q=80&w=400" alt="Shorts">
+                <p><span>🩳 短褲</span> = 松弛感</p>
+            </div>
+            <div class="match-card">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&q=80&w=400" alt="Office">
+                <p><span>👔 西褲</span> = 通勤款</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-footer" id="buy">
+        <h2 class="section-title" style="justify-content: center;">💬 真實反饋</h2>
+        <div class="review-card">「版型太絕了，肩線真的顯直。」</div>
+        <div class="review-card">「穿去上課被問了三次鏈接。」</div>
+
+        <div style="margin-top: 40px;">
+            <p class="sales-tag">已售出 20,000+ 件 | 限量回饋中</p> 
+
+            <!-- ===== 頁面底部：聯繫我們 ===== -->
+            <div class="contact-bar bottom">
+                <button type="button" class="btn-contact" onclick="k2()">聯繫我們</button>
+                <div class="contact-note">客服在線時間 09:00 - 22:00</div>
+            </div>
+
+            <!-- ===== 下訂須知（新增） ===== -->
+            <div class="policy-links">
+                <a onclick="openPolicy('return')">退換貨政策</a>
+                <a onclick="openPolicy('shipping')">物流條款</a>
+                <a onclick="openPolicy('privacy')">隱私協議</a>
+                <a onclick="openPolicy('terms')">服務條款</a>
+                <a onclick="openPolicy('about')">關於我們</a>
+            </div>
+
+            <div style="font-size: 12px; color: #999;">
+              【MiNiMe精品屋】
+                 <img src="img/909.jpg" alt="MiNiMe精品屋 Logo"
+             style="display:block; max-width:200px; width:100%; height:auto; margin:0 auto; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.04);">
+
+            </div>
+
+            <div style="font-size: 12px; color: #999;">
+               公司名称：桀滈國際貿易有限公司  <br>地址：彰化縣北斗鎮中山路一段臨367號
+            </div>
+        </div>
+    </section>
 </div>
-<div id="imagePreviewModal" class="modal-mask" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); align-items:center; justify-content:center;z-index:2001;">
-    <div style="background:#fff; border-radius:32px; padding:16px; max-width:340px;">
-        <img id="previewImage" src="" style="width:100%; border-radius:16px;">
-        <button onclick="closeImagePreview()" style="margin-top:16px; display:block; width:100%; background:#f0f0f0; border:none; padding:8px; border-radius:40px;">關閉</button>
+
+<!-- ===== 下訂須知 彈窗 ===== -->
+<div class="modal-mask" id="policyModal" onclick="if(event.target===this)closePolicy()">
+    <div class="modal-box">
+        <div class="modal-head">
+            <h3 id="policyTitle"></h3>
+            <button type="button" class="modal-close" onclick="closePolicy()" aria-label="關閉">&times;</button>
+        </div>
+        <div class="modal-body" id="policyBody"></div>
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- ===== 下訂須知 內容模板（不顯示） ===== -->
+<div id="policyTemplates" style="display:none;">
+
+    <!-- 退換貨政策 -->
+    <div data-key="return" data-title="退換貨政策">
+        <h4>退換貨須知</h4>
+        <p>受理消費者的退換貨，七天內為退換貨保證期，若超過此期間視同驗收完成不得退換貨。</p>
+        <p>若包裝或配件有毀損、遺失恕不受理退換貨。</p>
+        <p>如您要退換貨，務必要在期限內與我們聯繫，以免不必要的誤會與糾紛。</p>
+        <p>如商品非因瑕疵、變質欲辦理換貨事宜，須由消費者負擔來回運費。希望買賣能互信互諒，如對商品有任何不滿想表達意見，我們都非常樂意傾聽。</p>
+        <p>若商品在運送途中產生瑕疵等狀況，請收到商品後第一時間通知賣家，並請將瑕疵商品寄回，賣家收到並確認瑕疵品後會快速將完好的新品寄出。</p>
+
+        <h4>如何申請退換貨</h4>
+        <p>1. 由於個人原因產生的退換貨：至收到商品之日起7天內，在不影響二次銷售的情況下向售後服務中心發送郵件，售後客服會在收到郵件後的1-3個工作日內受理您的請求，退換貨所產生的運費需自行承擔。</p>
+        <p>2. 由於質量原因產生的退換貨：至收到商品之日起7天內，向售後服務中心發送郵件至 cnnnn6446@gmail.com，客服會在收到郵件後的1-3個工作日內受理您的請求，退換貨所產生的運費由我方承擔。</p>
+
+        <h4>如何取消訂單</h4>
+        <p>取消訂單需要向售後服務中心發送郵件并注明相關原因，郵件內容應註明您的訂單號、姓名、電話。</p>
+
+        <h4>退貨地址</h4>
+        <p>彰化縣北斗鎮中山路一段臨367號</p>
+    </div>
+
+    <!-- 物流條款 -->
+    <div data-key="shipping" data-title="物流條款">
+        <h4>1、配送範圍與運費</h4>
+        <p>配送範圍全台灣、免運費</p>
+
+        <h4>2、配送時間</h4>
+        <p>下單成功之後，我們會按照下單先後順序進行配貨，配貨週期為5個工作日左右；不限定時間送貨和指定時段送貨、星期六週日及國定假日可以提供收送服務</p>
+
+        <h4>3、到貨時間</h4>
+        <p>訂單完成後到達時間為7個工作日左右</p>
+
+        <h4>4、簽收須知</h4>
+        <p>下單時，請盡量留下本人能夠簽收的地址與聯絡電話。</p>
+        <p>收到商品時請當場驗貨，檢查外包裝是否完好，商品種類數量是否與訂單明細相符，購物清單是否齊全，不提供簽收前拆開手機包裝驗貨。如果外箱封條出現破損或者撕開，您有權選擇拒收。</p>
+        <p>但對於封條完好，開箱後缺料等異常情況，請您聯繫優品商城24小時在線客服，並保持包裹原樣。</p>
+        <p>在本人不能親自簽收的情況下，請委託他人簽收並嚴格按照第二項內容操作。配送快遞員只負責派送貨物給快遞單指定位址，該位址任何人都可以簽收例如櫃台，不保證派送給指定的人。</p>
+        <p>出於風險考慮，您的訂單在確認購買後無法修改地址和電話，還請在下單時務必填入正確的地址和電話。爲您帶來的麻煩我們表示抱歉。</p>
+        <p>即日起，因資訊不足無法配送的滯留訂單將會被配送方保留5日。我們將會以電子郵件的形式通知用戶，請回覆信箱中的郵件或聯繫客服人員。逾期5日未能得到回覆的訂單我們將安排返回倉庫及退款。由此給您帶來的不便，敬請諒解。</p>
+
+        <h4>5、退貨退款</h4>
+        <p>1、如果您所訂購的商品有瑕疵，您可以要求全額退費</p>
+        <p>2、關於退貨退款方式及條件，依各該商品銷售網頁及訂購流程中之相關網頁之記載</p>
+        <p>3、您所退回的商品，必須保持所有商品、贈品、附件、包裝、及所有附隨文件或資料在出貨當時狀態的完整性，如果有實體發票，並應連同發票一併退回及簽署折讓單等相關法令所要求之單據；否則，優品商城得拒絕接受您的退貨退款要求。</p>
+        <p>4、您瞭解並同意，若因您要求退貨或換貨、或因優品商城無法接受您全部或部分之訂單、或契約因故解除或失其效力，而需為您辦理退款事宜時，優品商城得代您處理發票或折讓單等相關法令所要求之單據</p>
+
+        <h4>6、配送常見問題</h4>
+        <p class="q">Q1：下單時可以指定送貨時間嗎？</p>
+        <p>A1：依照訂單運輸信息中的「運輸公司」對應不同送貨時間。黑貓宅急便：可以選擇，指定時段送貨（時段為：13時前和14時~18時）送貨，不含週日。</p>
+        <p class="q">Q2：如何投訴快遞人員？</p>
+        <p>A2：依照訂單運輸信息中的「運輸公司」對應不同快遞公司，客戶可以聯絡黑貓當地的服務熱線：412-8888。（手機請加02）</p>
+        <p class="q">Q3：配送需要多長時間？</p>
+        <p>A3：正常情況下，自訂單出庫日起，7個工作日左右即可送達（不含週日）。</p>
+        <p class="q">Q4：簽收驗貨需注意什麼？</p>
+        <p>A4：請確保外包裝完好，收件人可以拒絕收取外包裝破損的貨物。</p>
+        <p class="q">Q5：收貨時是否需要提供證件？</p>
+        <p>A5：不需要。黑貓快遞員只負責派送貨物給快遞單指定位址，該位址任何人都可以簽收例如櫃台。不保證派送給指定的人。</p>
+    </div>
+
+    <!-- 隱私協議 -->
+    <div data-key="privacy" data-title="隱私協議">
+        <h4>隱私聲明</h4>
+        <p>我們十分重視客戶的隱私。因此，我們只會根據本隱私聲明擬定之方式收集及使用您的個人資料。</p>
+        <p>1) 在有必要或與交易有關時向您收集資料。</p>
+        <p>2) 在法例要求或與收集用途有關時才會保留您的資料。</p>
+        <p>您可以在不提供個人資料的情況下瀏覽我們網站。在沒有登入用戶帳號瀏覽我們的網站時，您將會以匿名身份瀏覽，而我們無法辦出您的身份。</p>
+        <p>我們十分樂意聆聽您的意見。若您有任何意見或建議，請將有關資料電郵至在線客服</p>
+
+        <h4>個人資料收集</h4>
+        <p>我們不會向第三方出售、分享或買賣網上收集的客戶個人資料。網上收集的個人資料僅於本公司集團內披露以供內部使用。下單時，我們將向您收集的基本個人資料包含：</p>
+        <p>1) 姓名<br>2) 送貨地址<br>3) 電郵地址<br>4) 聯絡電話號碼<br>5) 出生日期<br>6) 性別</p>
+        <p>我們所向您收集的個人資料將會作為以下用途：</p>
+        <p>1) 運送您所購買的商品<br>2) 提供商品運送狀況和客戶支援的最新消息<br>3) 為您提供有關商品的資料<br>4) 處理您的訂單，或根據您的要求或透過我們網站提供服務和資訊</p>
+        <p>此外，我們也會使用您所提供的資料管理您的帳戶；驗證及進行您的網上付款有關交易；審查從我們網站下載的資料；辨識網站瀏覽器；做網站用戶統計進行調查；在您表明不拒絕接收訊息的情況下，發送我們認為適合您的相關商品或服務資訊。</p>
+        <p>我們可能會將您的姓名和地址交給第三者（例如速遞公司或供應商），以方便送貨。</p>
+        <p>注：速遞公司有權要求您填寫身份證號碼，爲了提供海關內部查閱和核對以方便安排出口。</p>
+        <p>我們可能會保留您的訂單資料，但基於保安理由，我們不能直接檢索該資料。您可以登入帳戶，存取訂單資料，查詢個人訂單資料。您也可以管理個人地址、銀行資料和已訂閱的電子報。您有責任確保個人資料保密，並不會讓未授權的第三方得到這些資料。我們不會承擔任何不當使用密碼的責任。</p>
+
+        <h4>個人資料安全</h4>
+        <p>我們確保會安全和保密地保存所有收集到的資料。我們會以下列方式保護您的個人資料：</p>
+        <p>1) 限制存取個人資料<br>2) 維護科技產品防止未經授權存取電腦資料<br>3) 當資料沒有保留作記錄的用途，我們會在安全情況下銷毀您的個人資料</p>
+        <p>我們使用128位元安全通訊端層保密技術 (SSL) 處理您的財務資料。128位元安全通訊端層保密技術大約需要至少一萬億年破解，並且為業界標準的安全措施。</p>
+
+        <h4>個人資料披露</h4>
+        <p>除了提供我們網站送貨服務的相關公司及相關第三方以外，我們不會將您的個人資料分享給其他機構。</p>
+        <p>在特殊情況下，我們網站可能會被要求披露個人資料，例如：在有理由相信的情況下披露個人資料有助阻止生命或健康受到威脅，或作執法用途。</p>
+        <p>如果你認為我們網站違反了隱私條例，請聯繫在線客服</p>
+
+        <h4>電腦數據收集</h4>
+        <p>當您瀏覽我們網站時，本公司的伺服器會自動記錄您的瀏覽器所傳送的資料。資料包括：</p>
+        <p>- 您的電腦IP地址<br>- 瀏覽器類別<br>- 瀏覽我們網站前所瀏覽的網頁<br>- 在我們網站內瀏覽的頁面<br>- 於上述頁面的使用時間、於我們網站搜尋的產品及資料、存取時間及日期，以及其他統計數據。</p>
+        <p>收集所得的資料會用作分析和評估，從而幫助改善本網站及我們提供的服務和產品。這些資料不會與其他個人資料一同使用。</p>
+
+        <h4>隱私聲明更改</h4>
+        <p>我們網站保留隨時修改和更改隱私聲明的權利。</p>
+
+        <h4>有關違反隱私條例的投訴</h4>
+        <p>如果對我們處理客戶隱私或投訴的方法有任何不滿，請聯絡我們。</p>
+    </div>
+
+    <!-- 服務條款 -->
+    <div data-key="terms" data-title="服務條款">
+        <p>感謝您瀏覽網站。您可以根據以下服務條款及任何其他本網站所提及的條例存取或使用本網站或相關服務。使用服務，例如於本網站訂購商品，即表示您同意所有服務條款。本協議並不承認您與任何關係（合夥、合作、僱用或其他形式）。本協議並不賦予您成為的代表。保留在任何時間更改本網站、相關政策及協議、隱私聲明以及本服務條款的權利。您應該定時瀏覽本網站，查看上述的政策及協議、隱私聲明以及本服務條款的更新或更改。</p>
+
+        <h4>知識產權</h4>
+        <p>的所有軟件和內容（其定義為，或包括任何文字、音訊或音樂、影片、圖像、相片和圖片）是的知識產權作品，並受知識產權、版權法和國際公約條款的保護。本網站只供作個人及非商業用途。只有得到及/或其第三方授權人明確授權，方可使用內容作任何非個人及/或非商業用途。在未獲同意或授權前，不可發佈、複製、售賣或特許任何本網站的內容。任何未經授權的行為可能會導致民事後果或刑事處罰。保留在沒有通知的情況下撤消或修改任何服務的權利。若本網站因任何理由在任何時間或任何期間無法使用，我們概不負責</p>
+
+        <h4>產品描述</h4>
+        <p>將盡力確保本網站的內容和產品描述為準確和完整。不過，我們不保證內容和產品描述均為準確、完整、最新和無誤。如果您覺得提供的產品與描述不符，請參閱我們的退貨及退款程序。</p>
+
+        <h4>價格</h4>
+        <p>本網站所標示的價格為新臺幣。除非出現明顯錯誤，否則您的訂單獲接納時即代表您同意支付本網站所顯示的價格。我們盡力確保本網站所顯示的所有價格準確，但不能保證所有價格無誤，並保留更正任何錯誤的權利。如果我們發現您已訂購的任何產品價格有誤，我們會盡快通知您，屆時您可選擇重新確認或取消訂單。如果未能聯絡閣下，我們將把訂單作取消訂單般處理。</p>
+
+        <h4>接受訂單</h4>
+        <p>當您輸入個人資料、付款資料並提交訂單，我們將向您發出電郵以確認收到訂單。該電郵僅確認收到訂單，並不代表接受訂單。我們向您發出電郵確認貨品已經寄出時，即表示您的訂單已獲接受，而您與的合約亦已完成。只有在寄出商品時發出的確認電郵中列出的商品包括於合約中。保留權利因任何原因自行決定不接受訂貨。原因包括但不限於以下其一：</p>
+        <p>a) 你所訂購的商品缺貨，或因為未能達到我們的品質標準或因為其中一項或全部訂購商品適用於送貨限制而被撤回。</p>
+        <p>b) 我們發現價格或產品描述有誤</p>
+        <p>c) 我們未能獲得付款授權</p>
+        <p>d) 您不符合服務條款載列的購買資格</p>
+        <p>如果您的訂單有任何問題，我們的客戶服務團隊會盡快聯絡您。</p>
+
+        <h4>送貨和取貨</h4>
+        <p>當您在網站下訂單時，您會收到一個預期送貨時間的提示。團隊會盡力於預計時間內完成送貨，但不能保證一定能於預計時間內把貨品送到您手上。</p>
+        <p>為每個訂單於運送過程中投保，直至商品送到或被提取。提取商品時，您需要簽署收取商品確認。簽署後，您開始為商品承擔責任。如果取貨人不是原來購買者，或者交付的是禮物，即表示您接受上述人士的簽署確認為送貨證據並表示已完成您的訂單，同時接受相關的責任轉移。保留在沒有事先通知下自行決定更新送貨政策的權利。</p>
+
+        <h4>退貨</h4>
+        <p>希望為您提供最佳的網上購物體驗，因此設有免費、不問原因的退貨政策。如果因為任何原因未能對商品百分百滿意，您可以退還商品並獲得全額退款。</p>
+        <p>a) 客戶可以在訂購後7天內退還商品。</p>
+        <p>b) 退還的商品必須維持原狀：即未經穿著/使用，放於沒受損壞原裝品牌包裝盒及包裝袋，而且所有價錢牌均完好無缺。</p>
+        <p>如果希望退還商品，請填妥送貨時收到的退貨表格，連同附有原本包裝的商品寄回我們的地址。如果您沒有保留購買表格，請致電我們的客戶服務團隊，我們會以電郵方式補發給您</p>
+        <p>請注意，退貨時不設退還運費。</p>
+
+        <h4>您的權利</h4>
+        <p>本服務條款無意影響您根據臺灣法律所享有的權利。</p>
+
+        <h4>責任</h4>
+        <p>商品售賣於本網站的設計師、公司或第三方及其關聯人士向任何媒體所表達的觀點純屬其個人意見。對任何此等觀點概不負責，而此等觀點不一定反映本公司的觀點。</p>
+        <p>不保證使用本網站和服務均為無誤，也不保證本網站或支援本網站的伺服器沒有病毒或其他有害成分。我們建議所有本網站的用戶確保自己已安裝最新軟件，包括防毒軟件。</p>
+        <p>某些事情可能在本公司的合理監管之外發生，例如惡劣天氣。在此等情況下，會盡力維持服務，但對於任何未能滿足本服務條款的責任概不負責。</p>
+    </div>
+
+    <!-- 關於我們 -->
+    <div data-key="about" data-title="關於我們">
+        <p>我們專注於跨境電子商務業務，涉及服裝，電子產品，日用品和其他垂直類別。</p>
+        <p>公司所有員工都在不斷嘗試新的業務模式，不斷用新的方法和思想豐富和擴展新產品類別，以便為世界各地的消費者提供更多選擇。神秘之旅始於我們的客戶。我們的使命是通過以可承受的價格提供卓越的客戶服務和優質商品，提供無與倫比的購物體驗。我們與製造商和供應商緊密合作，在不影響價格的前提下提供獨特的趨勢產品。我們知道找到便宜的交易是多麼令人興奮，因此我們努力提供您會喜歡的令人驚嘆的產品！我們也知道時間很寶貴，因此我們簡化了購物流程。擁有種類繁多的產品，您一定會在一個地方找到所需的一切。神秘之旅是您可以信賴的品牌。</p>
+        <p>我們所有的產品都有30天退款保證，因此您可以無風險地購物，最重要的是，沒有壓力。我們的最終目標是建立忠實的客戶群，該客戶群將不斷回到我們的商店，以簡單，自由，舒適和便捷的方式購物。</p>
+
+        <h4>聯絡資訊</h4>
+        <p>公司：桀滈國際貿易有限公司<br>
+           地址：彰化縣北斗鎮中山路一段臨367號<br>
+           電話：0970-334470<br>
+           郵箱：cnnnn6446@gmail.com</p>
+    </div>
+
+</div>
+
 <script>
-    function k2() { window.location.href = "gz.html"; }
-    function k3() { window.location.href = "#"; }
+    /* 行動號召：聯繫我們 —— 統一調用 k2 方法 */
+    function k2() {
+        window.location.href = 'https://lin.ee/N0BAobC';
+    }
 
-    // Swiper 評價
-    new Swiper('.reviewSwiper', { loop: true, autoplay: { delay: 4000 }, pagination: { el: '.swiper-pagination', clickable: true }, slidesPerView: 1, breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } } });
-    
-    // 彈窗邏輯
-    const modal = document.getElementById('commonModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBody = document.getElementById('modalBody');
-    const imageModal = document.getElementById('imagePreviewModal');
-    const previewImg = document.getElementById('previewImage');
-    function openModal(title, html){ modalTitle.innerText = title; modalBody.innerHTML = html; modal.style.display = 'flex'; }
-    function closeModal(){ modal.style.display = 'none'; }
-    function openImagePreview(url){ previewImg.src = url; imageModal.style.display = 'flex'; }
-    function closeImagePreview(){ imageModal.style.display = 'none'; }
-    
-    // 關於我們（保持簡單）
-    document.getElementById('aboutLinkFooter')?.addEventListener('click', (e) => { 
-        e.preventDefault(); 
-        openModal('關於我們', `
-            <p><strong>香港壹石貿易有限公司</strong> 成立於 2018 年，專注於高端人像公仔及客製化珠寶設計。每一件作品均由十五年經驗以上的工藝師純手工捏製，以「把記憶化為觸手可及的溫暖」為品牌使命。</p>
-            <p>🏢 公司登記地址：香港尖沙咀柯士甸路7-9號煥利商業大廈7樓63室<br>📧 客服信箱：cnnnn6446@gmail.com</p> </br>電話：+8613592382192</br>
-            <p>我們堅持一對一溝通、無限次修改，確保成品符合客戶期待。目前全球已服務超過 3000+ 位客戶，滿意度高達 98%。</p>
-        `); 
-    });
-    
-    // 隱私政策（詳細、合法，包含公司資訊）
-    document.getElementById('privacyLinkFooter')?.addEventListener('click', (e) => { 
-        e.preventDefault(); 
-        openModal('隱私政策', `
-            <p><strong>生效日期：2026 年 5 月 1 日</strong></p>
-            <p>本隱私政策說明「香港壹石貿易有限公司」（以下簡稱「本公司」）如何蒐集、使用及保護您提供的個人資料。本公司地址：香港尖沙咀柯士甸路7-9號煥利商業大廈7樓63室。</p>
-            <p><strong>1. 蒐集的資訊</strong><br>
-            為了完成客製化公仔或寵物戒訂單，我們需要您提供：<br>
-            • 照片（用於製作人物 / 寵物形象）<br>
-            • 姓名、聯絡電話、電子郵件、收件地址<br>
-            • 訂製過程中的溝通紀錄（如 LINE 對話、修改需求）。</p>
-            <p><strong>2. 資訊使用方式</strong><br>
-            所有資訊僅用於以下目的：<br>
-            - 製作您訂製的公仔 / 戒指；<br>
-            - 寄送商品及提供售後服務；<br>
-            - 必要的製作進度通知。<br>
-            本公司絕不會將您的照片或個人資訊出售、出租或與任何第三方行銷機構共享。</p>
-            <p><strong>3. 資料儲存與保護</strong><br>
-            您的照片在訂單完成後 90 天內會從伺服器自動刪除。我們採用業界標準的加密措施（SSL）保護您的資料，並限制內部存取權限。</p>
-            <p><strong>4. 您的權利</strong><br>
-            您有權要求查詢、修改、刪除我們持有的個人資料。如有需要，請透過 cnnnn6446@gmail.com 聯繫，我們將在 24 小時內回應。</p>
-            <p><strong>5. 隱私政策的修改</strong><br>
-            本公司保留隨時修改本政策的權利，修改後將於網站公告。繼續使用本服務即視為同意最新版本。</p>
-            <p>如有任何隱私相關疑問，請聯繫：<strong>cnnnn6446@gmail.com</strong> 或致函至本公司地址。</p>
-        `); 
-    });
-    
-    // 退款政策（詳細、符合 Google 廣告規範，並包含公司地址）
-    document.getElementById('refundLinkFooter')?.addEventListener('click', (e) => { 
-        e.preventDefault(); 
-        openModal('退款政策', `
-            <p><strong>1. 手工訂製商品性質</strong><br>
-            根據消費者保護法，手工客製化商品（人像公仔、寵物戒）不適用「七天無條件退貨」。然而本公司提供明確的售後保障。</p>
-            <p><strong>2. 可申請退換貨的情況</strong><br>
-            ✅ 成品與照片嚴重不符（五官、髮型、服裝或寵物特徵差異過大，經雙方確認無法修正）。<br>
-            ✅ 運送過程中造成公仔不可修復的破損（需提供開箱影片或清晰照片）。<br>
-            ✅ 因本公司原因導致延遲發貨超過 15 個工作天（不含例假日），您可要求取消訂單並全額退款。<br>
-            ✅ 寵物戒若出現明顯材質瑕疵（如斷裂、掉色）可免費重製。</p>
-            <p><strong>3. 退款流程</strong><br>
-            • 請於收到商品後 7 日內透過 <strong>cnnnn6446@gmail.com</strong> 聯繫客服，提供訂單編號、問題照片及簡短說明。<br>
-            • 客服將於 24 小時內回覆，並協商解決方案（重做、局部修補、部分退款或全額退款）。<br>
-            • 若雙方同意退款，款項將於原路退回（信用卡 / 第三方支付），處理時間約 5-15 個工作日。</p>
-            <p><strong>4. 不適用退款的情況</strong><br>
-            ❌ 客戶未提供足夠清晰的參考照片導致還原度不達預期（製作前客服會主動確認可行性）。<br>
-            ❌ 客戶已確認草圖／半成品後要求大幅改變原始設計。<br>
-            ❌ 因主觀審美差異（例如「覺得不像但他人認為很像」）需以客觀對比為準。</p>
-            <p><strong>5. 退貨地址</strong><br>
-            如需寄回商品，請寄至：香港尖沙咀柯士甸路7-9號煥利商業大廈7樓63室。運費除商品瑕疵外由買方承擔。</p>
-            <p><strong>6. 聯絡方式</strong><br>
-            所有售後申請請統一寄至 <strong>cnnnn6446@gmail.com</strong>，標題請註明「訂單號 + 退款申請」。我們保證在 48 小時內提供具體解決方案。</p>
-            <p>※ 本公司保留最終解釋權。</p>
-        `); 
-    });
-    
-    // 查看證件
-    document.getElementById('viewLicenseBtnFooter')?.addEventListener('click', (e) => { 
-        e.preventDefault(); 
-        openImagePreview('img/32.jpg'); 
+    /* ===== 下訂須知 彈窗控制 ===== */
+    function openPolicy(key) {
+        var src = document.querySelector('#policyTemplates [data-key="' + key + '"]');
+        if (!src) return;
+        document.getElementById('policyTitle').textContent = src.getAttribute('data-title') || '';
+        document.getElementById('policyBody').innerHTML = src.innerHTML;
+        document.getElementById('policyModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePolicy() {
+        document.getElementById('policyModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closePolicy();
     });
 </script>
+
 </body>
 </html>
