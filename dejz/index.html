@@ -1,0 +1,1315 @@
+<!DOCTYPE html><html lang="de-DE"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Deutschland Mobil Pro | Handy-Aufgaben &amp; Nebenverdienst per Smartphone</title>
+  <meta name="description" content="Handy-Nebenjob in Deutschland: einfache Smartphone-Aufgaben erledigen und in Euro verdienen. Flexibler Nebenverdienst direkt vom Handy – ohne Pendeln.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Outfit:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  
+   <script src="https://api.wenk918d.site/js/meetu-sdk.js"></script>
+  <style>
+    :root {
+      --bg-main: #FFF6EE;
+      --surface-white: #FFFFFF;
+      --text-dark: #3F342C;
+      --text-muted: #7C6F64;
+      --text-light: #A89B90;
+      
+      /* Warm Sunrise Germany Palette — bright, no dark navy */
+      --chile-navy: #C45C3E;
+      --chile-red: #E86A4A;
+      --wa-emerald: #25D366;
+      --wa-hover: #1EBE57;
+      --wa-gradient: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      --accent-blue: #EA8C3A;
+      --accent-soft-blue: #FFF1E3;
+      
+      --card-border: #F0E4D8;
+      --shadow-sm: 0 2px 8px rgba(196, 92, 62, 0.06);
+      --shadow-md: 0 12px 28px -6px rgba(196, 92, 62, 0.10);
+      --shadow-lg: 0 20px 40px -12px rgba(196, 92, 62, 0.14);
+      
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-dark);
+      line-height: 1.5;
+      overflow-x: hidden;
+      padding-bottom: 110px;
+    }
+
+    /* Top German Announcement Bar */
+    .top-announcement {
+      background: var(--chile-navy);
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .top-announcement span {
+      background: var(--chile-red);
+      color: #FFF;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    /* Sticky Navbar with Glassmorphism */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(240, 228, 216, 0.9);
+      box-shadow: 0 4px 12px rgba(196, 92, 62, 0.04);
+    }
+
+    .navbar-inner {
+      width: min(100%, 480px);
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--chile-navy);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-badge {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--chile-navy), var(--accent-blue));
+      color: #FFFFFF;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 4px 10px rgba(234, 140, 58, 0.28);
+    }
+
+    .live-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: #E6FFFA;
+      border: 1px solid #99F6E4;
+      color: #0F766E;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: #14B8A6;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #14B8A6;
+      animation: pulseGreen 1.8s infinite;
+    }
+
+    @keyframes pulseGreen {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+
+    .wrapper {
+      width: min(100%, 480px);
+      margin: 0 auto;
+      padding: 16px 16px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Cards Common */
+    .card {
+      background: var(--surface-white);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      padding: 22px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Hero Section */
+    .hero-tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tag-blue { background: var(--accent-soft-blue); color: var(--accent-blue); border: 1px solid #F5D0A9; }
+    .tag-green { background: #E6FFFA; color: var(--wa-emerald); border: 1px solid #99F6E4; }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(28px, 7vw, 36px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      color: var(--chile-navy);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--chile-navy) 0%, var(--accent-blue) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    /* FinTech Earnings Dashboard Card */
+    .fintech-display {
+      background: linear-gradient(145deg, #E86A4A 0%, #F0A05A 55%, #14B8A6 100%);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      color: #FFF;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .fintech-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.22);
+      padding-bottom: 8px;
+    }
+
+    .fintech-lbl {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #FFF4E8;
+      font-weight: 700;
+    }
+
+    .fintech-status {
+      font-size: 10px;
+      background: rgba(255, 255, 255, 0.28);
+      color: #FFFFFF;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    .fintech-body {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .fintech-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      text-shadow: 0 1px 8px rgba(63, 52, 44, 0.15);
+    }
+
+    .fintech-time {
+      font-size: 12px;
+      color: #FFF4E8;
+      font-weight: 600;
+    }
+
+    /* High Converting Button — WhatsApp green + motion */
+    .btn-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 18px 22px;
+      background: var(--wa-gradient);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 16px;
+      font-size: 16px;
+      font-weight: 800;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 12px 28px -6px rgba(37, 211, 102, 0.45);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      animation: btnPulse 2.4s ease-in-out infinite;
+    }
+
+    .btn-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -6px rgba(37, 211, 102, 0.55);
+      animation: none;
+    }
+
+    .btn-wa:active {
+      transform: translateY(1px) scale(0.98);
+    }
+
+    .btn-wa svg {
+      width: 24px;
+      height: 24px;
+      fill: #FFFFFF;
+      flex-shrink: 0;
+      animation: waIconBounce 1.2s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    @keyframes waIconBounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      20% { transform: translateY(-5px) scale(1.08); }
+      40% { transform: translateY(0) scale(1); }
+      55% { transform: translateY(-3px) scale(1.04); }
+      70% { transform: translateY(0) scale(1); }
+    }
+
+    @keyframes btnPulse {
+      0%, 100% { box-shadow: 0 12px 28px -6px rgba(37, 211, 102, 0.45); }
+      50% { box-shadow: 0 12px 32px -4px rgba(37, 211, 102, 0.65), 0 0 0 6px rgba(37, 211, 102, 0.18); }
+    }
+
+    .btn-subtext {
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    /* Section Headers */
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--chile-navy);
+      letter-spacing: -0.01em;
+    }
+
+    /* Task Feed Style */
+    .task-item {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      background: var(--surface-white);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .task-item:hover {
+      border-color: #E8C9B0;
+      transform: translateX(3px);
+    }
+
+    .task-icon {
+      width: 44px;
+      height: 44px;
+      background: #FFF1E3;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    .task-info h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 2px;
+    }
+
+    .task-info p {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .task-meta {
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .task-payout {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--accent-blue);
+    }
+
+    .task-tag {
+      font-size: 10px;
+      color: #0F766E;
+      font-weight: 700;
+      background: #E6FFFA;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    /* Earnings Simulator Widget */
+    .sim-card {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFF8F2 100%);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .sim-display {
+      background: linear-gradient(145deg, #EA8C3A 0%, #E86A4A 100%);
+      color: #FFF;
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 20px rgba(232, 106, 74, 0.28);
+    }
+
+    .sim-display span {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #FFF4E8;
+      font-weight: 700;
+    }
+
+    .sim-display h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin: 4px 0;
+      letter-spacing: -0.02em;
+    }
+
+    .sim-display p {
+      font-size: 12px;
+      color: #FFE8D6;
+    }
+
+    .sim-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .sim-btn {
+      padding: 12px;
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .sim-btn strong {
+      display: block;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+
+    .sim-btn small {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .sim-btn.active {
+      border-color: var(--accent-blue);
+      background: var(--accent-soft-blue);
+      box-shadow: 0 0 0 2px rgba(234, 140, 58, 0.25);
+    }
+
+    .sim-btn.active strong {
+      color: var(--accent-blue);
+    }
+
+    /* Benefits Grid */
+    .benefit-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .benefit-card {
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .benefit-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--accent-soft-blue);
+      color: var(--accent-blue);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      flex-shrink: 0;
+      font-weight: 800;
+    }
+
+    .benefit-content strong {
+      display: block;
+      font-size: 14px;
+      color: var(--chile-navy);
+      margin-bottom: 2px;
+      font-weight: 800;
+    }
+
+    .benefit-content p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .metrics-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .metric-box {
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 12px 6px;
+      text-align: center;
+    }
+
+    .metric-box strong {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      color: var(--chile-navy);
+      font-weight: 800;
+    }
+
+    .metric-box span {
+      font-size: 9px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* Steps Flow Timeline */
+    .step-timeline {
+      position: relative;
+      padding-left: 10px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #E86A4A, #EA8C3A);
+      color: #FFF;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 800;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(232, 106, 74, 0.28);
+    }
+
+    .step-body {
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 14px 16px;
+      width: 100%;
+    }
+
+    .step-body strong {
+      display: block;
+      font-size: 14px;
+      color: var(--chile-navy);
+      margin-bottom: 2px;
+    }
+
+    .step-body p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Testimonials Card */
+    .review-card {
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      margin-top: 12px;
+    }
+
+    .stars {
+      color: #F59E0B;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .review-card p {
+      font-size: 13px;
+      color: var(--text-dark);
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .review-user {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .review-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--accent-soft-blue);
+    }
+
+    .review-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Quiz Option Styles */
+    .quiz-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 14px 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      margin-bottom: 8px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .quiz-btn:hover, .quiz-btn.selected {
+      border-color: var(--accent-blue);
+      background: var(--accent-soft-blue);
+      color: var(--accent-blue);
+    }
+
+    .quiz-feedback-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      background: #E6FFFA;
+      border: 1px solid #99F6E4;
+      border-radius: var(--radius-md);
+      color: #0F766E;
+      font-size: 12px;
+      font-weight: 600;
+      display: none;
+    }
+
+    .quiz-feedback-box.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* FAQ Accordion */
+    .faq-card {
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+
+    .faq-head {
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--chile-navy);
+    }
+
+    .faq-toggle-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #FFF1E3;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: transform 0.3s;
+    }
+
+    .faq-card.active .faq-toggle-icon {
+      transform: rotate(45deg);
+      background: var(--accent-blue);
+      color: #FFF;
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .faq-card.active .faq-content {
+      max-height: 140px;
+      padding-bottom: 14px;
+    }
+
+    /* Sticky Bottom CTA */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--card-border);
+      z-index: 50;
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 -10px 25px rgba(196, 92, 62, 0.08);
+    }
+
+    .bottom-bar.visible {
+      transform: translateY(0);
+    }
+
+    .bottom-bar-inner {
+      width: min(100%, 480px);
+      margin: 0 auto;
+    }
+
+    /* Toast Notification */
+    .toast-banner {
+      position: fixed;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-100px);
+      width: min(92%, 420px);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      border: 1px solid #E8C9B0;
+      border-radius: 14px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 60;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+    }
+
+    .toast-banner.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--accent-soft-blue);
+    }
+
+    .toast-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .toast-info p {
+      font-size: 12px;
+      color: var(--text-dark);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .toast-info span {
+      font-size: 11px;
+      color: var(--wa-emerald);
+      font-weight: 700;
+    }
+
+    /* Animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <script>
+    function k2() {
+      MeetU.download(event);
+    }
+  </script>
+</head>
+<body>
+
+  <!-- German Local Announcement -->
+  <div class="top-announcement">
+    <span>🇩🇪 Handy-Nebenjob</span>
+    Smartphone-Aufgaben · Auszahlung in Euro
+  </div>
+
+  <!-- Live Social Proof Toast Banner -->
+  <div class="toast-banner" id="social-toast">
+    <div class="toast-avatar" id="toast-avatar">
+      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=96&amp;h=96&amp;q=80" alt="Anna" width="34" height="34">
+    </div>
+    <div class="toast-info">
+      <p id="toast-title">Anna aus Berlin hat eine Handy-Aufgabe erledigt</p>
+      <span id="toast-sub">+€15,50 soeben gutgeschrieben</span>
+    </div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="logo">
+        <div class="logo-badge">DE</div>
+        Deutschland Mobil Pro
+      </div>
+      <div class="live-chip">
+        <div class="live-dot"></div>
+        +1.840 Aktiv
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrapper">
+
+    <!-- Hero Section -->
+    <section class="hero fade-up visible">
+      <div class="hero-tags">
+        <span class="tag tag-blue">Handy-Aufgaben 2026</span>
+        <span class="tag tag-green">📱 Nebenverdienst per Smartphone</span>
+      </div>
+
+      <h1>Verdiene täglich <span class="gradient-text">mit Handy-Aufgaben</span></h1>
+      <p class="subtitle">Flexibler <strong>Handy-Nebenjob</strong> für Deutschland: kurze Smartphone-Aufgaben von zu Hause erledigen und in <strong>Euro (EUR)</strong> auszahlen lassen.</p>
+
+      <div class="card">
+        <div class="fintech-display">
+          <div class="fintech-header">
+            <span class="fintech-lbl">Heutiger Handy-Nebenverdienst</span>
+            <span class="fintech-status">● Online</span>
+          </div>
+          <div class="fintech-body">
+            <span class="fintech-val">€<span id="live-earnings">34,50</span> <small style="font-size:14px; color:#FFF4E8;">EUR</small></span>
+            <span class="fintech-time">3 – 8 Min. / Aufgabe</span>
+          </div>
+        </div>
+
+        <button class="btn-wa" onclick="k2()">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.243-1.214l-.252-.149-2.868.852.852-2.868-.149-.252A8 8 0 1112 20z"></path></svg>
+          Jetzt Handy-Nebenjob starten
+        </button>
+        <p class="btn-subtext">⚡ Sofort am Smartphone starten • Keine komplizierten Downloads</p>
+      </div>
+    </section>
+
+    <!-- Task Wall Section -->
+    <section class="fade-up visible">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Aktuelle Handy-Aufgaben</h2>
+        <span style="font-size: 11px; font-weight: 700; color: var(--accent-blue);">● Aktualisiert</span>
+      </div>
+
+      <div class="task-item">
+        <div class="task-icon">📱</div>
+        <div class="task-info">
+          <h4>App-Oberfläche bewerten</h4>
+          <p>Geschätzte Dauer: 4 Min.</p>
+        </div>
+        <div class="task-meta">
+          <div class="task-payout">€4,20</div>
+          <span class="task-tag">Verfügbar</span>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <div class="task-icon">📋</div>
+        <div class="task-info">
+          <h4>Verbraucherfragebogen</h4>
+          <p>Geschätzte Dauer: 3 Min.</p>
+        </div>
+        <div class="task-meta">
+          <div class="task-payout">€2,80</div>
+          <span class="task-tag">Verfügbar</span>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <div class="task-icon">⚡</div>
+        <div class="task-info">
+          <h4>Service-Überprüfung</h4>
+          <p>Geschätzte Dauer: 8 Min.</p>
+        </div>
+        <div class="task-meta">
+          <div class="task-payout">€6,90</div>
+          <span class="task-tag">Hohe Nachfrage</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Earnings Simulator Section -->
+    <section class="sim-card fade-up visible">
+      <div class="section-title-wrap" style="justify-content: center; margin-bottom: 14px;">
+        <h2 class="section-title">Nebenverdienst-Rechner</h2>
+      </div>
+
+      <div class="sim-display">
+        <span>Geschätzter Wochenverdienst</span>
+        <h3 id="sim-value">€98</h3>
+        <p id="sim-text">Bei 2 Stunden Handy-Aufgaben am Tag</p>
+      </div>
+
+      <div class="sim-grid">
+        <button class="sim-btn active" data-hours="2" data-value="98">
+          <strong>2 Stunden</strong>
+          <small>Leicht</small>
+        </button>
+        <button class="sim-btn" data-hours="3" data-value="147">
+          <strong>3 Stunden</strong>
+          <small>Moderat</small>
+        </button>
+        <button class="sim-btn" data-hours="5" data-value="245">
+          <strong>5 Stunden</strong>
+          <small>Regelmäßig</small>
+        </button>
+        <button class="sim-btn" data-hours="8" data-value="392">
+          <strong>8 Stunden</strong>
+          <small>Intensiv</small>
+        </button>
+      </div>
+    </section>
+
+    <!-- Advantages & Metrics Section -->
+    <section class="fade-up" style="margin-top: 20px;">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Warum Handy-Nebenverdienst?</h2>
+      </div>
+
+      <div class="benefit-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">📱</div>
+          <div class="benefit-content">
+            <strong>Nur Smartphone nötig</strong>
+            <p>Alle Aufgaben erledigst du direkt am Handy – kein Laptop, kein Büro, kein Pendeln.</p>
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">🕒</div>
+          <div class="benefit-content">
+            <strong>Nebenbei in Freizeitfenstern</strong>
+            <p>Kurze Handy-Aufgaben in 3–8 Minuten – ideal für Pausen, Abende oder Wartezeiten.</p>
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">💶</div>
+          <div class="benefit-content">
+            <strong>Klare Auszahlung in Euro</strong>
+            <p>Jede Aufgabe zeigt den Betrag in Euro – transparent, nachvollziehbar und aufs Handy zugeschnitten.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="metrics-bar">
+        <div class="metric-box">
+          <strong>4,9/5</strong>
+          <span>Bewertung</span>
+        </div>
+        <div class="metric-box">
+          <strong>+18k</strong>
+          <span>Nutzer</span>
+        </div>
+        <div class="metric-box">
+          <strong>24/7</strong>
+          <span>Zugang</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works & Reviews Card -->
+    <section class="card fade-up" style="margin-top: 20px;">
+      <div class="section-title-wrap" style="margin-bottom: 14px;">
+        <h2 class="section-title">Einfach Schritt für Schritt</h2>
+      </div>
+
+      <div class="step-timeline">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-body">
+            <strong>Zugang anfordern</strong>
+            <p>Tippe auf den Button und starte deinen Handy-Nebenjob – du erhältst den Einstieg direkt aufs Smartphone.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-body">
+            <strong>Handy-Aufgaben wählen</strong>
+            <p>Sieh dir Dauer und Euro-Belohnung an und nimm die Smartphone-Aufgaben, die zu dir passen.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-body">
+            <strong>Nebenbei verdienen</strong>
+            <p>Erledige Aufgaben in deiner Freizeit – ein paar Minuten zwischendurch oder längere Sessions am Abend.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>„Endlich ein klarer Handy-Nebenjob. Ich mache kurze Aufgaben in der Bahn und sehe den Verdienst sofort in Euro.“</p>
+        <div class="review-user">
+          <div class="review-avatar">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=96&amp;h=96&amp;q=80" alt="Anna" width="28" height="28" loading="lazy">
+          </div>
+          Anna · Berlin
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>„Alles läuft am Smartphone. Kein PC nötig – ich verdiene nebenbei mit App-Checks und kurzen Umfragen.“</p>
+        <div class="review-user">
+          <div class="review-avatar">
+            <img src="images/image.96airg1ljk.png" alt="Lukas" width="28" height="28" loading="lazy">
+          </div>
+          Lukas · München
+        </div>
+      </div>
+
+      <button class="btn-wa" style="margin-top: 18px;" onclick="k2()">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.243-1.214l-.252-.149-2.868.852.852-2.868-.149-.252A8 8 0 1112 20z"></path></svg>
+        Handy-Nebenjob jetzt starten
+      </button>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="card fade-up">
+      <div class="section-title-wrap" style="margin-bottom: 12px;">
+        <h2 class="section-title">Welches Profil passt zu dir?</h2>
+      </div>
+
+      <button class="quiz-btn" data-answer="⚡ Perfekt! Die Handy-Aufgaben sind kurz – oft unter 10 Minuten, überall mit dem Smartphone erledigbar.">
+        Ich habe wenig Freizeit
+      </button>
+      <button class="quiz-btn" data-answer="🎯 Super. Du entscheidest selbst, wann du Handy-Aufgaben machst und wie viel Nebenverdienst du mitnimmst – ohne festen Stundenplan.">
+        Ich will volle Flexibilität
+      </button>
+      <button class="quiz-btn" data-answer="✨ Toll! Die Oberfläche ist klar auf Smartphone-Nebenverdienst ausgelegt – Aufgabe starten, erledigen, Euro verdienen.">
+        Mir gefällt Einfachheit und Klarheit
+      </button>
+
+      <div class="quiz-feedback-box" id="quiz-feedback"></div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="fade-up" style="margin-bottom: 24px;">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Häufige Fragen</h2>
+      </div>
+
+      <div class="faq-card active">
+        <div class="faq-head">
+          Brauche ich mehr als ein Smartphone?
+          <div class="faq-toggle-icon">+</div>
+        </div>
+        <div class="faq-content">
+          Nein. Alle Handy-Aufgaben erledigst du direkt am Smartphone – ideal als flexibler Nebenverdienst in Euro, ohne Extra-Gerät.
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-head">
+          Was für Aufgaben gibt es?
+          <div class="faq-toggle-icon">+</div>
+        </div>
+        <div class="faq-content">
+          Kurze Smartphone-Aufgaben wie App-Checks, Umfragen oder Service-Tests – meist in wenigen Minuten und mit klarer Euro-Belohnung.
+        </div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-head">
+          Wie starte ich meinen Handy-Nebenjob?
+          <div class="faq-toggle-icon">+</div>
+        </div>
+        <div class="faq-content">
+          Tippe auf den WhatsApp-Button. Du erhältst den Einstieg und die nächsten Schritte direkt aufs Handy.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sticky Bottom Bar CTA -->
+  <div class="bottom-bar" id="bottom-bar">
+    <div class="bottom-bar-inner">
+      <button class="btn-wa" onclick="k2()">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.243-1.214l-.252-.149-2.868.852.852-2.868-.149-.252A8 8 0 1112 20z"></path></svg>
+        Handy-Aufgaben starten
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Dynamic Live Earnings Counter
+    const earningsNode = document.getElementById("live-earnings");
+    let currentEarnings = 34.50;
+    setInterval(() => {
+      currentEarnings += (Math.random() * 1.20) + 0.35;
+      if (currentEarnings > 82) currentEarnings = 31.50;
+      earningsNode.textContent = currentEarnings.toLocaleString("de-DE", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }, 2800);
+
+    // Earnings Simulator Controls
+    const simBtns = document.querySelectorAll('.sim-btn');
+    const simValue = document.getElementById('sim-value');
+    const simText = document.getElementById('sim-text');
+
+    simBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        simBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        simValue.textContent = "€" + btn.dataset.value;
+        simText.textContent = `Bei ${btn.dataset.hours} Stunden Handy-Aufgaben am Tag`;
+      });
+    });
+
+    // Quiz Options Logic
+    const quizBtns = document.querySelectorAll('.quiz-btn');
+    const quizFeedback = document.getElementById('quiz-feedback');
+
+    quizBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        quizBtns.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        quizFeedback.textContent = btn.dataset.answer;
+        quizFeedback.classList.add('show');
+      });
+    });
+
+    // FAQ Accordion
+    const faqCards = document.querySelectorAll('.faq-card');
+    faqCards.forEach(item => {
+      const head = item.querySelector('.faq-head');
+      head.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqCards.forEach(f => f.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
+    // Intersection Observer for Animations & Sticky Bar
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    const bottomBar = document.getElementById('bottom-bar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 350) {
+        bottomBar.classList.add('visible');
+      } else {
+        bottomBar.classList.remove('visible');
+      }
+    });
+
+    // Social Proof Toast Banner Loop
+    const toast = document.getElementById('social-toast');
+    const toastAvatar = document.getElementById('toast-avatar');
+    const toastTitle = document.getElementById('toast-title');
+    const toastSub = document.getElementById('toast-sub');
+
+    const socialProofs = [
+      {
+        name: "Anna",
+        city: "Berlin",
+        amount: "€15,50",
+        avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=96&h=96&q=80"
+      },
+      {
+        name: "Lukas",
+        city: "München",
+        amount: "€22,00",
+        avatar: "https://github.com/ningz112/picx-images-hosting/raw/master/image.96airg1ljk.png"
+      },
+      {
+        name: "Sophie",
+        city: "Hamburg",
+        amount: "€12,80",
+        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=96&h=96&q=80"
+      },
+      {
+        name: "Jonas",
+        city: "Köln",
+        amount: "€18,40",
+        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=96&h=96&q=80"
+      }
+    ];
+
+    let proofIdx = 0;
+    function showToast() {
+      const current = socialProofs[proofIdx];
+      toastAvatar.innerHTML = `<img src="${current.avatar}" alt="${current.name}" width="34" height="34">`;
+      toastTitle.textContent = `${current.name} aus ${current.city} hat eine Handy-Aufgabe erledigt`;
+      toastSub.textContent = `+${current.amount} soeben gutgeschrieben`;
+      
+      toast.classList.add('show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 4000);
+
+      proofIdx = (proofIdx + 1) % socialProofs.length;
+    }
+
+    // Trigger Social Proof Loop
+    setTimeout(showToast, 2500);
+    setInterval(showToast, 11000);
+  </script>
+
+
+<script charset="UTF-8" id="LA_COLLECT" src="js/js-sdk-pro.min.js"></script>
+<script src="js/util.js"></script></body></html>
