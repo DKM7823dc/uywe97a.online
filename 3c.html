@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LINE 随机跳转</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #06C755 0%, #04a344 100%);
+    color: #fff;
+    padding: 20px;
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    padding: 34px 28px;
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  }
+  h1 { font-size: 20px; margin: 0 0 12px; font-weight: 600; }
+  .tip { font-size: 14px; opacity: 0.9; margin-bottom: 18px; line-height: 1.6; }
+  .num { font-size: 13px; opacity: 0.95; word-break: break-all; margin: 10px 0 18px; }
+  .status { font-size: 13px; min-height: 18px; opacity: 0.85; }
+  a.fallback {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 18px;
+    background: #fff;
+    color: #04a344;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>正在跳转到 LINE…</h1>
+  <p class="tip">已随机选择一个链接，正在打开</p>
+  <div class="num" id="num"></div>
+  <div class="status" id="status"></div>
+  <a class="fallback" id="fallback" href="#">如果没有自动跳转，请点这里</a>
+</div>
+
+<script>
+(function () {
+  /* ============ 配置区 ============ */
+
+  // 需要随机跳转的 LINE 链接
+  var LINE_URLS = [
+    'https://line.me/ti/p/aaaaaaaaa',
+    'https://line.me/ti/p/4ad'
+    // 需要更多链接就继续往下加，例如： 'https://line.me/ti/p/xxxxxxx'
+  ];
+
+  /* ================================ */
+
+  var numEl      = document.getElementById('num');
+  var statusEl   = document.getElementById('status');
+  var fallbackEl = document.getElementById('fallback');
+
+  function pickRandomUrl() {
+    var idx = Math.floor(Math.random() * LINE_URLS.length);
+    return LINE_URLS[idx];
+  }
+
+  if (!LINE_URLS.length) {
+    statusEl.textContent = '未配置任何链接，请填写 LINE_URLS';
+    fallbackEl.style.display = 'none';
+    return;
+  }
+
+  // 立即随机选一个链接并跳转
+  var targetUrl = pickRandomUrl();
+
+  numEl.textContent = targetUrl;
+  statusEl.textContent = '正在打开该 LINE 链接…';
+  fallbackEl.href = targetUrl;
+
+  // 使用 replace，避免按返回键又回到跳转页导致循环
+  window.location.replace(targetUrl);
+})();
+</script>
+
+</body>
+</html>
